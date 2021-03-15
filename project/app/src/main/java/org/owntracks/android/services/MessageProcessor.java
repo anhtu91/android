@@ -312,7 +312,6 @@ public class MessageProcessor {
         } else if (message instanceof MessageTransition) {
             processIncomingMessage((MessageTransition) message);
         } else if (message instanceof MessageParkplatz){ //Add new for Parkplatz case
-            //Timber.d("Received incoming message for Parkplatz case");
             processIncomingMessage((MessageParkplatz) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
@@ -320,7 +319,9 @@ public class MessageProcessor {
     }
 
     private void processIncomingMessage(MessageParkplatz message){
-        Timber.i("Parkplatz message received on %s %s", message.getKeyID(), message.getFieldName());
+        Timber.i("Parkplatz message received KeyID: %s FieldName: %s", message.getKeyID(), message.getFieldName());
+        Timber.i("Parkplatz message received Time: %s Date: %s", message.getTime(), message.getDate());
+        Timber.i("Parkplatz message received HashCode: %s Username: %s", message.getHashCode(), message.getUserID());
     }
 
     private void processIncomingMessage(MessageUnknown message) {

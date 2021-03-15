@@ -15,6 +15,12 @@ class MessageParkplatz : MessageBase() {
     @JsonProperty("hashCode")
     var hashCode = 0
 
+    @JsonProperty("time")
+    var time: String? = null
+
+    @JsonProperty("date")
+    var date: String? = null
+
     @JsonProperty("keyID")
     var keyID: String? = null
 
