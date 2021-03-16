@@ -322,6 +322,7 @@ public class MessageProcessor {
         Timber.i("Parkplatz message received KeyID: %s FieldName: %s", message.getKeyID(), message.getFieldName());
         Timber.i("Parkplatz message received Time: %s Date: %s", message.getTime(), message.getDate());
         Timber.i("Parkplatz message received HashCode: %s Username: %s", message.getHashCode(), message.getUserID());
+        Timber.i("Parkplatz message received Number Parking Slot: %s Parking Slot: %s", message.getNumberAvailableParkingSlot(), message.getAvailableParkingSlot());
     }
 
     private void processIncomingMessage(MessageUnknown message) {

@@ -27,6 +27,12 @@ class MessageParkplatz : MessageBase() {
     @JsonProperty("fieldName")
     var fieldName: String? = null
 
+    @JsonProperty("numberAvailableParkingSlot")
+    var numberAvailableParkingSlot: String? = null
+
+    @JsonProperty("availableParkingSlot")
+    var availableParkingSlot: String? = null
+
     companion object {
         const val TYPE = "Parkplatz"
     }
