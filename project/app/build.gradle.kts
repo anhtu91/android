@@ -140,6 +140,9 @@ val androidxTestVersion = "1.3.0"
 val kotlinCoroutinesVersion = "1.4.1"
 
 dependencies {
+    implementation("androidmads.library.qrgenearator:QRGenearator:1.0.4")
+    implementation("com.google.zxing:core:3.3.2")
+
     implementation("androidx.preference:preference:1.1.1")
     implementation("com.takisoft.preferencex:preferencex:1.1.0")
     implementation("com.google.android.material:material:1.2.1")

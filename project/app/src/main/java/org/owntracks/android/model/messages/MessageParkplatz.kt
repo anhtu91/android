@@ -1,8 +1,6 @@
 package org.owntracks.android.model.messages
 
-import androidx.databinding.Bindable
 import com.fasterxml.jackson.annotation.*
-import org.owntracks.android.model.BatteryStatus
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")

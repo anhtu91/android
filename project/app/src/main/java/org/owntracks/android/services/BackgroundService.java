@@ -1,6 +1,7 @@
 package org.owntracks.android.services;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -19,7 +20,9 @@ import android.os.Looper;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.widget.Toast;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -42,12 +45,14 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.owntracks.android.App;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.data.repos.LocationRepo;
 import org.owntracks.android.data.repos.WaypointsRepo;
 import org.owntracks.android.model.messages.MessageLocation;
+import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageTransition;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.services.worker.Scheduler;
@@ -60,6 +65,7 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
+import java.util.EventListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -170,6 +176,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
         setupNotificationChannels();
         startForeground(NOTIFICATION_ID_ONGOING, getOngoingNotification());
+        //startForeground(NOTIFICATION_ID_ONGOING, displayParkplatzMessage());
 
         setupLocationRequest();
 
@@ -300,6 +307,8 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
     private void updateOngoingNotification() {
         notificationManager.notify(NOTIFICATION_ID_ONGOING, getOngoingNotification());
+        Timber.d("Update Ongoing Notification");
+        //notificationManager.notify(NOTIFICATION_ID_ONGOING, displayParkplatzMessage());
     }
 
     private Notification getOngoingNotification() {
@@ -319,14 +328,16 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         // Show monitoring mode if endpoint state is not interesting
         if(lastEndpointState == MessageProcessor.EndpointState.CONNECTED || lastEndpointState == MessageProcessor.EndpointState.IDLE) {
             builder.setContentText(getMonitoringLabel(preferences.getMonitoring()));
+            Timber.d("Update Ongoing Notification case 1 "+getMonitoringLabel(preferences.getMonitoring()));
         } else if (lastEndpointState == MessageProcessor.EndpointState.ERROR && lastEndpointState.getMessage() != null) {
             builder.setContentText(lastEndpointState.getLabel(this) + ": " + lastEndpointState.getMessage());
+            Timber.d("Update Ongoing Notification case 2 "+lastEndpointState.getLabel(this) + ": " + lastEndpointState.getMessage());
         } else {
             builder.setContentText( lastEndpointState.getLabel(this));
+            Timber.d("Update Ongoing Notification case 3 "+lastEndpointState.getLabel(this));
         }
         return builder.build();
     }
-
 
     private String getMonitoringLabel(int mode) {
         switch (mode) {
@@ -620,6 +631,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         setupGeofences();
         setupLocationRequest();
         updateOngoingNotification();
+        Timber.d("change mode");
     }
 
     @SuppressWarnings("unused")
@@ -627,12 +639,13 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     public void onEvent(Events.MonitoringChanged e) {
         setupLocationRequest();
         updateOngoingNotification();
+        Timber.d("change monitoring");
     }
 
     @SuppressWarnings("unused")
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(MessageTransition message) {
-        Timber.d("transition isIncoming:%s topic:%s", message.isIncoming(), message.getTopic());
+        Timber.d("transition is Incoming:%s topic:%s", message.isIncoming(), message.getTopic());
         if (message.isIncoming())
             sendEventNotification(message);
     }
@@ -647,6 +660,33 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
             geocodingProvider.resolve(m, this);
         }
     }
+
+    //Add new for Parkplatz case
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageParkplatz message){
+        Timber.d("MessageParkplatz in BackgroundService received %s", message);
+        //updateParkplatzNotification();
+        Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
+    }
+
+    /*
+    private void updateParkplatzNotification(){
+        notificationManager.notify(NOTIFICATION_ID_ONGOING, displayParkplatzMessage());
+    }
+    */
+    //Display message
+    /*private Notification displayParkplatzMessage(){
+        NotificationCompat.Builder builder = getOngoingNotificationBuilder();
+        /*
+        builder.setContentTitle(this.lastLocationMessage.getGeocoder());
+        builder.setWhen(TimeUnit.SECONDS.toMillis(this.lastLocationMessage.getTimestamp()));
+        builder.setNumber(lastQueueLength);
+
+        builder.setContentTitle(getString(R.string.app_name));
+        builder.setContentText( "Receive Parkplatz messsage");
+
+        return builder.build();
+    }*/
 
     public void onGeocodingProviderResult(MessageLocation m) {
         if (m == lastLocationMessage) {

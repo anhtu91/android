@@ -1,15 +1,24 @@
 package org.owntracks.android.services;
 
+import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import androidx.annotation.MainThread;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.owntracks.android.R;
 import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.data.repos.WaypointsRepo;
 import org.owntracks.android.injection.qualifier.AppContext;
@@ -299,7 +308,6 @@ public class MessageProcessor {
     }
 
     public void processIncomingMessage(MessageBase message) {
-        //Timber.d("Received incoming message for %s", message.toString());
         Timber.d("Received incoming message: %s on %s", message.getClass().getSimpleName(), message.getContactKey());
         if (message instanceof MessageClear) {
             processIncomingMessage((MessageClear) message);
@@ -319,6 +327,22 @@ public class MessageProcessor {
     }
 
     private void processIncomingMessage(MessageParkplatz message){
+        /*
+        LayoutInflater inflater = (LayoutInflater) applicationContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.popup_window, null);
+
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        */
+
+        eventBus.post(message);
+
+        Timber.d("Parkplatz processing clear message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        //Toast.makeText(applicationContext, "You are in "+message.getKeyID().toString()+" "+message.getFieldName().toString(), Toast.LENGTH_LONG).show();
+        //popupWindow.showAtLocation(currentView, Gravity.CENTER, 0, 0);
+
         Timber.i("Parkplatz message received KeyID: %s FieldName: %s", message.getKeyID(), message.getFieldName());
         Timber.i("Parkplatz message received Time: %s Date: %s", message.getTime(), message.getDate());
         Timber.i("Parkplatz message received HashCode: %s Username: %s", message.getHashCode(), message.getUserID());
