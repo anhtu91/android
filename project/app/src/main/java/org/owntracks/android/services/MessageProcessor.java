@@ -327,25 +327,13 @@ public class MessageProcessor {
     }
 
     private void processIncomingMessage(MessageParkplatz message){
-        /*
-        LayoutInflater inflater = (LayoutInflater) applicationContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_window, null);
-
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        */
-
         eventBus.post(message);
 
         Timber.d("Parkplatz processing clear message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
-        //Toast.makeText(applicationContext, "You are in "+message.getKeyID().toString()+" "+message.getFieldName().toString(), Toast.LENGTH_LONG).show();
-        //popupWindow.showAtLocation(currentView, Gravity.CENTER, 0, 0);
 
         Timber.i("Parkplatz message received KeyID: %s FieldName: %s", message.getKeyID(), message.getFieldName());
         Timber.i("Parkplatz message received Time: %s Date: %s", message.getTime(), message.getDate());
-        Timber.i("Parkplatz message received HashCode: %s Username: %s", message.getHashCode(), message.getUserID());
+        Timber.i("Parkplatz message received accessCode: %s Username: %s", message.getAccessCode(), message.getUserID());
         Timber.i("Parkplatz message received Number Parking Slot: %s Parking Slot: %s", message.getNumberAvailableParkingSlot(), message.getAvailableParkingSlot());
     }
 

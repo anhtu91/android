@@ -179,6 +179,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.3.2")
 
     implementation("io.objectbox:objectbox-android:$objectboxVersion")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("androidx.navigation:navigation-fragment:2.2.2")
+    implementation("androidx.navigation:navigation-ui:2.2.2")
     kapt("io.objectbox:objectbox-processor:$objectboxVersion")
     // some useful Kotlin extension functions
     implementation("io.objectbox:objectbox-kotlin:$objectboxVersion")

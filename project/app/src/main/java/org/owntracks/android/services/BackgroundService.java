@@ -20,6 +20,11 @@ import android.os.Looper;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import androidx.annotation.MainThread;
@@ -46,6 +51,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.App;
+import org.owntracks.android.QrCodePopUp;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.data.repos.ContactsRepo;
@@ -378,7 +384,6 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
         String text = String.format("%s %s", getString(message.getTransition() == Geofence.GEOFENCE_TRANSITION_ENTER ? R.string.transitionEntering : R.string.transitionLeaving), location);
 
-
         eventsNotificationCompatBuilder.setContentTitle(title);
         eventsNotificationCompatBuilder.setContentText(text);
         eventsNotificationCompatBuilder.setWhen(TimeUnit.SECONDS.toMillis(message.getTimestamp()));
@@ -666,7 +671,17 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     public void onEvent(MessageParkplatz message){
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
         //updateParkplatzNotification();
-        Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(getApplicationContext(), QrCodePopUp.class);
+        intent.putExtra("keyID", message.getKeyID());
+        intent.putExtra("fieldName", message.getFieldName());
+        intent.putExtra("accessCode", message.getAccessCode());
+
+        Timber.d("AccessCode in background service "+message.getAccessCode());
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     /*

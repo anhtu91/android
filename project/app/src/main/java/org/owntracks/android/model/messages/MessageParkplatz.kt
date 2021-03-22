@@ -11,7 +11,7 @@ class MessageParkplatz : MessageBase() {
     var userID: String? = null
 
     @JsonProperty("hashCode")
-    var hashCode = 0
+    var accessCode = 0
 
     @JsonProperty("time")
     var time: String? = null
