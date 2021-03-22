@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -33,7 +36,7 @@ public class QrCodePopUp extends AppCompatActivity {
             int accessCode = extras.getInt("accessCode");
 
             showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
-            showInfoParkingLocation.setText("You are in parking location ");//+keyID+ " - "+fieldName);
+            showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName);
 
             qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
             qrgEncoder = new QRGEncoder(String.valueOf(accessCode), null, QRGContents.Type.TEXT, 1000);
@@ -52,6 +55,13 @@ public class QrCodePopUp extends AppCompatActivity {
                 Log.e("Tag", e.toString());
             }
 
+            qrCodeIV.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    finish();
+                    return true;
+                }
+            });
 
         }
     }
