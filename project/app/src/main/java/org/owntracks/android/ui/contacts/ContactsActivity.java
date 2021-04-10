@@ -37,6 +37,7 @@ public class ContactsActivity extends BaseActivity<UiContactsBinding, ContactsMv
     public void onClick(@NonNull FusedContact object, @NonNull View view, boolean longClick) {
         viewModel.onContactClick(object);
     }
+
     @Override
     public void onResume() {
         super.onResume();

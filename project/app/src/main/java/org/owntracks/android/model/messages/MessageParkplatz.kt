@@ -10,7 +10,7 @@ class MessageParkplatz : MessageBase() {
     @JsonProperty("userID")
     var userID: String? = null
 
-    @JsonProperty("hashCode")
+    @JsonProperty("hashCode")  //Hash code is temporary using for access code. Lately should change to access code
     var accessCode = 0
 
     @JsonProperty("time")

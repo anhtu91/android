@@ -63,6 +63,7 @@
     <string name="title_activity_region">Ort</string>
     <string name="title_activity_map">Karte</string>
     <string name="title_activity_contacts">Freunde</string>
+    <string name="title_activity_parkplatz">Parkplatz Code</string>
     <string name="title_activity_status">Status</string>
     <string name="title_activity_preferences">Einstellungen</string>
     <string name="unableToCopyCertificate">Kopieren des Zertifikats auf internen Speicher fehlgeschlagen</string>

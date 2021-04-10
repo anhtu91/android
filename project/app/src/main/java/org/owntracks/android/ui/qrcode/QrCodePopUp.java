@@ -1,4 +1,4 @@
-package org.owntracks.android;
+package org.owntracks.android.ui.qrcode;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.owntracks.android.R;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidmads.library.qrgenearator.QRGSaver;
@@ -21,6 +23,9 @@ public class QrCodePopUp extends AppCompatActivity {
     private ImageView qrCodeIV;
     private TextView showInfoParkingLocation;
     private QRGSaver qrgSaver;
+
+    public static QrCodePopUp instance = null;
+
     Bitmap bitmap;
     QRGEncoder qrgEncoder;
 
@@ -33,10 +38,12 @@ public class QrCodePopUp extends AppCompatActivity {
         if(extras != null){
             String keyID = extras.getString("keyID");
             String fieldName = extras.getString("fieldName");
+            String timeInParkingSlot = extras.getString("time");
+            String dateInParkingSlot = extras.getString("date");
             int accessCode = extras.getInt("accessCode");
 
             showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
-            showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName);
+            showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName+"\n at "+timeInParkingSlot+" "+dateInParkingSlot);
 
             qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
             qrgEncoder = new QRGEncoder(String.valueOf(accessCode), null, QRGContents.Type.TEXT, 1000);
@@ -62,7 +69,14 @@ public class QrCodePopUp extends AppCompatActivity {
                     return true;
                 }
             });
-
         }
+
+        instance = this;
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        instance = null;
     }
 }

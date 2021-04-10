@@ -20,14 +20,7 @@ import android.os.Looper;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.Toast;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -50,8 +43,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.owntracks.android.App;
-import org.owntracks.android.QrCodePopUp;
+import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.data.repos.ContactsRepo;
@@ -71,7 +63,6 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
-import java.util.EventListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -182,7 +173,6 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
         setupNotificationChannels();
         startForeground(NOTIFICATION_ID_ONGOING, getOngoingNotification());
-        //startForeground(NOTIFICATION_ID_ONGOING, displayParkplatzMessage());
 
         setupLocationRequest();
 
@@ -673,14 +663,21 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         //updateParkplatzNotification();
         //Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
 
+        if(QrCodePopUp.instance != null){
+            QrCodePopUp.instance.finish();
+        }
+
         Intent intent = new Intent(getApplicationContext(), QrCodePopUp.class);
         intent.putExtra("keyID", message.getKeyID());
         intent.putExtra("fieldName", message.getFieldName());
         intent.putExtra("accessCode", message.getAccessCode());
+        intent.putExtra("time", message.getTime());
+        intent.putExtra("date", message.getDate());
 
-        Timber.d("AccessCode in background service "+message.getAccessCode());
+        //Timber.d("AccessCode in background service "+message.getAccessCode());
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         startActivity(intent);
     }
 

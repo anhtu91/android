@@ -36,7 +36,6 @@ public class RegionsActivity extends BaseActivity<UiRegionsBinding, RegionsMvvm.
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(recyclerViewAdapter);
         binding.recyclerView.setEmptyView(binding.placeholder);
-
     }
 
 
@@ -55,9 +54,6 @@ public class RegionsActivity extends BaseActivity<UiRegionsBinding, RegionsMvvm.
             case R.id.exportWaypointsService:
                 viewModel.exportWaypoints();
                 return true;
-
-
-
         }
         return super.onOptionsItemSelected(item);
     }

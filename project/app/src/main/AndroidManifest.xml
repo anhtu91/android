@@ -36,7 +36,7 @@
         android:theme="@style/Theme.Owntracks"
         tools:ignore="UnusedAttribute"
         tools:replace="android:allowBackup">
-        <activity android:name=".QrCodePopUp"></activity>
+        <activity android:name=".ui.qrcode.QrCodePopUp"></activity>
         <!-- Disables default initialization of WorkManager because custom initializer is used in App.onCreate() -->
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
