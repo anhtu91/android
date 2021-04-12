@@ -2,6 +2,7 @@ package org.owntracks.android.support;
 
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.model.FusedContact;
+import org.owntracks.android.model.ParkplatzModel;
 
 import java.util.Date;
 
@@ -119,6 +120,13 @@ public class Events {
         public WaypointRemoved(WaypointModel m) {
             super(m);
         }
+    }
+
+    public static class ParkplatzAdded extends E {
+        private final ParkplatzModel parkplatzModel;
+
+        public ParkplatzAdded(ParkplatzModel parkplatzModel) {this.parkplatzModel = parkplatzModel;}
+        public ParkplatzModel getParkplatz() { return this.parkplatzModel; }
     }
 
     public static class FusedContactAdded extends E {

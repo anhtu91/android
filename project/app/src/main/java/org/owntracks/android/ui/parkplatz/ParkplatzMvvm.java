@@ -1,5 +1,6 @@
 package org.owntracks.android.ui.parkplatz;
 
+import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.ui.base.view.MvvmView;
 import org.owntracks.android.ui.base.viewmodel.MvvmViewModel;
 
@@ -8,6 +9,6 @@ public interface ParkplatzMvvm {
     }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
-
+        void onParkplatzClick(ParkplatzModel object);
     }
 }
