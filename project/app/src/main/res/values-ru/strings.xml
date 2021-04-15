@@ -51,6 +51,7 @@
     <string name="contactLocationUnknown">Местоположение недоступно</string>
     <string name="menuContactNavigate">Перейти</string>
     <string name="menuCurrentLoction">Текущее местоположение</string>
+    <string name="menuImportQRCode">Импортировать QR-код</string>
     <string name="contactDetailsAccuracy">Точность</string>
     <string name="contactDetailsTopic">Идентификатор</string>
     <string name="waypointListPlaceholder">Места еще не определены</string>

@@ -9,11 +9,12 @@ import java.util.Date;
 
 public class ParkplatzModel extends BaseObservable {
 
+    /*
     private Date accessDate;
     private Time accessTime;
     private String keyIDParkplatz;
     private String fieldNameParkplatz;
-    private Bitmap accessCode;
+    private String accessCode;
 
     public Date getAccessDate() {
         return accessDate;
@@ -31,7 +32,7 @@ public class ParkplatzModel extends BaseObservable {
         return fieldNameParkplatz;
     }
 
-    public Bitmap getAccessCode() {
+    public String getAccessCode() {
         return accessCode;
     }
 
@@ -51,15 +52,29 @@ public class ParkplatzModel extends BaseObservable {
         this.fieldNameParkplatz = fieldNameParkplatz;
     }
 
-    public void setAccessCode(Bitmap accessCode) {
+    public void setAccessCode(String accessCode) {
         this.accessCode = accessCode;
     }
 
-    public ParkplatzModel(Date accessDate, Time accessTime, String keyIDParkplatz, String fieldNameParkplatz, Bitmap accessCode) {
+    public ParkplatzModel(Date accessDate, Time accessTime, String keyIDParkplatz, String fieldNameParkplatz, String accessCode) {
         this.accessDate = accessDate;
         this.accessTime = accessTime;
         this.keyIDParkplatz = keyIDParkplatz;
         this.fieldNameParkplatz = fieldNameParkplatz;
         this.accessCode = accessCode;
+    }
+    */
+    private String testQRCode;
+
+    public String getTestQRCode() {
+        return testQRCode;
+    }
+
+    public void setTestQRCode(String testQRCode) {
+        this.testQRCode = testQRCode;
+    }
+
+    public ParkplatzModel(String testQRCode) {
+        this.testQRCode = testQRCode;
     }
 }

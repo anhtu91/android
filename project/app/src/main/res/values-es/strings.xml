@@ -50,6 +50,7 @@
     <string name="contactLocationUnknown">Ubicación no disponible</string>
     <string name="menuContactNavigate">Navegar</string>
     <string name="menuCurrentLoction">Ubicación actual</string>
+    <string name="menuImportQRCode">Importar código QR</string>
     <string name="contactDetailsAccuracy">Precisión</string>
     <string name="contactDetailsTopic">Identificador</string>
     <string name="waypointListPlaceholder">No hay regiones definidas</string>

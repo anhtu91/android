@@ -3,8 +3,12 @@ package org.owntracks.android.ui.map;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -38,6 +42,12 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
 
 import org.greenrobot.eventbus.EventBus;
 import org.owntracks.android.R;
@@ -55,6 +65,8 @@ import org.owntracks.android.support.widgets.BindingConversions;
 import org.owntracks.android.ui.base.BaseActivity;
 import org.owntracks.android.ui.welcome.WelcomeActivity;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -68,6 +80,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     public static final String BUNDLE_KEY_CONTACT_ID = "BUNDLE_KEY_CONTACT_ID";
     private static final long ZOOM_LEVEL_STREET = 15;
     private final int PERMISSIONS_REQUEST_CODE = 1;
+    private static final int QRCODE_REQUEST = 111;
+    public static final String SHARED_PREFERENCES_QR_CODE = "org.owntracks.android.qr.code.for.parking.slot";
 
     private final Map<String, Marker> markers = new HashMap<>();
     private GoogleMap googleMap;
@@ -376,7 +390,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         }
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
@@ -392,9 +405,75 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             return true;
         } else if (itemId == R.id.menu_monitoring) {
             stepMonitoringModeMenu();
+        } else if (itemId == R.id.menu_import_qr_code){
+            Timber.v("QR Code enter");
+            openFileManagerForQRCode();
         }
         return false;
     }
+
+    private void openFileManagerForQRCode(){
+        Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        pickIntent.setType("image/*");
+
+        startActivityForResult(pickIntent, QRCODE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        switch (requestCode) {
+            //the case is because you might be handling multiple request codes here
+            case QRCODE_REQUEST:
+                if(data == null || data.getData()==null) {
+                    Timber.v("The uri is null, probably the user cancelled the image selection process using the back button.");
+                    return;
+                }
+                Uri uri = data.getData();
+                try
+                {
+                    InputStream inputStream = getContentResolver().openInputStream(uri);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    if (bitmap == null)
+                    {
+                        Timber.v("URI is not a bitmap " + uri.toString());
+                        return;
+                    }
+                    int width = bitmap.getWidth(), height = bitmap.getHeight();
+                    int[] pixels = new int[width * height];
+                    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+                    bitmap.recycle();
+                    bitmap = null;
+                    RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
+                    BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
+                    MultiFormatReader reader = new MultiFormatReader();
+                    try
+                    {
+                        Result result = reader.decode(bBitmap);
+                        editor.putString("testKey", result.getText());
+                        editor.commit();
+                        editor.apply();
+
+                        //Toast.makeText(this, "The content of the QR image is: " + result.getText(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Save the content of QRCode to Parking Code", Toast.LENGTH_LONG).show();
+                    }
+                    catch (NotFoundException e)
+                    {
+                        Timber.v("Decode exception "+ e);
+                    }
+                }
+                catch (FileNotFoundException e)
+                {
+                    Timber.v("Error "+e+". Can not open file" + uri.toString());
+                }
+                break;
+        }
+
+    }
+
 
     private void stepMonitoringModeMenu() {
         preferences.setMonitoringNext();
