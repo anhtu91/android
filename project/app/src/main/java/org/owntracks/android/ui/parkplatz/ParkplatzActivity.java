@@ -1,68 +1,245 @@
 package org.owntracks.android.ui.parkplatz;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.mikepenz.fastadapter.listeners.LongClickEventHook;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.ChecksumException;
+import com.google.zxing.FormatException;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Reader;
+import com.google.zxing.Result;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeWriter;
 
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiParkplatzBinding;
 import org.owntracks.android.model.ParkplatzModel;
+import org.owntracks.android.support.sqlite.SQLiteDBHelper;
 import org.owntracks.android.ui.base.BaseActivity;
 
-import java.util.Collections;
-import java.util.Observable;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Random;
 
 import timber.log.Timber;
 
-public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, ParkplatzMvvm.ViewModel> implements ParkplatzMvvm.View, ParkplatzAdapter.ClickListener{
 
-    private ObservableList<ParkplatzModel> mList;
+public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, ParkplatzMvvm.ViewModel> implements ParkplatzMvvm.View, ParkplatzAdapter.ClickListener {
+
+    private ObservableList<ParkplatzModel> qrList;
+    private static final int QRCODE_REQUEST = 111;
+    public static final String SHARED_PREFERENCES_QR_CODE = "org.owntracks.android.qr.code.for.parking.slot";
+    private static final int MAX_LENGTH = 100;
+    private static final int READ_PERMISSION_CODE = 101;
+    private static final int STORAGE_PERMISSION_CODE = 102;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mList = new ObservableArrayList<>();
-
+        qrList = new ObservableArrayList<>();
         bindAndAttachContentView(R.layout.ui_parkplatz, savedInstanceState);
         setSupportToolbar(binding.toolbar);
         setDrawer(binding.toolbar);
 
-        Timber.v("enter parkplatz activity");
+        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, READ_PERMISSION_CODE);
+        checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
+
+        FloatingActionButton addParkingAccessCode = findViewById(R.id.floating_action_button);
+        addParkingAccessCode.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Timber.v("Click add qr code image");
+                openFileManagerForQRCode();
+            }
+        });
+
+        Timber.v("Enter Parkplatz activity");
+
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.recyclerView.setAdapter(new ParkplatzAdapter(mList, this));
+        binding.recyclerView.setAdapter(new ParkplatzAdapter(qrList, this));
+    }
+
+
+    private void openFileManagerForQRCode() {
+        Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        pickIntent.setType("image/*");
+        pickIntent.addCategory(Intent.CATEGORY_OPENABLE);
+        try{
+            this.startActivityForResult(Intent.createChooser(pickIntent, "Select QRCode"), QRCODE_REQUEST);
+        }catch (android.content.ActivityNotFoundException e){
+            // Potentially direct the user to the Market with a Dialog
+            Toast.makeText(this, "Please install a File Manager.",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && requestCode == QRCODE_REQUEST) {
+            if (data == null || data.getData() == null) {
+                Timber.v("The uri is null, probably the user cancelled the image selection process using the back button.");
+                return;
+            }
+
+            //SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
+            //SharedPreferences.Editor editor = sharedPreferences.edit();
+            SQLiteDBHelper sqLiteDBHelper = new SQLiteDBHelper(getApplicationContext());
+
+            final Uri uri = data.getData();
+            String qrCodeContent = null;
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                if (bitmap == null) {
+                    Timber.v("URI is not a bitmap " + uri.toString());
+                    return;
+                }
+
+                int width = bitmap.getWidth(), height = bitmap.getHeight();
+                int[] pixels = new int[width * height];
+                bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+                //bitmap.recycle();
+                //bitmap = null;
+                //RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
+                LuminanceSource source = new RGBLuminanceSource(width, height, pixels);
+                BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
+                //MultiFormatReader reader = new MultiFormatReader();
+                Reader reader = new MultiFormatReader();
+                Result result = null;
+
+                try {
+                    result = reader.decode(bBitmap);
+                    qrCodeContent = result.getText();
+
+                    Timber.v("qrCode content "+qrCodeContent);
+                    Toast.makeText(this, "Saved QRCode", Toast.LENGTH_SHORT).show();
+                } catch (NotFoundException e) {
+                    Timber.v("Decode exception " + e);
+                } catch (FormatException e) {
+                    Timber.v("Decode exception " + e);
+                } catch (ChecksumException e) {
+                    Timber.v("Decode exception " + e);
+                }
+
+                inputStream.close();
+            } catch (IOException e) {
+                Timber.v("Error " + e + ". Can not open file" + uri.toString());
+            } finally {
+                if (qrCodeContent != null) {
+                    //editor.putString(random(), qrCodeContent);
+                    //editor.commit();
+
+                    if (sqLiteDBHelper.insertQRCode(qrCodeContent)) {
+                        Timber.v("Insert QRCode successful");
+                    } else {
+                        Timber.v("Insert QRCode not successful");
+                    }
+                }
+            }
+        }else{
+            Timber.v("Import QRCode failed");
+        }
+    }
+
+    // Function to check and request permission.
+    public void checkPermission(String permission, int requestCode) {
+        if (ContextCompat.checkSelfPermission(this, permission)
+                == PackageManager.PERMISSION_DENIED) {
+
+            // Requesting the permission
+            ActivityCompat.requestPermissions(this,
+                    new String[]{permission},
+                    requestCode);
+        } else {
+            Log.v("Permission", "Permission " + permission + " already granted ");
+        }
     }
 
 
     @Override
     public void onClick(@NonNull ParkplatzModel object, @NonNull View view, boolean longClick) {
         viewModel.onParkplatzClick(object);
+        Timber.v("Click Parkplatz Activity");
+        Timber.v("Object value "+object.getTestQRCode());
+
+        QRCodeWriter writer = new QRCodeWriter();
+        try {
+            BitMatrix bitMatrix = writer.encode(object.getTestQRCode(), BarcodeFormat.QR_CODE, 512, 512);
+            int width = bitMatrix.getWidth();
+            int height = bitMatrix.getHeight();
+            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                }
+            }
+            setContentView(R.layout.activity_qr_code_pop_up);
+            ((ImageView) findViewById(R.id.qrCodeImageView)).setImageBitmap(bmp);
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mList.clear();
-        mList.addAll(viewModel.getAccessCodeForParking());
+        qrList.clear();
+
+        if (qrList.addAll(viewModel.getAccessCodeForParking())) {
+            Timber.v("Add successful access code");
+        } else {
+            Timber.v("Add not successful access code");
+        }
     }
 
     @Override
     public void removeAccessCodeForParking(ParkplatzModel p) {
-        mList.remove(p);
+        qrList.remove(p);
     }
 
     @Override
     @MainThread
     public void addAccessCodeForParking(ParkplatzModel p) {
-        mList.add(p);
+        qrList.add(p);
         //Collections.sort(mList);
     }
 

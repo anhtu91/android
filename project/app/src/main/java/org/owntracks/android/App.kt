@@ -54,7 +54,7 @@ class App : DaggerApplication() {
         if (BuildConfig.DEBUG) {
             Timber.plant(TimberDebugLogTree())
             Timber.e("StrictMode enabled in DEBUG build")
-            StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder()
+            /*StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder()
                     .detectDiskWrites()
                     .detectNetwork()
                     .penaltyFlashScreen()
@@ -65,7 +65,7 @@ class App : DaggerApplication() {
                     .detectLeakedClosableObjects()
                     .detectFileUriExposure()
                     .penaltyLog()
-                    .build())
+                    .build())*/
         } else {
             Timber.plant(DebugTree())
         }

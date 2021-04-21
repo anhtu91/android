@@ -24,7 +24,7 @@ public class RegionsViewModel extends BaseViewModel<RegionsMvvm.View> implements
         this.locationProcessor = locationProcessor;
     }
 
-        public Query<WaypointModel> getWaypointsList() {
+    public Query<WaypointModel> getWaypointsList() {
             return this.waypointsRepo.getAllQuery();
         }
 

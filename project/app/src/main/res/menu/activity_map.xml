@@ -7,12 +7,14 @@
         android:title="@string/monitoring_mode"
         app:showAsAction="ifRoom" />
 
+    <!--
     <item
         android:id="@+id/menu_import_qr_code"
         android:icon="@drawable/ic_baseline_qr_code_24"
         android:orderInCategory="1"
         android:title="@string/menuImportQRCode"
         app:showAsAction="ifRoom" />
+    -->
 
     <item
         android:id="@+id/menu_report"

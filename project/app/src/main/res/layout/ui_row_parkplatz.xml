@@ -6,53 +6,29 @@
         <variable name="parkplatz" type="org.owntracks.android.model.ParkplatzModel" />
     </data>
 
-    <LinearLayout
-        android:background="?android:attr/selectableItemBackground"
-        android:id="@+id/textview_container"
-        android:layout_width="fill_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:padding="16dp"
-        android:orientation="vertical">
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/title"
-                style="@style/ListItemPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/meta"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="@{parkplatz.accessTime.toString()}" />
-
-            <TextView
-                android:id="@+id/meta"
-                style="@style/ListItemSecondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:textSize="12sp"
-                android:text="@{parkplatz.accessDate.toString()}"/>
-        </RelativeLayout>
+        android:background="?selectableItemBackground"
+        android:id="@+id/contactRow"
+        android:minHeight="72dp">
 
 
         <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
+            android:id="@+id/name"
+            style="@style/ListItemPrimary"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:lastTransition="@{parkplatz.accessCode.toString()}"
-            android:ellipsize="none"
-            android:singleLine="false"
-            style="@style/ListItemSecondary"/>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{parkplatz.testQRCode}"
+            app:layout_constraintEnd_toStartOf="@+id/locationDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

@@ -80,8 +80,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     public static final String BUNDLE_KEY_CONTACT_ID = "BUNDLE_KEY_CONTACT_ID";
     private static final long ZOOM_LEVEL_STREET = 15;
     private final int PERMISSIONS_REQUEST_CODE = 1;
-    private static final int QRCODE_REQUEST = 111;
-    public static final String SHARED_PREFERENCES_QR_CODE = "org.owntracks.android.qr.code.for.parking.slot";
 
     private final Map<String, Marker> markers = new HashMap<>();
     private GoogleMap googleMap;
@@ -405,14 +403,15 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             return true;
         } else if (itemId == R.id.menu_monitoring) {
             stepMonitoringModeMenu();
-        } else if (itemId == R.id.menu_import_qr_code){
+        }
+        /*else if (itemId == R.id.menu_import_qr_code){
             Timber.v("QR Code enter");
             openFileManagerForQRCode();
-        }
+        }*/
         return false;
     }
 
-    private void openFileManagerForQRCode(){
+    /*private void openFileManagerForQRCode(){
         Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
         pickIntent.setType("image/*");
 
@@ -472,7 +471,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                 break;
         }
 
-    }
+    }*/
 
 
     private void stepMonitoringModeMenu() {

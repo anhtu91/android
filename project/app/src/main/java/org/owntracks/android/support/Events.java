@@ -122,6 +122,7 @@ public class Events {
         }
     }
 
+
     public static class ParkplatzAdded extends E {
         private final ParkplatzModel parkplatzModel;
 

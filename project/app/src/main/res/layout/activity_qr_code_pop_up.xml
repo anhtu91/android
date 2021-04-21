@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.qrcode.QrCodePopUp">
 
+
     <ImageView
         android:id="@+id/qrCodeImageView"
         android:layout_width="397dp"
