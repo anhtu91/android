@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -211,8 +212,17 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                     bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
                 }
             }
-            setContentView(R.layout.activity_qr_code_pop_up);
-            ((ImageView) findViewById(R.id.qrCodeImageView)).setImageBitmap(bmp);
+            setContentView(R.layout.show_qr_code_from_access_code);
+            ImageView qrCodeImage = findViewById(R.id.qrCodeFromAccessCodeImageView);
+            qrCodeImage.setImageBitmap(bmp);
+
+            qrCodeImage.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    finish();
+                    return true;
+                }
+            });
 
         } catch (WriterException e) {
             e.printStackTrace();
