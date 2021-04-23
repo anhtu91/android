@@ -1,11 +1,8 @@
 package org.owntracks.android.ui.parkplatz;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -45,13 +42,11 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiParkplatzBinding;
 import org.owntracks.android.model.ParkplatzModel;
-import org.owntracks.android.support.sqlite.SQLiteDBHelper;
+import org.owntracks.android.support.sqlite.SQLiteForParkplatz;
 import org.owntracks.android.ui.base.BaseActivity;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Random;
 
 import timber.log.Timber;
 
@@ -120,7 +115,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
 
             //SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
             //SharedPreferences.Editor editor = sharedPreferences.edit();
-            SQLiteDBHelper sqLiteDBHelper = new SQLiteDBHelper(getApplicationContext());
+            SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(getApplicationContext());
 
             final Uri uri = data.getData();
             String qrCodeContent = null;
@@ -168,7 +163,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                     //editor.putString(random(), qrCodeContent);
                     //editor.commit();
 
-                    if (sqLiteDBHelper.insertQRCode(qrCodeContent)) {
+                    if (sqLiteForParkplatz.insertQRCode(qrCodeContent)) {
                         Timber.v("Insert QRCode successful");
                     } else {
                         Timber.v("Insert QRCode not successful");

@@ -8,20 +8,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import org.owntracks.android.model.ParkplatzModel;
+import org.owntracks.android.model.LastQRCodesModel;
 
 import java.util.ArrayList;
 
-public class SQLiteDBHelper extends SQLiteOpenHelper {
+public class SQLiteForLastQRCodes extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 2;
-    public static final String DATABASE_NAME = "access_code_database";
-    public static final String QR_TABLE_NAME = "qr_code";
+    public static final String DATABASE_NAME = "last_qr_codes_database";
+    public static final String QR_TABLE_NAME = "qr_codes";
     public static final String QR_COLUMN_ID = "_id";
     public static final String QR_COLUMN_JWT = "json_web_token";
 
 
-    public SQLiteDBHelper(@Nullable Context context) {
+    public SQLiteForLastQRCodes(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -38,7 +38,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertQRCode (String jsonWebToken) {
+    public boolean insertLastQRCode(String jsonWebToken) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(QR_COLUMN_JWT, jsonWebToken);
@@ -46,17 +46,16 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public ArrayList<ParkplatzModel> getAllAccessCode() {
-        ArrayList<ParkplatzModel> array_list = new ArrayList<ParkplatzModel>();
+    public ArrayList<LastQRCodesModel> getAllLastQRCodes() {
+        ArrayList<LastQRCodesModel> array_list = new ArrayList<LastQRCodesModel>();
 
-        //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from "+QR_TABLE_NAME, null );
+        Cursor res = db.rawQuery("select * from " + QR_TABLE_NAME, null);
         res.moveToFirst();
 
-        while(res.isAfterLast() == false){
-            ParkplatzModel parkplatzModel = new ParkplatzModel(res.getString(res.getColumnIndex(QR_COLUMN_JWT)));
-            array_list.add(parkplatzModel);
+        while (res.isAfterLast() == false) {
+            LastQRCodesModel lastQRCodesModel = new LastQRCodesModel(res.getString(res.getColumnIndex(QR_COLUMN_JWT)));
+            array_list.add(lastQRCodesModel);
             res.moveToNext();
         }
         return array_list;

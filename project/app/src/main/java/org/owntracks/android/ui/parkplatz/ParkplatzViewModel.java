@@ -1,7 +1,6 @@
 package org.owntracks.android.ui.parkplatz;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -9,24 +8,21 @@ import org.owntracks.android.injection.qualifier.AppContext;
 import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.support.Events;
-import org.owntracks.android.support.sqlite.SQLiteDBHelper;
+import org.owntracks.android.support.sqlite.SQLiteForParkplatz;
 import org.owntracks.android.ui.base.viewmodel.BaseViewModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import timber.log.Timber;
 
-import static org.owntracks.android.ui.parkplatz.ParkplatzActivity.SHARED_PREFERENCES_QR_CODE;
-
 @PerActivity
 public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implements ParkplatzMvvm.ViewModel<ParkplatzMvvm.View>{
 
-    private static SharedPreferences sharedPreferences;
+    //private static SharedPreferences sharedPreferences;
     private Context currentContext;
 
     @Inject
@@ -38,9 +34,9 @@ public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implem
     public Collection<ParkplatzModel> getAccessCodeForParking() {
         //sharedPreferences = currentContext.getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
 
-        SQLiteDBHelper sqLiteDBHelper = new SQLiteDBHelper(currentContext);
+        SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(currentContext);
 
-        List<ParkplatzModel> qrCodeCollection = new ArrayList<>();
+        ArrayList<ParkplatzModel> qrCodeCollection = new ArrayList<ParkplatzModel>();
 
         /*
         Map<String, ?> allEntries = sharedPreferences.getAll();
@@ -49,7 +45,7 @@ public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implem
             Timber.v("QRCode is "+entry.getValue().toString());
         }
          */
-        qrCodeCollection = sqLiteDBHelper.getAllAccessCode();
+        qrCodeCollection = sqLiteForParkplatz.getAllAccessCode();
 
         Timber.v("Get collections of access code "+qrCodeCollection.toString());
 

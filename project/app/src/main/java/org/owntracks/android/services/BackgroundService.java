@@ -43,6 +43,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.owntracks.android.support.sqlite.SQLiteForLastQRCodes;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
@@ -657,7 +658,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     }
 
     //Add new for Parkplatz case
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(MessageParkplatz message){
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
         //updateParkplatzNotification();
@@ -674,7 +675,9 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.putExtra("time", message.getTime());
         intent.putExtra("date", message.getDate());
 
-        //Timber.d("AccessCode in background service "+message.getAccessCode());
+        //Add access code to sqlite
+        SQLiteForLastQRCodes sqLiteForLastQRCodes = new SQLiteForLastQRCodes(getApplicationContext());
+        sqLiteForLastQRCodes.insertLastQRCode(String.valueOf(message.getAccessCode())); //Need to change access code to string
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

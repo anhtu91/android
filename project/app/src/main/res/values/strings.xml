@@ -73,6 +73,7 @@
     <string name="title_activity_map">Map</string>
     <string name="title_activity_contacts">Friends</string>
     <string name="title_activity_parkplatz">Parking Code</string>
+    <string name="title_activity_lastqrcodes">Last QR Codes</string>
     <string name="title_activity_status">Status</string>
     <string name="title_activity_preferences">Preferences</string>
     <string name="title_exit">Exit app</string>

@@ -17,6 +17,7 @@ import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.injection.scopes.PerReceiver;
 import org.owntracks.android.injection.scopes.PerService;
 import org.owntracks.android.support.receiver.StartBackgroundServiceReceiver;
+import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 import org.owntracks.android.ui.preferences.LogViewerActivity;
 
 import dagger.Module;
@@ -27,6 +28,10 @@ public abstract class AndroindBindingModule {
     @PerActivity
     @ContributesAndroidInjector(modules = {ParkplatzActivityModule.class})
     abstract org.owntracks.android.ui.parkplatz.ParkplatzActivity bindParkplatzActivity();
+
+    @PerActivity
+    @ContributesAndroidInjector(modules = {LastQRCodesActivity.class})
+    abstract org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity bindLastQRCodesActivity();
 
     @PerActivity
     @ContributesAndroidInjector(modules = {ContactsActivityModule.class})
