@@ -60,6 +60,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
     private static final int READ_PERMISSION_CODE = 101;
     private static final int STORAGE_PERMISSION_CODE = 102;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,9 +95,9 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
         Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
         pickIntent.setType("image/*");
         pickIntent.addCategory(Intent.CATEGORY_OPENABLE);
-        try{
+        try {
             this.startActivityForResult(Intent.createChooser(pickIntent, "Select QRCode"), QRCODE_REQUEST);
-        }catch (android.content.ActivityNotFoundException e){
+        } catch (android.content.ActivityNotFoundException e) {
             // Potentially direct the user to the Market with a Dialog
             Toast.makeText(this, "Please install a File Manager.",
                     Toast.LENGTH_SHORT).show();
@@ -145,7 +146,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                     result = reader.decode(bBitmap);
                     qrCodeContent = result.getText();
 
-                    Timber.v("qrCode content "+qrCodeContent);
+                    Timber.v("qrCode content " + qrCodeContent);
                     Toast.makeText(this, "Saved QRCode", Toast.LENGTH_SHORT).show();
                 } catch (NotFoundException e) {
                     Timber.v("Decode exception " + e);
@@ -170,7 +171,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                     }
                 }
             }
-        }else{
+        } else {
             Timber.v("Import QRCode failed");
         }
     }
@@ -194,9 +195,10 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
     public void onClick(@NonNull ParkplatzModel object, @NonNull View view, boolean longClick) {
         viewModel.onParkplatzClick(object);
         Timber.v("Click Parkplatz Activity");
-        Timber.v("Object value "+object.getTestQRCode());
+        Timber.v("Object value " + object.getTestQRCode());
 
         QRCodeWriter writer = new QRCodeWriter();
+
         try {
             BitMatrix bitMatrix = writer.encode(object.getTestQRCode(), BarcodeFormat.QR_CODE, 512, 512);
             int width = bitMatrix.getWidth();
@@ -220,6 +222,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
             });
 
         } catch (WriterException e) {
+            Log.e("Error", "Error while writing QR Code " + e.toString());
             e.printStackTrace();
         }
     }

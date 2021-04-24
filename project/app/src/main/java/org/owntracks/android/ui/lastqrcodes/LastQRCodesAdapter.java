@@ -18,8 +18,7 @@ public class LastQRCodesAdapter extends BaseAdapter<LastQRCodesModel> {
         setItems(items);
         setClickListener(clickListener);
     }
-    interface ClickListenter extends BaseAdapter.ClickListener<LastQRCodesModel>{
-        @Override
+    interface ClickListener extends BaseAdapter.ClickListener<LastQRCodesModel>{
         void onClick(@NonNull LastQRCodesModel object, @NonNull View view, boolean longClick);
     }
 }

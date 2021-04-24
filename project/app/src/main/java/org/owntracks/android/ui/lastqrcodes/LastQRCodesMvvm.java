@@ -9,9 +9,9 @@ import java.util.Collection;
 
 public interface LastQRCodesMvvm {
     interface View extends MvvmView {
-        //void removeLastQRCodes(LastQRCodesModel p);
-        //void addLastQRCodes(LastQRCodesModel p);
-        //void updateLastQRCodes(LastQRCodesModel p);
+        void removeLastQRCodes(LastQRCodesModel p);
+        void addLastQRCodes(LastQRCodesModel p);
+        void updateLastQRCodes(LastQRCodesModel p);
     }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {

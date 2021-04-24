@@ -204,6 +204,10 @@
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_parkplatz"
             android:launchMode="singleTask"/>
+        <activity android:name=".ui.lastqrcodes.LastQRCodesActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/title_activity_lastqrcodes"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".ui.map.MapActivity"
             android:clearTaskOnLaunch="true"

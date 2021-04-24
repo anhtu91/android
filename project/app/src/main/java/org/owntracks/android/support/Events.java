@@ -2,6 +2,7 @@ package org.owntracks.android.support;
 
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.model.FusedContact;
+import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
 
 import java.util.Date;
@@ -9,9 +10,11 @@ import java.util.Date;
 public class Events {
     public static abstract class E {
         final Date date;
+
         E() {
             this.date = new Date();
         }
+
         public Date getDate() {
             return this.date;
         }
@@ -25,9 +28,11 @@ public class Events {
             this.newModeId = newModeId;
             this.oldModeId = oldModeId;
         }
+
         public int getNewModeId() {
             return newModeId;
         }
+
         public int getOldModeId() {
             return oldModeId;
         }
@@ -39,68 +44,77 @@ public class Events {
         public MonitoringChanged(int newModeId) {
             this.newModeId = newModeId;
         }
+
         public int getNewModeId() {
             return newModeId;
         }
     }
 
-	static class WaypointTransition extends E {
-		final WaypointModel w;
-		final int transition;
+    static class WaypointTransition extends E {
+        final WaypointModel w;
+        final int transition;
+
         //TODO
-		public WaypointTransition(WaypointModel w, int transition) {
-			super();
-			this.w = w;
-			this.transition = transition;
-		}
+        public WaypointTransition(WaypointModel w, int transition) {
+            super();
+            this.w = w;
+            this.transition = transition;
+        }
 
-		public WaypointModel getWaypoint() {
-			return this.w;
-		}
+        public WaypointModel getWaypoint() {
+            return this.w;
+        }
 
-		public int getTransition() {
-			return this.transition;
-		}
+        public int getTransition() {
+            return this.transition;
+        }
 
-	}
+    }
 
-	public static class EndpointChanged extends E {
-		public EndpointChanged() {}
-	}
+    public static class EndpointChanged extends E {
+        public EndpointChanged() {
+        }
+    }
 
     public static class PermissionGranted extends E {
         private final String permission;
+
         public PermissionGranted(String p) {
             this.permission = p;
         }
+
         public String getPermission() {
             return permission;
         }
     }
 
-	public static class ServiceStarted extends E {
-	}
+    public static class ServiceStarted extends E {
+    }
 
     public static class QueueChanged extends E {
         int length;
 
         public QueueChanged() {
         }
+
         public QueueChanged withNewLength(int length) {
             this.length = length;
             return this;
         }
+
         public int getNewLength() {
             return length;
         }
 
     }
+
     public static class WaypointEvent extends E {
         private final WaypointModel m;
 
         WaypointEvent(WaypointModel m) {
             this.m = m;
         }
+
         public WaypointModel getWaypointModel() {
             return this.m;
         }
@@ -111,11 +125,13 @@ public class Events {
             super(m);
         }
     }
+
     public static class WaypointUpdated extends WaypointEvent {
         public WaypointUpdated(WaypointModel m) {
             super(m);
         }
     }
+
     public static class WaypointRemoved extends WaypointEvent {
         public WaypointRemoved(WaypointModel m) {
             super(m);
@@ -126,8 +142,25 @@ public class Events {
     public static class ParkplatzAdded extends E {
         private final ParkplatzModel parkplatzModel;
 
-        public ParkplatzAdded(ParkplatzModel parkplatzModel) {this.parkplatzModel = parkplatzModel;}
-        public ParkplatzModel getParkplatz() { return this.parkplatzModel; }
+        public ParkplatzAdded(ParkplatzModel parkplatzModel) {
+            this.parkplatzModel = parkplatzModel;
+        }
+
+        public ParkplatzModel getParkplatz() {
+            return this.parkplatzModel;
+        }
+    }
+
+    public static class LastQRCodesAdded extends E {
+        private final LastQRCodesModel lastQRCodesModel;
+
+        public LastQRCodesAdded(LastQRCodesModel lastQRCodesModel) {
+            this.lastQRCodesModel = lastQRCodesModel;
+        }
+
+        public LastQRCodesModel getLastQRCodesModel() {
+            return this.lastQRCodesModel;
+        }
     }
 
     public static class FusedContactAdded extends E {
@@ -136,6 +169,7 @@ public class Events {
         public FusedContactAdded(FusedContact c) {
             this.fusedContact = c;
         }
+
         public FusedContact getContact() {
             return this.fusedContact;
         }
@@ -147,10 +181,12 @@ public class Events {
         public FusedContactRemoved(FusedContact c) {
             this.fusedContact = c;
         }
+
         public FusedContact getContact() {
             return this.fusedContact;
         }
     }
 
-    public static class RestartApp extends E {}
+    public static class RestartApp extends E {
+    }
 }

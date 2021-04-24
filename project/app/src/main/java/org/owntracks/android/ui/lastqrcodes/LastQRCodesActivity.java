@@ -3,6 +3,7 @@ package org.owntracks.android.ui.lastqrcodes;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ObservableArrayList;
@@ -35,8 +36,8 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
     }
 
     @Override
-    public void onClick(@NonNull Object object, @NonNull View view, boolean longClick) {
-
+    public void onClick(@NonNull LastQRCodesModel object, @NonNull View view, boolean longClick) {
+        viewModel.onLastQRCodesClick(object);
     }
 
     @Override
@@ -51,19 +52,20 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
         }
     }
 
-    /*@Override
+    @Override
     public void removeLastQRCodes(LastQRCodesModel p) {
-
+        lastQRCodesList.remove(p);
     }
 
     @Override
+    @MainThread
     public void addLastQRCodes(LastQRCodesModel p) {
-
+        lastQRCodesList.add(p);
     }
 
     @Override
+    @MainThread
     public void updateLastQRCodes(LastQRCodesModel p) {
 
     }
-     */
 }

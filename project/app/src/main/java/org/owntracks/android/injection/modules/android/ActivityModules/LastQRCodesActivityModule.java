@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesMvvm;
-import org.owntracks.android.ui.parkplatz.ParkplatzViewModel;
+import org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -16,5 +16,5 @@ public abstract class LastQRCodesActivityModule {
     @PerActivity
     abstract AppCompatActivity bindActivity(LastQRCodesActivity a);
 
-    @Binds abstract LastQRCodesMvvm.ViewModel bindViewModel(ParkplatzViewModel viewModel);
+    @Binds abstract LastQRCodesMvvm.ViewModel bindViewModel(LastQRCodesViewModel viewModel);
 }

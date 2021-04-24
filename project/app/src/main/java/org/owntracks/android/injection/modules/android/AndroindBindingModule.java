@@ -3,6 +3,7 @@ package org.owntracks.android.injection.modules.android;
 import org.owntracks.android.injection.modules.android.ActivityModules.ConnectionActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.ContactsActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.EditorActivityModule;
+import org.owntracks.android.injection.modules.android.ActivityModules.LastQRCodesActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.LoadActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.LogViewerActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.MapActivityModule;
@@ -30,7 +31,7 @@ public abstract class AndroindBindingModule {
     abstract org.owntracks.android.ui.parkplatz.ParkplatzActivity bindParkplatzActivity();
 
     @PerActivity
-    @ContributesAndroidInjector(modules = {LastQRCodesActivity.class})
+    @ContributesAndroidInjector(modules = {LastQRCodesActivityModule.class})
     abstract org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity bindLastQRCodesActivity();
 
     @PerActivity
