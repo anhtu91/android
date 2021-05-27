@@ -140,6 +140,12 @@ val androidxTestVersion = "1.3.0"
 val kotlinCoroutinesVersion = "1.4.1"
 
 dependencies {
+    api("io.jsonwebtoken:jjwt-api:0.11.2")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
+    runtimeOnly("io.jsonwebtoken:jjwt-orgjson:0.11.2") {
+        exclude("org.json", "json") //provided by Android natively
+    }
+
     implementation("androidmads.library.qrgenearator:QRGenearator:1.0.4")
     implementation("com.google.zxing:core:3.3.2")
 

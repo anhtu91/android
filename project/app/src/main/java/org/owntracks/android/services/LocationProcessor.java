@@ -20,8 +20,10 @@ import org.owntracks.android.support.DeviceMetricsProvider;
 import org.owntracks.android.support.MessageWaypointCollection;
 import org.owntracks.android.support.Preferences;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -101,7 +103,10 @@ public class LocationProcessor {
         }
         message.setTrigger(trigger);
 
-        message.setTimestamp(TimeUnit.MILLISECONDS.toSeconds(currentLocation.getTime()));
+        TimeZone tz = TimeZone.getDefault();
+        Date now = new Date();
+        long offsetFromUTC = tz.getOffset(now.getTime());
+        message.setTimestamp(TimeUnit.MILLISECONDS.toSeconds(currentLocation.getTime()+offsetFromUTC));
 
         message.setTrackerId(preferences.getTrackerId(true));
         message.setInregions(calculateInregions(loadedWaypoints));

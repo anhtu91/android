@@ -20,6 +20,7 @@ import android.os.Looper;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,6 +44,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONObject;
 import org.owntracks.android.support.sqlite.SQLiteForLastQRCodes;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
@@ -64,6 +66,7 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
+import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -659,7 +662,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
     //Add new for Parkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(MessageParkplatz message){
+    public void onEvent(MessageParkplatz message) throws Exception {
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
         //updateParkplatzNotification();
         //Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
@@ -669,19 +672,36 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         }
 
         Intent intent = new Intent(getApplicationContext(), QrCodePopUp.class);
+        /*
         intent.putExtra("keyID", message.getKeyID());
         intent.putExtra("fieldName", message.getFieldName());
         intent.putExtra("accessCode", message.getAccessCode());
         intent.putExtra("time", message.getTime());
         intent.putExtra("date", message.getDate());
+        */
+        //intent.putExtra("JWT", message.getJwt()); //Put JWT to
+        JSONObject jwt = decodeJWT(message.getJwt()); //Decode JWT
+        String loudScreaming = jwt.getJSONObject("username").toString();
 
         //Add access code to sqlite
         SQLiteForLastQRCodes sqLiteForLastQRCodes = new SQLiteForLastQRCodes(getApplicationContext());
-        sqLiteForLastQRCodes.insertLastQRCode(String.valueOf(message.getAccessCode())); //Need to change access code to string
+        sqLiteForLastQRCodes.insertLastQRCode(String.valueOf(message.getJwt())); //Need to change access code to string
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
+    }
+
+    private static JSONObject decodeJWT(String JWTEncoded) throws Exception{
+        JSONObject obj = new JSONObject();
+        String[] split = JWTEncoded.split("\\.");
+        obj.getJSONObject(getJson(split[1]));
+        return obj;
+    }
+
+    private static String getJson(String strEncoded) throws UnsupportedEncodingException{
+        byte[] decodedBytes = Base64.decode(strEncoded, Base64.URL_SAFE);
+        return new String(decodedBytes, "UTF-8");
     }
 
     /*
