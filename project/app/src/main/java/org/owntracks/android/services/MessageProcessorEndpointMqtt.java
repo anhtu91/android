@@ -378,15 +378,16 @@ public class MessageProcessorEndpointMqtt extends MessageProcessorEndpoint imple
         if (!preferences.getSub()) // Don't subscribe if base topic is invalid
             return;
         else if (subTopicBase.endsWith("#")) { // wildcard sub will match everything anyway
-            topics.add(subTopicBase);
+            //topics.add(subTopicBase);
         } else {
-            topics.add(subTopicBase);
-            if (preferences.getInfo())
-                topics.add(subTopicBase + preferences.getPubTopicInfoPart());
+            //topics.add(subTopicBase);
+            //if (preferences.getInfo())
+            //    topics.add(subTopicBase + preferences.getPubTopicInfoPart());
 
-            topics.add(preferences.getPubTopicBase() + preferences.getPubTopicCommandsPart());
-            topics.add(subTopicBase + preferences.getPubTopicEventsPart());
-            topics.add(subTopicBase + preferences.getPubTopicWaypointsPart());
+            topics.add(preferences.getPubTopicBase());
+            //topics.add(preferences.getPubTopicBase() + preferences.getPubTopicCommandsPart());
+            //topics.add(subTopicBase + preferences.getPubTopicEventsPart());
+            //topics.add(subTopicBase + preferences.getPubTopicWaypointsPart());
         }
         subscribe(topics.toArray(new String[0]));
     }
