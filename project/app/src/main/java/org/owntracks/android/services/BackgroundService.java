@@ -45,6 +45,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
+import org.owntracks.android.support.JWTUtils;
 import org.owntracks.android.support.sqlite.SQLiteForLastQRCodes;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
@@ -662,7 +663,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
     //Add new for Parkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(MessageParkplatz message) throws Exception {
+    public void onEvent(MessageParkplatz message) {
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
         //updateParkplatzNotification();
         //Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
@@ -679,9 +680,16 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.putExtra("time", message.getTime());
         intent.putExtra("date", message.getDate());
         */
-        //intent.putExtra("JWT", message.getJwt()); //Put JWT to
-        JSONObject jwt = decodeJWT(message.getJwt()); //Decode JWT
-        String loudScreaming = jwt.getJSONObject("username").toString();
+
+        intent.putExtra("JWT", message.getJwt()); //Put JWT to
+        /*
+        String jwt = JWTUtils.decodeJWT(message.getJwt()); //Decode JWT
+        JSONObject jwtObject = new JSONObject(jwt);
+        String keyID = jwtObject.getString("keyID");
+        String fieldName = jwtObject.getString("fieldName");
+        String time = jwtObject.getString("time");
+        String date = jwtObject.getString("date");
+        */
 
         //Add access code to sqlite
         SQLiteForLastQRCodes sqLiteForLastQRCodes = new SQLiteForLastQRCodes(getApplicationContext());
@@ -690,18 +698,6 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
-    }
-
-    private static JSONObject decodeJWT(String JWTEncoded) throws Exception{
-        JSONObject obj = new JSONObject();
-        String[] split = JWTEncoded.split("\\.");
-        obj.getJSONObject(getJson(split[1]));
-        return obj;
-    }
-
-    private static String getJson(String strEncoded) throws UnsupportedEncodingException{
-        byte[] decodedBytes = Base64.decode(strEncoded, Base64.URL_SAFE);
-        return new String(decodedBytes, "UTF-8");
     }
 
     /*

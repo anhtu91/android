@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
 import org.owntracks.android.R;
+import org.owntracks.android.support.JWTUtils;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -36,22 +38,25 @@ public class QrCodePopUp extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            String keyID = extras.getString("keyID");
-            String fieldName = extras.getString("fieldName");
-            String timeInParkingSlot = extras.getString("time");
-            String dateInParkingSlot = extras.getString("date");
-            int accessCode = extras.getInt("accessCode");
-
-            showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
-            showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName+"\n at "+timeInParkingSlot+" "+dateInParkingSlot);
-
-            qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
-            qrgEncoder = new QRGEncoder(String.valueOf(accessCode), null, QRGContents.Type.TEXT, 1000);
-
-            Timber.d("KeyID is "+keyID);
-            Timber.d("FieldName is "+fieldName);
-            Timber.d("AccessCode is "+accessCode);
+            String strJWT = extras.getString("JWT");
+            String jwt = null; //Decode JWT
             try {
+                jwt = JWTUtils.decodeJWT(strJWT);
+                JSONObject jwtObject = new JSONObject(jwt);
+                String keyID = jwtObject.getString("keyID");
+                String fieldName = jwtObject.getString("fieldName");
+                String time = jwtObject.getString("time");
+                String date = jwtObject.getString("date");
+
+                showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
+                showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName+"\n at "+time+" "+date);
+
+                qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
+                qrgEncoder = new QRGEncoder(strJWT, null, QRGContents.Type.TEXT, 1000);
+
+                Timber.d("KeyID is "+keyID);
+                Timber.d("FieldName is "+fieldName);
+
                 // Getting QR-Code as Bitmap
                 // getting our qrcode in the form of bitmap.
                 bitmap = qrgEncoder.getBitmap();
@@ -59,7 +64,7 @@ public class QrCodePopUp extends AppCompatActivity {
                 // view using .setimagebitmap method.
                 qrCodeIV.setImageBitmap(bitmap);
             } catch (Exception e) {
-                Log.e("Tag", e.toString());
+                Timber.e("Error while display QRCode from received JWT "+e.toString());
             }
 
             qrCodeIV.setOnTouchListener(new View.OnTouchListener() {

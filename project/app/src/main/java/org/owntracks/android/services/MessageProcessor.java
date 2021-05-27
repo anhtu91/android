@@ -330,6 +330,7 @@ public class MessageProcessor {
         eventBus.post(message);
 
         Timber.d("Parkplatz processing clear message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        Timber.i("Parkplatz message received JWT: %s", message.getJwt());
         /*
         Timber.i("Parkplatz message received KeyID: %s FieldName: %s", message.getKeyID(), message.getFieldName());
         Timber.i("Parkplatz message received Time: %s Date: %s", message.getTime(), message.getDate());

@@ -384,6 +384,7 @@ public class MessageProcessorEndpointMqtt extends MessageProcessorEndpoint imple
             //if (preferences.getInfo())
             //    topics.add(subTopicBase + preferences.getPubTopicInfoPart());
 
+            //Only subscriber his topic
             topics.add(preferences.getPubTopicBase());
             //topics.add(preferences.getPubTopicBase() + preferences.getPubTopicCommandsPart());
             //topics.add(subTopicBase + preferences.getPubTopicEventsPart());
