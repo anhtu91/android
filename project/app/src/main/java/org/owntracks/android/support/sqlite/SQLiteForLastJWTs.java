@@ -12,7 +12,7 @@ import org.owntracks.android.model.LastQRCodesModel;
 
 import java.util.ArrayList;
 
-public class SQLiteForLastQRCodes extends SQLiteOpenHelper {
+public class SQLiteForLastJWTs extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "last_qr_codes_database";
@@ -21,7 +21,7 @@ public class SQLiteForLastQRCodes extends SQLiteOpenHelper {
     public static final String QR_COLUMN_JWT = "json_web_token";
 
 
-    public SQLiteForLastQRCodes(@Nullable Context context) {
+    public SQLiteForLastJWTs(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -38,7 +38,7 @@ public class SQLiteForLastQRCodes extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertLastQRCode(String jsonWebToken) {
+    public boolean insertLastJWTs(String jsonWebToken) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(QR_COLUMN_JWT, jsonWebToken);
@@ -46,16 +46,15 @@ public class SQLiteForLastQRCodes extends SQLiteOpenHelper {
         return true;
     }
 
-    public ArrayList<LastQRCodesModel> getAllLastQRCodes() {
-        ArrayList<LastQRCodesModel> array_list = new ArrayList<LastQRCodesModel>();
+    public ArrayList<String> getAllLastJWTs() {
+        ArrayList<String> array_list = new ArrayList<String>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from " + QR_TABLE_NAME, null);
         res.moveToFirst();
 
         while (res.isAfterLast() == false) {
-            LastQRCodesModel lastQRCodesModel = new LastQRCodesModel(res.getString(res.getColumnIndex(QR_COLUMN_JWT)));
-            array_list.add(lastQRCodesModel);
+            array_list.add(res.getString(res.getColumnIndex(QR_COLUMN_JWT)));
             res.moveToNext();
         }
         return array_list;

@@ -27,7 +27,6 @@ public class FusedContact extends BaseObservable implements Comparable<FusedCont
         return imageProvider;
     }
 
-
     @Bindable
     public void setImageProvider(Integer imageProvider) {
         this.imageProvider = imageProvider;

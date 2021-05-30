@@ -1,7 +1,6 @@
 package org.owntracks.android.services;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -20,7 +19,6 @@ import android.os.Looper;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
-import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,9 +42,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONObject;
-import org.owntracks.android.support.JWTUtils;
-import org.owntracks.android.support.sqlite.SQLiteForLastQRCodes;
+import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
@@ -67,7 +63,6 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
-import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -681,7 +676,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.putExtra("date", message.getDate());
         */
 
-        intent.putExtra("JWT", message.getJwt()); //Put JWT to
+        intent.putExtra("JWT", message.getJwt()); //Put JWT to intent
         /*
         String jwt = JWTUtils.decodeJWT(message.getJwt()); //Decode JWT
         JSONObject jwtObject = new JSONObject(jwt);
@@ -692,8 +687,8 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         */
 
         //Add access code to sqlite
-        SQLiteForLastQRCodes sqLiteForLastQRCodes = new SQLiteForLastQRCodes(getApplicationContext());
-        sqLiteForLastQRCodes.insertLastQRCode(String.valueOf(message.getJwt())); //Need to change access code to string
+        SQLiteForLastJWTs sqLiteForLastJWTs = new SQLiteForLastJWTs(getApplicationContext());
+        sqLiteForLastJWTs.insertLastJWTs(String.valueOf(message.getJwt())); //Need to change access code to string
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

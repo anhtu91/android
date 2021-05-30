@@ -1,7 +1,6 @@
 package org.owntracks.android.ui.lastqrcodes;
 
 import org.owntracks.android.model.LastQRCodesModel;
-import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.ui.base.view.MvvmView;
 import org.owntracks.android.ui.base.viewmodel.MvvmViewModel;
 
