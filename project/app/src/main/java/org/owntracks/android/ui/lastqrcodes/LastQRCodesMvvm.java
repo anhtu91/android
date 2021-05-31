@@ -16,6 +16,6 @@ public interface LastQRCodesMvvm {
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
 
         Collection<LastQRCodesModel> getLastQRCodes();
-        void onLastQRCodesClick(LastQRCodesModel object);
+        void onLastQRCodesShortClick(LastQRCodesModel object);
     }
 }

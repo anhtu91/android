@@ -38,12 +38,17 @@ public class SQLiteForLastJWTs extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertLastJWTs(String jsonWebToken) {
+    public boolean insertLastJWT(String jsonWebToken) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(QR_COLUMN_JWT, jsonWebToken);
         db.insert(QR_TABLE_NAME, null, contentValues);
         return true;
+    }
+
+    public boolean removeLastJWT(String jsonWebToken){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(QR_TABLE_NAME, QR_COLUMN_JWT + "=?", new String[]{jsonWebToken}) > 0;
     }
 
     public ArrayList<String> getAllLastJWTs() {

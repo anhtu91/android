@@ -249,7 +249,7 @@ class PreferencesActivityTests {
     }
 
     private fun scrollToText(textResource: Int) {
-        onView(withId(androidx.preference.R.id.recycler_view))
+        onView(withId(androidx.preference.R.id.recycler_view_last_qr_code))
                 .perform(actionOnItem<RecyclerView.ViewHolder>(
                         hasDescendant(withText(textResource)), scrollTo()))
     }

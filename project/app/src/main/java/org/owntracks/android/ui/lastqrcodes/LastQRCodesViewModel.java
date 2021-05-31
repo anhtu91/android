@@ -1,6 +1,8 @@
 package org.owntracks.android.ui.lastqrcodes;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -73,8 +75,8 @@ public class LastQRCodesViewModel extends BaseViewModel<LastQRCodesMvvm.View> im
 
 
     @Override
-    public void onLastQRCodesClick(LastQRCodesModel object) {
-        Timber.i("Click Last QRCode "+object.getLastJWT());
+    public void onLastQRCodesShortClick(LastQRCodesModel object) { //Click short => show QR Code
+        Timber.i("Click short "+object.getLastJWT()+" to show QR Code");
 
         if(QrCodePopUp.instance != null){
             QrCodePopUp.instance.finish();
@@ -88,6 +90,7 @@ public class LastQRCodesViewModel extends BaseViewModel<LastQRCodesMvvm.View> im
 
         currentContext.startActivity(intent);
     }
+
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(Events.LastQRCodesAdded c){

@@ -688,7 +688,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
         //Add access code to sqlite
         SQLiteForLastJWTs sqLiteForLastJWTs = new SQLiteForLastJWTs(getApplicationContext());
-        sqLiteForLastJWTs.insertLastJWTs(String.valueOf(message.getJwt())); //Need to change access code to string
+        sqLiteForLastJWTs.insertLastJWT(String.valueOf(message.getJwt())); //Need to change access code to string
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
