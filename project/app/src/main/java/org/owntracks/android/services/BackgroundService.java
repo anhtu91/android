@@ -42,6 +42,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
@@ -660,59 +661,33 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(MessageParkplatz message) {
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
-        //updateParkplatzNotification();
-        //Toast.makeText(getApplicationContext(), "You are in location "+message.getKeyID()+" - "+message.getFieldName(), Toast.LENGTH_SHORT).show();
 
         if(QrCodePopUp.instance != null){
             QrCodePopUp.instance.finish();
         }
 
+        //Add JWT to sqlite
+        SQLiteForLastJWTs sqLiteForLastJWTs = new SQLiteForLastJWTs(getApplicationContext());
+        sqLiteForLastJWTs.insertLastJWT(String.valueOf(message.getJwt()));
+
         Intent intent = new Intent(getApplicationContext(), QrCodePopUp.class);
-        /*
-        intent.putExtra("keyID", message.getKeyID());
-        intent.putExtra("fieldName", message.getFieldName());
-        intent.putExtra("accessCode", message.getAccessCode());
-        intent.putExtra("time", message.getTime());
-        intent.putExtra("date", message.getDate());
-        */
 
         intent.putExtra("JWT", message.getJwt()); //Put JWT to intent
-        /*
-        String jwt = JWTUtils.decodeJWT(message.getJwt()); //Decode JWT
-        JSONObject jwtObject = new JSONObject(jwt);
-        String keyID = jwtObject.getString("keyID");
-        String fieldName = jwtObject.getString("fieldName");
-        String time = jwtObject.getString("time");
-        String date = jwtObject.getString("date");
-        */
-
-        //Add access code to sqlite
-        SQLiteForLastJWTs sqLiteForLastJWTs = new SQLiteForLastJWTs(getApplicationContext());
-        sqLiteForLastJWTs.insertLastJWT(String.valueOf(message.getJwt())); //Need to change access code to string
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
     }
 
-    /*
-    private void updateParkplatzNotification(){
-        notificationManager.notify(NOTIFICATION_ID_ONGOING, displayParkplatzMessage());
+    //Add new for EmpfehlungParkplatz case
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    public void onEvent(MessageEmpfehlungParkplatz message) {
+        Timber.d("MessageEmpfehlungParkplatz in BackgroundService received %s", message);
+
+        //Display message
+
+        //Show waypoint
     }
-    */
-    //Display message
-    /*private Notification displayParkplatzMessage(){
-        NotificationCompat.Builder builder = getOngoingNotificationBuilder();
-        /*
-        builder.setContentTitle(this.lastLocationMessage.getGeocoder());
-        builder.setWhen(TimeUnit.SECONDS.toMillis(this.lastLocationMessage.getTimestamp()));
-        builder.setNumber(lastQueueLength);
-
-        builder.setContentTitle(getString(R.string.app_name));
-        builder.setContentText( "Receive Parkplatz messsage");
-
-        return builder.build();
-    }*/
 
     public void onGeocodingProviderResult(MessageLocation m) {
         if (m == lastLocationMessage) {

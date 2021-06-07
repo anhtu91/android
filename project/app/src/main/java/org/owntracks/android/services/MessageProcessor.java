@@ -27,6 +27,7 @@ import org.owntracks.android.model.messages.MessageBase;
 import org.owntracks.android.model.messages.MessageCard;
 import org.owntracks.android.model.messages.MessageClear;
 import org.owntracks.android.model.messages.MessageCmd;
+import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageTransition;
@@ -321,24 +322,28 @@ public class MessageProcessor {
             processIncomingMessage((MessageTransition) message);
         } else if (message instanceof MessageParkplatz){ //Add new for Parkplatz case
             processIncomingMessage((MessageParkplatz) message);
+        } else if (message instanceof MessageEmpfehlungParkplatz){
+            processIncomingMessage((MessageEmpfehlungParkplatz) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
     }
 
+    private void processIncomingMessage(MessageEmpfehlungParkplatz message){
+        eventBus.post(message);
+        Timber.d("EmpfehlungParkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        Timber.i("EmpfehlungParkplatz message received: %s", message.getAvailableParkingSpot());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getAvailableParkingSpot().get(0).getKeyIDFreeParking());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getAvailableParkingSpot().get(0).getFieldNameFreeParking());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getAvailableParkingSpot().get(0).getCoordinate().get(0));
+    }
+
     private void processIncomingMessage(MessageParkplatz message){
         eventBus.post(message);
 
-        Timber.d("Parkplatz processing clear message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        Timber.d("Parkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("Parkplatz message received JWT: %s", message.getJwt());
-        /*
-        Timber.i("Parkplatz message received KeyID: %s FieldName: %s", message.getKeyID(), message.getFieldName());
-        Timber.i("Parkplatz message received Time: %s Date: %s", message.getTime(), message.getDate());
-        Timber.i("Parkplatz message received accessCode: %s Username: %s", message.getAccessCode(), message.getUserID());
-        Timber.i("Parkplatz message received Number Parking Slot: %s Parking Slot: %s", message.getNumberAvailableParkingSlot(), message.getAvailableParkingSlot());
-        */
     }
-
 
     private void processIncomingMessage(MessageUnknown message) {
         Timber.i("Unknown message received on %s", message.getContactKey());
