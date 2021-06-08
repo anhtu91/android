@@ -80,6 +80,12 @@ public class QrCodePopUp extends AppCompatActivity {
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        finish();
+        return super.onTouchEvent(event);
+    }
+
+    @Override
     public void finish(){
         super.finish();
         instance = null;
