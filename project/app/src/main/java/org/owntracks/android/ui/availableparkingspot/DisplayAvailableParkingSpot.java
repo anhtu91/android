@@ -29,11 +29,10 @@ public class DisplayAvailableParkingSpot extends AppCompatActivity {
             String time = extras.getString("AvailableParkingTime");
             String date = extras.getString("AvailableParkingDate");
             int numberAvailableParkingSpot = extras.getInt("NumberAvailableParkingSpots");
-            //char[] availableParkingSpot = extras.getCharArray("AvailableParkingSpots"); Not correct type variable
 
             showInfoAvailableParkingSpot = (TextView) findViewById(R.id.infoAvailableParkingSpot);
             if(numberAvailableParkingSpot > 0){
-                showInfoAvailableParkingSpot.setText("You are in parking spot "+keyID+ " - "+fieldName+"\nat "+time+" on "+date+".\nBut this parking spot is full.\nWe recommend "+numberAvailableParkingSpot+" in one kilometer around here.\nTouch to close this window and see another parking spot.");
+                showInfoAvailableParkingSpot.setText("You are in parking spot "+keyID+ " - "+fieldName+"\nat "+time+" on "+date+".\nBut this parking spot is full.\nWe recommend "+numberAvailableParkingSpot+" parking spots in one kilometer around here.\nTouch to close this window\n and see way to another parking spot.");
             }else{
                 showInfoAvailableParkingSpot.setText("You are in parking spot "+keyID+ " - "+fieldName+"\nat "+time+" on "+date+".\nBut this parking spot is full.\nThere is no available parking spot in one kilometer around here.\nTouch to close this window.");
             }

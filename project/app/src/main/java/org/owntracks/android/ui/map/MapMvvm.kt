@@ -7,6 +7,7 @@ import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.LocationSource
 import com.google.android.gms.maps.model.LatLng
 import org.owntracks.android.model.FusedContact
+import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz
 import org.owntracks.android.ui.base.view.MvvmView
 import org.owntracks.android.ui.base.viewmodel.MvvmViewModel
 
@@ -20,6 +21,8 @@ interface MapMvvm {
         fun clearMarkers()
         fun enableLocationMenus()
         fun updateMonitoringModeMenu()
+
+        fun updateMarkerForEmpfehlungParkPlatz(message: MessageEmpfehlungParkplatz)
     }
 
     interface ViewModel<V : MvvmView?> : MvvmViewModel<V> {

@@ -22,7 +22,6 @@ import timber.log.Timber;
 @PerActivity
 public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implements ParkplatzMvvm.ViewModel<ParkplatzMvvm.View>{
 
-    //private static SharedPreferences sharedPreferences;
     private Context currentContext;
 
     @Inject
@@ -32,22 +31,13 @@ public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implem
 
     @Override
     public Collection<ParkplatzModel> getAccessCodeForParking() {
-        //sharedPreferences = currentContext.getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
-
         SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(currentContext);
 
         ArrayList<ParkplatzModel> qrCodeCollection = new ArrayList<ParkplatzModel>();
 
-        /*
-        Map<String, ?> allEntries = sharedPreferences.getAll();
-        for(Map.Entry<String, ?> entry : allEntries.entrySet()){
-            qrCodeCollection.add(new ParkplatzModel(entry.getValue().toString()));
-            Timber.v("QRCode is "+entry.getValue().toString());
-        }
-         */
         qrCodeCollection = sqLiteForParkplatz.getAllAccessCode();
 
-        Timber.v("Get collections of access code "+qrCodeCollection.toString());
+        Timber.v("Get collections of JWT "+qrCodeCollection.toString());
 
         return qrCodeCollection;
     }

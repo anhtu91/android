@@ -20,6 +20,7 @@ import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.messages.MessageClear;
+import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessor;
@@ -225,6 +226,12 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
             setViewModeFree();
         }
         getView().removeMarker(c.getContact());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageEmpfehlungParkplatz message){
+        Timber.i("MAPVIEWMODEL MessageEmpfehlungParkplatz "+message.getTime());
+        getView().updateMarkerForEmpfehlungParkPlatz(message);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -54,6 +54,7 @@ import org.owntracks.android.R;
 import org.owntracks.android.data.repos.LocationRepo;
 import org.owntracks.android.databinding.UiMapBinding;
 import org.owntracks.android.model.FusedContact;
+import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.services.BackgroundService;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessorEndpointHttp;
@@ -404,75 +405,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         } else if (itemId == R.id.menu_monitoring) {
             stepMonitoringModeMenu();
         }
-        /*else if (itemId == R.id.menu_import_qr_code){
-            Timber.v("QR Code enter");
-            openFileManagerForQRCode();
-        }*/
         return false;
     }
-
-    /*private void openFileManagerForQRCode(){
-        Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        pickIntent.setType("image/*");
-
-        startActivityForResult(pickIntent, QRCODE_REQUEST);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        switch (requestCode) {
-            //the case is because you might be handling multiple request codes here
-            case QRCODE_REQUEST:
-                if(data == null || data.getData()==null) {
-                    Timber.v("The uri is null, probably the user cancelled the image selection process using the back button.");
-                    return;
-                }
-                Uri uri = data.getData();
-                try
-                {
-                    InputStream inputStream = getContentResolver().openInputStream(uri);
-                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                    if (bitmap == null)
-                    {
-                        Timber.v("URI is not a bitmap " + uri.toString());
-                        return;
-                    }
-                    int width = bitmap.getWidth(), height = bitmap.getHeight();
-                    int[] pixels = new int[width * height];
-                    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-                    bitmap.recycle();
-                    bitmap = null;
-                    RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
-                    BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
-                    MultiFormatReader reader = new MultiFormatReader();
-                    try
-                    {
-                        Result result = reader.decode(bBitmap);
-                        editor.putString("testKey", result.getText());
-                        editor.commit();
-                        editor.apply();
-
-                        //Toast.makeText(this, "The content of the QR image is: " + result.getText(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(this, "Save the content of QRCode to Parking Code", Toast.LENGTH_LONG).show();
-                    }
-                    catch (NotFoundException e)
-                    {
-                        Timber.v("Decode exception "+ e);
-                    }
-                }
-                catch (FileNotFoundException e)
-                {
-                    Timber.v("Error "+e+". Can not open file" + uri.toString());
-                }
-                break;
-        }
-
-    }*/
-
 
     private void stepMonitoringModeMenu() {
         preferences.setMonitoringNext();
@@ -575,6 +509,12 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         }
 
         contactImageProvider.setMarkerAsync(marker, contact);
+    }
+
+    @Override
+    public void updateMarkerForEmpfehlungParkPlatz(MessageEmpfehlungParkplatz message){
+        Timber.i("MAPACTIVITY MessageEmpfehlungParkplatz "+message.getTime());
+        //googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking())))
     }
 
     @Override

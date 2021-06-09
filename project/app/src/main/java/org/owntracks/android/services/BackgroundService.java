@@ -42,7 +42,6 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.owntracks.android.model.messages.AvailableParkingSpot;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.availableparkingspot.DisplayAvailableParkingSpot;
@@ -66,7 +65,6 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -694,23 +692,14 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.putExtra("AvailableParkingFieldName", message.getFieldName());
         intent.putExtra("AvailableParkingTime", message.getTime());
         intent.putExtra("AvailableParkingDate", message.getDate());
-        intent.putExtra("NumberAvailableParkingSpots", message.getAvailableParkingSpot().size());
+        intent.putExtra("NumberAvailableParkingSpots", message.getNumberAvailableParkingSpot());
 
-        /*
-        ArrayList<String> listAvailableParkingSpots = new ArrayList<String>();
-        //Get all available parking spot
-        for(int i=0; i< message.getAvailableParkingSpot().size(); i++){
-            listAvailableParkingSpots.add(message.getAvailableParkingSpot().get(i).getKeyIDFreeParking() + " - " +message.getAvailableParkingSpot().get(i).getFieldNameFreeParking());
-        }
-
-        intent.putExtra("AvailableParkingSpots", listAvailableParkingSpots);
-        */
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
 
         //Show waypoint
-        setupGeofences();
+
     }
 
     public void onGeocodingProviderResult(MessageLocation m) {

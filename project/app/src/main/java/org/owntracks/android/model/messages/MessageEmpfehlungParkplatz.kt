@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
+import org.owntracks.android.model.EntrancePosition
 import kotlin.collections.ArrayList
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,8 +24,11 @@ class MessageEmpfehlungParkplatz : MessageBase() {
     @JsonProperty("fieldName")
     var fieldName: String? = null
 
-    @JsonProperty("availableParkingSpot")
-    var availableParkingSpot: ArrayList<AvailableParkingSpot>? = null
+    @JsonProperty("entrancePosition")
+    var entrancePosition: ArrayList<EntrancePosition>? = null
+
+    @JsonProperty("numberAvailableParkingSpot")
+    var numberAvailableParkingSpot: Int? = null
 
     companion object {
         const val TYPE = "EmpfehlungParkplatz"

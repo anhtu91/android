@@ -332,10 +332,10 @@ public class MessageProcessor {
     private void processIncomingMessage(MessageEmpfehlungParkplatz message){
         eventBus.post(message);
         Timber.d("EmpfehlungParkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
-        Timber.i("EmpfehlungParkplatz message received: %s", message.getAvailableParkingSpot());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getAvailableParkingSpot().get(0).getKeyIDFreeParking());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getAvailableParkingSpot().get(0).getFieldNameFreeParking());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getAvailableParkingSpot().get(0).getCoordinate().get(0));
+        Timber.i("EmpfehlungParkplatz message received: %s", message.getEntrancePosition());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getKeyIDEntranceFreeParking());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getFieldNameEntranceFreeParking());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(0));
     }
 
     private void processIncomingMessage(MessageParkplatz message){
