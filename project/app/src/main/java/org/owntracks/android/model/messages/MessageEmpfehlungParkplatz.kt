@@ -21,6 +21,12 @@ class MessageEmpfehlungParkplatz : MessageBase() {
     @JsonProperty("keyID")
     var keyID: String? = null
 
+    @JsonProperty("currentLat")
+    var currentLat: Double? = null
+
+    @JsonProperty("currentLon")
+    var currentLon: Double? = null
+
     @JsonProperty("fieldName")
     var fieldName: String? = null
 

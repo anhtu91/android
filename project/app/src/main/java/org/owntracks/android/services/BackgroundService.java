@@ -14,6 +14,7 @@ import android.location.Location;
 import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Looper;
 import android.text.Spannable;
@@ -42,6 +43,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.owntracks.android.model.EntrancePosition;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.availableparkingspot.DisplayAvailableParkingSpot;
@@ -65,6 +67,7 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -692,14 +695,13 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.putExtra("AvailableParkingFieldName", message.getFieldName());
         intent.putExtra("AvailableParkingTime", message.getTime());
         intent.putExtra("AvailableParkingDate", message.getDate());
-        intent.putExtra("NumberAvailableParkingSpots", message.getNumberAvailableParkingSpot());
+        intent.putExtra("NumberEntranceAvailableParking", message.getEntrancePosition().size());
+
+        intent.putExtra("EntrancePosition", message.getEntrancePosition());
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
-
-        //Show waypoint
-
     }
 
     public void onGeocodingProviderResult(MessageLocation m) {

@@ -322,7 +322,7 @@ public class MessageProcessor {
             processIncomingMessage((MessageTransition) message);
         } else if (message instanceof MessageParkplatz){ //Add new for Parkplatz case
             processIncomingMessage((MessageParkplatz) message);
-        } else if (message instanceof MessageEmpfehlungParkplatz){
+        } else if (message instanceof MessageEmpfehlungParkplatz){ //Add new for EmpfelungParkplatz case
             processIncomingMessage((MessageEmpfehlungParkplatz) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);

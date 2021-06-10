@@ -1,8 +1,9 @@
 package org.owntracks.android.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.io.Serializable
 
-class EntrancePosition {
+class EntrancePosition: Serializable {
     @JsonProperty("keyIDEntranceFreeParking")
     var keyIDEntranceFreeParking: String? = null;
 
@@ -10,5 +11,5 @@ class EntrancePosition {
     var fieldNameEntranceFreeParking: String? = null;
 
     @JsonProperty("coordinateEntranceFreeParking")
-    var coordinateEntranceFreeParking: ArrayList<Any>? = null;
+    var coordinateEntranceFreeParking: ArrayList<Double>? = null;
 }

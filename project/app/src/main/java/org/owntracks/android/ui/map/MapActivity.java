@@ -501,7 +501,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         } else {
             // If a marker has been removed, its tag will be null. Doing anything with it will make it explode
             if (marker != null) {
-                markers.remove(contact.getId());
+               markers.remove(contact.getId());
             }
             marker = googleMap.addMarker(new MarkerOptions().position(contact.getLatLng()).anchor(0.5f, 0.5f).visible(false));
             marker.setTag(contact.getId());
@@ -514,7 +514,40 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     @Override
     public void updateMarkerForEmpfehlungParkPlatz(MessageEmpfehlungParkplatz message){
         Timber.i("MAPACTIVITY MessageEmpfehlungParkplatz "+message.getTime());
-        //googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking())))
+        /*
+        Marker currentLocation = googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getCurrentLat(), message.getCurrentLon())));
+        Marker parkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(1), message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(0))));
+
+        Timber.i("MAPACTIVITY MessageEmpfehlung "+message.getEntrancePosition().get(0).getKeyIDEntranceFreeParking());
+        Timber.i("MAPACTIVITY MessageEmpfehlung "+ message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(0));
+        Timber.i("MAPACTIVITY MessageEmpfehlung "+ message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(1));
+        markers.put("Current Location", currentLocation);
+        markers.put("Parking Spot", parkingSpot);
+         */
+
+        Marker recommendParkingSpot;
+
+        for(int i=0; i<message.getEntrancePosition().size(); i++){
+            recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getEntrancePosition().get(i).getCoordinateEntranceFreeParking().get(1), message.getEntrancePosition().get(i).getCoordinateEntranceFreeParking().get(0))));
+            markers.put(message.getEntrancePosition().get(i).getKeyIDEntranceFreeParking()+" - "+message.getEntrancePosition().get(i).getFieldNameEntranceFreeParking(), recommendParkingSpot);
+        }
+        //new FetchURL
+    }
+
+    private String getUrl(LatLng origin, LatLng dest, String directionMode) {
+        // Origin of route
+        String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
+        // Destination of route
+        String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
+        // Mode
+        String mode = "mode=" + directionMode;
+        // Building the parameters to the web service
+        String parameters = str_origin + "&" + str_dest + "&" + mode;
+        // Output format
+        String output = "json";
+        // Building the url to the web service
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_maps_key);
+        return url;
     }
 
     @Override
