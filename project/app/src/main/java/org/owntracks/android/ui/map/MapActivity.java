@@ -68,6 +68,7 @@ import org.owntracks.android.ui.welcome.WelcomeActivity;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -512,25 +513,14 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     }
 
     @Override
-    public void updateMarkerForEmpfehlungParkPlatz(MessageEmpfehlungParkplatz message){
-        Timber.i("MAPACTIVITY MessageEmpfehlungParkplatz "+message.getTime());
-        /*
-        Marker currentLocation = googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getCurrentLat(), message.getCurrentLon())));
-        Marker parkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(1), message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(0))));
-
-        Timber.i("MAPACTIVITY MessageEmpfehlung "+message.getEntrancePosition().get(0).getKeyIDEntranceFreeParking());
-        Timber.i("MAPACTIVITY MessageEmpfehlung "+ message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(0));
-        Timber.i("MAPACTIVITY MessageEmpfehlung "+ message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(1));
-        markers.put("Current Location", currentLocation);
-        markers.put("Parking Spot", parkingSpot);
-         */
+    public void updateMarkerForEmpfehlungParkPlatz(ArrayList<Double> messageLongLatitude){
+        Timber.i("MAPACTIVITY MessageEmpfehlungParkplatz "+messageLongLatitude.toString());
 
         Marker recommendParkingSpot;
 
-        for(int i=0; i<message.getEntrancePosition().size(); i++){
-            recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(message.getEntrancePosition().get(i).getCoordinateEntranceFreeParking().get(1), message.getEntrancePosition().get(i).getCoordinateEntranceFreeParking().get(0))));
-            markers.put(message.getEntrancePosition().get(i).getKeyIDEntranceFreeParking()+" - "+message.getEntrancePosition().get(i).getFieldNameEntranceFreeParking(), recommendParkingSpot);
-        }
+        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageLongLatitude.get(1), messageLongLatitude.get(0))));
+        markers.put("Selected entrance", recommendParkingSpot);
+
         //new FetchURL
     }
 

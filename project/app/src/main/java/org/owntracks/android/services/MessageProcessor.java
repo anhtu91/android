@@ -1,24 +1,12 @@
 package org.owntracks.android.services;
 
-import android.app.Application;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.Toast;
-
-import androidx.annotation.MainThread;
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.owntracks.android.R;
 import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.data.repos.WaypointsRepo;
 import org.owntracks.android.injection.qualifier.AppContext;
@@ -333,9 +321,8 @@ public class MessageProcessor {
         eventBus.post(message);
         Timber.d("EmpfehlungParkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("EmpfehlungParkplatz message received: %s", message.getEntrancePosition());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getKeyIDEntranceFreeParking());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getFieldNameEntranceFreeParking());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getCoordinateEntranceFreeParking().get(0));
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getKeyIDEntrance());
+        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getFieldNameEntranceAndCoordinate());
     }
 
     private void processIncomingMessage(MessageParkplatz message){

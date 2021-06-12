@@ -27,6 +27,7 @@ import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.support.Events;
 import org.owntracks.android.ui.base.viewmodel.BaseViewModel;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.inject.Inject;
@@ -229,9 +230,9 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(MessageEmpfehlungParkplatz message){
-        Timber.i("MAPVIEWMODEL MessageEmpfehlungParkplatz "+message.getTime());
-        getView().updateMarkerForEmpfehlungParkPlatz(message);
+    public void onEvent(ArrayList<Double> messageLongLatitude){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
+        Timber.i("MAPVIEWMODEL MessageEmpfehlungParkplatz "+messageLongLatitude.toString());
+        getView().updateMarkerForEmpfehlungParkPlatz(messageLongLatitude);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
