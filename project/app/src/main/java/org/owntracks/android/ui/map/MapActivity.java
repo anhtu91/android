@@ -538,7 +538,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         markers.put("Selected entrance", recommendParkingSpot);
 
         Timber.i("Map Activity Current location "+viewModel.getCurrentLocation());
-        new FetchURL(MapActivity.this).execute(getUrl())
+        FetchURL fetchURL = new FetchURL(MapActivity.this);
+        fetchURL.execute(getUrl(viewModel.getCurrentLocation(),recommendParkingSpot.getPosition(), "driving"), "driving");
     }
 
     private String getUrl(LatLng origin, LatLng dest, String directionMode) {
