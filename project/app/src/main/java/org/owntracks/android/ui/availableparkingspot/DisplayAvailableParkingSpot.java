@@ -13,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.owntracks.android.R;
+import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.EntrancePosition;
 import org.owntracks.android.model.FieldNameEntranceAndCoordinate;
+import org.owntracks.android.support.Events;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ public class DisplayAvailableParkingSpot extends AppCompatActivity {
     private Spinner spinnerSelectAvailableParking;
     private Spinner spinnerSelectAvailableEntrance;
     private Button btnSubmitSelectedEntrance;
-    private EventBus eventBus;
+    //private EventBus eventBus;
     public static DisplayAvailableParkingSpot instance = null;
 
     @Override
@@ -100,7 +102,7 @@ public class DisplayAvailableParkingSpot extends AppCompatActivity {
                         }
                     }
 
-                    eventBus.post(selectedPosition);
+                    EventBus.getDefault().post(new CoordinateEntrance(selectedPosition.get(0), selectedPosition.get(1))); //Longitude, Latitude
                     finish();
                 }
             });

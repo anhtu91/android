@@ -1,6 +1,7 @@
 package org.owntracks.android.support;
 
 import org.owntracks.android.data.WaypointModel;
+import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
@@ -162,6 +163,17 @@ public class Events {
             return this.lastQRCodesModel;
         }
     }
+
+    /*
+    public static class CoordinateEntranceRecommendParkingSpot extends E{
+        private final CoordinateEntrance coordinateEntrance;
+
+        public CoordinateEntranceRecommendParkingSpot(CoordinateEntrance coordinateEntrance) {
+            this.coordinateEntrance = coordinateEntrance;
+        }
+
+        public CoordinateEntrance getCoordinateEntrance() { return this.coordinateEntrance; }
+    }*/
 
     public static class FusedContactAdded extends E {
         private final FusedContact fusedContact;

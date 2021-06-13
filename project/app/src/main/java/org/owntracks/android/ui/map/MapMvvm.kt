@@ -6,6 +6,7 @@ import com.google.android.gms.maps.GoogleMap.OnMapClickListener
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.LocationSource
 import com.google.android.gms.maps.model.LatLng
+import org.owntracks.android.model.CoordinateEntrance
 import org.owntracks.android.model.FusedContact
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz
 import org.owntracks.android.ui.base.view.MvvmView
@@ -22,7 +23,7 @@ interface MapMvvm {
         fun enableLocationMenus()
         fun updateMonitoringModeMenu()
 
-        fun updateMarkerForEmpfehlungParkPlatz(messageLongLatitude: ArrayList<Double>) //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
+        //fun updateMarkerForEmpfehlungParkPlatz(messageLongLatitude: CoordinateEntrance) //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
     }
 
     interface ViewModel<V : MvvmView?> : MvvmViewModel<V> {

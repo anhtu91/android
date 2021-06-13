@@ -3,12 +3,8 @@ package org.owntracks.android.ui.map;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -40,21 +36,20 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.NotFoundException;
-import com.google.zxing.RGBLuminanceSource;
-import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
+
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.R;
 import org.owntracks.android.data.repos.LocationRepo;
 import org.owntracks.android.databinding.UiMapBinding;
+import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
-import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.services.BackgroundService;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessorEndpointHttp;
@@ -62,13 +57,12 @@ import org.owntracks.android.support.ContactImageProvider;
 import org.owntracks.android.support.Events;
 import org.owntracks.android.support.GeocodingProvider;
 import org.owntracks.android.support.RunThingsOnOtherThreads;
+import org.owntracks.android.support.drawMapRoute.FetchURL;
+import org.owntracks.android.support.drawMapRoute.TaskLoadedCallback;
 import org.owntracks.android.support.widgets.BindingConversions;
 import org.owntracks.android.ui.base.BaseActivity;
 import org.owntracks.android.ui.welcome.WelcomeActivity;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -78,7 +72,7 @@ import javax.inject.Inject;
 
 import timber.log.Timber;
 
-public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> implements MapMvvm.View, View.OnClickListener, View.OnLongClickListener, PopupMenu.OnMenuItemClickListener, OnMapReadyCallback, Observer {
+public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> implements MapMvvm.View, View.OnClickListener, View.OnLongClickListener, PopupMenu.OnMenuItemClickListener, OnMapReadyCallback, Observer, TaskLoadedCallback {
     public static final String BUNDLE_KEY_CONTACT_ID = "BUNDLE_KEY_CONTACT_ID";
     private static final long ZOOM_LEVEL_STREET = 15;
     private final int PERMISSIONS_REQUEST_CODE = 1;
@@ -88,6 +82,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
     private boolean isMapReady = false;
     private Menu mMenu;
+    private Polyline currentPolyline;
 
     private FusedLocationProviderClient fusedLocationClient;
     LocationCallback locationRepoUpdaterCallback = new LocationCallback() {
@@ -170,6 +165,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             startService((new Intent(this, BackgroundService.class)));
         }
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        //EventBus.getDefault().register(this); //Subscriber EventBus
     }
 
     private void checkAndRequestLocationPermissions() {
@@ -236,6 +233,12 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         } catch (Exception ignored) {
             isMapReady = false;
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -512,16 +515,30 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         contactImageProvider.setMarkerAsync(marker, contact);
     }
 
+    /*
     @Override
-    public void updateMarkerForEmpfehlungParkPlatz(ArrayList<Double> messageLongLatitude){
+    public void updateMarkerForEmpfehlungParkPlatz(CoordinateEntrance messageLongLatitude){
         Timber.i("MAPACTIVITY MessageEmpfehlungParkplatz "+messageLongLatitude.toString());
 
         Marker recommendParkingSpot;
 
-        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageLongLatitude.get(1), messageLongLatitude.get(0))));
+        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageLongLatitude.getLangtitude(), messageLongLatitude.getLongitude())));
         markers.put("Selected entrance", recommendParkingSpot);
 
         //new FetchURL
+    }*/
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(CoordinateEntrance messageLongLatitude){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
+        Timber.i("Coordinate Entrance "+messageLongLatitude.toString());
+
+        Marker recommendParkingSpot;
+
+        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageLongLatitude.getLangtitude(), messageLongLatitude.getLongitude())));
+        markers.put("Selected entrance", recommendParkingSpot);
+
+        Timber.i("Map Activity Current location "+viewModel.getCurrentLocation());
+        new FetchURL(MapActivity.this).execute(getUrl())
     }
 
     private String getUrl(LatLng origin, LatLng dest, String directionMode) {
@@ -538,6 +555,13 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         // Building the url to the web service
         String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_maps_key);
         return url;
+    }
+
+    @Override
+    public void onTaskDone(Object... values) {
+        if (currentPolyline != null)
+            currentPolyline.remove();
+        currentPolyline = googleMap.addPolyline((PolylineOptions) values[0]);
     }
 
     @Override

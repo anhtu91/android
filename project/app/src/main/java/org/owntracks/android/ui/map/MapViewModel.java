@@ -18,6 +18,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.injection.scopes.PerActivity;
+import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.messages.MessageClear;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
@@ -229,11 +230,11 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         getView().removeMarker(c.getContact());
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ArrayList<Double> messageLongLatitude){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
+    /*@Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(CoordinateEntrance messageLongLatitude){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
         Timber.i("MAPVIEWMODEL MessageEmpfehlungParkplatz "+messageLongLatitude.toString());
-        getView().updateMarkerForEmpfehlungParkPlatz(messageLongLatitude);
-    }
+        //getView().updateMarkerForEmpfehlungParkPlatz(messageLongLatitude);
+    }*/
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(FusedContact c) {
