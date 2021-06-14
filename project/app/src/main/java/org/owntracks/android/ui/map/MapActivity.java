@@ -56,6 +56,7 @@ import org.owntracks.android.databinding.UiMapBinding;
 import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.messages.MessageTransmittSelectedEntrance;
+import org.owntracks.android.model.messages.MessageWaypointToEntrance;
 import org.owntracks.android.services.BackgroundService;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessor;
@@ -68,6 +69,7 @@ import org.owntracks.android.support.widgets.BindingConversions;
 import org.owntracks.android.ui.base.BaseActivity;
 import org.owntracks.android.ui.welcome.WelcomeActivity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -87,6 +89,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
     private boolean isMapReady = false;
     private Menu mMenu;
+    private Polyline currentPolyline;
 
     @Inject
     MessageProcessor messageProcessor;
@@ -523,15 +526,15 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(CoordinateEntrance messageSelectedEntrance){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
+    public void onEvent(CoordinateEntrance messageSelectedEntrance){ //For case: parking spot is full and recommend new parking spot around. Receive Info of selected entrance from UI
         Timber.i("Coordinate Entrance "+messageSelectedEntrance.toString());
-        /*
+
         Marker recommendParkingSpot;
 
         recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
         markers.put("Selected entrance", recommendParkingSpot);
 
-        Timber.i("Map Activity Current location "+viewModel.getCurrentLocation());
+        /*Timber.i("Map Activity Current location "+viewModel.getCurrentLocation());
         Polyline polyline = googleMap.addPolyline(new PolylineOptions().clickable(true).width(10).color(R.color.md_light_blue_500).add(
            new LatLng(51.50672, 7.455159), new LatLng(51.506289, 7.455231), new LatLng(51.505603, 7.455342), new LatLng(51.505577, 7.455724)
         ));*/
@@ -539,6 +542,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         //polyline.setTag("A");
         //stylePolyline(polyline);
 
+        //Send MQTT message to get waypoints from OSRM
         MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
         message.setSelectedKeyIDEntrance(messageSelectedEntrance.getKeyIDEntrance());
         message.setSelectedFieldNameEntrance(messageSelectedEntrance.getFieldNameEntrance());
@@ -549,6 +553,18 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         messageProcessor.queueMessageForSending(message);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageWaypointToEntrance messageWaypointToEntrance){
+        PolylineOptions polylineOptions = new PolylineOptions();
+        ArrayList<LatLng> latlonWaypointToEntrance = new ArrayList<LatLng>();
+
+        for(int i=0; i<messageWaypointToEntrance.getCoordinatesArray().size(); i++){
+            latlonWaypointToEntrance.add(new LatLng(messageWaypointToEntrance.getCoordinatesArray().get(i).get(1), messageWaypointToEntrance.getCoordinatesArray().get(i).get(0)));
+        }
+
+        polylineOptions.clickable(true).addAll(latlonWaypointToEntrance);
+        currentPolyline = googleMap.addPolyline(polylineOptions);
+    }
 
     /*private static final int COLOR_BLACK_ARGB = 0xff000000;
     private static final int POLYLINE_STROKE_WIDTH_PX = 12;

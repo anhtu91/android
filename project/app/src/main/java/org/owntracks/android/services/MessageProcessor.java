@@ -20,6 +20,7 @@ import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageTransition;
 import org.owntracks.android.model.messages.MessageUnknown;
+import org.owntracks.android.model.messages.MessageWaypointToEntrance;
 import org.owntracks.android.services.worker.Scheduler;
 import org.owntracks.android.support.Events;
 import org.owntracks.android.support.Parser;
@@ -298,6 +299,7 @@ public class MessageProcessor {
 
     public void processIncomingMessage(MessageBase message) {
         Timber.d("Received incoming message: %s on %s", message.getClass().getSimpleName(), message.getContactKey());
+        Timber.i("Message content "+message.toString());
         if (message instanceof MessageClear) {
             processIncomingMessage((MessageClear) message);
         } else if (message instanceof MessageLocation) {
@@ -312,9 +314,19 @@ public class MessageProcessor {
             processIncomingMessage((MessageParkplatz) message);
         } else if (message instanceof MessageEmpfehlungParkplatz){ //Add new for EmpfelungParkplatz case
             processIncomingMessage((MessageEmpfehlungParkplatz) message);
+        } else if (message instanceof MessageWaypointToEntrance){
+            processIncomingMessage((MessageWaypointToEntrance) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageWaypointToEntrance message){
+        eventBus.post(message);
+        Timber.d("WaypointToEntrance processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        Timber.i("WaypointToEntrance message received: %s", message.getCoordinatesArray());
+        Timber.i("WaypointToEntrance message received around free parking spots: %s", message.getDistance());
+        Timber.i("WaypointToEntrance message received around free parking spots: %s", message.getDuration());
     }
 
     private void processIncomingMessage(MessageEmpfehlungParkplatz message){
