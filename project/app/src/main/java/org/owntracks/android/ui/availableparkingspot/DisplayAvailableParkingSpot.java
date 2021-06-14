@@ -16,17 +16,17 @@ import org.owntracks.android.R;
 import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.EntrancePosition;
 import org.owntracks.android.model.FieldNameEntranceAndCoordinate;
-import org.owntracks.android.support.Events;
 
 import java.util.ArrayList;
+
 
 public class DisplayAvailableParkingSpot extends AppCompatActivity {
     private TextView showInfoAvailableParkingSpot;
     private Spinner spinnerSelectAvailableParking;
     private Spinner spinnerSelectAvailableEntrance;
     private Button btnSubmitSelectedEntrance;
-    //private EventBus eventBus;
     public static DisplayAvailableParkingSpot instance = null;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,7 +102,8 @@ public class DisplayAvailableParkingSpot extends AppCompatActivity {
                         }
                     }
 
-                    EventBus.getDefault().post(new CoordinateEntrance(selectedPosition.get(0), selectedPosition.get(1))); //Longitude, Latitude
+
+                    EventBus.getDefault().post(new CoordinateEntrance(selectedParkingSpot, selectedEntrance, selectedPosition.get(0), selectedPosition.get(1))); //Longitude, Latitude
                     finish();
                 }
             });

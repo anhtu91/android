@@ -2,13 +2,34 @@ package org.owntracks.android.model;
 
 
 public class CoordinateEntrance{
+    private String keyIDEntrance;
+    private String fieldNameEntrance;
     private double Longitude;
     private double Latitude;
 
-    public CoordinateEntrance(double longitude, double langtitude) {
+    public CoordinateEntrance(String keyIDEntrance, String fieldNameEntrance, double longitude, double latitude) {
+        this.keyIDEntrance = keyIDEntrance;
+        this.fieldNameEntrance = fieldNameEntrance;
         Longitude = longitude;
-        Latitude = langtitude;
+        Latitude = latitude;
     }
+
+    public String getKeyIDEntrance() {
+        return keyIDEntrance;
+    }
+
+    public void setKeyIDEntrance(String keyIDEntrance) {
+        this.keyIDEntrance = keyIDEntrance;
+    }
+
+    public String getFieldNameEntrance() {
+        return fieldNameEntrance;
+    }
+
+    public void setFieldNameEntrance(String fieldNameEntrance) {
+        this.fieldNameEntrance = fieldNameEntrance;
+    }
+
 
     public double getLongitude() {
         return Longitude;

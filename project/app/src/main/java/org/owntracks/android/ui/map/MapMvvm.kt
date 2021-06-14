@@ -6,9 +6,7 @@ import com.google.android.gms.maps.GoogleMap.OnMapClickListener
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.LocationSource
 import com.google.android.gms.maps.model.LatLng
-import org.owntracks.android.model.CoordinateEntrance
 import org.owntracks.android.model.FusedContact
-import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz
 import org.owntracks.android.ui.base.view.MvvmView
 import org.owntracks.android.ui.base.viewmodel.MvvmViewModel
 

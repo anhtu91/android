@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -33,11 +34,15 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CustomCap;
+import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.RoundCap;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -50,15 +55,15 @@ import org.owntracks.android.data.repos.LocationRepo;
 import org.owntracks.android.databinding.UiMapBinding;
 import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
+import org.owntracks.android.model.messages.MessageTransmittSelectedEntrance;
 import org.owntracks.android.services.BackgroundService;
 import org.owntracks.android.services.LocationProcessor;
+import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.services.MessageProcessorEndpointHttp;
 import org.owntracks.android.support.ContactImageProvider;
 import org.owntracks.android.support.Events;
 import org.owntracks.android.support.GeocodingProvider;
 import org.owntracks.android.support.RunThingsOnOtherThreads;
-import org.owntracks.android.support.drawMapRoute.FetchURL;
-import org.owntracks.android.support.drawMapRoute.TaskLoadedCallback;
 import org.owntracks.android.support.widgets.BindingConversions;
 import org.owntracks.android.ui.base.BaseActivity;
 import org.owntracks.android.ui.welcome.WelcomeActivity;
@@ -72,7 +77,7 @@ import javax.inject.Inject;
 
 import timber.log.Timber;
 
-public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> implements MapMvvm.View, View.OnClickListener, View.OnLongClickListener, PopupMenu.OnMenuItemClickListener, OnMapReadyCallback, Observer, TaskLoadedCallback {
+public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> implements MapMvvm.View, View.OnClickListener, View.OnLongClickListener, PopupMenu.OnMenuItemClickListener, OnMapReadyCallback, Observer {
     public static final String BUNDLE_KEY_CONTACT_ID = "BUNDLE_KEY_CONTACT_ID";
     private static final long ZOOM_LEVEL_STREET = 15;
     private final int PERMISSIONS_REQUEST_CODE = 1;
@@ -82,7 +87,9 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
     private boolean isMapReady = false;
     private Menu mMenu;
-    private Polyline currentPolyline;
+
+    @Inject
+    MessageProcessor messageProcessor;
 
     private FusedLocationProviderClient fusedLocationClient;
     LocationCallback locationRepoUpdaterCallback = new LocationCallback() {
@@ -166,7 +173,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         }
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        //EventBus.getDefault().register(this); //Subscriber EventBus
     }
 
     private void checkAndRequestLocationPermissions() {
@@ -515,55 +521,65 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         contactImageProvider.setMarkerAsync(marker, contact);
     }
 
-    /*
-    @Override
-    public void updateMarkerForEmpfehlungParkPlatz(CoordinateEntrance messageLongLatitude){
-        Timber.i("MAPACTIVITY MessageEmpfehlungParkplatz "+messageLongLatitude.toString());
-
-        Marker recommendParkingSpot;
-
-        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageLongLatitude.getLangtitude(), messageLongLatitude.getLongitude())));
-        markers.put("Selected entrance", recommendParkingSpot);
-
-        //new FetchURL
-    }*/
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(CoordinateEntrance messageLongLatitude){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
-        Timber.i("Coordinate Entrance "+messageLongLatitude.toString());
-
+    public void onEvent(CoordinateEntrance messageSelectedEntrance){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
+        Timber.i("Coordinate Entrance "+messageSelectedEntrance.toString());
+        /*
         Marker recommendParkingSpot;
 
-        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageLongLatitude.getLangtitude(), messageLongLatitude.getLongitude())));
+        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
         markers.put("Selected entrance", recommendParkingSpot);
 
         Timber.i("Map Activity Current location "+viewModel.getCurrentLocation());
-        FetchURL fetchURL = new FetchURL(MapActivity.this);
-        fetchURL.execute(getUrl(viewModel.getCurrentLocation(),recommendParkingSpot.getPosition(), "driving"), "driving");
+        Polyline polyline = googleMap.addPolyline(new PolylineOptions().clickable(true).width(10).color(R.color.md_light_blue_500).add(
+           new LatLng(51.50672, 7.455159), new LatLng(51.506289, 7.455231), new LatLng(51.505603, 7.455342), new LatLng(51.505577, 7.455724)
+        ));*/
+
+        //polyline.setTag("A");
+        //stylePolyline(polyline);
+
+        MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
+        message.setSelectedKeyIDEntrance(messageSelectedEntrance.getKeyIDEntrance());
+        message.setSelectedFieldNameEntrance(messageSelectedEntrance.getFieldNameEntrance());
+        message.setLatitudeSelectedEntrance(messageSelectedEntrance.getLangtitude());
+        message.setLongitudeSelectedEntrance(messageSelectedEntrance.getLongitude());
+        message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
+        message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
+        messageProcessor.queueMessageForSending(message);
     }
 
-    private String getUrl(LatLng origin, LatLng dest, String directionMode) {
-        // Origin of route
-        String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
-        // Destination of route
-        String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
-        // Mode
-        String mode = "mode=" + directionMode;
-        // Building the parameters to the web service
-        String parameters = str_origin + "&" + str_dest + "&" + mode;
-        // Output format
-        String output = "json";
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_maps_key);
-        return url;
-    }
 
-    @Override
-    public void onTaskDone(Object... values) {
-        if (currentPolyline != null)
-            currentPolyline.remove();
-        currentPolyline = googleMap.addPolyline((PolylineOptions) values[0]);
-    }
+    /*private static final int COLOR_BLACK_ARGB = 0xff000000;
+    private static final int POLYLINE_STROKE_WIDTH_PX = 12;
+    */
+    /*
+    private void stylePolyline(Polyline polyline) {
+        String type = "";
+        // Get the data object stored with the polyline.
+        if (polyline.getTag() != null) {
+            type = polyline.getTag().toString();
+        }
+
+        switch (type) {
+            // If no type is given, allow the API to use the default.
+            case "A":
+                // Use a custom bitmap as the cap at the start of the line.
+                polyline.setStartCap(
+                        new CustomCap(
+                                BitmapDescriptorFactory.fromResource(R.drawable.ic_arrow), 10));
+                break;
+            case "B":
+                // Use a round cap at the start of the line.
+                polyline.setStartCap(new RoundCap());
+                break;
+        }
+
+        polyline.setEndCap(new RoundCap());
+        polyline.setWidth(POLYLINE_STROKE_WIDTH_PX);
+        polyline.setColor(COLOR_BLACK_ARGB);
+        polyline.setJointType(JointType.ROUND);
+    }*/
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
