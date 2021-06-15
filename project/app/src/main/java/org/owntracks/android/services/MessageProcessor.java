@@ -2,6 +2,7 @@ package org.owntracks.android.services;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.EventLog;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.greenrobot.eventbus.EventBus;
@@ -314,7 +315,7 @@ public class MessageProcessor {
             processIncomingMessage((MessageParkplatz) message);
         } else if (message instanceof MessageEmpfehlungParkplatz){ //Add new for EmpfelungParkplatz case
             processIncomingMessage((MessageEmpfehlungParkplatz) message);
-        } else if (message instanceof MessageWaypointToEntrance){
+        } else if (message instanceof MessageWaypointToEntrance){ //When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
             processIncomingMessage((MessageWaypointToEntrance) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
@@ -322,7 +323,7 @@ public class MessageProcessor {
     }
 
     private void processIncomingMessage(MessageWaypointToEntrance message){
-        eventBus.post(message);
+        EventBus.getDefault().post(message);
         Timber.d("WaypointToEntrance processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("WaypointToEntrance message received: %s", message.getCoordinatesArray());
         Timber.i("WaypointToEntrance message received around free parking spots: %s", message.getDistance());

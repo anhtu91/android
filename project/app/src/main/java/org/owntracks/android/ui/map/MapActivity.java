@@ -534,14 +534,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
         markers.put("Selected entrance", recommendParkingSpot);
 
-        /*Timber.i("Map Activity Current location "+viewModel.getCurrentLocation());
-        Polyline polyline = googleMap.addPolyline(new PolylineOptions().clickable(true).width(10).color(R.color.md_light_blue_500).add(
-           new LatLng(51.50672, 7.455159), new LatLng(51.506289, 7.455231), new LatLng(51.505603, 7.455342), new LatLng(51.505577, 7.455724)
-        ));*/
-
-        //polyline.setTag("A");
-        //stylePolyline(polyline);
-
         //Send MQTT message to get waypoints from OSRM
         MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
         message.setSelectedKeyIDEntrance(messageSelectedEntrance.getKeyIDEntrance());
@@ -562,40 +554,23 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             latlonWaypointToEntrance.add(new LatLng(messageWaypointToEntrance.getCoordinatesArray().get(i).get(1), messageWaypointToEntrance.getCoordinatesArray().get(i).get(0)));
         }
 
-        polylineOptions.clickable(true).addAll(latlonWaypointToEntrance);
+        polylineOptions.clickable(true).color(Color.BLUE).addAll(latlonWaypointToEntrance);
+
+        if(currentPolyline != null){
+            currentPolyline.remove();
+        }
         currentPolyline = googleMap.addPolyline(polylineOptions);
+
+        //Send MQTT message to get waypoints from OSRM
+        MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
+        message.setSelectedKeyIDEntrance(messageWaypointToEntrance.getSelectedKeyIDEntrance());
+        message.setSelectedFieldNameEntrance(messageWaypointToEntrance.getSelectedFieldNameEntrance());
+        message.setLatitudeSelectedEntrance(messageWaypointToEntrance.getLatitudeSelectedEntrance());
+        message.setLongitudeSelectedEntrance(messageWaypointToEntrance.getLongitudeSelectedEntrance());
+        message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
+        message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
+        messageProcessor.queueMessageForSending(message);
     }
-
-    /*private static final int COLOR_BLACK_ARGB = 0xff000000;
-    private static final int POLYLINE_STROKE_WIDTH_PX = 12;
-    */
-    /*
-    private void stylePolyline(Polyline polyline) {
-        String type = "";
-        // Get the data object stored with the polyline.
-        if (polyline.getTag() != null) {
-            type = polyline.getTag().toString();
-        }
-
-        switch (type) {
-            // If no type is given, allow the API to use the default.
-            case "A":
-                // Use a custom bitmap as the cap at the start of the line.
-                polyline.setStartCap(
-                        new CustomCap(
-                                BitmapDescriptorFactory.fromResource(R.drawable.ic_arrow), 10));
-                break;
-            case "B":
-                // Use a round cap at the start of the line.
-                polyline.setStartCap(new RoundCap());
-                break;
-        }
-
-        polyline.setEndCap(new RoundCap());
-        polyline.setWidth(POLYLINE_STROKE_WIDTH_PX);
-        polyline.setColor(COLOR_BLACK_ARGB);
-        polyline.setJointType(JointType.ROUND);
-    }*/
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
