@@ -309,7 +309,6 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     private void updateOngoingNotification() {
         notificationManager.notify(NOTIFICATION_ID_ONGOING, getOngoingNotification());
         Timber.d("Update Ongoing Notification");
-        //notificationManager.notify(NOTIFICATION_ID_ONGOING, displayParkplatzMessage());
     }
 
     private Notification getOngoingNotification() {

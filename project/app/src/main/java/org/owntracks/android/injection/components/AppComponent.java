@@ -40,5 +40,4 @@ public interface AppComponent extends AndroidInjector<DaggerApplication>  {
     void inject(MQTTMaybeReconnectAndPingWorker worker);
     void inject(MQTTReconnectWorker worker);
     void inject(SendLocationPingWorker worker);
-
 }

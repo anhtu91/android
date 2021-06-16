@@ -228,12 +228,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         getView().removeMarker(c.getContact());
     }
 
-    /*@Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(CoordinateEntrance messageLongLatitude){ //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
-        Timber.i("MAPVIEWMODEL MessageEmpfehlungParkplatz "+messageLongLatitude.toString());
-        //getView().updateMarkerForEmpfehlungParkPlatz(messageLongLatitude);
-    }*/
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(FusedContact c) {
         getView().updateMarker(c);

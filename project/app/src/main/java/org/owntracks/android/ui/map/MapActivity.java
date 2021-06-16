@@ -61,6 +61,7 @@ import org.owntracks.android.services.BackgroundService;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.services.MessageProcessorEndpointHttp;
+import org.owntracks.android.services.worker.Scheduler;
 import org.owntracks.android.support.ContactImageProvider;
 import org.owntracks.android.support.Events;
 import org.owntracks.android.support.GeocodingProvider;
@@ -90,6 +91,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private boolean isMapReady = false;
     private Menu mMenu;
     private Polyline currentPolyline;
+    private Thread threadSendWaypointToEntrance;
 
     @Inject
     MessageProcessor messageProcessor;
@@ -115,6 +117,12 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
     @Inject
     EventBus eventBus;
+
+    @Inject
+    LocationProcessor locationProcessor;
+
+    @Inject
+    Scheduler scheduler;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -176,6 +184,9 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         }
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        if(currentPolyline != null){
+            currentPolyline.remove();
+        }
     }
 
     private void checkAndRequestLocationPermissions() {
@@ -407,7 +418,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         int itemId = item.getItemId();
         if (itemId == R.id.menu_report) {
             viewModel.sendLocation();
-
             return true;
         } else if (itemId == R.id.menu_mylocation) {
             viewModel.onMenuCenterDeviceClicked();
@@ -532,6 +542,11 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         Marker recommendParkingSpot;
 
         recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
+
+        if(markers.containsKey("Selected entrance")){
+            markers.remove("Selected entrance");
+        }
+
         markers.put("Selected entrance", recommendParkingSpot);
 
         //Send MQTT message to get waypoints from OSRM
@@ -543,6 +558,37 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
         message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
         messageProcessor.queueMessageForSending(message);
+
+        runThreadSendWaypointToEntrance(messageSelectedEntrance.getKeyIDEntrance(), messageSelectedEntrance.getFieldNameEntrance(), messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude());
+    }
+
+    private void runThreadSendWaypointToEntrance(String keyIDEntrance, String fieldNameEntrance, double latitudeSelectedEntrance, double longitudeSelectedEntrance){
+        threadSendWaypointToEntrance = new Thread(){
+            @Override
+            public void run() {
+                try{
+                    while(true){
+                        MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
+                        message.setSelectedKeyIDEntrance(keyIDEntrance);
+                        message.setSelectedFieldNameEntrance(fieldNameEntrance);
+                        message.setLatitudeSelectedEntrance(latitudeSelectedEntrance);
+                        message.setLongitudeSelectedEntrance(longitudeSelectedEntrance);
+                        message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
+                        message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
+                        messageProcessor.queueMessageForSending(message);
+                        sleep(1000);
+                    }
+                }catch (Exception e){
+                    Timber.e("Error "+e.toString());
+                }
+            }
+        };
+
+        threadSendWaypointToEntrance.start();
+    }
+
+    private void cancelThreadSendWaypointToEntrance(){
+        threadSendWaypointToEntrance.interrupt();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -560,16 +606,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             currentPolyline.remove();
         }
         currentPolyline = googleMap.addPolyline(polylineOptions);
-
-        //Send MQTT message to get waypoints from OSRM
-        MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
-        message.setSelectedKeyIDEntrance(messageWaypointToEntrance.getSelectedKeyIDEntrance());
-        message.setSelectedFieldNameEntrance(messageWaypointToEntrance.getSelectedFieldNameEntrance());
-        message.setLatitudeSelectedEntrance(messageWaypointToEntrance.getLatitudeSelectedEntrance());
-        message.setLongitudeSelectedEntrance(messageWaypointToEntrance.getLongitudeSelectedEntrance());
-        message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
-        message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
-        messageProcessor.queueMessageForSending(message);
     }
 
     @Override

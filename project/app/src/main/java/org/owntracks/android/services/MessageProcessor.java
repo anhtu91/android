@@ -323,7 +323,7 @@ public class MessageProcessor {
     }
 
     private void processIncomingMessage(MessageWaypointToEntrance message){
-        EventBus.getDefault().post(message);
+        EventBus.getDefault().post(message); //Post to MAIN thread. Methode onEvent(MessageWaypointToEntrance messageWaypointToEntrance)
         Timber.d("WaypointToEntrance processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("WaypointToEntrance message received: %s", message.getCoordinatesArray());
         Timber.i("WaypointToEntrance message received around free parking spots: %s", message.getDistance());

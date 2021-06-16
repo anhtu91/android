@@ -102,7 +102,6 @@ public class DisplayAvailableParkingSpot extends AppCompatActivity {
                         }
                     }
 
-
                     EventBus.getDefault().post(new CoordinateEntrance(selectedParkingSpot, selectedEntrance, selectedPosition.get(0), selectedPosition.get(1))); //Longitude, Latitude
                     finish();
                 }
@@ -114,25 +113,9 @@ public class DisplayAvailableParkingSpot extends AppCompatActivity {
                 showInfoAvailableParkingSpot.setText("You are in parking spot "+keyID+ " - "+fieldName+"\nat "+time+" on "+date+".\nBut this parking spot is full.\nThere is no available parking spot\nin one kilometer around here.\nTouch to close this window.");
             }
         }
-        /*
-        showInfoAvailableParkingSpot.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                finish();
-                return true;
-            }
-        });
-        */
         instance = this;
     }
 
-    /*
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        finish();
-        return super.onTouchEvent(event);
-    }
-    */
     @Override
     public void finish() {
         super.finish();

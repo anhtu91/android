@@ -21,7 +21,6 @@ interface MapMvvm {
         fun enableLocationMenus()
         fun updateMonitoringModeMenu()
 
-        //fun updateMarkerForEmpfehlungParkPlatz(messageLongLatitude: CoordinateEntrance) //For case: parking spot is full and recommend new parking spot around. Receive Longitude and Latitude of selected entrance
     }
 
     interface ViewModel<V : MvvmView?> : MvvmViewModel<V> {
