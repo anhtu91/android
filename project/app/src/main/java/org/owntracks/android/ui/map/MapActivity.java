@@ -93,6 +93,12 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private Polyline currentPolyline;
     private Thread threadSendWaypointToEntrance;
 
+    private String lastKeyIDSelectedEntrance = null;
+    private String lastFieldNameSelectedEntrance = null;
+    private double latitudeSelectedEntrance = 0;
+    private double longitudeSelectedEntrance = 0;
+    private boolean sendEntranceMessage = false;
+
     @Inject
     MessageProcessor messageProcessor;
 
@@ -288,7 +294,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                 this.isMapReady = true;
                 viewModel.onMapReady();
             }
-
         } catch (Exception e) {
             Timber.e(e, "Not showing map due to crash in Google Maps library");
             isMapReady = false;
@@ -397,18 +402,25 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             case LocationProcessor.MONITORING_QUIET:
                 item.setIcon(R.drawable.ic_baseline_stop_36);
                 item.setTitle(R.string.monitoring_quiet);
+                sendEntranceMessage = false;
+                cancelThreadSendWaypointToEntrance(); //Stop sending MQTT message to get waypoint to entrance of parking spot when current parking spot full
                 break;
             case LocationProcessor.MONITORING_MANUAL:
                 item.setIcon(R.drawable.ic_baseline_pause_36);
                 item.setTitle(R.string.monitoring_manual);
+                sendEntranceMessage = false;
+                cancelThreadSendWaypointToEntrance(); //Stop sending MQTT message to get waypoint to entrance of parking spot when current parking spot full
                 break;
             case LocationProcessor.MONITORING_SIGNIFICANT:
                 item.setIcon(R.drawable.ic_baseline_play_arrow_36);
                 item.setTitle(R.string.monitoring_significant);
+                sendEntranceMessage = false;
                 break;
             case LocationProcessor.MONITORING_MOVE:
                 item.setIcon(R.drawable.ic_step_forward_2);
                 item.setTitle(R.string.monitoring_move);
+                sendEntranceMessage = true;
+                runThreadSelectedEntrance();
                 break;
         }
     }
@@ -418,6 +430,9 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         int itemId = item.getItemId();
         if (itemId == R.id.menu_report) {
             viewModel.sendLocation();
+            //Send MQTT message to get waypoint to entrance
+            sendEntranceMessage = true;
+            sendSelectedEtrance();
             return true;
         } else if (itemId == R.id.menu_mylocation) {
             viewModel.onMenuCenterDeviceClicked();
@@ -549,37 +564,28 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
         markers.put("Selected entrance", recommendParkingSpot);
 
-        //Send MQTT message to get waypoints from OSRM
-        MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
-        message.setSelectedKeyIDEntrance(messageSelectedEntrance.getKeyIDEntrance());
-        message.setSelectedFieldNameEntrance(messageSelectedEntrance.getFieldNameEntrance());
-        message.setLatitudeSelectedEntrance(messageSelectedEntrance.getLangtitude());
-        message.setLongitudeSelectedEntrance(messageSelectedEntrance.getLongitude());
-        message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
-        message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
-        messageProcessor.queueMessageForSending(message);
+        sendEntranceMessage = true;
+        lastKeyIDSelectedEntrance = messageSelectedEntrance.getKeyIDEntrance();
+        lastFieldNameSelectedEntrance = messageSelectedEntrance.getFieldNameEntrance();
+        latitudeSelectedEntrance = messageSelectedEntrance.getLangtitude();
+        longitudeSelectedEntrance = messageSelectedEntrance.getLongitude();
 
-        runThreadSendWaypointToEntrance(messageSelectedEntrance.getKeyIDEntrance(), messageSelectedEntrance.getFieldNameEntrance(), messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude());
+        runThreadSelectedEntrance();
     }
 
-    private void runThreadSendWaypointToEntrance(String keyIDEntrance, String fieldNameEntrance, double latitudeSelectedEntrance, double longitudeSelectedEntrance){
+    private void runThreadSelectedEntrance(){ //(String keyIDEntrance, String fieldNameEntrance, double latitudeSelectedEntrance, double longitudeSelectedEntrance){
         threadSendWaypointToEntrance = new Thread(){
             @Override
             public void run() {
                 try{
-                    while(true){
-                        MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
-                        message.setSelectedKeyIDEntrance(keyIDEntrance);
-                        message.setSelectedFieldNameEntrance(fieldNameEntrance);
-                        message.setLatitudeSelectedEntrance(latitudeSelectedEntrance);
-                        message.setLongitudeSelectedEntrance(longitudeSelectedEntrance);
-                        message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
-                        message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
-                        messageProcessor.queueMessageForSending(message);
-                        sleep(1000);
+                    if(sendEntranceMessage && lastKeyIDSelectedEntrance != null && lastFieldNameSelectedEntrance != null && latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
+                        while(true){
+                            sendSelectedEtrance();
+                            sleep(1000);
+                        }
                     }
                 }catch (Exception e){
-                    Timber.e("Error "+e.toString());
+                    Timber.e("Error while running thread to send selected entrance "+e.toString());
                 }
             }
         };
@@ -589,6 +595,19 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
     private void cancelThreadSendWaypointToEntrance(){
         threadSendWaypointToEntrance.interrupt();
+    }
+
+    private void sendSelectedEtrance(){  //Send MQTT message to NodeRED to get waypoints from OSRM
+        if(sendEntranceMessage && lastKeyIDSelectedEntrance != null && lastFieldNameSelectedEntrance != null && latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
+            MessageTransmittSelectedEntrance message = new MessageTransmittSelectedEntrance();
+            message.setSelectedKeyIDEntrance(lastKeyIDSelectedEntrance);
+            message.setSelectedFieldNameEntrance(lastFieldNameSelectedEntrance);
+            message.setLatitudeSelectedEntrance(latitudeSelectedEntrance);
+            message.setLongitudeSelectedEntrance(longitudeSelectedEntrance);
+            message.setCurrentLatitude(viewModel.getCurrentLocation().latitude);
+            message.setCurrentLongitude(viewModel.getCurrentLocation().longitude);
+            messageProcessor.queueMessageForSending(message);
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

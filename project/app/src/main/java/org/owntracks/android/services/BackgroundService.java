@@ -14,7 +14,6 @@ import android.location.Location;
 import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Looper;
 import android.text.Spannable;
@@ -43,10 +42,9 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.owntracks.android.model.EntrancePosition;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
-import org.owntracks.android.ui.availableparkingspot.DisplayAvailableParkingSpot;
+import org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
@@ -67,7 +65,6 @@ import org.owntracks.android.support.ServiceBridge;
 import org.owntracks.android.support.preferences.OnModeChangedPreferenceChangedListener;
 import org.owntracks.android.ui.map.MapActivity;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -669,6 +666,10 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
             QrCodePopUp.instance.finish();
         }
 
+        if(AvailableParkingSpotPopUp.instance != null){
+            AvailableParkingSpotPopUp.instance.finish();
+        }
+
         //Add JWT to sqlite
         SQLiteForLastJWTs sqLiteForLastJWTs = new SQLiteForLastJWTs(getApplicationContext());
         sqLiteForLastJWTs.insertLastJWT(String.valueOf(message.getJwt()));
@@ -687,8 +688,16 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     public void onEvent(MessageEmpfehlungParkplatz message) {
         Timber.d("MessageEmpfehlungParkplatz in BackgroundService received %s", message);
 
+        if(QrCodePopUp.instance != null){
+            QrCodePopUp.instance.finish();
+        }
+
+        if(AvailableParkingSpotPopUp.instance != null){
+            AvailableParkingSpotPopUp.instance.finish();
+        }
+
         //Display message
-        Intent intent = new Intent(getApplicationContext(), DisplayAvailableParkingSpot.class);
+        Intent intent = new Intent(getApplicationContext(), AvailableParkingSpotPopUp.class);
 
         intent.putExtra("AvailableParkingKeyID", message.getKeyID());
         intent.putExtra("AvailableParkingFieldName", message.getFieldName());

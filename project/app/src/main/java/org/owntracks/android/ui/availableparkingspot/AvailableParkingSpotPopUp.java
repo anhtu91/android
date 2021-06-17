@@ -20,12 +20,12 @@ import org.owntracks.android.model.FieldNameEntranceAndCoordinate;
 import java.util.ArrayList;
 
 
-public class DisplayAvailableParkingSpot extends AppCompatActivity {
+public class AvailableParkingSpotPopUp extends AppCompatActivity {
     private TextView showInfoAvailableParkingSpot;
     private Spinner spinnerSelectAvailableParking;
     private Spinner spinnerSelectAvailableEntrance;
     private Button btnSubmitSelectedEntrance;
-    public static DisplayAvailableParkingSpot instance = null;
+    public static AvailableParkingSpotPopUp instance = null;
 
 
     @Override
