@@ -163,17 +163,6 @@ public class Events {
         }
     }
 
-    /*
-    public static class CoordinateEntranceRecommendParkingSpot extends E{
-        private final CoordinateEntrance coordinateEntrance;
-
-        public CoordinateEntranceRecommendParkingSpot(CoordinateEntrance coordinateEntrance) {
-            this.coordinateEntrance = coordinateEntrance;
-        }
-
-        public CoordinateEntrance getCoordinateEntrance() { return this.coordinateEntrance; }
-    }*/
-
     public static class FusedContactAdded extends E {
         private final FusedContact fusedContact;
 

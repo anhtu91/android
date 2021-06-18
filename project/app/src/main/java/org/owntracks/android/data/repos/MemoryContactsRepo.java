@@ -102,7 +102,7 @@ public class MemoryContactsRepo implements ContactsRepo {
             c.setMessageCard(m);
             contactImageProvider.invalidateCacheLevelCard(c.getId());
 
-            put(id, c);
+            put(id, c); //Save to hashMap
             revision++;
             eventBus.post(new Events.FusedContactAdded(c));
         }

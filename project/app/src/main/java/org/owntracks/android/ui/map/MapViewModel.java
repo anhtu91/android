@@ -2,6 +2,7 @@ package org.owntracks.android.ui.map;
 
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.Polyline;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -34,7 +36,7 @@ import javax.inject.Inject;
 import timber.log.Timber;
 
 @PerActivity
-public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm.ViewModel<MapMvvm.View>, LocationSource, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener {
+public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm.ViewModel<MapMvvm.View>, LocationSource, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener{
     private final ContactsRepo contactsRepo;
     private final LocationProcessor locationProcessor;
     private FusedContact activeContact;
@@ -117,7 +119,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     public void sendLocation() {
         locationProcessor.publishLocationMessage(MessageLocation.REPORT_TYPE_USER);
     }
-
 
     private void setViewModeContact(@NonNull String contactId, boolean center) {
         FusedContact c = contactsRepo.getById(contactId);

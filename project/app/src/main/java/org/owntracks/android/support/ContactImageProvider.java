@@ -139,8 +139,10 @@ public class ContactImageProvider {
         TidBitmap td = memoryCache.getLevelTid(contact.getId());
         // if cache doesn't contain a bitmap for a contact or if the cached bitmap was for an old tid, create a new one and cache it
         if (td == null || !td.isBitmapFor(contact.getTrackerId())) {
-            td = new TidBitmap(contact.getTrackerId(), drawableToBitmap(TextDrawable.builder().buildRoundRect(contact.getTrackerId(), TextDrawable.ColorGenerator.MATERIAL.getColor(contact.getId()), FACE_DIMENSIONS)));
-            memoryCache.putLevelTid(contact.getId(), td);
+            //td = new TidBitmap(contact.getTrackerId(), drawableToBitmap(TextDrawable.builder().buildRoundRect(contact.getTrackerId(), TextDrawable.ColorGenerator.MATERIAL.getColor(contact.getId()), FACE_DIMENSIONS)));
+            //memoryCache.putLevelTid(contact.getId(), td);
+            td = new TidBitmap("You", drawableToBitmap(TextDrawable.builder().buildRoundRect("You", TextDrawable.ColorGenerator.MATERIAL.getColor("You"), FACE_DIMENSIONS)));
+            memoryCache.putLevelTid("You", td);
         }
 
         return td.getBitmap();
