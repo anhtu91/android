@@ -6,7 +6,9 @@ import com.google.android.gms.maps.GoogleMap.OnMapClickListener
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.LocationSource
 import com.google.android.gms.maps.model.LatLng
+import org.owntracks.android.model.CoordinateEntrance
 import org.owntracks.android.model.FusedContact
+import org.owntracks.android.model.messages.MessageWaypointToEntrance
 import org.owntracks.android.ui.base.view.MvvmView
 import org.owntracks.android.ui.base.viewmodel.MvvmViewModel
 
@@ -20,7 +22,9 @@ interface MapMvvm {
         fun clearMarkers()
         fun enableLocationMenus()
         fun updateMonitoringModeMenu()
-
+        fun updateWaypointToEntrance(messageWaypointToEntrance: MessageWaypointToEntrance)
+        fun runThreadSelectedEntrance()
+        fun addMarkerEntranceToMap(messageSelectedEntrance: CoordinateEntrance)
     }
 
     interface ViewModel<V : MvvmView?> : MvvmViewModel<V> {
@@ -33,15 +37,14 @@ interface MapMvvm {
         fun onBottomSheetClick()
         fun onMenuCenterDeviceClicked()
         fun onClearContactClicked()
-        fun restore(contactId: String?)
         fun hasLocation(): Boolean
         fun onMapReady()
         val mapLocationSource: LocationSource?
         val onMapClickListener: OnMapClickListener?
         val onMarkerClickListener: OnMarkerClickListener?
-        val contact: LiveData<FusedContact?>?
         val bottomSheetHidden: LiveData<Boolean?>?
         val center: LiveData<LatLng?>?
+        val waypoint: LiveData<MessageWaypointToEntrance?>?
         fun sendLocation()
     }
 }

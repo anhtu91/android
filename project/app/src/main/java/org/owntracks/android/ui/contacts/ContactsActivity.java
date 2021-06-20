@@ -17,7 +17,7 @@ import org.owntracks.android.ui.base.BaseActivity;
 import java.util.Collections;
 
 
-public class ContactsActivity extends BaseActivity<UiContactsBinding, ContactsMvvm.ViewModel> implements ContactsMvvm.View, org.owntracks.android.ui.contacts.ContactsAdapter.ClickListener {
+public class ContactsActivity extends BaseActivity<UiContactsBinding, ContactsMvvm.ViewModel> implements ContactsMvvm.View/*, org.owntracks.android.ui.contacts.ContactsAdapter.ClickListener*/ {
     private ObservableList<FusedContact> mList;
 
     @Override
@@ -30,13 +30,13 @@ public class ContactsActivity extends BaseActivity<UiContactsBinding, ContactsMv
         setDrawer(binding.toolbar);
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.recyclerView.setAdapter(new ContactsAdapter(mList, this));
+        //binding.recyclerView.setAdapter(new ContactsAdapter(mList, this));
     }
 
-    @Override
+    /*@Override
     public void onClick(@NonNull FusedContact object, @NonNull View view, boolean longClick) {
         viewModel.onContactClick(object);
-    }
+    }*/
 
     @Override
     public void onResume() {

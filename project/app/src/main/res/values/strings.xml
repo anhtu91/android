@@ -52,7 +52,7 @@
     <string name="menuContactNavigate">Navigate</string>
     <string name="menuCurrentLoction">Current location</string>
     <string name="menuImportQRCode">Import QR Code</string>
-    <string name="contactDetailsAccuracy">Accuracy</string>
+    <string name="contactDetailsDuration">Duration in minute</string>
     <string name="contactDetailsTopic">Identifier</string>
     <string name="waypointListPlaceholder">No regions defined yet</string>
     <string name="importConfig">Import</string>
@@ -168,7 +168,7 @@
     <string name="notificationChangeMonitoring">Change Monitoring</string>
     <string name="preferencesDebugLog">Debug log</string>
     <string name="monitoring_mode">Monitoring</string>
-    <string name="distance_label">Distance</string>
+    <string name="distance_label">Distance in meter</string>
     <string name="preferencesClientId">Client ID</string>
     <string name="status_endpoint_state_hint">Endpoint state</string>
     <string name="status_endpoint_state_message_hint">Endpoint state message</string>

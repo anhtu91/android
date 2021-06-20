@@ -52,7 +52,7 @@
     <string name="menuContactNavigate">Naviguer</string>
     <string name="menuCurrentLoction">Localisation actuelle</string>
     <string name="menuImportQRCode">Importer le code QR</string>
-    <string name="contactDetailsAccuracy">Précision</string>
+    <string name="contactDetailsDuration">Durée</string>
     <string name="contactDetailsTopic">Identifiant</string>
     <string name="waypointListPlaceholder">Aucune région définie</string>
     <string name="importConfig">importer</string>

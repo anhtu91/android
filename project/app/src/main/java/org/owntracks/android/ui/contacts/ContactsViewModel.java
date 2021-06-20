@@ -39,7 +39,7 @@ public class ContactsViewModel extends BaseViewModel<ContactsMvvm.View> implemen
         return contactsRepo.getAllAsList();
     }
 
-    @Override
+    /*@Override
     public void onContactClick(FusedContact c) {
         if(!c.hasLocation())
             return;
@@ -47,7 +47,7 @@ public class ContactsViewModel extends BaseViewModel<ContactsMvvm.View> implemen
         Bundle b = new Bundle();
         b.putString(MapActivity.BUNDLE_KEY_CONTACT_ID, c.getId());
         navigator.startActivity(MapActivity.class, b);
-    }
+    }*/
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(Events.FusedContactAdded c) {

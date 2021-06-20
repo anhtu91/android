@@ -92,8 +92,8 @@ public class DrawerProvider {
                 .withStickyFooterDivider(true)
                 .addDrawerItems(
                         drawerItemForClass(activity, MapActivity.class, R.string.title_activity_map, R.drawable.ic_baseline_layers_24),
-                        drawerItemForClass(activity, ContactsActivity.class, R.string.title_activity_contacts, R.drawable.ic_baseline_supervisor_account_24),
-                        drawerItemForClass(activity, RegionsActivity.class, R.string.title_activity_regions, R.drawable.ic_baseline_adjust_24),
+                        //drawerItemForClass(activity, ContactsActivity.class, R.string.title_activity_contacts, R.drawable.ic_baseline_supervisor_account_24),
+                        //drawerItemForClass(activity, RegionsActivity.class, R.string.title_activity_regions, R.drawable.ic_baseline_adjust_24),
                         drawerItemForClass(activity, ParkplatzActivity.class, R.string.title_activity_parkplatz, R.drawable.ic_baseline_qr_code_24),
                         drawerItemForClass(activity, LastQRCodesActivity.class, R.string.title_activity_lastqrcodes, R.drawable.ic_baseline_save_24))
                 .addStickyDrawerItems(

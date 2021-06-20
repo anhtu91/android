@@ -44,8 +44,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.EventBusException;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.jetbrains.annotations.NotNull;
 import org.owntracks.android.R;
 import org.owntracks.android.data.repos.LocationRepo;
 import org.owntracks.android.databinding.UiMapBinding;
@@ -77,7 +79,7 @@ import javax.inject.Inject;
 import timber.log.Timber;
 
 public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> implements MapMvvm.View, View.OnClickListener, View.OnLongClickListener, PopupMenu.OnMenuItemClickListener, OnMapReadyCallback, Observer {
-    public static final String BUNDLE_KEY_CONTACT_ID = "BUNDLE_KEY_CONTACT_ID";
+    //public static final String BUNDLE_KEY_CONTACT_ID = "BUNDLE_KEY_CONTACT_ID";
     private static final long ZOOM_LEVEL_STREET = 15;
     private final int PERMISSIONS_REQUEST_CODE = 1;
 
@@ -86,6 +88,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
     private boolean isMapReady = false;
     private Menu mMenu;
+
     private Polyline currentPolyline;
     private Thread threadSendWaypointToEntrance;
 
@@ -148,8 +151,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             isMapReady = false;
         }
         this.bottomSheetBehavior = BottomSheetBehavior.from(this.binding.bottomSheetLayout);
-        this.binding.contactPeek.contactRow.setOnClickListener(this);
-        this.binding.contactPeek.contactRow.setOnLongClickListener(this);
+        //this.binding.contactPeek.contactRow.setOnClickListener(this);
+        //this.binding.contactPeek.contactRow.setOnLongClickListener(this);
         this.binding.moreButton.setOnClickListener(this::showPopupMenu);
         setBottomSheetHidden();
 
@@ -164,7 +167,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         });
         params.setBehavior(behavior);
 
-        viewModel.getContact().observe(this, this);
+        viewModel.getWaypoint().observe(this, this);
         viewModel.getBottomSheetHidden().observe(this, o -> {
             if ((Boolean) o) {
                 setBottomSheetHidden();
@@ -213,37 +216,15 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     }
 
     @Override
-    public void onChanged(@Nullable Object activeContact) { //This displays and set name for bottomsheet
-        if (activeContact != null) {
-            FusedContact c = (FusedContact) activeContact;
-            Timber.v("for contact: %s", c.getId());
+    public void onChanged(@Nullable Object messageWaypointToEntrance) { //This displays and set name for bottomsheet
+        if (messageWaypointToEntrance != null) {
+            Timber.i("Receive string "+messageWaypointToEntrance.toString());
 
-            binding.contactPeek.name.setText(c.getFusedName());
-            if (c.hasLocation()) {
-                ContactImageProvider.setImageViewAsync(binding.contactPeek.image, c);
-                GeocodingProvider.resolve(c.getMessageLocation(), binding.contactPeek.location);
-                BindingConversions.setRelativeTimeSpanString(binding.contactPeek.locationDate, c.getTst());
-                binding.acc.setText(String.format(Locale.getDefault(), "%s m", c.getFusedLocationAccuracy()));
-                binding.tid.setText(c.getTrackerId());
-                binding.id.setText(c.getId());
-                if (viewModel.hasLocation()) {
-                    binding.distance.setVisibility(View.VISIBLE);
-                    binding.distanceLabel.setVisibility(View.VISIBLE);
+            MessageWaypointToEntrance waypointToEntrance = (MessageWaypointToEntrance) messageWaypointToEntrance;
+            binding.currentLocation.setText(R.string.na);
+            binding.distance.setText(waypointToEntrance.getDistance().toString());
+            binding.duration.setText(waypointToEntrance.getDuration().toString());
 
-                    float[] distance = new float[2];
-                    Location.distanceBetween(viewModel.getCurrentLocation().latitude, viewModel.getCurrentLocation().longitude, c.getLatLng().latitude, c.getLatLng().longitude, distance);
-
-                    binding.distance.setText(String.format(Locale.getDefault(), "%d m", Math.round(distance[0])));
-                } else {
-                    binding.distance.setVisibility(View.GONE);
-                    binding.distanceLabel.setVisibility(View.GONE);
-
-                }
-
-            } else {
-                binding.contactPeek.location.setText(R.string.na);
-                binding.contactPeek.locationDate.setText(R.string.na);
-            }
         }
     }
 
@@ -260,7 +241,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     @Override
     public void onStart() {
         super.onStart();
-        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -290,11 +270,12 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                 this.isMapReady = true;
                 viewModel.onMapReady();
             }
-        } catch (Exception e) {
+        } catch (EventBusException e) {
+            Timber.e(e, "EventBus Exception");
+        } catch (Exception e){
             Timber.e(e, "Not showing map due to crash in Google Maps library");
             isMapReady = false;
         }
-        handleIntentExtras(getIntent());
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -326,20 +307,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         );
     }
 
-    private void handleIntentExtras(Intent intent) {
-        Timber.v("handleIntentExtras");
-
-        Bundle b = navigator.getExtrasBundle(intent);
-        if (b != null) {
-            Timber.v("intent has extras from drawerProvider");
-            String contactId = b.getString(BUNDLE_KEY_CONTACT_ID);
-            if (contactId != null) {
-
-                viewModel.restore(contactId);
-            }
-        }
-    }
-
     @Override
     public void onLowMemory() {
         super.onLowMemory();
@@ -353,7 +320,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     @Override
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        handleIntentExtras(intent);
         try {
             binding.mapView.onLowMemory();
         } catch (Exception ignored) {
@@ -416,7 +382,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                 item.setIcon(R.drawable.ic_step_forward_2);
                 item.setTitle(R.string.monitoring_move);
                 sendEntranceMessage = true;
-                runThreadSelectedEntrance();
+                runThreadSelectedEntrance(); //Run thread again if a entrance is selected
                 break;
         }
     }
@@ -545,14 +511,11 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         contactImageProvider.setMarkerAsync(marker, contact);
     }
 
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(CoordinateEntrance messageSelectedEntrance){ //For case: parking spot is full and recommend new parking spot around. Receive Info of selected entrance from UI
-        Timber.i("Coordinate Entrance "+messageSelectedEntrance.toString());
-
+    public void addMarkerEntranceToMap(CoordinateEntrance messageSelectedEntrance){
         Marker recommendParkingSpot;
 
         recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
+        recommendParkingSpot.setTag("Selected entrance");
 
         if(markers.containsKey("Selected entrance")){
             markers.remove("Selected entrance");
@@ -569,7 +532,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         runThreadSelectedEntrance();
     }
 
-    private void runThreadSelectedEntrance(){ //(String keyIDEntrance, String fieldNameEntrance, double latitudeSelectedEntrance, double longitudeSelectedEntrance){
+    public void runThreadSelectedEntrance(){
+
         threadSendWaypointToEntrance = new Thread(){
             @Override
             public void run() {
@@ -577,7 +541,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                     if(sendEntranceMessage && lastKeyIDSelectedEntrance != null && lastFieldNameSelectedEntrance != null && latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
                         while(true){
                             sendSelectedEtrance();
-                            sleep(1000);
+                            sleep(5000);
                         }
                     }
                 }catch (Exception e){
@@ -606,8 +570,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(MessageWaypointToEntrance messageWaypointToEntrance){
+    @Override
+    public void updateWaypointToEntrance(@NotNull MessageWaypointToEntrance messageWaypointToEntrance) {
         PolylineOptions polylineOptions = new PolylineOptions();
         ArrayList<LatLng> latlonWaypointToEntrance = new ArrayList<LatLng>();
 

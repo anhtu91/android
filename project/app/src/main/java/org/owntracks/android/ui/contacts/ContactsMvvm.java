@@ -30,6 +30,6 @@ public interface ContactsMvvm {
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
 
         Collection<FusedContact> getContacts();
-        void onContactClick(FusedContact contact);
+        //void onContactClick(FusedContact contact);
     }
 }

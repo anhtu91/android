@@ -141,6 +141,7 @@ public class ContactImageProvider {
         if (td == null || !td.isBitmapFor(contact.getTrackerId())) {
             //td = new TidBitmap(contact.getTrackerId(), drawableToBitmap(TextDrawable.builder().buildRoundRect(contact.getTrackerId(), TextDrawable.ColorGenerator.MATERIAL.getColor(contact.getId()), FACE_DIMENSIONS)));
             //memoryCache.putLevelTid(contact.getId(), td);
+            //Using "You" instead of trackerID
             td = new TidBitmap("You", drawableToBitmap(TextDrawable.builder().buildRoundRect("You", TextDrawable.ColorGenerator.MATERIAL.getColor("You"), FACE_DIMENSIONS)));
             memoryCache.putLevelTid("You", td);
         }

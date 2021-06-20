@@ -52,12 +52,21 @@
             app:behavior_peekHeight="72dp"
             app:layout_behavior="@string/bottom_sheet_behavior">
 
-            <include
-                android:id="@+id/contactPeek"
-                layout="@layout/ui_row_contact" />
+            <TextView
+                android:id="@+id/currentLocation"
+                style="@style/ListItemPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingStart="72dp"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:singleLine="true"
+                android:textIsSelectable="true"
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/acc"
+                android:id="@+id/duration"
                 style="@style/ListItemPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +79,7 @@
                 android:textIsSelectable="true" />
 
             <TextView
-                android:id="@+id/accLabel"
+                android:id="@+id/durationLabel"
                 style="@style/ListItemSecondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,7 +88,7 @@
                 android:paddingEnd="@dimen/activity_horizontal_margin"
                 android:paddingBottom="@dimen/activity_horizontal_margin"
                 android:singleLine="true"
-                android:text="@string/contactDetailsAccuracy" />
+                android:text="@string/contactDetailsDuration" />
 
             <TextView
                 android:id="@+id/distance"
@@ -91,8 +100,8 @@
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:paddingEnd="@dimen/activity_horizontal_margin"
                 android:singleLine="true"
-                android:textSize="16sp"
-                android:textIsSelectable="true" />
+                android:textIsSelectable="true"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/distanceLabel"
@@ -127,7 +136,7 @@
             <TextView
                 android:id="@+id/tidLabel"
                 style="@style/ListItemSecondary"
-                android:layout_width="wrap_content"
+                android:layout_width="171dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:paddingStart="72dp"

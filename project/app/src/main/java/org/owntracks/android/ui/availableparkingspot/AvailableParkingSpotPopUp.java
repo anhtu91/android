@@ -19,6 +19,8 @@ import org.owntracks.android.model.FieldNameEntranceAndCoordinate;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 
 public class AvailableParkingSpotPopUp extends AppCompatActivity {
     private TextView showInfoAvailableParkingSpot;
@@ -27,6 +29,8 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
     private Button btnSubmitSelectedEntrance;
     public static AvailableParkingSpotPopUp instance = null;
 
+    @Inject
+    EventBus eventBus;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

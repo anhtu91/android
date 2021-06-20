@@ -45,7 +45,7 @@
     <string name="exportConfiguration">Exportieren</string>
     <string name="contactLocationUnknown">Kein Standort verfügbar</string>
     <string name="menuContactNavigate">Navigieren</string>
-    <string name="contactDetailsAccuracy">Genauigkeit</string>
+    <string name="contactDetailsDuration">Dauer</string>
     <string name="contactDetailsTopic">Kennung</string>
     <string name="waypointListPlaceholder">Keine Orte angelegt</string>
     <string name="importConfig">Import</string>
