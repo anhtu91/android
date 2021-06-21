@@ -90,7 +90,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private Menu mMenu;
 
     private Polyline currentPolyline;
-    private Thread threadSendWaypointToEntrance;
+    //private Thread threadSendWaypointToEntrance;
+    private volatile boolean threadSendWaypointToEntranceFlag = false;
 
     private String lastKeyIDSelectedEntrance = null;
     private String lastFieldNameSelectedEntrance = null;
@@ -151,8 +152,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             isMapReady = false;
         }
         this.bottomSheetBehavior = BottomSheetBehavior.from(this.binding.bottomSheetLayout);
-        //this.binding.contactPeek.contactRow.setOnClickListener(this);
-        //this.binding.contactPeek.contactRow.setOnLongClickListener(this);
         this.binding.moreButton.setOnClickListener(this::showPopupMenu);
         setBottomSheetHidden();
 
@@ -221,10 +220,10 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             Timber.i("Receive string "+messageWaypointToEntrance.toString());
 
             MessageWaypointToEntrance waypointToEntrance = (MessageWaypointToEntrance) messageWaypointToEntrance;
-            binding.currentLocation.setText(R.string.na);
             binding.distance.setText(waypointToEntrance.getDistance().toString());
             binding.duration.setText(waypointToEntrance.getDuration().toString());
-
+            binding.keyIDSelectedEntrance.setText(waypointToEntrance.getSelectedKeyIDEntrance());
+            binding.fieldNameSelectedEntrance.setText(waypointToEntrance.getSelectedFieldNameEntrance());
         }
     }
 
@@ -291,7 +290,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         ).addOnCompleteListener(task ->
                 Timber.i("Requested foreground location updates. isSuccessful: %s isCancelled: %s", task.isSuccessful(), task.isCanceled())
         );
-        updateMonitoringModeMenu();
+        //updateMonitoringModeMenu();
     }
 
     @Override
@@ -382,6 +381,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                 item.setIcon(R.drawable.ic_step_forward_2);
                 item.setTitle(R.string.monitoring_move);
                 sendEntranceMessage = true;
+                threadSendWaypointToEntranceFlag = true;
                 runThreadSelectedEntrance(); //Run thread again if a entrance is selected
                 break;
         }
@@ -394,6 +394,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
             viewModel.sendLocation();
             //Send MQTT message to get waypoint to entrance
             sendEntranceMessage = true;
+            threadSendWaypointToEntranceFlag = true;
             sendSelectedEtrance();
             return true;
         } else if (itemId == R.id.menu_mylocation) {
@@ -461,6 +462,10 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         });
         this.isMapReady = true;
         viewModel.onMapReady();
+
+        sendEntranceMessage = false;
+        threadSendWaypointToEntranceFlag = false;
+        removePolyline();
     }
 
 
@@ -470,18 +475,23 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     }
 
     @Override
+    public void removePolyline() {
+        if(currentPolyline != null){
+            currentPolyline.remove();
+        }
+    }
+
+    @Override
     public void clearMarkers() {
-        if (isMapReady)
+        if (isMapReady) {
             googleMap.clear();
+        }
         markers.clear();
     }
 
     @Override
-    public void removeMarker(@Nullable FusedContact contact) {
-        if (contact == null)
-            return;
-
-        Marker m = markers.get(contact.getId());
+    public void removeMarker() {
+        Marker m = markers.get(getString(R.string.markerParkingEntrance));
         if (m != null)
             m.remove();
     }
@@ -515,13 +525,13 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         Marker recommendParkingSpot;
 
         recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
-        recommendParkingSpot.setTag("Selected entrance");
+        recommendParkingSpot.setTag(getString(R.string.markerParkingEntrance));
 
-        if(markers.containsKey("Selected entrance")){
-            markers.remove("Selected entrance");
+        if(markers.containsKey(getString(R.string.markerParkingEntrance))){
+            markers.remove(getString(R.string.markerParkingEntrance));
         }
 
-        markers.put("Selected entrance", recommendParkingSpot);
+        markers.put(getString(R.string.markerParkingEntrance), recommendParkingSpot);
 
         sendEntranceMessage = true;
         lastKeyIDSelectedEntrance = messageSelectedEntrance.getKeyIDEntrance();
@@ -529,20 +539,19 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         latitudeSelectedEntrance = messageSelectedEntrance.getLangtitude();
         longitudeSelectedEntrance = messageSelectedEntrance.getLongitude();
 
+        threadSendWaypointToEntranceFlag = true;
         runThreadSelectedEntrance();
     }
 
     public void runThreadSelectedEntrance(){
 
-        threadSendWaypointToEntrance = new Thread(){
+        Thread threadSendWaypointToEntrance = new Thread(){
             @Override
             public void run() {
                 try{
-                    if(sendEntranceMessage && lastKeyIDSelectedEntrance != null && lastFieldNameSelectedEntrance != null && latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
-                        while(true){
-                            sendSelectedEtrance();
-                            sleep(5000);
-                        }
+                    while(threadSendWaypointToEntranceFlag){
+                        sendSelectedEtrance();
+                        sleep(500);
                     }
                 }catch (Exception e){
                     Timber.e("Error while running thread to send selected entrance "+e.toString());
@@ -553,8 +562,8 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         threadSendWaypointToEntrance.start();
     }
 
-    private void cancelThreadSendWaypointToEntrance(){
-        threadSendWaypointToEntrance.interrupt();
+    public void cancelThreadSendWaypointToEntrance(){
+        threadSendWaypointToEntranceFlag = false;
     }
 
     private void sendSelectedEtrance(){  //Send MQTT message to NodeRED to get waypoints from OSRM
@@ -572,31 +581,30 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
     @Override
     public void updateWaypointToEntrance(@NotNull MessageWaypointToEntrance messageWaypointToEntrance) {
-        PolylineOptions polylineOptions = new PolylineOptions();
-        ArrayList<LatLng> latlonWaypointToEntrance = new ArrayList<LatLng>();
+        if(threadSendWaypointToEntranceFlag){
+            PolylineOptions polylineOptions = new PolylineOptions();
+            ArrayList<LatLng> latlonWaypointToEntrance = new ArrayList<LatLng>();
 
-        for(int i=0; i<messageWaypointToEntrance.getCoordinatesArray().size(); i++){
-            latlonWaypointToEntrance.add(new LatLng(messageWaypointToEntrance.getCoordinatesArray().get(i).get(1), messageWaypointToEntrance.getCoordinatesArray().get(i).get(0)));
+            for(int i=0; i<messageWaypointToEntrance.getCoordinatesArray().size(); i++){
+                latlonWaypointToEntrance.add(new LatLng(messageWaypointToEntrance.getCoordinatesArray().get(i).get(1), messageWaypointToEntrance.getCoordinatesArray().get(i).get(0)));
+            }
+
+            polylineOptions.clickable(true).color(Color.BLUE).addAll(latlonWaypointToEntrance);
+
+            if(currentPolyline != null){
+                currentPolyline.remove();
+            }
+            currentPolyline = googleMap.addPolyline(polylineOptions);
         }
-
-        polylineOptions.clickable(true).color(Color.BLUE).addAll(latlonWaypointToEntrance);
-
-        if(currentPolyline != null){
-            currentPolyline.remove();
-        }
-        currentPolyline = googleMap.addPolyline(polylineOptions);
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_navigate:
-
-                FusedContact c = viewModel.getActiveContact();
-                if (c != null && c.hasLocation()) {
+                if(latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
                     try {
-                        LatLng l = c.getLatLng();
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + l.latitude + "," + l.longitude));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + latitudeSelectedEntrance + "," + longitudeSelectedEntrance));
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
@@ -608,7 +616,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
                 return true;
             case R.id.menu_clear:
-                viewModel.onClearContactClicked();
+                viewModel.onClearWaypointEntranceClicked();
             default:
                 return false;
         }
@@ -633,7 +641,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
     @Override
     public void setBottomSheetCollapsed() {
-        Timber.v("vm contact: %s", binding.getVm().getActiveContact());
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
     }
 

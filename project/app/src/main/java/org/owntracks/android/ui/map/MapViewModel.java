@@ -1,13 +1,10 @@
 package org.owntracks.android.ui.map;
 
-import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.Bindable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -15,7 +12,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.Polyline;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -24,18 +20,13 @@ import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
-import org.owntracks.android.model.messages.MessageClear;
-import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageWaypointToEntrance;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.support.Events;
-import org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp;
 import org.owntracks.android.ui.base.viewmodel.BaseViewModel;
-import org.owntracks.android.ui.qrcode.QrCodePopUp;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.inject.Inject;
@@ -46,15 +37,14 @@ import timber.log.Timber;
 public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm.ViewModel<MapMvvm.View>, LocationSource, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener{
     private final ContactsRepo contactsRepo;
     private final LocationProcessor locationProcessor;
-    private FusedContact activeContact;
+    //private FusedContact activeContact;
     private LocationSource.OnLocationChangedListener onLocationChangedListener;
     private MessageProcessor messageProcessor;
     private Location location;
 
 
     private static final int VIEW_FREE = 0;
-    private static final int VIEW_CONTACT = 1;
-    private static final int VIEW_DEVICE = 2;
+    private static final int VIEW_DEVICE = 1;
 
 
     private static int mode = VIEW_DEVICE;
@@ -101,10 +91,15 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         }
 
         Timber.i("Mode onMapReady "+mode);
-        setViewModeDevice();
 
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
+        }
+
+        if (mode == VIEW_FREE) {
+            setViewModeFree();
+        } else {
+            setViewModeDevice();
         }
     }
 
@@ -129,21 +124,19 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     }
 
     private void setViewModeWaypointToEntrance(){
-        mode = VIEW_CONTACT;
+        setViewModeFree();
         liveBottomSheetHidden.postValue(false);
     }
 
     private void setViewModeFree() {
         Timber.v("setting view mode: VIEW_FREE");
         mode = VIEW_FREE;
-        clearActiveContact();
     }
 
     private void setViewModeDevice() {
         Timber.v("setting view mode: VIEW_DEVICE");
 
         mode = VIEW_DEVICE;
-        clearActiveContact();
         if (hasLocation()) {
             liveCamera.postValue(getCurrentLocation());
         } else {
@@ -158,12 +151,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     }
 
     @Override
-    @Bindable
-    public FusedContact getActiveContact() {
-        return activeContact;
-    }
-
-    @Override
     public Collection<FusedContact> getContacts() {
         return this.contactsRepo.getAllAsList();
     }
@@ -171,11 +158,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     @Override
     public boolean hasLocation() {
         return location != null;
-    }
-
-    private void clearActiveContact() {
-        activeContact = null;
-        liveBottomSheetHidden.postValue(true);
     }
 
     @Override
@@ -188,14 +170,12 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         setViewModeDevice();
     }
 
-
     @Override
-    public void onClearContactClicked() {
-        MessageClear m = new MessageClear();
-        if (activeContact != null) {
-            m.setTopic(activeContact.getId());
-            messageProcessor.queueMessageForSending(m);
-        }
+    public void onClearWaypointEntranceClicked() {
+        getView().cancelThreadSendWaypointToEntrance();
+        getView().removeMarker();
+        getView().removePolyline();
+        setViewModeDevice();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -209,7 +189,7 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
             clearActiveContact();
             setViewModeFree();
         }*/
-        getView().removeMarker(c.getContact());
+        //getView().removeMarker(c.getContact());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -220,7 +200,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(Events.ModeChanged e) {
         getView().clearMarkers();
-        clearActiveContact();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -245,13 +224,18 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     public void onEvent(CoordinateEntrance messageSelectedEntrance) { //For case: parking spot is full and recommend new parking spot around. Receive Info of selected entrance from UI
         Timber.i("Coordinate Entrance " + messageSelectedEntrance.toString());
         getView().addMarkerEntranceToMap(messageSelectedEntrance);
+        setViewModeFree();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(MessageWaypointToEntrance messageWaypointToEntrance) { //Receive waypoint from NodeRED
         Timber.i("Message To Entrance "+messageWaypointToEntrance.getDuration());
-        getView().updateWaypointToEntrance(messageWaypointToEntrance);
-        liveTestData.postValue(messageWaypointToEntrance);
+        if(messageWaypointToEntrance.getDistance() != 0){
+            getView().updateWaypointToEntrance(messageWaypointToEntrance);
+            liveTestData.postValue(messageWaypointToEntrance);
+        }else{
+            onClearWaypointEntranceClicked();
+        }
     }
 
     // Map Callback
@@ -288,6 +272,5 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     @Override
     public void onBottomSheetLongClick() {
         setViewModeWaypointToEntrance();
-        //setViewModeContact(activeContact.getId(), true);
     }
 }

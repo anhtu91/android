@@ -55,8 +55,6 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
 
     private ObservableList<ParkplatzModel> qrList;
     private static final int QRCODE_REQUEST = 111;
-    public static final String SHARED_PREFERENCES_QR_CODE = "org.owntracks.android.qr.code.for.parking.slot";
-    private static final int MAX_LENGTH = 100;
     private static final int READ_PERMISSION_CODE = 101;
     private static final int STORAGE_PERMISSION_CODE = 102;
 
@@ -114,8 +112,6 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 return;
             }
 
-            //SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFERENCES_QR_CODE, Context.MODE_PRIVATE);
-            //SharedPreferences.Editor editor = sharedPreferences.edit();
             SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(getApplicationContext());
 
             final Uri uri = data.getData();
@@ -133,12 +129,8 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 int width = bitmap.getWidth(), height = bitmap.getHeight();
                 int[] pixels = new int[width * height];
                 bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-                //bitmap.recycle();
-                //bitmap = null;
-                //RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
                 LuminanceSource source = new RGBLuminanceSource(width, height, pixels);
                 BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
-                //MultiFormatReader reader = new MultiFormatReader();
                 Reader reader = new MultiFormatReader();
                 Result result = null;
 
@@ -161,9 +153,6 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 Timber.v("Error " + e + ". Can not open file" + uri.toString());
             } finally {
                 if (qrCodeContent != null) {
-                    //editor.putString(random(), qrCodeContent);
-                    //editor.commit();
-
                     if (sqLiteForParkplatz.insertQRCode(qrCodeContent)) {
                         Timber.v("Insert QRCode successful");
                     } else {

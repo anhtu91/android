@@ -52,8 +52,8 @@
     <string name="menuContactNavigate">Перейти</string>
     <string name="menuCurrentLoction">Текущее местоположение</string>
     <string name="menuImportQRCode">Импортировать QR-код</string>
-    <string name="contactDetailsDuration">Продолжительность</string>
-    <string name="contactDetailsTopic">Идентификатор</string>
+    <string name="contactDetailsDuration">Продолжительность (минут)</string>
+    <string name="fieldNameSelectedEntrance">Поле Имя входа</string>
     <string name="waypointListPlaceholder">Места еще не определены</string>
     <string name="importConfig">Импорт</string>
     <string name="tls" translatable="false">TLS</string>
@@ -84,7 +84,7 @@
     <string name="preferencesCategoryAdvancedLocator">Локатор</string>
     <string name="preferencesCategoryAdvancedEncryption">Шифрование</string>
     <string name="preferencesCategoryAdvancedMisc">Прочее</string>
-    <string name="contactDetailsTrackerId" translatable="false">Tracker ID</string>
+    <string name="keyIDSelectedEntrance" translatable="false">KeyID of entrance</string>
     <string name="exportWaypointsToEndpoint">Опубликовать места</string>
     <string name="preferencesExportFailed">Не удалось экспортировать настройки</string>
     <string name="preferencesExportSuccess">Настройки экспортированы</string>
@@ -169,7 +169,7 @@
     <string name="notificationChangeMonitoring">Изменить режим</string>
     <string name="preferencesDebugLog">Журнал отладки</string>
     <string name="monitoring_mode">Режим отслеживания</string>
-    <string name="distance_label">Расстояние</string>
+    <string name="distance_label">Расстояние (метры)</string>
     <string name="preferencesClientId">ID клиента</string>
     <string name="status_endpoint_state_hint">Состояние конечной точки</string>
     <string name="status_endpoint_state_message_hint">Сообщение о состоянии конечной точки</string>

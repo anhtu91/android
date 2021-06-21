@@ -51,8 +51,8 @@
     <string name="menuContactNavigate">Navegar</string>
     <string name="menuCurrentLoction">Ubicación actual</string>
     <string name="menuImportQRCode">Importar código QR</string>
-    <string name="contactDetailsDuration">Duración</string>
-    <string name="contactDetailsTopic">Identificador</string>
+    <string name="contactDetailsDuration">Duración (minutos)</string>
+    <string name="fieldNameSelectedEntrance">Campo Nombre de entrada</string>
     <string name="waypointListPlaceholder">No hay regiones definidas</string>
     <string name="importConfig">Importar</string>
     <string name="preferencesSecurity">Seguridad</string>
@@ -152,7 +152,7 @@
     <string name="monitoring_significant">Modo de cambio significante</string>
     <string name="monitoring_move">Modo movimiento</string>
     <string name="notificationChangeMonitoring">Cambio modo</string>
-    <string name="distance_label">Distancia</string>
+    <string name="distance_label">Distancia (metros)</string>
     <string name="preferencesKeepaliveValidationError" formatted="true">Mantener activo debe ser un mínimo de %d</string>
     <string name="title_exit">Salir de la aplicación</string>
     <string name="preferencesLocatorInterval">Intervalo de ubicación</string>

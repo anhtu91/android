@@ -45,8 +45,8 @@
     <string name="exportConfiguration">Exportieren</string>
     <string name="contactLocationUnknown">Kein Standort verfügbar</string>
     <string name="menuContactNavigate">Navigieren</string>
-    <string name="contactDetailsDuration">Dauer</string>
-    <string name="contactDetailsTopic">Kennung</string>
+    <string name="contactDetailsDuration">Dauer (Minuten)</string>
+    <string name="fieldNameSelectedEntrance">FeldName des Eingangs</string>
     <string name="waypointListPlaceholder">Keine Orte angelegt</string>
     <string name="importConfig">Import</string>
     <string name="preferencesSecurity">Sicherheit</string>
@@ -152,7 +152,7 @@
     <string name="preferencesPort">Port</string>
     <string name="preferencesDeviceName">Geräte ID</string>
     <string name="preferencesHost">Hostnamen</string>
-    <string name="distance_label">Abstand</string>
+    <string name="distance_label">Abstand (Meter)</string>
     <string name="title_exit">App beenden</string>
     <string name="preferencesKeepaliveValidationError" formatted="true">Keepalive muss mindestens %d sein</string>
     <string name="preferencesLocatorInterval">Standort Intervall</string>

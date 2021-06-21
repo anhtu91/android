@@ -53,7 +53,7 @@
             app:layout_behavior="@string/bottom_sheet_behavior">
 
             <TextView
-                android:id="@+id/currentLocation"
+                android:id="@+id/keyIDSelectedEntrance"
                 style="@style/ListItemPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,9 +61,42 @@
                 android:paddingStart="72dp"
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/keyIDSelectedEntranceLabel"
+                style="@style/ListItemSecondary"
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingStart="72dp"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
                 android:singleLine="true"
-                android:textIsSelectable="true"
-                android:textSize="16sp" />
+                android:text="@string/keyIDSelectedEntrance" />
+
+            <TextView
+                android:id="@+id/fieldNameSelectedEntrance"
+                style="@style/ListItemPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingStart="72dp"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/fieldNameSelectedEntranceLabel"
+                style="@style/ListItemSecondary"
+                android:layout_width="244dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingStart="72dp"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:singleLine="true"
+                android:text="@string/fieldNameSelectedEntrance" />
 
             <TextView
                 android:id="@+id/duration"
@@ -121,52 +154,6 @@
                 android:layout_height="1dp"
                 android:layout_marginStart="72dp"
                 android:background="#E4E4E4" />
-
-            <TextView
-                android:id="@+id/tid"
-                style="@style/ListItemPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingStart="72dp"
-                android:paddingTop="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:singleLine="true" />
-
-            <TextView
-                android:id="@+id/tidLabel"
-                style="@style/ListItemSecondary"
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingStart="72dp"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/activity_horizontal_margin"
-                android:singleLine="true"
-                android:text="@string/contactDetailsTrackerId" />
-
-            <TextView
-                android:id="@+id/id"
-                style="@style/ListItemPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingStart="72dp"
-                android:paddingTop="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:singleLine="true" />
-
-            <TextView
-                android:id="@+id/topicLabel"
-                style="@style/ListItemSecondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingStart="72dp"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/activity_horizontal_margin"
-                android:singleLine="true"
-                android:text="@string/contactDetailsTopic" />
 
             <ImageView
                 android:id="@+id/moreButton"

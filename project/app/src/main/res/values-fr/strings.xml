@@ -52,8 +52,8 @@
     <string name="menuContactNavigate">Naviguer</string>
     <string name="menuCurrentLoction">Localisation actuelle</string>
     <string name="menuImportQRCode">Importer le code QR</string>
-    <string name="contactDetailsDuration">Durée</string>
-    <string name="contactDetailsTopic">Identifiant</string>
+    <string name="contactDetailsDuration">Durée (minutes)</string>
+    <string name="fieldNameSelectedEntrance">ChampNom de l\'entrée</string>
     <string name="waypointListPlaceholder">Aucune région définie</string>
     <string name="importConfig">importer</string>
     <string name="preferencesSecurity">Sécurité</string>
@@ -156,7 +156,7 @@
     <string name="preferencesGeocode">Géocodage</string>
     <string name="preferencesGeocodeSummary">Activer le géocodage. Redémarrage nécessaire.</string>
     <string name="play_services_update_required">Mise à jour des services Google Play est requise.</string>
-    <string name="distance_label">Distance</string>
+    <string name="distance_label">Distance (mètres)</string>
     <string name="clear_log">Vider le journal</string>
     <string name="viewLogs">Voir le journal</string>
     <string name="logViewerActivityTitle">Journal d\'activité</string>

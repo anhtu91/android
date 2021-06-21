@@ -52,8 +52,8 @@
     <string name="menuContactNavigate">Navigate</string>
     <string name="menuCurrentLoction">Current location</string>
     <string name="menuImportQRCode">Import QR Code</string>
-    <string name="contactDetailsDuration">Duration in minute</string>
-    <string name="contactDetailsTopic">Identifier</string>
+    <string name="contactDetailsDuration">Duration (minutes)</string>
+    <string name="fieldNameSelectedEntrance">FieldName of entrance</string>
     <string name="waypointListPlaceholder">No regions defined yet</string>
     <string name="importConfig">Import</string>
     <string name="tls" translatable="false">TLS</string>
@@ -84,7 +84,7 @@
     <string name="preferencesCategoryAdvancedLocator">Locator</string>
     <string name="preferencesCategoryAdvancedEncryption">Encryption</string>
     <string name="preferencesCategoryAdvancedMisc">Misc</string>
-    <string name="contactDetailsTrackerId" translatable="false">Tracker ID</string>
+    <string name="keyIDSelectedEntrance" translatable="false">KeyID of entrance</string>
     <string name="exportWaypointsToEndpoint">Publish Waypoints</string>
     <string name="preferencesExportFailed">Preferences export failed</string>
     <string name="preferencesExportSuccess">Export successful</string>
@@ -168,7 +168,7 @@
     <string name="notificationChangeMonitoring">Change Monitoring</string>
     <string name="preferencesDebugLog">Debug log</string>
     <string name="monitoring_mode">Monitoring</string>
-    <string name="distance_label">Distance in meter</string>
+    <string name="distance_label">Distance (meter)</string>
     <string name="preferencesClientId">Client ID</string>
     <string name="status_endpoint_state_hint">Endpoint state</string>
     <string name="status_endpoint_state_message_hint">Endpoint state message</string>
@@ -196,4 +196,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="markerParkingEntrance">Selected entrance</string>
 </resources>

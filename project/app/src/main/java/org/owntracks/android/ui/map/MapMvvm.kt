@@ -18,25 +18,26 @@ interface MapMvvm {
         fun setBottomSheetCollapsed()
         fun setBottomSheetHidden()
         fun updateMarker(contact: FusedContact?)
-        fun removeMarker(c: FusedContact?)
+        fun removeMarker()
         fun clearMarkers()
         fun enableLocationMenus()
         fun updateMonitoringModeMenu()
         fun updateWaypointToEntrance(messageWaypointToEntrance: MessageWaypointToEntrance)
         fun runThreadSelectedEntrance()
+        fun cancelThreadSendWaypointToEntrance()
         fun addMarkerEntranceToMap(messageSelectedEntrance: CoordinateEntrance)
+        fun removePolyline()
     }
 
     interface ViewModel<V : MvvmView?> : MvvmViewModel<V> {
         val currentLocation: LatLng?
 
         @get:Bindable
-        val activeContact: FusedContact?
         val contacts: Collection<FusedContact?>?
         fun onBottomSheetLongClick()
         fun onBottomSheetClick()
         fun onMenuCenterDeviceClicked()
-        fun onClearContactClicked()
+        fun onClearWaypointEntranceClicked()
         fun hasLocation(): Boolean
         fun onMapReady()
         val mapLocationSource: LocationSource?
