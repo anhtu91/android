@@ -72,7 +72,7 @@
     <string name="title_activity_region">Место</string>
     <string name="title_activity_map">Карта</string>
     <string name="title_activity_contacts">Друзья</string>
-    <string name="title_activity_parkplatz">код парковки</string>
+    <string name="title_activity_parkplatz">Импортировать код парковки</string>
     <string name="title_activity_lastqrcodes">Последние QR-коды</string>
     <string name="title_activity_status">Статус</string>
     <string name="title_activity_preferences">Настройки</string>

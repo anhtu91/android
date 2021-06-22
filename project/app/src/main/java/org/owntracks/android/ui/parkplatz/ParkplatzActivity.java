@@ -178,8 +178,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
             Log.v("Permission", "Permission " + permission + " already granted ");
         }
     }
-
-
+    
     @Override
     public void onClick(@NonNull ParkplatzModel object, @NonNull View view, boolean longClick) {
         viewModel.onParkplatzClick(object);
