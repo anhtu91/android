@@ -4,15 +4,19 @@ import android.content.Context;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONObject;
 import org.owntracks.android.injection.qualifier.AppContext;
 import org.owntracks.android.injection.scopes.PerActivity;
+import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.support.Events;
+import org.owntracks.android.support.JWTUtils;
 import org.owntracks.android.support.sqlite.SQLiteForParkplatz;
 import org.owntracks.android.ui.base.viewmodel.BaseViewModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,16 +34,39 @@ public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implem
     }
 
     @Override
-    public Collection<ParkplatzModel> getAccessCodeForParking() {
+    public Collection<ParkplatzModel> getImportedJWTsInfo() {
         SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(currentContext);
 
-        ArrayList<ParkplatzModel> qrCodeCollection = new ArrayList<ParkplatzModel>();
+        ArrayList<String> importedJWTs = new ArrayList<String>();
 
-        qrCodeCollection = sqLiteForParkplatz.getAllAccessCode();
+        importedJWTs = sqLiteForParkplatz.getAllJWTs();
 
-        Timber.v("Get collections of JWT "+qrCodeCollection.toString());
+        Timber.v("Get collections of imported QRCode "+importedJWTs.toString());
 
-        return qrCodeCollection;
+        ArrayList<ParkplatzModel> importedQRCodes = new ArrayList<ParkplatzModel>();
+
+        try{
+            for(String jwt : importedJWTs){
+                String jwtContent = JWTUtils.decodeJWT(jwt); //Decode JWT
+                JSONObject jwtObject = new JSONObject(jwtContent);
+
+                String email = jwtObject.getString("email");
+                String keyID = jwtObject.getString("keyid");
+                String fieldName = jwtObject.getString("fieldname");
+                String time = jwtObject.getString("time");
+                String date = jwtObject.getString("date");
+                int tst = jwtObject.getInt("tst");
+
+                ParkplatzModel importedQRCode = new ParkplatzModel(jwt, email, keyID, fieldName, time, date, tst);
+                importedQRCodes.add(importedQRCode);
+            }
+        }catch (Exception e){
+            Timber.e("Error while encoding JWT "+e.toString());
+        }
+
+        Collections.sort(importedQRCodes);
+
+        return importedQRCodes;
     }
 
     @Override

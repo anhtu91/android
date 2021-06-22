@@ -15,7 +15,7 @@ public interface ParkplatzMvvm {
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
 
-        Collection<ParkplatzModel> getAccessCodeForParking();
+        Collection<ParkplatzModel> getImportedJWTsInfo();
         void onParkplatzClick(ParkplatzModel object);
     }
 }

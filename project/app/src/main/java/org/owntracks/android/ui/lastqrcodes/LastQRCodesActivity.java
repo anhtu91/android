@@ -22,6 +22,8 @@ import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.base.BaseActivity;
 
+import java.util.Collections;
+
 import timber.log.Timber;
 
 public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, LastQRCodesMvvm.ViewModel> implements LastQRCodesMvvm.View, LastQRCodesAdapter.ClickListener{
@@ -91,6 +93,7 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
     @MainThread
     public void addLastQRCodes(LastQRCodesModel p) {
         lastQRCodesList.add(p);
+        //Collections.sort(lastQRCodesList);
     }
 
     @Override

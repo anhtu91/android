@@ -21,6 +21,7 @@ import org.owntracks.android.ui.qrcode.QrCodePopUp;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -62,14 +63,16 @@ public class LastQRCodesViewModel extends BaseViewModel<LastQRCodesMvvm.View> im
                 String fieldName = jwtObject.getString("fieldName");
                 String time = jwtObject.getString("time");
                 String date = jwtObject.getString("date");
+                int tst = jwtObject.getInt("tst");
 
-                LastQRCodesModel lastQRCodesModel1 = new LastQRCodesModel(jwt, username, keyID, fieldName, time, date);
+                LastQRCodesModel lastQRCodesModel1 = new LastQRCodesModel(jwt, username, keyID, fieldName, time, date, tst);
                 lastQRCodes.add(lastQRCodesModel1);
             }
         }catch (Exception e){
                 Timber.e("Error while encoding JWT "+e.toString());
         }
 
+        Collections.sort(lastQRCodes);
         return lastQRCodes;
     }
 

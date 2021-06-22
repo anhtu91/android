@@ -94,8 +94,8 @@ public class DrawerProvider {
                         drawerItemForClass(activity, MapActivity.class, R.string.title_activity_map, R.drawable.ic_baseline_layers_24),
                         //drawerItemForClass(activity, ContactsActivity.class, R.string.title_activity_contacts, R.drawable.ic_baseline_supervisor_account_24),
                         //drawerItemForClass(activity, RegionsActivity.class, R.string.title_activity_regions, R.drawable.ic_baseline_adjust_24),
-                        drawerItemForClass(activity, ParkplatzActivity.class, R.string.title_activity_parkplatz, R.drawable.ic_baseline_qr_code_24),
-                        drawerItemForClass(activity, LastQRCodesActivity.class, R.string.title_activity_lastqrcodes, R.drawable.ic_baseline_save_24))
+                        drawerItemForClass(activity, LastQRCodesActivity.class, R.string.title_activity_lastqrcodes, R.drawable.ic_baseline_save_24),
+                        drawerItemForClass(activity, ParkplatzActivity.class, R.string.title_activity_parkplatz, R.drawable.ic_baseline_qr_code_24))
                 .addStickyDrawerItems(
                         secondaryDrawerItemForClass(activity, StatusActivity.class, R.string.title_activity_status, R.drawable.ic_baseline_info_24),
                         secondaryDrawerItemForClass(activity, PreferencesActivity.class, R.string.title_activity_preferences, R.drawable.ic_baseline_settings_24),

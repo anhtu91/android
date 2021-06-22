@@ -7,74 +7,89 @@ import androidx.databinding.BaseObservable;
 
 import java.util.Date;
 
-public class ParkplatzModel extends BaseObservable {
+public class ParkplatzModel extends BaseObservable implements Comparable<ParkplatzModel> {
+    private String jwt; //QRCode or JWT
+    private String email;
+    private String keyID;
+    private String fieldName;
+    private String time;
+    private String date;
+    private int tst;
 
-    /*
-    private Date accessDate;
-    private Time accessTime;
-    private String keyIDParkplatz;
-    private String fieldNameParkplatz;
-    private String accessCode;
-
-    public Date getAccessDate() {
-        return accessDate;
+    public ParkplatzModel(String jwt, String email, String keyID, String fieldName, String time, String date, int tst) {
+        this.jwt = jwt;
+        this.email = email;
+        this.keyID = keyID;
+        this.fieldName = fieldName;
+        this.time = time;
+        this.date = date;
+        this.tst = tst;
     }
 
-    public Time getAccessTime() {
-        return accessTime;
+    public String getJwt() {
+        return jwt;
     }
 
-    public String getKeyIDParkplatz() {
-        return keyIDParkplatz;
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
     }
 
-    public String getFieldNameParkplatz() {
-        return fieldNameParkplatz;
+    public String getEmail() {
+        return email;
     }
 
-    public String getAccessCode() {
-        return accessCode;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setAccessDate(Date accessDate) {
-        this.accessDate = accessDate;
+    public String getKeyID() {
+        return keyID;
     }
 
-    public void setAccessTime(Time accessTime) {
-        this.accessTime = accessTime;
+    public void setKeyID(String keyID) {
+        this.keyID = keyID;
     }
 
-    public void setKeyIDParkplatz(String keyIDParkplatz) {
-        this.keyIDParkplatz = keyIDParkplatz;
+    public String getFieldName() {
+        return fieldName;
     }
 
-    public void setFieldNameParkplatz(String fieldNameParkplatz) {
-        this.fieldNameParkplatz = fieldNameParkplatz;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
-    public void setAccessCode(String accessCode) {
-        this.accessCode = accessCode;
+    public String getTime() {
+        return time;
     }
 
-    public ParkplatzModel(Date accessDate, Time accessTime, String keyIDParkplatz, String fieldNameParkplatz, String accessCode) {
-        this.accessDate = accessDate;
-        this.accessTime = accessTime;
-        this.keyIDParkplatz = keyIDParkplatz;
-        this.fieldNameParkplatz = fieldNameParkplatz;
-        this.accessCode = accessCode;
-    }
-    */
-    private String testQRCode;
-
-    public String getTestQRCode() {
-        return testQRCode;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public void setTestQRCode(String testQRCode) {
-        this.testQRCode = testQRCode;
+    public String getDate() {
+        return date;
     }
 
-    public ParkplatzModel(String testQRCode) {
-        this.testQRCode = testQRCode;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getTst() {
+        return tst;
+    }
+
+    public void setTst(int tst) {
+        this.tst = tst;
+    }
+
+    @Override
+    public int compareTo(ParkplatzModel o) {
+        if(tst == o.tst){
+            return 0;
+        }else if(tst > o.tst){
+            return -1;
+        }else{
+            return 1;
+        }
     }
 }

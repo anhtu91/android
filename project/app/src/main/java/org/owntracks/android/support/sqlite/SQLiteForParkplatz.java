@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class SQLiteForParkplatz extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 2;
-    public static final String DATABASE_NAME = "access_code_database";
+    public static final String DATABASE_NAME = "jwt_database";
     public static final String QR_TABLE_NAME = "qr_code";
     public static final String QR_COLUMN_ID = "_id";
     public static final String QR_COLUMN_JWT = "json_web_token";
@@ -46,17 +46,15 @@ public class SQLiteForParkplatz extends SQLiteOpenHelper {
         return true;
     }
 
-    public ArrayList<ParkplatzModel> getAllAccessCode() {
-        ArrayList<ParkplatzModel> array_list = new ArrayList<ParkplatzModel>();
+    public ArrayList<String> getAllJWTs() {
+        ArrayList<String> array_list = new ArrayList<String>();
 
-        //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from "+QR_TABLE_NAME, null );
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            ParkplatzModel parkplatzModel = new ParkplatzModel(res.getString(res.getColumnIndex(QR_COLUMN_JWT)));
-            array_list.add(parkplatzModel);
+            array_list.add(res.getString(res.getColumnIndex(QR_COLUMN_JWT)));
             res.moveToNext();
         }
         return array_list;
