@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    id("com.github.triplet.play") version "3.4.0-agp4.2"
+    id("com.github.triplet.play") version "3.5.0-agp7.0"
     kotlin("android")
     kotlin("kapt")
     id("io.objectbox")
