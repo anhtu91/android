@@ -1,49 +1,47 @@
 package org.owntracks.android.model;
 
-import android.graphics.Bitmap;
-import android.text.format.Time;
-
 import androidx.databinding.BaseObservable;
 
-import java.util.Date;
 
 public class ParkplatzModel extends BaseObservable implements Comparable<ParkplatzModel> {
-    private String jwt; //QRCode or JWT
-    private String email;
+    private String JWT; //QRCode or JWT
+    private String receiverEmail;
+    private String senderUser;
     private String keyID;
     private String fieldName;
-    private String time;
     private String date;
+    private String time;
     private int tst;
 
-    public ParkplatzModel(String jwt, String email, String keyID, String fieldName, String time, String date, int tst) {
-        this.jwt = jwt;
-        this.email = email;
+    public ParkplatzModel(String JWT, String keyID, String fieldName, String date, String time, int tst, String receiverEmail, String senderUser) {
+        this.JWT = JWT;
+        this.senderUser = senderUser;
+        this.receiverEmail = receiverEmail;
         this.keyID = keyID;
         this.fieldName = fieldName;
-        this.time = time;
         this.date = date;
+        this.time = time;
         this.tst = tst;
     }
 
-    public String getJwt() {
-        return jwt;
+    public String getJWT() {
+        return JWT;
     }
 
-    public void setJwt(String jwt) {
-        this.jwt = jwt;
+    public void setJwt(String JWT) {
+        this.JWT = JWT;
     }
 
-    public String getEmail() {
-        return email;
+    public String getReceiverEmail() {
+        return receiverEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setReceiverEmail(String receiverEmail) {
+        this.receiverEmail = receiverEmail;
     }
 
     public String getKeyID() {
-        return keyID;
+        return "KeyID: "+ keyID;
     }
 
     public void setKeyID(String keyID) {
@@ -51,19 +49,27 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
     }
 
     public String getFieldName() {
-        return fieldName;
+        return "FieldName: "+fieldName;
     }
 
     public void setFieldName(String fieldName) {
         this.fieldName = fieldName;
     }
 
-    public String getTime() {
-        return time;
+    public int getTst() {
+        return tst;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTst(int tst) {
+        this.tst = tst;
+    }
+
+    public String getSenderUser() {
+        return senderUser;
+    }
+
+    public void setSenderUser(String senderUser) {
+        this.senderUser = senderUser;
     }
 
     public String getDate() {
@@ -74,12 +80,16 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
         this.date = date;
     }
 
-    public int getTst() {
-        return tst;
+    public String getTime() {
+        return time;
     }
 
-    public void setTst(int tst) {
-        this.tst = tst;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDateTime(){
+        return this.time +" "+this.date;
     }
 
     @Override

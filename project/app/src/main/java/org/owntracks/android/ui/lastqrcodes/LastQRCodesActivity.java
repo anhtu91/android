@@ -78,9 +78,9 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
         lastQRCodesList.clear();
 
         if(lastQRCodesList.addAll(viewModel.getLastQRCodes())){
-            Timber.v("Add successful last qr codes");
+            Timber.i("Add successful last qr codes");
         }else{
-            Timber.v("Add not successful last qr codes");
+            Timber.i("Add not successful last qr codes");
         }
     }
 
@@ -99,6 +99,6 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
     @Override
     @MainThread
     public void updateLastQRCodes(LastQRCodesModel p) {
-
+        //Collections.sort(lastQRCodesList);
     }
 }

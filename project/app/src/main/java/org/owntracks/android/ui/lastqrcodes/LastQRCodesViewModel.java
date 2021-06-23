@@ -17,6 +17,7 @@ import org.owntracks.android.support.Events;
 import org.owntracks.android.support.JWTUtils;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.base.viewmodel.BaseViewModel;
+import org.owntracks.android.ui.qrcode.ImportQrCodePopUp;
 import org.owntracks.android.ui.qrcode.QrCodePopUp;
 
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class LastQRCodesViewModel extends BaseViewModel<LastQRCodesMvvm.View> im
                 lastQRCodes.add(lastQRCodesModel1);
             }
         }catch (Exception e){
-                Timber.e("Error while encoding JWT "+e.toString());
+            Timber.e("Error while encoding JWT "+e.toString());
         }
 
         Collections.sort(lastQRCodes);
@@ -83,6 +84,10 @@ public class LastQRCodesViewModel extends BaseViewModel<LastQRCodesMvvm.View> im
 
         if(QrCodePopUp.instance != null){
             QrCodePopUp.instance.finish();
+        }
+
+        if(ImportQrCodePopUp.instance != null){
+            ImportQrCodePopUp.instance.finish();
         }
 
         Intent intent = new Intent(currentContext.getApplicationContext(), QrCodePopUp.class);

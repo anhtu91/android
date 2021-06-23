@@ -1,15 +1,13 @@
 package org.owntracks.android.ui.qrcode;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
 import org.owntracks.android.R;
@@ -19,12 +17,11 @@ import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import timber.log.Timber;
 
-public class QrCodePopUp extends AppCompatActivity {
-
+public class ImportQrCodePopUp extends AppCompatActivity {
     private ImageView qrCodeIV;
-    private TextView showInfoParkingLocation;
+    private TextView showInfoInvite;
 
-    public static QrCodePopUp instance = null;
+    public static ImportQrCodePopUp instance = null;
 
     Bitmap bitmap;
     QRGEncoder qrgEncoder;
@@ -32,7 +29,7 @@ public class QrCodePopUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qr_code_pop_up);
+        setContentView(R.layout.activity_imported_qr_code_pop_up);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -43,13 +40,14 @@ public class QrCodePopUp extends AppCompatActivity {
                 JSONObject jwtObject = new JSONObject(jwt);
                 String keyID = jwtObject.getString("keyID");
                 String fieldName = jwtObject.getString("fieldName");
-                String time = jwtObject.getString("time");
                 String date = jwtObject.getString("date");
+                String time = jwtObject.getString("time");
+                String senderUser = jwtObject.getString("senderUser");
 
-                showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
-                showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName+"\n at "+time+" on "+date);
+                showInfoInvite = (TextView) findViewById(R.id.infoInvited);
+                showInfoInvite.setText("You are invited to parking spot "+keyID+ " - "+fieldName+"\n at "+time+" on "+date+" by user "+senderUser);
 
-                qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
+                qrCodeIV = (ImageView) findViewById(R.id.importQrCodeImageView);
                 qrgEncoder = new QRGEncoder(strJWT, null, QRGContents.Type.TEXT, 1000);
 
                 Timber.i("KeyID is "+keyID);

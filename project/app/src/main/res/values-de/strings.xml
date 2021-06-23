@@ -65,6 +65,7 @@
     <string name="title_activity_contacts">Freunde</string>
     <string name="title_activity_parkplatz">Importieren Parkplatz Code</string>
     <string name="title_activity_lastqrcodes">Letzte QR Code</string>
+    <string name="title_activity_invite">Einladung</string>
     <string name="title_activity_status">Status</string>
     <string name="title_activity_preferences">Einstellungen</string>
     <string name="unableToCopyCertificate">Kopieren des Zertifikats auf internen Speicher fehlgeschlagen</string>

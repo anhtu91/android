@@ -39,9 +39,12 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiParkplatzBinding;
 import org.owntracks.android.model.ParkplatzModel;
+import org.owntracks.android.support.JWTUtils;
 import org.owntracks.android.support.sqlite.SQLiteForParkplatz;
 import org.owntracks.android.ui.base.BaseActivity;
 
@@ -74,12 +77,12 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
         addParkingAccessCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Timber.v("Click add qr code image");
+                Timber.i("Click add qr code image");
                 openFileManagerForQRCode();
             }
         });
 
-        Timber.v("Enter Parkplatz activity");
+        Timber.i("Enter Parkplatz activity");
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(new ParkplatzAdapter(qrList, this));
@@ -104,7 +107,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
 
         if (resultCode == RESULT_OK && requestCode == QRCODE_REQUEST) {
             if (data == null || data.getData() == null) {
-                Timber.v("The uri is null, probably the user cancelled the image selection process using the back button.");
+                Timber.i("The uri is null, probably the user cancelled the image selection process using the back button.");
                 return;
             }
 
@@ -118,7 +121,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
                 if (bitmap == null) {
-                    Timber.v("URI is not a bitmap " + uri.toString());
+                    Timber.i("URI is not a bitmap " + uri.toString());
                     return;
                 }
 
@@ -131,28 +134,50 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 Result result = reader.decode(bBitmap);
                 qrCodeContent = result.getText();
 
-                Timber.v("qrCode content " + qrCodeContent);
-                Toast.makeText(this, "Saved QRCode", Toast.LENGTH_SHORT).show();
+                String jwtContent = JWTUtils.decodeJWT(qrCodeContent); //Decode JWT
+                JSONObject jwtObject = new JSONObject(jwtContent);
+
+                String keyID = jwtObject.getString("keyID");
+                String fieldName = jwtObject.getString("fieldName");
+                String date = jwtObject.getString("date");
+                String time = jwtObject.getString("time");
+                int tst = jwtObject.getInt("tst");
+                String receiverEmail = jwtObject.getString("receiverEmail");
+                String senderUser = jwtObject.getString("senderUser");
+
+                Timber.i("QRCode Content. Sender user: "+senderUser+", receiver email: " + receiverEmail+", keyID: "+keyID+", fieldName: "+fieldName+", tst: "+tst+", date: "+date+", time: "+time);
                 inputStream.close();
             }catch (NotFoundException e) {
                 Timber.e("Decode exception " + e);
+                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
             } catch (FormatException e) {
                 Timber.e("Decode exception " + e);
+                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
             } catch (ChecksumException e) {
                 Timber.e("Decode exception " + e);
+                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 Timber.e("Error " + e + ". Can not open file" + uri.toString());
+                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+            } catch (JSONException e) {
+                Timber.e("Error parse JSON "+e.toString());
+                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Timber.e("Error "+e.toString());
+                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
             } finally {
                 if (qrCodeContent != null) {
-                    if (sqLiteForParkplatz.insertQRCode(qrCodeContent)) {
-                        Timber.e("Insert QRCode successful");
+                    if (sqLiteForParkplatz.insertJWT(qrCodeContent)) {
+                        Timber.i("Insert QRCode successful");
+                        Toast.makeText(this, "Saved QRCode successful", Toast.LENGTH_SHORT).show();
                     } else {
-                        Timber.e("Insert QRCode not successful");
+                        Timber.i("Insert QRCode not successful");
+                        Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         } else {
-            Timber.e("Import QRCode failed");
+            Timber.i("Import QRCode failed");
         }
     }
 
@@ -166,46 +191,13 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                     new String[]{permission},
                     requestCode);
         } else {
-            Log.v("Permission", "Permission " + permission + " already granted ");
+            Timber.i("Permission " + permission + " already granted ");
         }
     }
     
     @Override
     public void onClick(@NonNull ParkplatzModel object, @NonNull View view, boolean longClick) {
-        viewModel.onParkplatzClick(object);
-        Timber.v("Click Parkplatz Activity");
-        Timber.v("Object value " + object.getJwt());
-        ImageView qrCodeImage = (ImageView) findViewById(R.id.qrCodeFromAccessCodeImageView);
-
-        QRCodeWriter writer = new QRCodeWriter();
-
-        try {
-            BitMatrix bitMatrix = writer.encode(object.getJwt(), BarcodeFormat.QR_CODE, 512, 512);
-            int width = bitMatrix.getWidth();
-            int height = bitMatrix.getHeight();
-            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
-                }
-            }
-            setContentView(R.layout.show_qr_code_from_access_code);
-            qrCodeImage.setImageBitmap(bmp);
-
-            qrCodeImage.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    finish();
-                    return true;
-                }
-            });
-
-        } catch (WriterException e) {
-            Timber.e("Error while writing QR Code " + e.toString());
-            //e.printStackTrace();
-        } catch (Exception e){
-            Timber.e("Error "+e.toString());
-        }
+        viewModel.onParkplatzShortClick(object);
     }
 
     @Override
@@ -214,9 +206,9 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
         qrList.clear();
 
         if (qrList.addAll(viewModel.getImportedJWTsInfo())) {
-            Timber.v("Add successful invited JWTs");
+            Timber.i("Add successful invited JWTs");
         } else {
-            Timber.v("Add not successful invited JWTs");
+            Timber.i("Add not successful invited JWTs");
         }
     }
 

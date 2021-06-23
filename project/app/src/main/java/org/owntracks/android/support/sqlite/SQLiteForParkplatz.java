@@ -38,7 +38,7 @@ public class SQLiteForParkplatz extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertQRCode (String jsonWebToken) {
+    public boolean insertJWT (String jsonWebToken) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(QR_COLUMN_JWT, jsonWebToken);

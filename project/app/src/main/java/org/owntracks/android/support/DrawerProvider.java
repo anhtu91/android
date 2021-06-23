@@ -19,6 +19,7 @@ import org.owntracks.android.services.BackgroundService;
 import org.owntracks.android.services.worker.Scheduler;
 import org.owntracks.android.ui.base.BaseActivity;
 import org.owntracks.android.ui.contacts.ContactsActivity;
+import org.owntracks.android.ui.invite.InviteActivity;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 import org.owntracks.android.ui.map.MapActivity;
 import org.owntracks.android.ui.parkplatz.ParkplatzActivity;
@@ -94,6 +95,7 @@ public class DrawerProvider {
                         drawerItemForClass(activity, MapActivity.class, R.string.title_activity_map, R.drawable.ic_baseline_layers_24),
                         //drawerItemForClass(activity, ContactsActivity.class, R.string.title_activity_contacts, R.drawable.ic_baseline_supervisor_account_24),
                         //drawerItemForClass(activity, RegionsActivity.class, R.string.title_activity_regions, R.drawable.ic_baseline_adjust_24),
+                        drawerItemForClass(activity, InviteActivity.class, R.string.title_activity_invite, R.drawable.ic_baseline_invite_24),
                         drawerItemForClass(activity, LastQRCodesActivity.class, R.string.title_activity_lastqrcodes, R.drawable.ic_baseline_save_24),
                         drawerItemForClass(activity, ParkplatzActivity.class, R.string.title_activity_parkplatz, R.drawable.ic_baseline_qr_code_24))
                 .addStickyDrawerItems(

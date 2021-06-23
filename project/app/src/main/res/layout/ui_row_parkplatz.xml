@@ -10,23 +10,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
-        android:id="@+id/contactRow"
+        android:id="@+id/importQRCodeRow"
         android:minHeight="72dp">
 
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/keyIDParkplatz"
             style="@style/ListItemPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="72dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{parkplatz.testQRCode}"
+            android:text="@{parkplatz.getKeyID}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dateTimeParkplatz"
+            style="@style/ListItemSecondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:singleLine="true"
+            android:gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{parkplatz.getDateTime}" />
+
+        <TextView
+            android:id="@+id/fieldNameParkplatz"
+            style="@style/ListItemSecondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/keyIDParkplatz"
+            app:text="@{parkplatz.getFieldName}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

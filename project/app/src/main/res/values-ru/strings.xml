@@ -74,6 +74,7 @@
     <string name="title_activity_contacts">Друзья</string>
     <string name="title_activity_parkplatz">Импортировать код парковки</string>
     <string name="title_activity_lastqrcodes">Последние QR-коды</string>
+    <string name="title_activity_invite">Приглашать</string>
     <string name="title_activity_status">Статус</string>
     <string name="title_activity_preferences">Настройки</string>
     <string name="title_exit">Выход</string>

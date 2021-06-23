@@ -18,7 +18,7 @@ public class LastQRCodesModel extends BaseObservable implements Comparable<LastQ
         this.fieldName = fieldName;
         this.time = time;
         this.date = date;
-        this.tst = tst;
+        this.tst = tst; //Actually NodeRED should only send timestamp tst, then covert to date time in Owntracks
     }
 
     public int getTst() {

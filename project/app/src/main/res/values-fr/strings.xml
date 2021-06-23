@@ -72,6 +72,7 @@
     <string name="title_activity_contacts">Amis</string>
     <string name="title_activity_parkplatz">Importer le code de stationnement</string>
     <string name="title_activity_lastqrcodes">Derniers QR Code</string>
+    <string name="title_activity_invite">Inviter</string>
     <string name="title_activity_status">Statut</string>
     <string name="title_activity_preferences">Préférences</string>
     <string name="title_exit">Quitter l\'application</string>

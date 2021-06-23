@@ -70,6 +70,7 @@
     <string name="title_activity_contacts">Amigos</string>
     <string name="title_activity_parkplatz">Importar código de estacionamiento</string>
     <string name="title_activity_lastqrcodes">Últimos QR Code</string>
+    <string name="title_activity_invite">Invitación</string>
     <string name="title_activity_status">Estado</string>
     <string name="title_activity_preferences">Preferencias</string>
     <string name="unableToCopyCertificate">No se pudo copiar el certificado al almacenamiento interno</string>
