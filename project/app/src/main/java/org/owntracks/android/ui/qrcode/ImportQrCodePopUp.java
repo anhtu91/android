@@ -29,7 +29,7 @@ public class ImportQrCodePopUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_imported_qr_code_pop_up);
+        setContentView(R.layout.ui_imported_qr_code_pop_up);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){

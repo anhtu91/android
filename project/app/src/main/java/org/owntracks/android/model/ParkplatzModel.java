@@ -97,9 +97,9 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
         if(tst == o.tst){
             return 0;
         }else if(tst > o.tst){
-            return -1;
-        }else{
             return 1;
+        }else{
+            return -1;
         }
     }
 }

@@ -46,6 +46,11 @@ public class SQLiteForParkplatz extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean removeJWT(String jsonWebToken){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(QR_TABLE_NAME, QR_COLUMN_JWT + "=?", new String[]{jsonWebToken}) > 0;
+    }
+
     public ArrayList<String> getAllJWTs() {
         ArrayList<String> array_list = new ArrayList<String>();
 

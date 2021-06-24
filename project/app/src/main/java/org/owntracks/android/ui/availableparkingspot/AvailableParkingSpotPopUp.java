@@ -19,8 +19,6 @@ import org.owntracks.android.model.FieldNameEntranceAndCoordinate;
 
 import java.util.ArrayList;
 
-import javax.inject.Inject;
-
 
 public class AvailableParkingSpotPopUp extends AppCompatActivity {
     private TextView showInfoAvailableParkingSpot;
@@ -33,7 +31,7 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_available_parking_spot);
+        setContentView(R.layout.ui_available_parking_spot);
         spinnerSelectAvailableParking = (Spinner) findViewById(R.id.spinnerSelectParking);
         spinnerSelectAvailableEntrance = (Spinner) findViewById(R.id.spinnerSelectEntrance);
         showInfoAvailableParkingSpot = (TextView) findViewById(R.id.infoAvailableParkingSpot);

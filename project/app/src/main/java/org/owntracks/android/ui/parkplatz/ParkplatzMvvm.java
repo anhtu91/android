@@ -8,9 +8,9 @@ import java.util.Collection;
 
 public interface ParkplatzMvvm {
     interface View extends MvvmView {
-        void removeAccessCodeForParking(ParkplatzModel p);
-        void addAccessCodeForParking(ParkplatzModel p);
-        void updateAccessCodeForParking(ParkplatzModel p);
+        void removeJWT(ParkplatzModel p);
+        void addJWT(ParkplatzModel p);
+        void updateJWT(ParkplatzModel p);
     }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {

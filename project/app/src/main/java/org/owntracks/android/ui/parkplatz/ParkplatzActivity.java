@@ -21,7 +21,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
@@ -39,14 +41,18 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiParkplatzBinding;
+import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.support.JWTUtils;
+import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.support.sqlite.SQLiteForParkplatz;
 import org.owntracks.android.ui.base.BaseActivity;
+import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -86,6 +92,29 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(new ParkplatzAdapter(qrList, this));
+
+        //Swipe left or right to remove last JWT
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder, @NonNull @NotNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition(); //Get swipe position
+                SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(ParkplatzActivity.this); //Start SQLLite
+                ParkplatzModel selectedQRCode = qrList.get(position);
+                String swipedJWT = selectedQRCode.getJWT(); //Get string jwt of swiped object
+                if(sqLiteForParkplatz.removeJWT(swipedJWT)){ //Remove jwt from SQLLite
+                    Toast.makeText(ParkplatzActivity.this, "Delete QR Code", Toast.LENGTH_LONG).show();
+                    qrList.remove(position);
+                }
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        RecyclerView recyclerViewQRCode = (RecyclerView) findViewById(R.id.recycler_view);
+        itemTouchHelper.attachToRecyclerView(recyclerViewQRCode);
     }
 
     private void openFileManagerForQRCode() {
@@ -114,7 +143,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
             SQLiteForParkplatz sqLiteForParkplatz = new SQLiteForParkplatz(getApplicationContext());
 
             final Uri uri = data.getData();
-            String qrCodeContent = null;
+            String jwt = null;
 
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -132,9 +161,9 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
                 Reader reader = new MultiFormatReader();
                 Result result = reader.decode(bBitmap);
-                qrCodeContent = result.getText();
+                jwt = result.getText();
 
-                String jwtContent = JWTUtils.decodeJWT(qrCodeContent); //Decode JWT
+                String jwtContent = JWTUtils.decodeJWT(jwt); //Decode JWT
                 JSONObject jwtObject = new JSONObject(jwtContent);
 
                 String keyID = jwtObject.getString("keyID");
@@ -166,19 +195,33 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 Timber.e("Error "+e.toString());
                 Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
             } finally {
-                if (qrCodeContent != null) {
-                    if (sqLiteForParkplatz.insertJWT(qrCodeContent)) {
-                        Timber.i("Insert QRCode successful");
-                        Toast.makeText(this, "Saved QRCode successful", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Timber.i("Insert QRCode not successful");
-                        Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                if (jwt != null) {
+                    if(isJwtAlreadyExist(jwt, sqLiteForParkplatz)){
+                        Timber.i("QRCode is already existed in database");
+                        Toast.makeText(this, "This QRCode is already existed", Toast.LENGTH_SHORT).show();
+                    }else{
+                        if (sqLiteForParkplatz.insertJWT(jwt)) {
+                            Timber.i("Insert QRCode successful");
+                            Toast.makeText(this, "Saved QRCode successful", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Timber.i("Insert QRCode not successful");
+                            Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
         } else {
             Timber.i("Import QRCode failed");
         }
+    }
+
+    private boolean isJwtAlreadyExist(String jwt, SQLiteForParkplatz sqLiteForParkplatz){
+        for(String jwtInDatabase: sqLiteForParkplatz.getAllJWTs()){
+            if(jwt.equals(jwtInDatabase)){
+                return true;
+            }
+        }
+        return false;
     }
 
     // Function to check and request permission.
@@ -213,20 +256,20 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
     }
 
     @Override
-    public void removeAccessCodeForParking(ParkplatzModel p) {
+    public void removeJWT(ParkplatzModel p) {
         qrList.remove(p);
     }
 
     @Override
     @MainThread
-    public void addAccessCodeForParking(ParkplatzModel p) {
+    public void addJWT(ParkplatzModel p) {
         qrList.add(p);
         //Collections.sort(mList);
     }
 
     @Override
     @MainThread
-    public void updateAccessCodeForParking(ParkplatzModel p) {
+    public void updateJWT(ParkplatzModel p) {
         //Collections.sort(mList);
     }
 }

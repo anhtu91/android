@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.qrcode.ImportQrCodePopUp">
+    tools:context=".ui.qrcode.QrCodePopUp">
 
 
     <ImageView
-        android:id="@+id/importQrCodeImageView"
+        android:id="@+id/qrCodeImageView"
         android:layout_width="397dp"
         android:layout_height="480dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,17 +19,16 @@
         app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <TextView
-        android:id="@+id/infoInvited"
-        android:layout_width="395dp"
-        android:layout_height="34dp"
+        android:id="@+id/infoParkingLocation"
+        android:layout_width="390dp"
+        android:layout_height="74dp"
         android:layout_marginStart="72dp"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="11dp"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/importQrCodeImageView"
+        app:layout_constraintBottom_toTopOf="@+id/qrCodeImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

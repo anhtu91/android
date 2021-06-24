@@ -72,7 +72,7 @@
     <string name="title_activity_region">Region</string>
     <string name="title_activity_map">Map</string>
     <string name="title_activity_contacts">Friends</string>
-    <string name="title_activity_parkplatz">Import Parking Code</string>
+    <string name="title_activity_parkplatz">Import QR Code</string>
     <string name="title_activity_lastqrcodes">Last QR Codes</string>
     <string name="title_activity_invite">Invite</string>
     <string name="title_activity_status">Status</string>

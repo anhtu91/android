@@ -68,7 +68,7 @@
     <string name="title_activity_region">Región</string>
     <string name="title_activity_map">Mapa</string>
     <string name="title_activity_contacts">Amigos</string>
-    <string name="title_activity_parkplatz">Importar código de estacionamiento</string>
+    <string name="title_activity_parkplatz">Importar código QR</string>
     <string name="title_activity_lastqrcodes">Últimos QR Code</string>
     <string name="title_activity_invite">Invitación</string>
     <string name="title_activity_status">Estado</string>
