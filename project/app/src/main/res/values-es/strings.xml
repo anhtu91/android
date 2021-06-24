@@ -174,4 +174,6 @@
     <string name="clear_log">Limpiar</string>
     <string name="viewLogs">Ver registros</string>
     <string name="logViewerActivityTitle">Registros</string>
+    <string name="btn_invite">Enviar invitación</string>
+    <string name="btn_get_keyID_fieldName">Obtener información de estacionamiento</string>
 </resources>

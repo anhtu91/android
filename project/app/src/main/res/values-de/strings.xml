@@ -174,4 +174,6 @@
     <string name="clear_log">Löschen</string>
     <string name="viewLogs">Logs ansehen</string>
     <string name="logViewerActivityTitle">Logs</string>
+    <string name="btn_invite">Sende Einladung</string>
+    <string name="btn_get_keyID_fieldName">Parkinformationen abrufen</string>
 </resources>

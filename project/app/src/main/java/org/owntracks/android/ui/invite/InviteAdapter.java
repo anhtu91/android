@@ -1,4 +1,6 @@
 package org.owntracks.android.ui.invite;
 
-public class InviteAdapter {
+import org.owntracks.android.ui.base.BaseAdapter;
+
+public class InviteAdapter extends BaseAdapter<Invite> {
 }

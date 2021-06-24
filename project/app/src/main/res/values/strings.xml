@@ -199,4 +199,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="markerParkingEntrance">Selected entrance</string>
+    <string name="btn_invite">Send invite</string>
+    <string name="btn_get_keyID_fieldName">Get Parking Info</string>
+    <string name="keyIDInvite">KeyID of parking spots:</string>
+    <string name="fieldNameInvite">FieldName of selected parking spot:</string>
+    <string name="selectDayInvite">Select Date:</string>
+    <string name="selectTimeInvite">Select Time:</string>
+    <string name="inputInviteEmail">Invited email:</string>
 </resources>

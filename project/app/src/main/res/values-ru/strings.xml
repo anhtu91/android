@@ -188,4 +188,6 @@
     <string name="reconnect">Переподключение</string>
     <string name="select">Выбрать</string>
     <string name="contact_image">Изображение контакта</string>
+    <string name="btn_invite">Отправить приглашение</string>
+    <string name="btn_get_keyID_fieldName">Получить информацию о парковке</string>
 </resources>
