@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="invite" type="org.owntracks.android.ui.invite.InviteViewModel" />
+        <variable name="vm" type="org.owntracks.android.ui.invite.InviteViewModel" />
     </data>
+
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
@@ -30,185 +32,134 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/selectInviteDateText"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/selectDayInvite"
-                app:layout_constraintBottom_toTopOf="@+id/editInviteDate"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+            <Button
+                android:id="@+id/btnGetKeyIDFieldName"
+                android:layout_width="157dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="581dp"
+                android:layout_marginBottom="88dp"
+                android:text="@string/btn_get_keyID_fieldName"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerFieldName" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editInviteEmail"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="28dp"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                app:layout_constraintBottom_toTopOf="@+id/btnSendInvite"
+            <Button
+                android:id="@+id/btnSendInvite"
+                android:layout_width="157dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="581dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginBottom="88dp"
+                android:text="@string/btn_invite"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectTimeText"
-                android:autofillHints="" />
-
-            <EditText
-                android:id="@+id/editInviteTime"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="time"
-                app:layout_constraintBottom_toTopOf="@+id/selectTimeText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectInviteTimeText"
-                android:autofillHints="" />
+                app:layout_constraintStart_toEndOf="@+id/btnGetKeyIDFieldName"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/selectInviteTimeText"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/selectTimeInvite"
-                app:layout_constraintBottom_toTopOf="@+id/editInviteTime"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:id="@+id/keyIDInviteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="89dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/keyIDInvite"
+                app:layout_constraintBottom_toTopOf="@+id/spinnerKeyID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editInviteDate" />
-
-            <EditText
-                android:id="@+id/editInviteDate"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="date"
-                app:layout_constraintBottom_toTopOf="@+id/selectInviteTimeText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectInviteDateText"
-                android:autofillHints="" />
-
-            <TextView
-                android:id="@+id/selectTimeText"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/inputInviteEmail"
-                app:layout_constraintBottom_toTopOf="@+id/editInviteEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editInviteTime" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
                 android:id="@+id/spinnerKeyID"
                 android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/fieldNameInviteText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_height="40dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/keyIDInviteText" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="335dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputEmailInviteText" />
+
+            <TextView
+                android:id="@+id/inputEmailInviteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/inputInviteEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+            <TextView
+                android:id="@+id/fieldNameInviteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/fieldNameInvite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerKeyID" />
 
             <Spinner
                 android:id="@+id/spinnerFieldName"
                 android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/selectInviteDateText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_height="40dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fieldNameInviteText" />
 
             <TextView
-                android:id="@+id/fieldNameInviteText"
+                android:id="@+id/selectDateInviteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/selectDayInvite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerFieldName" />
+
+            <EditText
+                android:id="@+id/editInviteDate"
                 android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/fieldNameInvite"
-                app:layout_constraintBottom_toTopOf="@+id/spinnerFieldName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_height="40dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerKeyID" />
-
-            <Button
-                android:id="@+id/btnSendInvite"
-                android:layout_width="154dp"
-                android:layout_height="51dp"
-                android:layout_marginEnd="56dp"
-                android:layout_marginBottom="52dp"
-                android:text="@string/btn_invite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <Button
-                android:id="@+id/btnGetKeyIDFieldName"
-                android:layout_width="154dp"
-                android:layout_height="51dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="52dp"
-                android:text="@string/btn_get_keyID_fieldName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnSendInvite"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editInviteEmail"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/selectDateInviteText" />
 
             <TextView
-                android:id="@+id/keyIDInviteText"
-                android:layout_width="335dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="94dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/keyIDInvite"
-                app:layout_constraintBottom_toTopOf="@+id/spinnerKeyID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:id="@+id/selectTimeInviteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/selectTimeInvite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/editInviteDate" />
+
+            <EditText
+                android:id="@+id/editTextTime"
+                android:layout_width="335dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="time"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/selectTimeInviteText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

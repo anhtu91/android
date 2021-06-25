@@ -202,6 +202,10 @@
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_contacts"
             android:launchMode="singleTask" />
+        <activity android:name=".ui.invite.InviteActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/title_activity_invite"
+            android:launchMode="singleTask"/>
         <activity android:name=".ui.parkplatz.ParkplatzActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_parkplatz"

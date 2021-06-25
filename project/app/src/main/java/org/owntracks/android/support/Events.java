@@ -2,6 +2,7 @@ package org.owntracks.android.support;
 
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.model.FusedContact;
+import org.owntracks.android.model.InviteModel;
 import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
 
@@ -138,6 +139,17 @@ public class Events {
         }
     }
 
+    public static class InviteAdded extends E {
+        private final InviteModel inviteModel;
+
+        public InviteAdded(InviteModel inviteModel) {
+            this.inviteModel = inviteModel;
+        }
+
+        public InviteModel getInviteModel() {
+            return inviteModel;
+        }
+    }
 
     public static class ParkplatzAdded extends E {
         private final ParkplatzModel parkplatzModel;

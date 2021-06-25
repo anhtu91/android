@@ -3,6 +3,7 @@ package org.owntracks.android.injection.modules.android;
 import org.owntracks.android.injection.modules.android.ActivityModules.ConnectionActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.ContactsActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.EditorActivityModule;
+import org.owntracks.android.injection.modules.android.ActivityModules.InviteActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.LastQRCodesActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.LoadActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.LogViewerActivityModule;
@@ -26,6 +27,10 @@ import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class AndroindBindingModule {
+    @PerActivity
+    @ContributesAndroidInjector(modules = {InviteActivityModule.class})
+    abstract org.owntracks.android.ui.invite.InviteActivity bindInviteActivity();
+
     @PerActivity
     @ContributesAndroidInjector(modules = {ParkplatzActivityModule.class})
     abstract org.owntracks.android.ui.parkplatz.ParkplatzActivity bindParkplatzActivity();
