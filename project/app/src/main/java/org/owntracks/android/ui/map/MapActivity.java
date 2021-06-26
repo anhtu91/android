@@ -90,7 +90,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     private Menu mMenu;
 
     private Polyline currentPolyline;
-    //private Thread threadSendWaypointToEntrance;
     private volatile boolean threadSendWaypointToEntranceFlag = false;
 
     private String lastKeyIDSelectedEntrance = null;

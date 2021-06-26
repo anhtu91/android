@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class MessageInvite : MessageBase() {
+class MessageInviteReceive : MessageBase() {
 
     @JsonProperty("keyIDInvite")
     var keyIDInvite: String? = null
@@ -26,6 +26,6 @@ class MessageInvite : MessageBase() {
     var emailInvite: String? = null
 
     companion object {
-        const val TYPE = "Invite"
+        const val TYPE = "InviteReceive"
     }
 }

@@ -1,26 +1,28 @@
 package org.owntracks.android.ui.invite;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableList;
 
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiInviteBinding;
-import org.owntracks.android.model.InviteModel;
-import org.owntracks.android.model.ParkplatzModel;
+import org.owntracks.android.model.messages.MessageInviteReceive;
+import org.owntracks.android.model.messages.MessageInviteSend;
+import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.ui.base.BaseActivity;
 
-import timber.log.Timber;
+import java.util.ArrayList;
+
+import javax.inject.Inject;
 
 public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.ViewModel> implements InviteMvvm.View{
 
     private Button btnGetParkingInfo;
+
+    @Inject
+    MessageProcessor messageProcessor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,9 +38,15 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
 
             @Override
             public void onClick(View v) {
-
+                sendRequestToGetKeyID();
             }
         });
+    }
+
+    private void sendRequestToGetKeyID(){
+        MessageInviteSend messageInviteSend = new MessageInviteSend();
+        messageInviteSend.setInviteSend("Invite");
+        messageProcessor.queueMessageForSending(messageInviteSend);
     }
 
     @Override
