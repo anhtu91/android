@@ -15,7 +15,9 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiInviteBinding;
 import org.owntracks.android.model.EntrancePosition;
+import org.owntracks.android.model.messages.MessageGetFieldName;
 import org.owntracks.android.model.messages.MessageGetKeyID;
+import org.owntracks.android.model.messages.MessageReceiveFieldName;
 import org.owntracks.android.model.messages.MessageReceiveKeyID;
 import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.support.Events;
@@ -34,6 +36,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     private Spinner spinnerKeyID;
     private Spinner spinnerFieldName;
     private ArrayList<String> listKeyID;
+    private ArrayList<String> listFieldName;
 
     @Inject
     MessageProcessor messageProcessor;
@@ -53,6 +56,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String keyIDParkingSpot = parent.getItemAtPosition(position).toString();
+                sendRequestToGetFieldName(keyIDParkingSpot);
             }
 
             @Override
@@ -82,8 +86,10 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         messageProcessor.queueMessageForSending(messageGetKeyID);
     }
 
-    private ArrayList<String> sendRequestToGetFieldName(String keyID){
-        return null;
+    private void sendRequestToGetFieldName(String keyID){
+        MessageGetFieldName messageGetFieldName = new MessageGetFieldName();
+        messageGetFieldName.setKeyIDInvite(keyID);
+        messageProcessor.queueMessageForSending(messageGetFieldName);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -92,6 +98,14 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         ArrayAdapter<String> adapterKeyID = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listKeyID);
         adapterKeyID.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerKeyID.setAdapter(adapterKeyID);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageReceiveFieldName message) {
+        listFieldName = message.getListFieldName();
+        ArrayAdapter<String> adapterFieldName = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listFieldName);
+        adapterFieldName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerFieldName.setAdapter(adapterFieldName);
     }
 
     @Override
