@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class MessageInviteReceive : MessageBase() {
+class MessageInvite : MessageBase() {
 
     @JsonProperty("keyIDInvite")
     var keyIDInvite: String? = null

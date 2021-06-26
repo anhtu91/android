@@ -19,6 +19,7 @@ import org.owntracks.android.model.messages.MessageCmd;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
+import org.owntracks.android.model.messages.MessageReceiveKeyID;
 import org.owntracks.android.model.messages.MessageTransition;
 import org.owntracks.android.model.messages.MessageUnknown;
 import org.owntracks.android.model.messages.MessageWaypointToEntrance;
@@ -317,9 +318,16 @@ public class MessageProcessor {
             processIncomingMessage((MessageEmpfehlungParkplatz) message);
         } else if (message instanceof MessageWaypointToEntrance){ //When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
             processIncomingMessage((MessageWaypointToEntrance) message);
-        } else if (message instanceof MessageUnknown) {
+        } else if(message instanceof MessageReceiveKeyID){
+            processIncomingMessage((MessageReceiveKeyID) message); //For invite feature
+        }else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageReceiveKeyID message){
+        eventBus.post(message);
+        Timber.i("List keyID: "+message.getListKeyID());
     }
 
     private void processIncomingMessage(MessageWaypointToEntrance message){

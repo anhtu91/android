@@ -9,9 +9,9 @@ import org.owntracks.android.support.Preferences
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class MessageInviteSend(private val dep: MessageWithCreatedAt = MessageCreatedAtNow(RealClock())) : MessageBase(), MessageWithCreatedAt by dep{
+class MessageGetKeyID(private val dep: MessageWithCreatedAt = MessageCreatedAtNow(RealClock())) : MessageBase(), MessageWithCreatedAt by dep{
     @JsonProperty("inviteSend")
-    var inviteSend: String? = null
+    var inviteType: String? = null
 
     override fun addMqttPreferences(preferences: Preferences) {
         topic = preferences.pubTopicInviteSend
@@ -20,6 +20,6 @@ class MessageInviteSend(private val dep: MessageWithCreatedAt = MessageCreatedAt
     }
 
     companion object {
-        const val TYPE = "MessageInviteSend"
+        const val TYPE = "MessageGetKeyID"
     }
 }
