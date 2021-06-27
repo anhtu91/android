@@ -202,8 +202,8 @@
     <string name="btn_invite">Send invite</string>
     <string name="btn_get_keyID_fieldName">Get Parking Info</string>
     <string name="keyIDInvite">KeyID of parking spots:</string>
-    <string name="fieldNameInvite">FieldName of selected parking spot:</string>
-    <string name="selectDayInvite">Select date:</string>
+    <string name="fieldNameInvite">FieldName of parking spot:</string>
+    <string name="selectDateInvite">Select date:</string>
     <string name="selectTimeInvite">Select time:</string>
     <string name="inputInviteEmail">Invited email:</string>
 </resources>

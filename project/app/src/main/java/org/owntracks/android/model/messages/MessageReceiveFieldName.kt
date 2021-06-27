@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 class MessageReceiveFieldName: MessageBase() {
-    @JsonProperty("fieldName")
+    @JsonProperty("listFieldName")
     var listFieldName: ArrayList<String>? = null
 
     companion object {

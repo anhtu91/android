@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
+import org.owntracks.android.support.Preferences
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class MessageInvite : MessageBase() {
+class MessageInvite (private val dep: MessageWithCreatedAt = MessageCreatedAtNow(RealClock())) : MessageBase(), MessageWithCreatedAt by dep {
 
     @JsonProperty("keyIDInvite")
     var keyIDInvite: String? = null
@@ -22,10 +23,19 @@ class MessageInvite : MessageBase() {
     @JsonProperty("timeInvite")
     var timeInvite: String? = null
 
+    @JsonProperty("tst")
+    var tst: Long? = null
+
     @JsonProperty("emailInvite")
     var emailInvite: String? = null
 
+    override fun addMqttPreferences(preferences: Preferences) {
+        topic = preferences.pubTopicInviteSend
+        qos = preferences.pubQoSInviteSend
+        retained = preferences.pubRetainInviteSend
+    }
+
     companion object {
-        const val TYPE = "InviteReceive"
+        const val TYPE = "MessageInvite"
     }
 }
