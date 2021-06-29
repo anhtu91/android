@@ -30,6 +30,7 @@ import org.owntracks.android.databinding.UiInviteBinding;
 import org.owntracks.android.model.messages.MessageGetFieldName;
 import org.owntracks.android.model.messages.MessageGetKeyID;
 import org.owntracks.android.model.messages.MessageInvite;
+import org.owntracks.android.model.messages.MessageInviteSuccess;
 import org.owntracks.android.model.messages.MessageReceiveFieldName;
 import org.owntracks.android.model.messages.MessageReceiveKeyID;
 import org.owntracks.android.services.MessageProcessor;
@@ -98,7 +99,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
                         year,month,day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.getDatePicker().setMinDate(cal.getTimeInMillis());
-                datePickerDialog.setTitle("Select Date");
+                datePickerDialog.setTitle(getText(R.string.selectDateInvite));
                 datePickerDialog.show();
             }
         });
@@ -111,7 +112,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker = new TimePickerDialog(InviteActivity.this, onTimeSetListener, hour, minute, true);//Yes 24 hour time
-                mTimePicker.setTitle("Select Time");
+                mTimePicker.setTitle(getText(R.string.selectTimeInvite));
                 mTimePicker.show();
             }
         });
@@ -149,15 +150,15 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
                 String email = editTextTextEmailAddress.getText().toString();
 
                 if(!isValidEmail(email)) {
-                    Toast.makeText(getApplicationContext(), "Incorrect email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.incorrectEmail), Toast.LENGTH_LONG).show();
                 }else {
                     String strDate = editTextDate.getText().toString();
                     String strTime = editTextTime.getText().toString();
                     if(strDate.isEmpty()){
-                        Toast.makeText(getApplicationContext(), "Please select invited date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getText(R.string.selectInvitedDate), Toast.LENGTH_LONG).show();
                     }else{
                         if(strTime.isEmpty()){
-                            Toast.makeText(getApplicationContext(), "Please select invited time", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getText(R.string.selectInvitedTime), Toast.LENGTH_LONG).show();
                         }else{
                             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
                             Date date = null;
@@ -254,6 +255,15 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         ArrayAdapter<String> adapterFieldName = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listFieldName);
         adapterFieldName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFieldName.setAdapter(adapterFieldName);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageInviteSuccess message) {
+        if(message.getResponse()){
+            Toast.makeText(getApplicationContext(), getText(R.string.sendInvitationSuccessful), Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getApplicationContext(), getText(R.string.sendInvitationNotSuccessful), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

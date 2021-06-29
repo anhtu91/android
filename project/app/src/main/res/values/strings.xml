@@ -203,7 +203,12 @@
     <string name="btn_get_keyID_fieldName">Get Parking Info</string>
     <string name="keyIDInvite">KeyID of parking spots:</string>
     <string name="fieldNameInvite">FieldName of parking spot:</string>
-    <string name="selectDateInvite">Select date:</string>
-    <string name="selectTimeInvite">Select time:</string>
-    <string name="inputInviteEmail">Invited email:</string>
+    <string name="selectDateInvite">Select date</string>
+    <string name="selectTimeInvite">Select time</string>
+    <string name="inputInviteEmail">Invited email</string>
+    <string name="sendInvitationSuccessful">Send invitation successful</string>
+    <string name="sendInvitationNotSuccessful">Send invitation NOT successful</string>
+    <string name="selectInvitedDate">Please select invited date</string>
+    <string name="selectInvitedTime">Please select invited time</string>
+    <string name="incorrectEmail">Incorrect email</string>
 </resources>

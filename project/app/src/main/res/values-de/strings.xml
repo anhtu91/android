@@ -176,4 +176,14 @@
     <string name="logViewerActivityTitle">Logs</string>
     <string name="btn_invite">Sende Einladung</string>
     <string name="btn_get_keyID_fieldName">Parkinformationen abrufen</string>
+    <string name="keyIDInvite">KeyID der Parkplätze:</string>
+    <string name="fieldNameInvite">FeldName des Parkplatzes:</string>
+    <string name="selectDateInvite">Datum auswählen:</string>
+    <string name="selectTimeInvite">Uhrzeit auswählen:</string>
+    <string name="inputInviteEmail">Eingeladene E-Mail:</string>
+    <string name="sendInvitationSuccessful">Einladung erfolgreich senden</string>
+    <string name="sendInvitationNotSuccessful">Einladung NICHT erfolgreich gesendet</string>
+    <string name="selectInvitedDate">Bitte Einladungsdatum auswählen</string>
+    <string name="selectInvitedTime">Bitte Einladungszeit auswählen</string>
+    <string name="incorrectEmail">Falsche Email</string>
 </resources>

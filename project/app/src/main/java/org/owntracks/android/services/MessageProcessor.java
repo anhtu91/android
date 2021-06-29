@@ -17,6 +17,7 @@ import org.owntracks.android.model.messages.MessageCard;
 import org.owntracks.android.model.messages.MessageClear;
 import org.owntracks.android.model.messages.MessageCmd;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
+import org.owntracks.android.model.messages.MessageInviteSuccess;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageReceiveFieldName;
@@ -323,9 +324,16 @@ public class MessageProcessor {
             processIncomingMessage((MessageReceiveKeyID) message); //For invite feature
         } else if(message instanceof MessageReceiveFieldName){
             processIncomingMessage((MessageReceiveFieldName) message);
+        } else if(message instanceof MessageInviteSuccess){
+            processIncomingMessage((MessageInviteSuccess) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageInviteSuccess message){
+        eventBus.post(message);
+        Timber.i("Invite response: "+message.getResponse());
     }
 
     private void processIncomingMessage(MessageReceiveFieldName message){

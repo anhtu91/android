@@ -190,4 +190,15 @@
     <string name="contact_image">Изображение контакта</string>
     <string name="btn_invite">Отправить приглашение</string>
     <string name="btn_get_keyID_fieldName">Получить информацию о парковке</string>
+
+    <string name = "keyIDInvite"> KeyID парковочных мест:</string>
+    <string name = "fieldNameInvite"> FieldName парковочного места:</string>
+    <string name = "selectDateInvite"> Выбрать дату</string>
+    <string name = "selectTimeInvite"> Выбрать время</string>
+    <string name = "inputInviteEmail"> Электронное письмо с приглашением</string>
+    <string name = "sendInvitationSuccessful"> Приглашение отправлено успешно</string>
+    <string name = "sendInvitationNotSuccessful"> Отправить приглашение НЕ выполнено</string>
+    <string name = "selectInvitedDate"> Выберите дату приглашения</string>
+    <string name = "selectInvitedTime"> Выберите время приглашения</string>
+    <string name = "incorrectEmail"> Неверный адрес электронной почты</string>
 </resources>

@@ -176,4 +176,15 @@
     <string name="status_battery_optimization_whitelisted_hint">Optimisation de la batterie en liste blanche</string>
     <string name="btn_invite">Envoyer une invitation</string>
     <string name="btn_get_keyID_fieldName">Obtenir des informations sur le stationnement</string>
+
+    <string name="keyIDInvite">KeyID des places de parking:</string>
+    <string name="fieldNameInvite">FieldName de la place de parking:</string>
+    <string name="selectDateInvite">Sélectionner la date</string>
+    <string name="selectTimeInvite">Sélectionnez l\heure</string>
+    <string name="inputInviteEmail">E-mail invité</string>
+    <string name="sendInvitationSuccessful">Envoi de l\invitation réussi</string>
+    <string name="sendInvitationNotSuccessful">Envoyer l\invitation ÉCHEC</string>
+    <string name="selectInvitedDate">Veuillez sélectionner la date d\invitation</string>
+    <string name="selectInvitedTime">Veuillez sélectionner l\heure de l\invité</string>
+    <string name="incorrectEmail">E-mail incorrect</string>
 </resources>

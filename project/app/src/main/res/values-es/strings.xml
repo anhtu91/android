@@ -176,4 +176,14 @@
     <string name="logViewerActivityTitle">Registros</string>
     <string name="btn_invite">Enviar invitación</string>
     <string name="btn_get_keyID_fieldName">Obtener información de estacionamiento</string>
+    <string name="keyIDInvite">KeyID de las plazas de aparcamiento:</string>
+    <string name="fieldNameInvite">Campo Nombre del lugar de estacionamiento:</string>
+    <string name="selectDateInvite">Seleccione fecha</string>
+    <string name="selectTimeInvite">Seleccionar hora</string>
+    <string name="inputInviteEmail">Correo electrónico invitado</string>
+    <string name="sendInvitationSuccessful">Enviar invitación con éxito</string>
+    <string name="sendInvitationNotSuccessful">Enviar invitación NO satisfactoria</string>
+    <string name="selectInvitedDate">Seleccione la fecha de la invitación</string>
+    <string name="selectInvitedTime">Seleccione la hora de la invitación</string>
+    <string name="incorrectEmail">Email incorrecto</string>
 </resources>
