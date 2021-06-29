@@ -11,22 +11,22 @@ import org.owntracks.android.support.Preferences
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 class MessageInvite (private val dep: MessageWithCreatedAt = MessageCreatedAtNow(RealClock())) : MessageBase(), MessageWithCreatedAt by dep {
 
-    @JsonProperty("keyIDInvite")
+    @JsonProperty("keyID")
     var keyIDInvite: String? = null
 
-    @JsonProperty("fieldNameInvite")
+    @JsonProperty("fieldName")
     var fieldNameInvite: String? = null
 
-    @JsonProperty("dateInvite")
+    @JsonProperty("date")
     var dateInvite: String? = null
 
-    @JsonProperty("timeInvite")
+    @JsonProperty("time")
     var timeInvite: String? = null
 
     @JsonProperty("tst")
     var tst: Long? = null
 
-    @JsonProperty("emailInvite")
+    @JsonProperty("receiverEmail")
     var emailInvite: String? = null
 
     override fun addMqttPreferences(preferences: Preferences) {

@@ -83,7 +83,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/keyIDInviteText" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editTextEmailAddress"
                 android:layout_width="335dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="33dp"
@@ -125,7 +125,7 @@
                 android:inputType="date"
                 android:textIsSelectable="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

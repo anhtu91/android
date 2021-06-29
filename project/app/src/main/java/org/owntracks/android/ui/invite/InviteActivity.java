@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,8 +16,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -25,14 +27,12 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiInviteBinding;
-import org.owntracks.android.model.EntrancePosition;
 import org.owntracks.android.model.messages.MessageGetFieldName;
 import org.owntracks.android.model.messages.MessageGetKeyID;
 import org.owntracks.android.model.messages.MessageInvite;
 import org.owntracks.android.model.messages.MessageReceiveFieldName;
 import org.owntracks.android.model.messages.MessageReceiveKeyID;
 import org.owntracks.android.services.MessageProcessor;
-import org.owntracks.android.support.Events;
 import org.owntracks.android.ui.base.BaseActivity;
 
 import java.text.DateFormat;
@@ -76,7 +76,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         spinnerFieldName = (Spinner) findViewById(R.id.spinnerFieldName);
         editTextDate = (EditText) findViewById(R.id.editTextDate);
         editTextTime = (EditText) findViewById(R.id.editTextTime);
-        editTextTextEmailAddress = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        editTextTextEmailAddress = (EditText) findViewById(R.id.editTextEmailAddress);
         btnSendInvite = (Button) findViewById(R.id.btnSendInvite);
 
         EnableDisableEditText(false, editTextDate);
@@ -119,18 +119,14 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String time = hourOfDay+":"+minute;
-                editTextTime.setText(time);
+                editTextTime.setText(convertTimeToString(minute, hourOfDay));
             }
         };
 
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                month = month + 1;
-
-                String date = day + "-" + month + "-" + year;
-                editTextDate.setText(date);
+                editTextDate.setText(convertDateToString(day, month, year));
             }
         };
 
@@ -150,28 +146,67 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         btnSendInvite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String strDate = editTextDate.getText().toString();
-                String strTime = editTextTime.getText().toString();
-                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-                Date date = null;
-                try {
-                    date = (Date) dateFormat.parse(strDate+" "+strTime);
-                } catch (ParseException e) {
-                    Timber.e("Error while converting datetime "+e.toString());
-                }
-                long timeStamp = date.getTime()/1000L;
-
                 String email = editTextTextEmailAddress.getText().toString();
-                String keyID = spinnerKeyID.getSelectedItem().toString();
-                String fieldName = spinnerFieldName.getSelectedItem().toString();
 
-                sendInvite(keyID, fieldName, email, strDate, strTime, timeStamp);
+                if(!isValidEmail(email)) {
+                    Toast.makeText(getApplicationContext(), "Incorrect email", Toast.LENGTH_LONG).show();
+                }else {
+                    String strDate = editTextDate.getText().toString();
+                    String strTime = editTextTime.getText().toString();
+                    if(strDate.isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Please select invited date", Toast.LENGTH_LONG).show();
+                    }else{
+                        if(strTime.isEmpty()){
+                            Toast.makeText(getApplicationContext(), "Please select invited time", Toast.LENGTH_LONG).show();
+                        }else{
+                            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+                            Date date = null;
+                            try {
+                                date = (Date) dateFormat.parse(strDate+" "+strTime);
+                            } catch (ParseException e) {
+                                Timber.e("Error while converting datetime "+e.toString());
+                            }
+                            long timeStamp = date.getTime()/1000L;
+
+                            String keyID = spinnerKeyID.getSelectedItem().toString();
+                            String fieldName = spinnerFieldName.getSelectedItem().toString();
+                            sendInvite(keyID, fieldName, email, strDate, strTime, timeStamp);
+                        }
+                    }
+                }
             }
         });
 
         sendRequestToGetKeyID();
 
         eventBus.register(this);
+    }
+
+    private String convertTimeToString(int minute, int hour){
+        String strMinute = addZeroToDateTime(minute);
+        String strHour = addZeroToDateTime(hour);
+        return strHour+":"+strMinute;
+    }
+
+    private String convertDateToString(int day, int month, int year){
+        month = month + 1;
+        String strDay = addZeroToDateTime(day);;
+        String strMonth = addZeroToDateTime(month);
+        return strDay + "-" + strMonth + "-" + year;
+    }
+
+    private String addZeroToDateTime(int MinuteHourDayMonth){
+        String dateTime = null;
+        if(MinuteHourDayMonth < 10){
+            dateTime = "0"+Integer.toString(MinuteHourDayMonth);
+        }else{
+            dateTime = Integer.toString(MinuteHourDayMonth);
+        }
+        return dateTime;
+    }
+
+    private boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
     private void sendInvite(String keyID, String fieldName, String email, String strDate, String strTime, long timeStamp){
