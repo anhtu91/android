@@ -192,13 +192,20 @@
     <string name="btn_get_keyID_fieldName">Получить информацию о парковке</string>
 
     <string name = "keyIDInvite"> KeyID парковочных мест:</string>
-    <string name = "fieldNameInvite"> FieldName парковочного места:</string>
-    <string name = "selectDateInvite"> Выбрать дату</string>
-    <string name = "selectTimeInvite"> Выбрать время</string>
-    <string name = "inputInviteEmail"> Электронное письмо с приглашением</string>
-    <string name = "sendInvitationSuccessful"> Приглашение отправлено успешно</string>
-    <string name = "sendInvitationNotSuccessful"> Отправить приглашение НЕ выполнено</string>
-    <string name = "selectInvitedDate"> Выберите дату приглашения</string>
-    <string name = "selectInvitedTime"> Выберите время приглашения</string>
-    <string name = "incorrectEmail"> Неверный адрес электронной почты</string>
+    <string name = "fieldNameInvite">FieldName парковочного места:</string>
+    <string name = "selectDateInvite">Выбрать дату</string>
+    <string name = "selectTimeInvite">Выбрать время</string>
+    <string name = "inputInviteEmail">Электронное письмо с приглашением</string>
+    <string name = "sendInvitationSuccessful">Приглашение отправлено успешно</string>
+    <string name = "sendInvitationNotSuccessful">Отправить приглашение НЕ выполнено</string>
+    <string name = "selectInvitedDate">Выберите дату приглашения</string>
+    <string name = "selectInvitedTime">Выберите время приглашения</string>
+    <string name = "incorrectEmail">Неверный адрес электронной почты</string>
+
+    <string name = "deleteQRCode">Удалить QR-код</string>
+    <string name = "selectQRCode">Выбрать QRCode</string>
+    <string name = "installFileManager">Пожалуйста, установите файловый менеджер</string>
+    <string name = "insertQRCode">Не удалось вставить QRCode</string>
+    <string name = "qrCodeAlreadyExist">Этот QR-код уже существует</string>
+    <string name = "saveQRCodeSuccessful">QR-код успешно сохранен</string>
 </resources>

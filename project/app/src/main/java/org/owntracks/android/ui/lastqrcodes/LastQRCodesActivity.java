@@ -1,7 +1,5 @@
 package org.owntracks.android.ui.lastqrcodes;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -57,7 +55,7 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
                 LastQRCodesModel selectedQRCode = lastQRCodesList.get(position);
                 String swipedJWT = selectedQRCode.getLastJWT(); //Get string jwt of swiped object
                 if(sqLiteForLastJWTs.removeLastJWT(swipedJWT)){ //Remove jwt from SQLLite
-                    Toast.makeText(LastQRCodesActivity.this, "Delete QR Code", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LastQRCodesActivity.this, getText(R.string.deleteQRCode), Toast.LENGTH_LONG).show();
                     lastQRCodesList.remove(position);
                 }
             }

@@ -197,8 +197,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
+    <!-- Strings used for marker in map -->
     <string name="markerParkingEntrance">Selected entrance</string>
+    <!-- Strings used for invite feature -->
     <string name="btn_invite">Send invite</string>
     <string name="btn_get_keyID_fieldName">Get Parking Info</string>
     <string name="keyIDInvite">KeyID of parking spots:</string>
@@ -211,4 +212,13 @@
     <string name="selectInvitedDate">Please select invited date</string>
     <string name="selectInvitedTime">Please select invited time</string>
     <string name="incorrectEmail">Incorrect email</string>
+    <!-- Strings used for last qr code feature -->
+    <string name="deleteQRCode">Delete QR Code</string>
+    <!-- Strings used for parkplatz activity feature -->
+    <string name="selectQRCode">Select QRCode</string>
+    <string name="installFileManager">Please install a File Manager</string>
+    <string name="insertQRCode">Insert QRCode not successful</string>
+    <string name="qrCodeAlreadyExist">This QRCode is already existed</string>
+    <string name="saveQRCodeSuccessful">Saved QRCode successful</string>
+
 </resources>

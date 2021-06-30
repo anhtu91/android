@@ -187,4 +187,11 @@
     <string name="selectInvitedDate">Veuillez sélectionner la date d\invitation</string>
     <string name="selectInvitedTime">Veuillez sélectionner l\heure de l\invité</string>
     <string name="incorrectEmail">E-mail incorrect</string>
+
+    <string name="deleteQRCode">Supprimer le code QR</string>
+    <string name="selectQRCode">Sélectionnez QRCode</string>
+    <string name="installFileManager">Veuillez installer un gestionnaire de fichiers</string>
+    <string name="insertQRCode">L\insertion du QRCode n\a pas réussi</string>
+    <string name="qrCodeAlreadyExist">Ce QRCode existe déjà</string>
+    <string name="saveQRCodeSuccessful">QRCode enregistré avec succès</string>
 </resources>

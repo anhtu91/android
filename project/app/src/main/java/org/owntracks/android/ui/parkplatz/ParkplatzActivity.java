@@ -5,13 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.MainThread;
@@ -26,7 +22,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.FormatException;
@@ -36,23 +31,17 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Reader;
 import com.google.zxing.Result;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.qrcode.QRCodeWriter;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiParkplatzBinding;
-import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.support.JWTUtils;
-import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.support.sqlite.SQLiteForParkplatz;
 import org.owntracks.android.ui.base.BaseActivity;
-import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -107,7 +96,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 ParkplatzModel selectedQRCode = qrList.get(position);
                 String swipedJWT = selectedQRCode.getJWT(); //Get string jwt of swiped object
                 if(sqLiteForParkplatz.removeJWT(swipedJWT)){ //Remove jwt from SQLLite
-                    Toast.makeText(ParkplatzActivity.this, "Delete QR Code", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ParkplatzActivity.this, getText(R.string.deleteQRCode), Toast.LENGTH_LONG).show();
                     qrList.remove(position);
                 }
             }
@@ -122,10 +111,10 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
         pickIntent.setType("image/*");
         pickIntent.addCategory(Intent.CATEGORY_OPENABLE);
         try {
-            this.startActivityForResult(Intent.createChooser(pickIntent, "Select QRCode"), QRCODE_REQUEST);
+            this.startActivityForResult(Intent.createChooser(pickIntent, getText(R.string.selectQRCode)), QRCODE_REQUEST);
         } catch (android.content.ActivityNotFoundException e) {
             // Potentially direct the user to the Market with a Dialog
-            Toast.makeText(this, "Please install a File Manager.",
+            Toast.makeText(this, getText(R.string.installFileManager),
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -178,34 +167,34 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 inputStream.close();
             }catch (NotFoundException e) {
                 Timber.e("Decode exception " + e);
-                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
             } catch (FormatException e) {
                 Timber.e("Decode exception " + e);
-                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
             } catch (ChecksumException e) {
                 Timber.e("Decode exception " + e);
-                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 Timber.e("Error " + e + ". Can not open file" + uri.toString());
-                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 Timber.e("Error parse JSON "+e.toString());
-                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 Timber.e("Error "+e.toString());
-                Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
             } finally {
                 if (jwt != null) {
                     if(isJwtAlreadyExist(jwt, sqLiteForParkplatz)){
                         Timber.i("QRCode is already existed in database");
-                        Toast.makeText(this, "This QRCode is already existed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getText(R.string.qrCodeAlreadyExist), Toast.LENGTH_SHORT).show();
                     }else{
                         if (sqLiteForParkplatz.insertJWT(jwt)) {
                             Timber.i("Insert QRCode successful");
-                            Toast.makeText(this, "Saved QRCode successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, getText(R.string.saveQRCodeSuccessful), Toast.LENGTH_SHORT).show();
                         } else {
                             Timber.i("Insert QRCode not successful");
-                            Toast.makeText(this, "Insert QRCode not successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
