@@ -26,6 +26,7 @@ import org.owntracks.android.ui.parkplatz.ParkplatzActivity;
 import org.owntracks.android.ui.preferences.PreferencesActivity;
 import org.owntracks.android.ui.preferences.connection.ConnectionActivity;
 import org.owntracks.android.ui.regions.RegionsActivity;
+import org.owntracks.android.ui.register.RegisterActivity;
 import org.owntracks.android.ui.status.StatusActivity;
 
 import javax.inject.Inject;
@@ -99,7 +100,8 @@ public class DrawerProvider {
                         drawerItemForClass(activity, InviteActivity.class, R.string.title_activity_invite, R.drawable.ic_baseline_invite_24),
                         drawerItemForClass(activity, LastQRCodesActivity.class, R.string.title_activity_lastqrcodes, R.drawable.ic_baseline_save_24),
                         drawerItemForClass(activity, ParkplatzActivity.class, R.string.title_activity_parkplatz, R.drawable.ic_baseline_qr_code_24),
-                        drawerItemForClass(activity, ConnectionActivity.class, R.string.title_activity_register_login, R.drawable.ic_baseline_private_connectivity_24))
+                        drawerItemForClass(activity, ConnectionActivity.class, R.string.title_activity_connection_login, R.drawable.ic_baseline_login_24),
+                        drawerItemForClass(activity, RegisterActivity.class, R.string.title_activity_register, R.drawable.ic_baseline_app_registration_24))
                 .addStickyDrawerItems(
                         secondaryDrawerItemForClass(activity, StatusActivity.class, R.string.title_activity_status, R.drawable.ic_baseline_info_24),
                         secondaryDrawerItemForClass(activity, PreferencesActivity.class, R.string.title_activity_preferences, R.drawable.ic_baseline_settings_24),

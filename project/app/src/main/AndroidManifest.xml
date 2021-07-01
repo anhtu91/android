@@ -228,7 +228,12 @@
         <activity
             android:name=".ui.preferences.connection.ConnectionActivity"
             android:clearTaskOnLaunch="true"
-            android:label="@string/title_activity_register_login"
+            android:label="@string/title_activity_connection_login"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/title_activity_register"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.preferences.LogViewerActivity"

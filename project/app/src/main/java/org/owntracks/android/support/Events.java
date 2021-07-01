@@ -139,6 +139,10 @@ public class Events {
         }
     }
 
+    public static class RegisterAdded extends E {
+
+    }
+
     public static class InviteAdded extends E {
         private final InviteModel inviteModel;
 

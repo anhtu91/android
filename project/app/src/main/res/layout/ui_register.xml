@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm" type="org.owntracks.android.ui.register.RegisterViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:elevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/content_frame"
+            style="@style/DialogView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/host"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/preferencesRegisterHost"
+                android:inputType="textVisiblePassword|textNoSuggestions"
+                app:met_baseColor="@color/textPrimary"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="@string/preferencesHost"
+                app:met_primaryColor="@color/accent" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+
+                android:id="@+id/port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="@string/preferencesPort"
+                android:inputType="number|textNoSuggestions"
+                android:maxLength="5"
+                app:met_baseColor="@color/textPrimary"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/accent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/preferencesUsername"
+            android:inputType="textNoSuggestions"
+            app:met_baseColor="@color/textPrimary"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/accent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/preferencesPassword"
+            android:inputType="textNoSuggestions"
+            app:met_baseColor="@color/textPrimary"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/accent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+
+            android:id="@+id/repeatPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/preferencesRepeatPassword"
+            android:inputType="textNoSuggestions"
+            app:met_baseColor="@color/textPrimary"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/accent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/preferencesEmail"
+            android:inputType="textNoSuggestions"
+            app:met_baseColor="@color/textPrimary"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/accent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+
+            android:id="@+id/certificatePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/preferencesCertificatePassword"
+            android:inputType="textNoSuggestions"
+            app:met_baseColor="@color/textPrimary"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/accent" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -12,6 +12,7 @@ import org.owntracks.android.injection.modules.android.ActivityModules.Parkplatz
 import org.owntracks.android.injection.modules.android.ActivityModules.PreferencesActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.RegionActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.RegionsActivityModule;
+import org.owntracks.android.injection.modules.android.ActivityModules.RegisterActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.StatusActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule;
 import org.owntracks.android.injection.modules.android.ServiceModules.BackgroundServiceModule;
@@ -21,12 +22,17 @@ import org.owntracks.android.injection.scopes.PerService;
 import org.owntracks.android.support.receiver.StartBackgroundServiceReceiver;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 import org.owntracks.android.ui.preferences.LogViewerActivity;
+import org.owntracks.android.ui.register.RegisterActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class AndroindBindingModule {
+    @PerActivity
+    @ContributesAndroidInjector(modules = {RegisterActivityModule.class})
+    abstract org.owntracks.android.ui.register.RegisterActivity bindRegisterActivity();
+
     @PerActivity
     @ContributesAndroidInjector(modules = {InviteActivityModule.class})
     abstract org.owntracks.android.ui.invite.InviteActivity bindInviteActivity();

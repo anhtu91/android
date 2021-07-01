@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Owntracks</string>
     <string name="preferencesServer">Подключение</string>
+    <string name="register">Зарегистрироваться</string>
     <string name="preferencesHost">Адрес</string>
     <string name="preferencesPort">Порт</string>
     <string name="preferencesWebsocket">Использовать WebSockets</string>
@@ -73,10 +74,10 @@
     <string name="title_activity_map">Карта</string>
     <string name="title_activity_contacts">Друзья</string>
     <string name="title_activity_parkplatz">Импортировать QR-код</string>
-    <string name="title_activity_lastqrcodes">Последние QR-коды</string>
+    <string name="title_activity_lastqrcodes">История</string>
     <string name="title_activity_invite">Приглашать</string>
     <string name="title_activity_status">Статус</string>
-    <string name="title_activity_register_login">Зарегистрируйтесь &amp; Авторизоваться</string>
+    <string name = "title_activity_connection_login">Подключение &amp; Войти</string>
     <string name="title_activity_preferences">Настройки</string>
     <string name="title_exit">Выход</string>
     <string name="unableToCopyCertificate">Невозможно скопировать сертификат во внутреннее хранилище</string>

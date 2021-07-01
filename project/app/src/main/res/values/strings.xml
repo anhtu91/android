@@ -2,6 +2,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Owntracks</string>
     <string name="preferencesServer">Connection</string>
+    <string name="register">Register</string>
+    <string name="hostMQTT">MQTT Host</string>
+    <string name="preferencesRegisterHost">HTTP Host</string>
     <string name="preferencesHost">Host</string>
     <string name="preferencesPort">Port</string>
     <string name="preferencesWebsocket">Use WebSockets</string>
@@ -73,9 +76,10 @@
     <string name="title_activity_map">Map</string>
     <string name="title_activity_contacts">Friends</string>
     <string name="title_activity_parkplatz">Import QR Code</string>
-    <string name="title_activity_lastqrcodes">Last QR Codes</string>
+    <string name="title_activity_lastqrcodes">History</string>
     <string name="title_activity_invite">Invite</string>
-    <string name="title_activity_register_login">Register &amp; Login</string>
+    <string name="title_activity_connection_login">Login &amp; Connection</string>
+    <string name="title_activity_register">Register new account</string>
     <string name="title_activity_status">Status</string>
     <string name="title_activity_preferences">Preferences</string>
     <string name="title_exit">Exit app</string>
@@ -172,6 +176,11 @@
     <string name="monitoring_mode">Monitoring</string>
     <string name="distance_label">Distance (meter)</string>
     <string name="preferencesClientId">Client ID</string>
+    <string name="preferencesUsername">Username</string>
+    <string name="preferencesPassword">Password</string>
+    <string name="preferencesRepeatPassword">Confirm Password</string>
+    <string name="preferencesEmail">Email</string>
+    <string name="preferencesCertificatePassword">Certificate Password</string>
     <string name="status_endpoint_state_hint">Endpoint state</string>
     <string name="status_endpoint_state_message_hint">Endpoint state message</string>
     <string name="status_endpoint_queue_hint">Endpoint queue</string>

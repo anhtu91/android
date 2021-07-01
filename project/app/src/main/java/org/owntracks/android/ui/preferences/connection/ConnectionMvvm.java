@@ -2,10 +2,8 @@ package org.owntracks.android.ui.preferences.connection;
 
 import org.owntracks.android.ui.base.view.MvvmView;
 import org.owntracks.android.ui.base.viewmodel.MvvmViewModel;
-import org.owntracks.android.ui.preferences.connection.dialog.ConnectionHostHttpDialogViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionHostMqttDialogViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionIdentificationViewModel;
-import org.owntracks.android.ui.preferences.connection.dialog.ConnectionModeDialogViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionParametersViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurityViewModel;
 
@@ -13,7 +11,7 @@ import org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurity
 public interface ConnectionMvvm {
 
     interface View extends MvvmView {
-        //void showModeDialog();
+        //void showRegisterDialog();
         void showHostDialog();
         void showIdentificationDialog();
         void showSecurityDialog();
@@ -23,7 +21,7 @@ public interface ConnectionMvvm {
         }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
-        //void onModeClick();
+        //void onRegisterClick();
         void onHostClick();
         void onIdentificationClick();
         void onSecurityClick();
@@ -33,8 +31,8 @@ public interface ConnectionMvvm {
         void setModeId(int newModeId);
 
         ConnectionHostMqttDialogViewModel getHostDialogViewModelMqtt();
-        ConnectionHostHttpDialogViewModel getHostDialogViewModelHttp();
-        ConnectionModeDialogViewModel getModeDialogViewModel();
+        //ConnectionHostHttpDialogViewModel getHostDialogViewModelHttp();
+        //ConnectionModeDialogViewModel getModeDialogViewModel();
         ConnectionIdentificationViewModel getIdentificationDialogViewModel();
         ConnectionSecurityViewModel getConnectionSecurityViewModel();
         ConnectionParametersViewModel getConnectionParametersViewModel();

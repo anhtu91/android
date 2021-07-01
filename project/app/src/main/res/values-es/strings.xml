@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">OwnTracks</string>
     <string name="preferencesServer">Conexión</string>
+    <string name="register">Registrarse</string>
     <string name="preferencesHost" >Host</string>
     <string name="preferencesPort" >Puerto</string>
     <string name="preferencesWebsocket">Usar WebSockets</string>
@@ -69,10 +70,10 @@
     <string name="title_activity_map">Mapa</string>
     <string name="title_activity_contacts">Amigos</string>
     <string name="title_activity_parkplatz">Importar código QR</string>
-    <string name="title_activity_lastqrcodes">Últimos QR Code</string>
+    <string name="title_activity_lastqrcodes">Historia</string>
     <string name="title_activity_invite">Invitación</string>
     <string name="title_activity_status">Estado</string>
-    <string name="title_activity_register_login">Registrarse &amp; Acceso</string>
+    <string name= "title_activity_connection_login">Conexión &amp; Iniciar sesión</string>
     <string name="title_activity_preferences">Preferencias</string>
     <string name="unableToCopyCertificate">No se pudo copiar el certificado al almacenamiento interno</string>
     <string name="preferencesCategoryNotificationOngoing">Notificación en progreso</string>

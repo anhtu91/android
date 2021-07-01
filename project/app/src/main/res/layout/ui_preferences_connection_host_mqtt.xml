@@ -48,7 +48,7 @@
             />
         <com.rengwuxian.materialedittext.MaterialEditText
 
-            android:id="@+id/clientId"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/preferencesClientId"

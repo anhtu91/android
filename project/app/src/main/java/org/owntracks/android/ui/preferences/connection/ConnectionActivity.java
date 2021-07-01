@@ -17,10 +17,8 @@ import com.rengwuxian.materialedittext.validation.METValidator;
 
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiPreferencesConnectionBinding;
-import org.owntracks.android.databinding.UiPreferencesConnectionHostHttpBinding;
 import org.owntracks.android.databinding.UiPreferencesConnectionHostMqttBinding;
 import org.owntracks.android.databinding.UiPreferencesConnectionIdentificationBinding;
-import org.owntracks.android.databinding.UiPreferencesConnectionModeBinding;
 import org.owntracks.android.databinding.UiPreferencesConnectionParametersBinding;
 import org.owntracks.android.databinding.UiPreferencesConnectionSecurityBinding;
 import org.owntracks.android.services.MessageProcessor;
@@ -54,8 +52,8 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
     }
 
     /*@Override
-    public void showModeDialog() {
-        UiPreferencesConnectionModeBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_mode, null, false);
+    public void showRegisterDialog() {
+        /*UiPreferencesConnectionModeBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_mode, null, false);
 
         dialogBinding.setVm(viewModel.getModeDialogViewModel());
         activeDialogViewModel = dialogBinding.getVm();
@@ -66,11 +64,12 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
                 .setPositiveButton(R.string.accept, dialogBinding.getVm())
                 .setNegativeButton(R.string.cancel, dialogBinding.getVm())
                 .show();
+
     }*/
 
     @Override
     public void showHostDialog() {
-        if (viewModel.getModeId() == MessageProcessorEndpointHttp.MODE_ID) {
+        /*if (viewModel.getModeId() == MessageProcessorEndpointHttp.MODE_ID) {
             UiPreferencesConnectionHostHttpBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_host_http, null, false);
             dialogBinding.setVm(viewModel.getHostDialogViewModelHttp());
             activeDialogViewModel = dialogBinding.getVm();

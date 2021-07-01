@@ -13,10 +13,8 @@ import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.support.Events;
 import org.owntracks.android.support.Preferences;
 import org.owntracks.android.ui.base.viewmodel.BaseViewModel;
-import org.owntracks.android.ui.preferences.connection.dialog.ConnectionHostHttpDialogViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionHostMqttDialogViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionIdentificationViewModel;
-import org.owntracks.android.ui.preferences.connection.dialog.ConnectionModeDialogViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionParametersViewModel;
 import org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurityViewModel;
 
@@ -63,8 +61,8 @@ public class ConnectionViewModel extends BaseViewModel<ConnectionMvvm.View> impl
     }
 
     /*@Override
-    public void onModeClick() {
-        getView().showModeDialog();
+    public void onRegisterClick() {
+        getView().showRegisterDialog();
     }*/
 
     @Override
@@ -87,20 +85,20 @@ public class ConnectionViewModel extends BaseViewModel<ConnectionMvvm.View> impl
         getView().showParametersDialog();
     }
 
-    @Override
+    /*@Override
     public ConnectionModeDialogViewModel getModeDialogViewModel() {
         return new ConnectionModeDialogViewModel(preferences);
-    }
+    }*/
 
     @Override
     public ConnectionHostMqttDialogViewModel getHostDialogViewModelMqtt() {
         return new ConnectionHostMqttDialogViewModel(preferences);
     }
 
-    @Override
+    /*@Override
     public ConnectionHostHttpDialogViewModel getHostDialogViewModelHttp() {
         return new ConnectionHostHttpDialogViewModel(preferences);
-    }
+    }*/
 
     @Override
     public ConnectionIdentificationViewModel getIdentificationDialogViewModel() {
