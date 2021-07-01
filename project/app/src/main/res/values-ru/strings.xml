@@ -76,6 +76,7 @@
     <string name="title_activity_lastqrcodes">Последние QR-коды</string>
     <string name="title_activity_invite">Приглашать</string>
     <string name="title_activity_status">Статус</string>
+    <string name="title_activity_register_login">Зарегистрируйтесь &amp; Авторизоваться</string>
     <string name="title_activity_preferences">Настройки</string>
     <string name="title_exit">Выход</string>
     <string name="unableToCopyCertificate">Невозможно скопировать сертификат во внутреннее хранилище</string>

@@ -67,6 +67,7 @@
     <string name="title_activity_lastqrcodes">Letzte QR Code</string>
     <string name="title_activity_invite">Einladung</string>
     <string name="title_activity_status">Status</string>
+    <string name="title_activity_register_login">Registrieren &amp; Anmeldung</string>
     <string name="title_activity_preferences">Einstellungen</string>
     <string name="unableToCopyCertificate">Kopieren des Zertifikats auf internen Speicher fehlgeschlagen</string>
     <string name="preferencesCategoryNotificationOngoing">Dauerhafte Benachrichtigung</string>

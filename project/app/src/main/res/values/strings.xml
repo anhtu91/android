@@ -75,6 +75,7 @@
     <string name="title_activity_parkplatz">Import QR Code</string>
     <string name="title_activity_lastqrcodes">Last QR Codes</string>
     <string name="title_activity_invite">Invite</string>
+    <string name="title_activity_register_login">Register &amp; Login</string>
     <string name="title_activity_status">Status</string>
     <string name="title_activity_preferences">Preferences</string>
     <string name="title_exit">Exit app</string>
