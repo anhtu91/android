@@ -13,7 +13,7 @@ import org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurity
 public interface ConnectionMvvm {
 
     interface View extends MvvmView {
-        void showModeDialog();
+        //void showModeDialog();
         void showHostDialog();
         void showIdentificationDialog();
         void showSecurityDialog();
@@ -23,7 +23,7 @@ public interface ConnectionMvvm {
         }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
-        void onModeClick();
+        //void onModeClick();
         void onHostClick();
         void onIdentificationClick();
         void onSecurityClick();

@@ -62,10 +62,10 @@ public class ConnectionViewModel extends BaseViewModel<ConnectionMvvm.View> impl
         notifyChange();
     }
 
-    @Override
+    /*@Override
     public void onModeClick() {
         getView().showModeDialog();
-    }
+    }*/
 
     @Override
     public void onHostClick() {

@@ -228,7 +228,7 @@
         <activity
             android:name=".ui.preferences.connection.ConnectionActivity"
             android:clearTaskOnLaunch="true"
-            android:label="@string/preferencesServer"
+            android:label="@string/title_activity_register_login"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.preferences.LogViewerActivity"

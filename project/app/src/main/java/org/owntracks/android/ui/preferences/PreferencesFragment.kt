@@ -21,21 +21,21 @@ class PreferencesFragment : AbstractPreferenceFragment() {
         findPreference<Preference>(UI_SCREEN_CONFIGURATION)!!.intent = Intent(context, EditorActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
 
         //TODO move this to a preferences fragment rather than its own activity.
-        findPreference<Preference>(UI_PREFERENCE_SCREEN_CONNECTION)!!.intent = Intent(context, ConnectionActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        //findPreference<Preference>(UI_PREFERENCE_SCREEN_CONNECTION)!!.intent = Intent(context, ConnectionActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
     }
 
     override fun onResume() {
         super.onResume()
-        findPreference<Preference>(UI_PREFERENCE_SCREEN_CONNECTION)!!.summary = connectionMode
+        //findPreference<Preference>(UI_PREFERENCE_SCREEN_CONNECTION)!!.summary = connectionMode
     }
 
-    private val connectionMode: String
+    /*private val connectionMode: String
         get() = when (preferences.mode) {
             MessageProcessorEndpointHttp.MODE_ID -> getString(R.string.mode_http_private_label)
             MessageProcessorEndpointMqtt.MODE_ID -> getString(R.string.mode_mqtt_private_label)
             else -> getString(R.string.mode_mqtt_private_label)
         }
-
+    */
     companion object {
         private const val UI_PREFERENCE_SCREEN_CONNECTION = "connectionScreen"
         private const val UI_SCREEN_CONFIGURATION = "configuration"

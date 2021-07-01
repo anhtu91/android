@@ -53,7 +53,7 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
         setHasEventBus(true);
     }
 
-    @Override
+    /*@Override
     public void showModeDialog() {
         UiPreferencesConnectionModeBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_mode, null, false);
 
@@ -66,7 +66,7 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
                 .setPositiveButton(R.string.accept, dialogBinding.getVm())
                 .setNegativeButton(R.string.cancel, dialogBinding.getVm())
                 .show();
-    }
+    }*/
 
     @Override
     public void showHostDialog() {
@@ -82,7 +82,7 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
                     .setNegativeButton(R.string.cancel, dialogBinding.getVm())
                     .show();
 
-        } else {
+        } else {*/
             UiPreferencesConnectionHostMqttBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_host_mqtt, null, false);
             dialogBinding.setVm(viewModel.getHostDialogViewModelMqtt());
             activeDialogViewModel = dialogBinding.getVm();
@@ -93,7 +93,7 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
                     .setPositiveButton(R.string.accept, dialogBinding.getVm())
                     .setNegativeButton(R.string.cancel, dialogBinding.getVm())
                     .show();
-        }
+        //}
     }
 
     @Override
@@ -182,11 +182,12 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
             menu.clear();
         }
 
-        if (viewModel.getModeId() == MessageProcessorEndpointHttp.MODE_ID) {
+        /*if (viewModel.getModeId() == MessageProcessorEndpointHttp.MODE_ID) {
             getMenuInflater().inflate(R.menu.preferences_connection_http, menu);
         } else {
             getMenuInflater().inflate(R.menu.preferences_connection_mqtt, menu);
-        }
+        }*/
+        getMenuInflater().inflate(R.menu.preferences_connection_mqtt, menu);
         return true;
     }
 

@@ -112,7 +112,7 @@ public class BindingConversions {
     }
 
 
-    public static int convertModeIdToLabelResId(int modeId) {
+    /*public static int convertModeIdToLabelResId(int modeId) {
         switch (modeId) {
             case MessageProcessorEndpointHttp.MODE_ID:
                 return R.string.mode_http_private_label;
@@ -120,5 +120,5 @@ public class BindingConversions {
             default:
                 return R.string.mode_mqtt_private_label;
         }
-    }
+    }*/
 }
