@@ -9,6 +9,9 @@ public interface RegisterMvvm {
     }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V>{
-
+        String getHost();
+        String getPort();
+        void setHost(String host);
+        void setPort(String port);
     }
 }

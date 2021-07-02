@@ -658,6 +658,21 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
             setStringSet(R.string.preferenceKeyExperimentalFeatures, value)
         }
 
+    @get:Export(keyResId = R.string.preferenceKeyRegisterHost, exportModeMqtt = true)
+    @set:Import(keyResId = R.string.preferenceKeyRegisterHost)
+    var registerHost: String
+        get() = getStringOrDefault(R.string.preferenceKeyRegisterHost, R.string.valEmpty)
+        set(value) {
+            setString(R.string.preferenceKeyRegisterHost, value)
+        }
+
+    @get:Export(keyResId = R.string.preferenceKeyRegisterPort, exportModeMqtt = true)
+    @set:Import(keyResId = R.string.preferenceKeyRegisterPort)
+    var registerPort: String
+        get() = getStringOrDefault(R.string.preferenceKeyRegisterPort, R.string.valEmpty)
+        set(value) {
+            setString(R.string.preferenceKeyRegisterPort, value)
+        }
 
     // Not used on public, as many people might use the same device type
     private val deviceIdDefault: String
