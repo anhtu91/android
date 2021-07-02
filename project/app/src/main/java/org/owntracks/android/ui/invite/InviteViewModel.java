@@ -30,6 +30,6 @@ public class InviteViewModel extends BaseViewModel<InviteMvvm.View> implements I
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(Events.InviteAdded c){
-        //TODO: insert, sort
+        //Do nothings. To remove error
     }
 }

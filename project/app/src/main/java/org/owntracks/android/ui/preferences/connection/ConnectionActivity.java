@@ -44,7 +44,7 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        disablesAnimation();
+        //disablesAnimation();
         bindAndAttachContentView(R.layout.ui_preferences_connection, savedInstanceState);
         setSupportToolbar(binding.toolbar);
         setDrawer(binding.toolbar);

@@ -5,6 +5,7 @@ import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.InviteModel;
 import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.model.ParkplatzModel;
+import org.owntracks.android.model.RegisterModel;
 
 import java.util.Date;
 
@@ -140,7 +141,15 @@ public class Events {
     }
 
     public static class RegisterAdded extends E {
+        private final RegisterModel registerModel;
 
+        public RegisterAdded(RegisterModel registerModel) {
+            this.registerModel = registerModel;
+        }
+
+        public RegisterModel getRegisterModel() {
+            return registerModel;
+        }
     }
 
     public static class InviteAdded extends E {
