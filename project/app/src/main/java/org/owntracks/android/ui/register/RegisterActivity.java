@@ -3,6 +3,8 @@ package org.owntracks.android.ui.register;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,14 +12,21 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.google.android.gms.common.util.IOUtils;
+
+import org.conscrypt.io.IoUtils;
 import org.json.JSONObject;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiRegisterBinding;
 import org.owntracks.android.ui.base.BaseActivity;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
 
 import timber.log.Timber;
 
@@ -75,18 +84,26 @@ public class RegisterActivity extends BaseActivity<UiRegisterBinding, RegisterMv
 
         CallRegisterAPI callRegisterAPI = new CallRegisterAPI();
 
-        if(!strPassword.equals(strRePassword)){
-            Toast.makeText(this, "Password and confirm password are not same", Toast.LENGTH_SHORT).show();
+        if(!isValidEmail(strEmail)) {
+            Toast.makeText(getApplicationContext(), getText(R.string.incorrectEmail), Toast.LENGTH_LONG).show();
         }else{
-            if(strHost.contains(HTTP) || strHost.contains(HTTPS)){
-                callRegisterAPI.execute(strHost+":"+strPort+SIGNUP, strUsername, strPassword, strEmail, strCertPassword);
+            if(!strPassword.equals(strRePassword)){
+                Toast.makeText(this, "Password and confirm password are not same", Toast.LENGTH_LONG).show();
             }else{
-                callRegisterAPI.execute("http://"+strHost+":"+strPort+SIGNUP, strUsername, strPassword, strEmail, strCertPassword);
+                if(strHost.contains(HTTP) || strHost.contains(HTTPS)){
+                    callRegisterAPI.execute(strHost+":"+strPort+SIGNUP, strUsername, strPassword, strEmail, strCertPassword);
+                }else{
+                    callRegisterAPI.execute("http://"+strHost+":"+strPort+SIGNUP, strUsername, strPassword, strEmail, strCertPassword);
+                }
             }
         }
     }
 
-    public class CallRegisterAPI extends AsyncTask<String, Void, Boolean> {
+    private boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
+
+    public class CallRegisterAPI extends AsyncTask<String, Void, String> {
         private final String METHOD = "POST";
         private final String CONTENT = "Content-Type";
         private final String TYPE_REQUEST = "application/json; charset=UTF-8";
@@ -108,14 +125,14 @@ public class RegisterActivity extends BaseActivity<UiRegisterBinding, RegisterMv
         }
 
         @Override
-        protected Boolean doInBackground(String... params) {
+        protected String doInBackground(String... params) {
             String urlString = params[0];
             String username = params[1];
             String password = params[2];
             String email = params[3];
             String certificatePassword = params[4];
             HttpURLConnection connection = null;
-            DataOutputStream os = null;
+            DataOutputStream dataOutputStream = null;
 
             try {
                 URL url = new URL(urlString);
@@ -134,37 +151,42 @@ public class RegisterActivity extends BaseActivity<UiRegisterBinding, RegisterMv
                 jsonParam.put(CERTIFICATE_PASSWORD, certificatePassword);
 
                 Timber.i("Send register request "+jsonParam.toString());
-                os = new DataOutputStream(connection.getOutputStream());
-                os.writeBytes(jsonParam.toString());
+                dataOutputStream = new DataOutputStream(connection.getOutputStream());
+                dataOutputStream.writeBytes(jsonParam.toString());
 
-                os.flush();
-                os.close();
+                dataOutputStream.flush();
+                dataOutputStream.close();
 
                 Timber.i("Response Register "+connection.getResponseMessage() + "");
                 Timber.i("Status code "+connection.getResponseCode());
-                connection.disconnect();
 
                 if(connection.getResponseMessage().equals("OK") && connection.getResponseCode() == 200){
-                    return true;
+                    DataInputStream dataInputStream = new DataInputStream(connection.getInputStream());
+                    Scanner scanner = new Scanner(dataInputStream).useDelimiter("\\A");
+                    String result = scanner.hasNext() ? scanner.next() : "";
+                    JSONObject jsonObject = new JSONObject(result);
+                    String status = jsonObject.getString("status");
+                    connection.disconnect();
+
+                   return status;
                 }else{
-                    return false;
+                    connection.disconnect();
+                    return "Error while connecting to server";
                 }
+
             } catch (Exception e) {
                 Timber.e("Error while registering "+e.toString());
             }
 
-            return true;
+           return null;
         }
 
         @Override
-        protected void onPostExecute(Boolean result) {
+        protected void onPostExecute(String result) {
             super.onPostExecute(result);
             progressDialog.dismiss();
-            if(result){
-                Toast.makeText(RegisterActivity.this, "Register successful", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(RegisterActivity.this, "Register unsuccessful ", Toast.LENGTH_SHORT).show();
-            }
+
+            Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_LONG).show();
         }
     }
 }
