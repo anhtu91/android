@@ -3,6 +3,8 @@
     <string name="app_name">OwnTracks</string>
     <string name="preferencesServer">Verbindung</string>
     <string name="register">Registrieren</string>
+    <string name="hostMQTT">MQTT-Host</string>
+    <string name="preferencesRegisterHost">HTTP-Host</string>
     <string name="preferencesWebsocket">WebSockets nutzen</string>
     <string name="preferencesUserUsername">Benutzername</string>
     <string name="preferencesBrokerPassword">Passwort</string>
@@ -69,6 +71,7 @@
     <string name="title_activity_invite">Einladung</string>
     <string name="title_activity_status">Status</string>
     <string name="title_activity_connection_login">Verbindung &amp; Anmelden</string>
+    <string name="title_activity_register">Neues Konto registrieren</string>
     <string name="title_activity_preferences">Einstellungen</string>
     <string name="unableToCopyCertificate">Kopieren des Zertifikats auf internen Speicher fehlgeschlagen</string>
     <string name="preferencesCategoryNotificationOngoing">Dauerhafte Benachrichtigung</string>
@@ -167,6 +170,11 @@
     <string name="preferencesDebugLog">Debug Log</string>
     <string name="monitoring_mode">Monitoring</string>
     <string name="preferencesClientId">Client ID</string>
+    <string name="preferencesUsername">Benutzername</string>
+    <string name="preferencesPassword">Passwort</string>
+    <string name="preferencesRepeatPassword">Passwort bestätigen</string>
+    <string name="preferencesEmail">E-Mail</string>
+    <string name="preferencesCertificatePassword">Zertifikatspasswort</string>
     <string name="status_endpoint_state_hint">Endpunktstatus</string>
     <string name="status_endpoint_state_message_hint">Endpunkt Statusnachricht</string>
     <string name="status_endpoint_queue_hint">Endpunktschlange</string>
@@ -195,4 +203,11 @@
     <string name="insertQRCode">QRCode einfügen nicht erfolgreich</string>
     <string name="qrCodeAlreadyExist">Dieser QRCode existiert bereits</string>
     <string name="saveQRCodeSuccessful">QRCode erfolgreich gespeichert</string>
+
+    <string name="passwordRegisterError">Passwort und Bestätigungspasswort sind nicht identisch</string>
+    <string name="wait">Bitte warten</string>
+    <string name="errorWhileConnectingServer">Fehler beim Verbinden mit dem Server</string>
+
+    <string name="emptyInput">Bitte geben Sie die Eingabeinformationen ein</string>
+    <string name="timeoutConnection">Timeout-Verbindung</string>
 </resources>

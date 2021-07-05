@@ -3,6 +3,8 @@
     <string name="app_name">OwnTracks</string>
     <string name="preferencesServer">Conexión</string>
     <string name="register">Registrarse</string>
+    <string name="hostMQTT">Host MQTT</string>
+    <string name="preferencesRegisterHost">Host HTTP</string>
     <string name="preferencesHost" >Host</string>
     <string name="preferencesPort" >Puerto</string>
     <string name="preferencesWebsocket">Usar WebSockets</string>
@@ -73,7 +75,8 @@
     <string name="title_activity_lastqrcodes">Historia</string>
     <string name="title_activity_invite">Invitación</string>
     <string name="title_activity_status">Estado</string>
-    <string name= "title_activity_connection_login">Conexión &amp; Iniciar sesión</string>
+    <string name="title_activity_connection_login">Conexión &amp; Iniciar sesión</string>
+    <string name="title_activity_register">Registrar una nueva cuenta</string>
     <string name="title_activity_preferences">Preferencias</string>
     <string name="unableToCopyCertificate">No se pudo copiar el certificado al almacenamiento interno</string>
     <string name="preferencesCategoryNotificationOngoing">Notificación en progreso</string>
@@ -167,6 +170,11 @@
     <string name="preferencesDebugLog">Registro de depuración</string>
     <string name="monitoring_mode">Monitorización</string>
     <string name="preferencesClientId">ID de cliente</string>
+    <string name="preferencesUsername">Nombre de usuario</string>
+    <string name="preferencesPassword">Contraseña</string>
+    <string name="preferencesRepeatPassword">Confirmar contraseña</string>
+    <string name="preferencesEmail">Correo electrónico</string>
+    <string name="preferencesCertificatePassword">Contraseña del certificado</string>
     <string name="status_endpoint_state_hint">Estado del punto de conexión</string>
     <string name="status_endpoint_state_message_hint">Mensaje de estado del punto de conexión</string>
     <string name="status_endpoint_queue_hint">Cola del punto de conexión</string>
@@ -195,4 +203,11 @@
     <string name = "insertQRCode">Insertar QRCode no se realizó correctamente</string>
     <string name = "qrCodeAlreadyExist">Este QRCode ya existe</string>
     <string name = "saveQRCodeSuccessful">Código QR guardado correctamente</string>
+
+    <string name = "passwordRegisterError">La contraseña y la contraseña de confirmación no son las mismas</string>
+    <string name = "wait">Espere</string>
+    <string name = "errorWhileConnectingServer">Error al conectarse al servidor</string>
+
+    <string name = "emptyInput">Ingrese la información de entrada</string>
+    <string name = "timeoutConnection">Conexión de tiempo de espera</string>
 </resources>

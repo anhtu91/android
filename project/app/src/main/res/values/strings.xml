@@ -207,7 +207,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- Strings used for marker in map -->
+    <!-- Strings used for marker in map DO NOT TRANSLATE-->
     <string name="markerParkingEntrance">Selected entrance</string>
     <!-- Strings used for invite feature -->
     <string name="btn_invite">Send invite</string>
@@ -230,5 +230,10 @@
     <string name="insertQRCode">Insert QRCode not successful</string>
     <string name="qrCodeAlreadyExist">This QRCode is already existed</string>
     <string name="saveQRCodeSuccessful">Saved QRCode successful</string>
-
+    <!-- Strings used for register activity feature -->
+    <string name="passwordRegisterError">Password and confirm password are not same</string>
+    <string name="wait">Please Wait</string>
+    <string name="errorWhileConnectingServer">Error while connecting to server</string>
+    <string name="emptyInput">Please enter input information</string>
+    <string name="timeoutConnection">Timeout Connection</string>
 </resources>
