@@ -53,6 +53,9 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     @Inject
     EventBus eventBus;
 
+    @Inject
+    MessageProcessor messageProcessor;
+
     private Button btnSendInvite;
     private Button btnRefresh;
     private Spinner spinnerKeyID;
@@ -66,9 +69,6 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     private ArrayList<String> listFieldName;
     private ProgressDialog progressDialog;
     private boolean clickRefresh = false;
-
-    @Inject
-    MessageProcessor messageProcessor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

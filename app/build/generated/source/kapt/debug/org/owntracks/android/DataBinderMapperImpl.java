@@ -18,6 +18,7 @@ import java.util.List;
 import org.owntracks.android.databinding.UiContactsBindingImpl;
 import org.owntracks.android.databinding.UiInviteBindingImpl;
 import org.owntracks.android.databinding.UiLastQrCodesBindingImpl;
+import org.owntracks.android.databinding.UiManagementAccountBindingImpl;
 import org.owntracks.android.databinding.UiMapBindingImpl;
 import org.owntracks.android.databinding.UiParkplatzBindingImpl;
 import org.owntracks.android.databinding.UiPreferencesBindingImpl;
@@ -29,8 +30,6 @@ import org.owntracks.android.databinding.UiPreferencesConnectionSecurityBindingI
 import org.owntracks.android.databinding.UiPreferencesEditorBindingImpl;
 import org.owntracks.android.databinding.UiPreferencesLoadBindingImpl;
 import org.owntracks.android.databinding.UiPreferencesLogsBindingImpl;
-import org.owntracks.android.databinding.UiRegionBindingImpl;
-import org.owntracks.android.databinding.UiRegionsBindingImpl;
 import org.owntracks.android.databinding.UiRegisterBindingImpl;
 import org.owntracks.android.databinding.UiRowContactBindingImpl;
 import org.owntracks.android.databinding.UiRowLastQrCodesBindingImpl;
@@ -51,62 +50,61 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_UILASTQRCODES = 3;
 
-  private static final int LAYOUT_UIMAP = 4;
+  private static final int LAYOUT_UIMANAGEMENTACCOUNT = 4;
 
-  private static final int LAYOUT_UIPARKPLATZ = 5;
+  private static final int LAYOUT_UIMAP = 5;
 
-  private static final int LAYOUT_UIPREFERENCES = 6;
+  private static final int LAYOUT_UIPARKPLATZ = 6;
 
-  private static final int LAYOUT_UIPREFERENCESCONNECTION = 7;
+  private static final int LAYOUT_UIPREFERENCES = 7;
 
-  private static final int LAYOUT_UIPREFERENCESCONNECTIONHOSTMQTT = 8;
+  private static final int LAYOUT_UIPREFERENCESCONNECTION = 8;
 
-  private static final int LAYOUT_UIPREFERENCESCONNECTIONIDENTIFICATION = 9;
+  private static final int LAYOUT_UIPREFERENCESCONNECTIONHOSTMQTT = 9;
 
-  private static final int LAYOUT_UIPREFERENCESCONNECTIONPARAMETERS = 10;
+  private static final int LAYOUT_UIPREFERENCESCONNECTIONIDENTIFICATION = 10;
 
-  private static final int LAYOUT_UIPREFERENCESCONNECTIONSECURITY = 11;
+  private static final int LAYOUT_UIPREFERENCESCONNECTIONPARAMETERS = 11;
 
-  private static final int LAYOUT_UIPREFERENCESEDITOR = 12;
+  private static final int LAYOUT_UIPREFERENCESCONNECTIONSECURITY = 12;
 
-  private static final int LAYOUT_UIPREFERENCESLOAD = 13;
+  private static final int LAYOUT_UIPREFERENCESEDITOR = 13;
 
-  private static final int LAYOUT_UIPREFERENCESLOGS = 14;
+  private static final int LAYOUT_UIPREFERENCESLOAD = 14;
 
-  private static final int LAYOUT_UIREGION = 15;
+  private static final int LAYOUT_UIPREFERENCESLOGS = 15;
 
-  private static final int LAYOUT_UIREGIONS = 16;
+  private static final int LAYOUT_UIREGISTER = 16;
 
-  private static final int LAYOUT_UIREGISTER = 17;
+  private static final int LAYOUT_UIROWCONTACT = 17;
 
-  private static final int LAYOUT_UIROWCONTACT = 18;
+  private static final int LAYOUT_UIROWLASTQRCODES = 18;
 
-  private static final int LAYOUT_UIROWLASTQRCODES = 19;
+  private static final int LAYOUT_UIROWPARKPLATZ = 19;
 
-  private static final int LAYOUT_UIROWPARKPLATZ = 20;
+  private static final int LAYOUT_UIROWREGION = 20;
 
-  private static final int LAYOUT_UIROWREGION = 21;
+  private static final int LAYOUT_UISTATUS = 21;
 
-  private static final int LAYOUT_UISTATUS = 22;
+  private static final int LAYOUT_UIWELCOME = 22;
 
-  private static final int LAYOUT_UIWELCOME = 23;
+  private static final int LAYOUT_UIWELCOMEFINISH = 23;
 
-  private static final int LAYOUT_UIWELCOMEFINISH = 24;
+  private static final int LAYOUT_UIWELCOMEINTRO = 24;
 
-  private static final int LAYOUT_UIWELCOMEINTRO = 25;
+  private static final int LAYOUT_UIWELCOMEPERMISSIONS = 25;
 
-  private static final int LAYOUT_UIWELCOMEPERMISSIONS = 26;
+  private static final int LAYOUT_UIWELCOMEPLAY = 26;
 
-  private static final int LAYOUT_UIWELCOMEPLAY = 27;
+  private static final int LAYOUT_UIWELCOMEVERSION = 27;
 
-  private static final int LAYOUT_UIWELCOMEVERSION = 28;
-
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(28);
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(27);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_contacts, LAYOUT_UICONTACTS);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_invite, LAYOUT_UIINVITE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_last_qr_codes, LAYOUT_UILASTQRCODES);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_management_account, LAYOUT_UIMANAGEMENTACCOUNT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_map, LAYOUT_UIMAP);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_parkplatz, LAYOUT_UIPARKPLATZ);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_preferences, LAYOUT_UIPREFERENCES);
@@ -118,8 +116,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_preferences_editor, LAYOUT_UIPREFERENCESEDITOR);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_preferences_load, LAYOUT_UIPREFERENCESLOAD);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_preferences_logs, LAYOUT_UIPREFERENCESLOGS);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_region, LAYOUT_UIREGION);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_regions, LAYOUT_UIREGIONS);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_register, LAYOUT_UIREGISTER);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_row_contact, LAYOUT_UIROWCONTACT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_row_last_qr_codes, LAYOUT_UIROWLASTQRCODES);
@@ -160,6 +156,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new UiLastQrCodesBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for ui_last_qr_codes is invalid. Received: " + tag);
+        }
+        case  LAYOUT_UIMANAGEMENTACCOUNT: {
+          if ("layout/ui_management_account_0".equals(tag)) {
+            return new UiManagementAccountBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for ui_management_account is invalid. Received: " + tag);
         }
         case  LAYOUT_UIMAP: {
           if ("layout/ui_map_0".equals(tag)) {
@@ -226,18 +228,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new UiPreferencesLogsBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for ui_preferences_logs is invalid. Received: " + tag);
-        }
-        case  LAYOUT_UIREGION: {
-          if ("layout/ui_region_0".equals(tag)) {
-            return new UiRegionBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for ui_region is invalid. Received: " + tag);
-        }
-        case  LAYOUT_UIREGIONS: {
-          if ("layout/ui_regions_0".equals(tag)) {
-            return new UiRegionsBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for ui_regions is invalid. Received: " + tag);
         }
         case  LAYOUT_UIREGISTER: {
           if ("layout/ui_register_0".equals(tag)) {
@@ -396,12 +386,13 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(28);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(27);
 
     static {
       sKeys.put("layout/ui_contacts_0", org.owntracks.android.R.layout.ui_contacts);
       sKeys.put("layout/ui_invite_0", org.owntracks.android.R.layout.ui_invite);
       sKeys.put("layout/ui_last_qr_codes_0", org.owntracks.android.R.layout.ui_last_qr_codes);
+      sKeys.put("layout/ui_management_account_0", org.owntracks.android.R.layout.ui_management_account);
       sKeys.put("layout/ui_map_0", org.owntracks.android.R.layout.ui_map);
       sKeys.put("layout/ui_parkplatz_0", org.owntracks.android.R.layout.ui_parkplatz);
       sKeys.put("layout/ui_preferences_0", org.owntracks.android.R.layout.ui_preferences);
@@ -413,8 +404,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/ui_preferences_editor_0", org.owntracks.android.R.layout.ui_preferences_editor);
       sKeys.put("layout/ui_preferences_load_0", org.owntracks.android.R.layout.ui_preferences_load);
       sKeys.put("layout/ui_preferences_logs_0", org.owntracks.android.R.layout.ui_preferences_logs);
-      sKeys.put("layout/ui_region_0", org.owntracks.android.R.layout.ui_region);
-      sKeys.put("layout/ui_regions_0", org.owntracks.android.R.layout.ui_regions);
       sKeys.put("layout/ui_register_0", org.owntracks.android.R.layout.ui_register);
       sKeys.put("layout/ui_row_contact_0", org.owntracks.android.R.layout.ui_row_contact);
       sKeys.put("layout/ui_row_last_qr_codes_0", org.owntracks.android.R.layout.ui_row_last_qr_codes);

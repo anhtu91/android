@@ -40,6 +40,10 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_preferences_logs.xml"
     },
     {
+        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_management_account.xml",
+        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_management_account.xml"
+    },
+    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_welcome_version.xml",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_welcome_version.xml"
     },
@@ -98,14 +102,6 @@
     {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_preferences_connection_security.xml",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_preferences_connection_security.xml"
-    },
-    {
-        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_regions.xml",
-        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_regions.xml"
-    },
-    {
-        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_region.xml",
-        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_region.xml"
     },
     {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_last_qr_codes.xml",

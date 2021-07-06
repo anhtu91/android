@@ -55,11 +55,10 @@ import org.owntracks.android.injection.modules.android.AndroindBindingModule_Bin
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindLastQRCodesActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindLoadActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindLogViewerActivity;
+import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindMapActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindParkplatzActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindPreferencesActivity;
-import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindRegionActivity;
-import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindRegionsActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindRegisterActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindStatusActivity;
 import org.owntracks.android.injection.modules.android.AndroindBindingModule_BindWelcomeActivity;
@@ -115,6 +114,10 @@ import org.owntracks.android.ui.invite.InviteViewModel_Factory;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel;
 import org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel_Factory;
+import org.owntracks.android.ui.managementaccount.ManagementAccountActivity;
+import org.owntracks.android.ui.managementaccount.ManagementAccountActivity_MembersInjector;
+import org.owntracks.android.ui.managementaccount.ManagementAccountViewModel;
+import org.owntracks.android.ui.managementaccount.ManagementAccountViewModel_Factory;
 import org.owntracks.android.ui.map.MapActivity;
 import org.owntracks.android.ui.map.MapActivity_MembersInjector;
 import org.owntracks.android.ui.map.MapViewModel;
@@ -141,12 +144,6 @@ import org.owntracks.android.ui.preferences.load.LoadActivity;
 import org.owntracks.android.ui.preferences.load.LoadActivity_MembersInjector;
 import org.owntracks.android.ui.preferences.load.LoadViewModel;
 import org.owntracks.android.ui.preferences.load.LoadViewModel_Factory;
-import org.owntracks.android.ui.region.RegionActivity;
-import org.owntracks.android.ui.region.RegionViewModel;
-import org.owntracks.android.ui.region.RegionViewModel_Factory;
-import org.owntracks.android.ui.regions.RegionsActivity;
-import org.owntracks.android.ui.regions.RegionsViewModel;
-import org.owntracks.android.ui.regions.RegionsViewModel_Factory;
 import org.owntracks.android.ui.register.RegisterActivity;
 import org.owntracks.android.ui.register.RegisterViewModel;
 import org.owntracks.android.ui.register.RegisterViewModel_Factory;
@@ -174,6 +171,8 @@ import org.owntracks.android.ui.welcome.version.VersionFragment;
     "rawtypes"
 })
 public final class DaggerAppComponent implements AppComponent {
+  private Provider<AndroindBindingModule_BindManagementAcouuntActivity.ManagementAccountActivitySubcomponent.Factory> managementAccountActivitySubcomponentFactoryProvider;
+
   private Provider<AndroindBindingModule_BindRegisterActivity.RegisterActivitySubcomponent.Factory> registerActivitySubcomponentFactoryProvider;
 
   private Provider<AndroindBindingModule_BindInviteActivity.InviteActivitySubcomponent.Factory> inviteActivitySubcomponentFactoryProvider;
@@ -199,10 +198,6 @@ public final class DaggerAppComponent implements AppComponent {
   private Provider<AndroindBindingModule_BindStatusActivity.StatusActivitySubcomponent.Factory> statusActivitySubcomponentFactoryProvider;
 
   private Provider<AndroindBindingModule_BindWelcomeActivity.WelcomeActivitySubcomponent.Factory> welcomeActivitySubcomponentFactoryProvider;
-
-  private Provider<AndroindBindingModule_BindRegionsActivity.RegionsActivitySubcomponent.Factory> regionsActivitySubcomponentFactoryProvider;
-
-  private Provider<AndroindBindingModule_BindRegionActivity.RegionActivitySubcomponent.Factory> regionActivitySubcomponentFactoryProvider;
 
   private Provider<AndroindBindingModule_BindBackgroundService.BackgroundServiceSubcomponent.Factory> backgroundServiceSubcomponentFactoryProvider;
 
@@ -256,7 +251,7 @@ public final class DaggerAppComponent implements AppComponent {
 
   private Map<Class<?>, Provider<AndroidInjector.Factory<?>>> mapOfClassOfAndProviderOfAndroidInjectorFactoryOf(
       ) {
-    return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(17).put(RegisterActivity.class, (Provider) registerActivitySubcomponentFactoryProvider).put(InviteActivity.class, (Provider) inviteActivitySubcomponentFactoryProvider).put(ParkplatzActivity.class, (Provider) parkplatzActivitySubcomponentFactoryProvider).put(LastQRCodesActivity.class, (Provider) lastQRCodesActivitySubcomponentFactoryProvider).put(ContactsActivity.class, (Provider) contactsActivitySubcomponentFactoryProvider).put(MapActivity.class, (Provider) mapActivitySubcomponentFactoryProvider).put(PreferencesActivity.class, (Provider) preferencesActivitySubcomponentFactoryProvider).put(ConnectionActivity.class, (Provider) connectionActivitySubcomponentFactoryProvider).put(LogViewerActivity.class, (Provider) logViewerActivitySubcomponentFactoryProvider).put(EditorActivity.class, (Provider) editorActivitySubcomponentFactoryProvider).put(LoadActivity.class, (Provider) loadActivitySubcomponentFactoryProvider).put(StatusActivity.class, (Provider) statusActivitySubcomponentFactoryProvider).put(WelcomeActivity.class, (Provider) welcomeActivitySubcomponentFactoryProvider).put(RegionsActivity.class, (Provider) regionsActivitySubcomponentFactoryProvider).put(RegionActivity.class, (Provider) regionActivitySubcomponentFactoryProvider).put(BackgroundService.class, (Provider) backgroundServiceSubcomponentFactoryProvider).put(StartBackgroundServiceReceiver.class, (Provider) startBackgroundServiceReceiverSubcomponentFactoryProvider).build();
+    return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(16).put(ManagementAccountActivity.class, (Provider) managementAccountActivitySubcomponentFactoryProvider).put(RegisterActivity.class, (Provider) registerActivitySubcomponentFactoryProvider).put(InviteActivity.class, (Provider) inviteActivitySubcomponentFactoryProvider).put(ParkplatzActivity.class, (Provider) parkplatzActivitySubcomponentFactoryProvider).put(LastQRCodesActivity.class, (Provider) lastQRCodesActivitySubcomponentFactoryProvider).put(ContactsActivity.class, (Provider) contactsActivitySubcomponentFactoryProvider).put(MapActivity.class, (Provider) mapActivitySubcomponentFactoryProvider).put(PreferencesActivity.class, (Provider) preferencesActivitySubcomponentFactoryProvider).put(ConnectionActivity.class, (Provider) connectionActivitySubcomponentFactoryProvider).put(LogViewerActivity.class, (Provider) logViewerActivitySubcomponentFactoryProvider).put(EditorActivity.class, (Provider) editorActivitySubcomponentFactoryProvider).put(LoadActivity.class, (Provider) loadActivitySubcomponentFactoryProvider).put(StatusActivity.class, (Provider) statusActivitySubcomponentFactoryProvider).put(WelcomeActivity.class, (Provider) welcomeActivitySubcomponentFactoryProvider).put(BackgroundService.class, (Provider) backgroundServiceSubcomponentFactoryProvider).put(StartBackgroundServiceReceiver.class, (Provider) startBackgroundServiceReceiverSubcomponentFactoryProvider).build();
   }
 
   private DispatchingAndroidInjector<Object> dispatchingAndroidInjectorOfObject() {
@@ -266,6 +261,13 @@ public final class DaggerAppComponent implements AppComponent {
   @SuppressWarnings("unchecked")
   private void initialize(final AppModule appModuleParam,
       final ObjectboxWaypointsModule objectboxWaypointsModuleParam, final App appParam) {
+    this.managementAccountActivitySubcomponentFactoryProvider = new Provider<AndroindBindingModule_BindManagementAcouuntActivity.ManagementAccountActivitySubcomponent.Factory>() {
+      @Override
+      public AndroindBindingModule_BindManagementAcouuntActivity.ManagementAccountActivitySubcomponent.Factory get(
+          ) {
+        return new ManagementAccountActivitySubcomponentFactory();
+      }
+    };
     this.registerActivitySubcomponentFactoryProvider = new Provider<AndroindBindingModule_BindRegisterActivity.RegisterActivitySubcomponent.Factory>() {
       @Override
       public AndroindBindingModule_BindRegisterActivity.RegisterActivitySubcomponent.Factory get() {
@@ -347,18 +349,6 @@ public final class DaggerAppComponent implements AppComponent {
       @Override
       public AndroindBindingModule_BindWelcomeActivity.WelcomeActivitySubcomponent.Factory get() {
         return new WelcomeActivitySubcomponentFactory();
-      }
-    };
-    this.regionsActivitySubcomponentFactoryProvider = new Provider<AndroindBindingModule_BindRegionsActivity.RegionsActivitySubcomponent.Factory>() {
-      @Override
-      public AndroindBindingModule_BindRegionsActivity.RegionsActivitySubcomponent.Factory get() {
-        return new RegionsActivitySubcomponentFactory();
-      }
-    };
-    this.regionActivitySubcomponentFactoryProvider = new Provider<AndroindBindingModule_BindRegionActivity.RegionActivitySubcomponent.Factory>() {
-      @Override
-      public AndroindBindingModule_BindRegionActivity.RegionActivitySubcomponent.Factory get() {
-        return new RegionActivitySubcomponentFactory();
       }
     };
     this.backgroundServiceSubcomponentFactoryProvider = new Provider<AndroindBindingModule_BindBackgroundService.BackgroundServiceSubcomponent.Factory>() {
@@ -464,6 +454,77 @@ public final class DaggerAppComponent implements AppComponent {
     public AppComponent build() {
       Preconditions.checkBuilderRequirement(app, App.class);
       return new DaggerAppComponent(new AppModule(), new ObjectboxWaypointsModule(), app);
+    }
+  }
+
+  private final class ManagementAccountActivitySubcomponentFactory implements AndroindBindingModule_BindManagementAcouuntActivity.ManagementAccountActivitySubcomponent.Factory {
+    @Override
+    public AndroindBindingModule_BindManagementAcouuntActivity.ManagementAccountActivitySubcomponent create(
+        ManagementAccountActivity arg0) {
+      Preconditions.checkNotNull(arg0);
+      return new ManagementAccountActivitySubcomponentImpl(arg0);
+    }
+  }
+
+  private final class ManagementAccountActivitySubcomponentImpl implements AndroindBindingModule_BindManagementAcouuntActivity.ManagementAccountActivitySubcomponent {
+    private Provider<ManagementAccountActivity> arg0Provider;
+
+    private Provider<AppCompatActivity> bindActivityProvider;
+
+    private Provider<AppCompatActivity> activityContextProvider;
+
+    private Provider<Navigator> provideNavigatorProvider;
+
+    private Provider<DrawerProvider> provideDrawerProvider;
+
+    private Provider<RequirementsChecker> provideRequirementsCheckerProvider;
+
+    private Provider<FragmentManager> provideFragmentManagerProvider;
+
+    private ManagementAccountActivitySubcomponentImpl(ManagementAccountActivity arg0Param) {
+
+      initialize(arg0Param);
+    }
+
+    private ManagementAccountViewModel managementAccountViewModel() {
+      return injectManagementAccountViewModel(ManagementAccountViewModel_Factory.newInstance(DaggerAppComponent.this.provideContextProvider.get()));
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final ManagementAccountActivity arg0Param) {
+      this.arg0Provider = InstanceFactory.create(arg0Param);
+      this.bindActivityProvider = DoubleCheck.provider((Provider) arg0Provider);
+      this.activityContextProvider = DoubleCheck.provider(BaseActivityModule_ActivityContextFactory.create(bindActivityProvider));
+      this.provideNavigatorProvider = DoubleCheck.provider(BaseActivityModule_ProvideNavigatorFactory.create(activityContextProvider));
+      this.provideDrawerProvider = DoubleCheck.provider(BaseActivityModule_ProvideDrawerProviderFactory.create(activityContextProvider, DaggerAppComponent.this.schedulerProvider));
+      this.provideRequirementsCheckerProvider = DoubleCheck.provider(BaseActivityModule_ProvideRequirementsCheckerFactory.create(activityContextProvider, DaggerAppComponent.this.preferencesProvider));
+      this.provideFragmentManagerProvider = DoubleCheck.provider(BaseActivityModule_ProvideFragmentManagerFactory.create(activityContextProvider));
+    }
+
+    @Override
+    public void inject(ManagementAccountActivity arg0) {
+      injectManagementAccountActivity(arg0);
+    }
+
+    private ManagementAccountViewModel injectManagementAccountViewModel(
+        ManagementAccountViewModel instance) {
+      BaseViewModel_MembersInjector.injectNavigator(instance, provideNavigatorProvider.get());
+      return instance;
+    }
+
+    private ManagementAccountActivity injectManagementAccountActivity(
+        ManagementAccountActivity instance) {
+      DaggerAppCompatActivity_MembersInjector.injectAndroidInjector(instance, DaggerAppComponent.this.dispatchingAndroidInjectorOfObject());
+      BaseActivity_MembersInjector.injectViewModel(instance, managementAccountViewModel());
+      BaseActivity_MembersInjector.injectEventBus(instance, DaggerAppComponent.this.provideEventbusProvider.get());
+      BaseActivity_MembersInjector.injectDrawerProvider(instance, provideDrawerProvider.get());
+      BaseActivity_MembersInjector.injectPreferences(instance, DaggerAppComponent.this.preferencesProvider.get());
+      BaseActivity_MembersInjector.injectRequirementsChecker(instance, provideRequirementsCheckerProvider.get());
+      BaseActivity_MembersInjector.injectNavigator(instance, provideNavigatorProvider.get());
+      BaseActivity_MembersInjector.injectFragmentManager(instance, provideFragmentManagerProvider.get());
+      ManagementAccountActivity_MembersInjector.injectEventBus(instance, DaggerAppComponent.this.provideEventbusProvider.get());
+      ManagementAccountActivity_MembersInjector.injectMessageProcessor(instance, DaggerAppComponent.this.messageProcessorProvider.get());
+      return instance;
     }
   }
 
@@ -898,7 +959,7 @@ public final class DaggerAppComponent implements AppComponent {
 
     private Map<Class<?>, Provider<AndroidInjector.Factory<?>>> mapOfClassOfAndProviderOfAndroidInjectorFactoryOf(
         ) {
-      return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(21).put(RegisterActivity.class, (Provider) DaggerAppComponent.this.registerActivitySubcomponentFactoryProvider).put(InviteActivity.class, (Provider) DaggerAppComponent.this.inviteActivitySubcomponentFactoryProvider).put(ParkplatzActivity.class, (Provider) DaggerAppComponent.this.parkplatzActivitySubcomponentFactoryProvider).put(LastQRCodesActivity.class, (Provider) DaggerAppComponent.this.lastQRCodesActivitySubcomponentFactoryProvider).put(ContactsActivity.class, (Provider) DaggerAppComponent.this.contactsActivitySubcomponentFactoryProvider).put(MapActivity.class, (Provider) DaggerAppComponent.this.mapActivitySubcomponentFactoryProvider).put(PreferencesActivity.class, (Provider) DaggerAppComponent.this.preferencesActivitySubcomponentFactoryProvider).put(ConnectionActivity.class, (Provider) DaggerAppComponent.this.connectionActivitySubcomponentFactoryProvider).put(LogViewerActivity.class, (Provider) DaggerAppComponent.this.logViewerActivitySubcomponentFactoryProvider).put(EditorActivity.class, (Provider) DaggerAppComponent.this.editorActivitySubcomponentFactoryProvider).put(LoadActivity.class, (Provider) DaggerAppComponent.this.loadActivitySubcomponentFactoryProvider).put(StatusActivity.class, (Provider) DaggerAppComponent.this.statusActivitySubcomponentFactoryProvider).put(WelcomeActivity.class, (Provider) DaggerAppComponent.this.welcomeActivitySubcomponentFactoryProvider).put(RegionsActivity.class, (Provider) DaggerAppComponent.this.regionsActivitySubcomponentFactoryProvider).put(RegionActivity.class, (Provider) DaggerAppComponent.this.regionActivitySubcomponentFactoryProvider).put(BackgroundService.class, (Provider) DaggerAppComponent.this.backgroundServiceSubcomponentFactoryProvider).put(StartBackgroundServiceReceiver.class, (Provider) DaggerAppComponent.this.startBackgroundServiceReceiverSubcomponentFactoryProvider).put(PreferencesFragment.class, (Provider) preferencesFragmentSubcomponentFactoryProvider).put(ReportingFragment.class, (Provider) reportingFragmentSubcomponentFactoryProvider).put(NotificationFragment.class, (Provider) notificationFragmentSubcomponentFactoryProvider).put(AdvancedFragment.class, (Provider) advancedFragmentSubcomponentFactoryProvider).build();
+      return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(20).put(ManagementAccountActivity.class, (Provider) DaggerAppComponent.this.managementAccountActivitySubcomponentFactoryProvider).put(RegisterActivity.class, (Provider) DaggerAppComponent.this.registerActivitySubcomponentFactoryProvider).put(InviteActivity.class, (Provider) DaggerAppComponent.this.inviteActivitySubcomponentFactoryProvider).put(ParkplatzActivity.class, (Provider) DaggerAppComponent.this.parkplatzActivitySubcomponentFactoryProvider).put(LastQRCodesActivity.class, (Provider) DaggerAppComponent.this.lastQRCodesActivitySubcomponentFactoryProvider).put(ContactsActivity.class, (Provider) DaggerAppComponent.this.contactsActivitySubcomponentFactoryProvider).put(MapActivity.class, (Provider) DaggerAppComponent.this.mapActivitySubcomponentFactoryProvider).put(PreferencesActivity.class, (Provider) DaggerAppComponent.this.preferencesActivitySubcomponentFactoryProvider).put(ConnectionActivity.class, (Provider) DaggerAppComponent.this.connectionActivitySubcomponentFactoryProvider).put(LogViewerActivity.class, (Provider) DaggerAppComponent.this.logViewerActivitySubcomponentFactoryProvider).put(EditorActivity.class, (Provider) DaggerAppComponent.this.editorActivitySubcomponentFactoryProvider).put(LoadActivity.class, (Provider) DaggerAppComponent.this.loadActivitySubcomponentFactoryProvider).put(StatusActivity.class, (Provider) DaggerAppComponent.this.statusActivitySubcomponentFactoryProvider).put(WelcomeActivity.class, (Provider) DaggerAppComponent.this.welcomeActivitySubcomponentFactoryProvider).put(BackgroundService.class, (Provider) DaggerAppComponent.this.backgroundServiceSubcomponentFactoryProvider).put(StartBackgroundServiceReceiver.class, (Provider) DaggerAppComponent.this.startBackgroundServiceReceiverSubcomponentFactoryProvider).put(PreferencesFragment.class, (Provider) preferencesFragmentSubcomponentFactoryProvider).put(ReportingFragment.class, (Provider) reportingFragmentSubcomponentFactoryProvider).put(NotificationFragment.class, (Provider) notificationFragmentSubcomponentFactoryProvider).put(AdvancedFragment.class, (Provider) advancedFragmentSubcomponentFactoryProvider).build();
     }
 
     private DispatchingAndroidInjector<Object> dispatchingAndroidInjectorOfObject() {
@@ -1437,7 +1498,7 @@ public final class DaggerAppComponent implements AppComponent {
 
     private Map<Class<?>, Provider<AndroidInjector.Factory<?>>> mapOfClassOfAndProviderOfAndroidInjectorFactoryOf(
         ) {
-      return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(22).put(RegisterActivity.class, (Provider) DaggerAppComponent.this.registerActivitySubcomponentFactoryProvider).put(InviteActivity.class, (Provider) DaggerAppComponent.this.inviteActivitySubcomponentFactoryProvider).put(ParkplatzActivity.class, (Provider) DaggerAppComponent.this.parkplatzActivitySubcomponentFactoryProvider).put(LastQRCodesActivity.class, (Provider) DaggerAppComponent.this.lastQRCodesActivitySubcomponentFactoryProvider).put(ContactsActivity.class, (Provider) DaggerAppComponent.this.contactsActivitySubcomponentFactoryProvider).put(MapActivity.class, (Provider) DaggerAppComponent.this.mapActivitySubcomponentFactoryProvider).put(PreferencesActivity.class, (Provider) DaggerAppComponent.this.preferencesActivitySubcomponentFactoryProvider).put(ConnectionActivity.class, (Provider) DaggerAppComponent.this.connectionActivitySubcomponentFactoryProvider).put(LogViewerActivity.class, (Provider) DaggerAppComponent.this.logViewerActivitySubcomponentFactoryProvider).put(EditorActivity.class, (Provider) DaggerAppComponent.this.editorActivitySubcomponentFactoryProvider).put(LoadActivity.class, (Provider) DaggerAppComponent.this.loadActivitySubcomponentFactoryProvider).put(StatusActivity.class, (Provider) DaggerAppComponent.this.statusActivitySubcomponentFactoryProvider).put(WelcomeActivity.class, (Provider) DaggerAppComponent.this.welcomeActivitySubcomponentFactoryProvider).put(RegionsActivity.class, (Provider) DaggerAppComponent.this.regionsActivitySubcomponentFactoryProvider).put(RegionActivity.class, (Provider) DaggerAppComponent.this.regionActivitySubcomponentFactoryProvider).put(BackgroundService.class, (Provider) DaggerAppComponent.this.backgroundServiceSubcomponentFactoryProvider).put(StartBackgroundServiceReceiver.class, (Provider) DaggerAppComponent.this.startBackgroundServiceReceiverSubcomponentFactoryProvider).put(PlayFragment.class, (Provider) playFragmentSubcomponentFactoryProvider).put(IntroFragment.class, (Provider) introFragmentSubcomponentFactoryProvider).put(VersionFragment.class, (Provider) versionFragmentSubcomponentFactoryProvider).put(PermissionFragment.class, (Provider) permissionFragmentSubcomponentFactoryProvider).put(FinishFragment.class, (Provider) finishFragmentSubcomponentFactoryProvider).build();
+      return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(21).put(ManagementAccountActivity.class, (Provider) DaggerAppComponent.this.managementAccountActivitySubcomponentFactoryProvider).put(RegisterActivity.class, (Provider) DaggerAppComponent.this.registerActivitySubcomponentFactoryProvider).put(InviteActivity.class, (Provider) DaggerAppComponent.this.inviteActivitySubcomponentFactoryProvider).put(ParkplatzActivity.class, (Provider) DaggerAppComponent.this.parkplatzActivitySubcomponentFactoryProvider).put(LastQRCodesActivity.class, (Provider) DaggerAppComponent.this.lastQRCodesActivitySubcomponentFactoryProvider).put(ContactsActivity.class, (Provider) DaggerAppComponent.this.contactsActivitySubcomponentFactoryProvider).put(MapActivity.class, (Provider) DaggerAppComponent.this.mapActivitySubcomponentFactoryProvider).put(PreferencesActivity.class, (Provider) DaggerAppComponent.this.preferencesActivitySubcomponentFactoryProvider).put(ConnectionActivity.class, (Provider) DaggerAppComponent.this.connectionActivitySubcomponentFactoryProvider).put(LogViewerActivity.class, (Provider) DaggerAppComponent.this.logViewerActivitySubcomponentFactoryProvider).put(EditorActivity.class, (Provider) DaggerAppComponent.this.editorActivitySubcomponentFactoryProvider).put(LoadActivity.class, (Provider) DaggerAppComponent.this.loadActivitySubcomponentFactoryProvider).put(StatusActivity.class, (Provider) DaggerAppComponent.this.statusActivitySubcomponentFactoryProvider).put(WelcomeActivity.class, (Provider) DaggerAppComponent.this.welcomeActivitySubcomponentFactoryProvider).put(BackgroundService.class, (Provider) DaggerAppComponent.this.backgroundServiceSubcomponentFactoryProvider).put(StartBackgroundServiceReceiver.class, (Provider) DaggerAppComponent.this.startBackgroundServiceReceiverSubcomponentFactoryProvider).put(PlayFragment.class, (Provider) playFragmentSubcomponentFactoryProvider).put(IntroFragment.class, (Provider) introFragmentSubcomponentFactoryProvider).put(VersionFragment.class, (Provider) versionFragmentSubcomponentFactoryProvider).put(PermissionFragment.class, (Provider) permissionFragmentSubcomponentFactoryProvider).put(FinishFragment.class, (Provider) finishFragmentSubcomponentFactoryProvider).build();
     }
 
     private DispatchingAndroidInjector<Object> dispatchingAndroidInjectorOfObject() {
@@ -1676,128 +1737,6 @@ public final class DaggerAppComponent implements AppComponent {
         BaseSupportFragment_MembersInjector.injectNavigator(instance, WelcomeActivitySubcomponentImpl.this.provideNavigatorProvider.get());
         return instance;
       }
-    }
-  }
-
-  private final class RegionsActivitySubcomponentFactory implements AndroindBindingModule_BindRegionsActivity.RegionsActivitySubcomponent.Factory {
-    @Override
-    public AndroindBindingModule_BindRegionsActivity.RegionsActivitySubcomponent create(
-        RegionsActivity arg0) {
-      Preconditions.checkNotNull(arg0);
-      return new RegionsActivitySubcomponentImpl(arg0);
-    }
-  }
-
-  private final class RegionsActivitySubcomponentImpl implements AndroindBindingModule_BindRegionsActivity.RegionsActivitySubcomponent {
-    private Provider<RegionsActivity> arg0Provider;
-
-    private Provider<AppCompatActivity> bindActivityProvider;
-
-    private Provider<AppCompatActivity> activityContextProvider;
-
-    private Provider<Navigator> provideNavigatorProvider;
-
-    private Provider<RegionsViewModel> regionsViewModelProvider;
-
-    private Provider<DrawerProvider> provideDrawerProvider;
-
-    private Provider<RequirementsChecker> provideRequirementsCheckerProvider;
-
-    private Provider<FragmentManager> provideFragmentManagerProvider;
-
-    private RegionsActivitySubcomponentImpl(RegionsActivity arg0Param) {
-
-      initialize(arg0Param);
-    }
-
-    @SuppressWarnings("unchecked")
-    private void initialize(final RegionsActivity arg0Param) {
-      this.arg0Provider = InstanceFactory.create(arg0Param);
-      this.bindActivityProvider = DoubleCheck.provider((Provider) arg0Provider);
-      this.activityContextProvider = DoubleCheck.provider(BaseActivityModule_ActivityContextFactory.create(bindActivityProvider));
-      this.provideNavigatorProvider = DoubleCheck.provider(BaseActivityModule_ProvideNavigatorFactory.create(activityContextProvider));
-      this.regionsViewModelProvider = DoubleCheck.provider(RegionsViewModel_Factory.create(DaggerAppComponent.this.provideWaypointsRepoProvider, DaggerAppComponent.this.locationProcessorProvider, provideNavigatorProvider));
-      this.provideDrawerProvider = DoubleCheck.provider(BaseActivityModule_ProvideDrawerProviderFactory.create(activityContextProvider, DaggerAppComponent.this.schedulerProvider));
-      this.provideRequirementsCheckerProvider = DoubleCheck.provider(BaseActivityModule_ProvideRequirementsCheckerFactory.create(activityContextProvider, DaggerAppComponent.this.preferencesProvider));
-      this.provideFragmentManagerProvider = DoubleCheck.provider(BaseActivityModule_ProvideFragmentManagerFactory.create(activityContextProvider));
-    }
-
-    @Override
-    public void inject(RegionsActivity arg0) {
-      injectRegionsActivity(arg0);
-    }
-
-    private RegionsActivity injectRegionsActivity(RegionsActivity instance) {
-      DaggerAppCompatActivity_MembersInjector.injectAndroidInjector(instance, DaggerAppComponent.this.dispatchingAndroidInjectorOfObject());
-      BaseActivity_MembersInjector.injectViewModel(instance, regionsViewModelProvider.get());
-      BaseActivity_MembersInjector.injectEventBus(instance, DaggerAppComponent.this.provideEventbusProvider.get());
-      BaseActivity_MembersInjector.injectDrawerProvider(instance, provideDrawerProvider.get());
-      BaseActivity_MembersInjector.injectPreferences(instance, DaggerAppComponent.this.preferencesProvider.get());
-      BaseActivity_MembersInjector.injectRequirementsChecker(instance, provideRequirementsCheckerProvider.get());
-      BaseActivity_MembersInjector.injectNavigator(instance, provideNavigatorProvider.get());
-      BaseActivity_MembersInjector.injectFragmentManager(instance, provideFragmentManagerProvider.get());
-      return instance;
-    }
-  }
-
-  private final class RegionActivitySubcomponentFactory implements AndroindBindingModule_BindRegionActivity.RegionActivitySubcomponent.Factory {
-    @Override
-    public AndroindBindingModule_BindRegionActivity.RegionActivitySubcomponent create(
-        RegionActivity arg0) {
-      Preconditions.checkNotNull(arg0);
-      return new RegionActivitySubcomponentImpl(arg0);
-    }
-  }
-
-  private final class RegionActivitySubcomponentImpl implements AndroindBindingModule_BindRegionActivity.RegionActivitySubcomponent {
-    private Provider<RegionActivity> arg0Provider;
-
-    private Provider<AppCompatActivity> bindActivityProvider;
-
-    private Provider<AppCompatActivity> activityContextProvider;
-
-    private Provider<Navigator> provideNavigatorProvider;
-
-    private Provider<RegionViewModel> regionViewModelProvider;
-
-    private Provider<DrawerProvider> provideDrawerProvider;
-
-    private Provider<RequirementsChecker> provideRequirementsCheckerProvider;
-
-    private Provider<FragmentManager> provideFragmentManagerProvider;
-
-    private RegionActivitySubcomponentImpl(RegionActivity arg0Param) {
-
-      initialize(arg0Param);
-    }
-
-    @SuppressWarnings("unchecked")
-    private void initialize(final RegionActivity arg0Param) {
-      this.arg0Provider = InstanceFactory.create(arg0Param);
-      this.bindActivityProvider = DoubleCheck.provider((Provider) arg0Provider);
-      this.activityContextProvider = DoubleCheck.provider(BaseActivityModule_ActivityContextFactory.create(bindActivityProvider));
-      this.provideNavigatorProvider = DoubleCheck.provider(BaseActivityModule_ProvideNavigatorFactory.create(activityContextProvider));
-      this.regionViewModelProvider = DoubleCheck.provider(RegionViewModel_Factory.create(DaggerAppComponent.this.provideWaypointsRepoProvider, DaggerAppComponent.this.provideLocationRepoProvider, provideNavigatorProvider));
-      this.provideDrawerProvider = DoubleCheck.provider(BaseActivityModule_ProvideDrawerProviderFactory.create(activityContextProvider, DaggerAppComponent.this.schedulerProvider));
-      this.provideRequirementsCheckerProvider = DoubleCheck.provider(BaseActivityModule_ProvideRequirementsCheckerFactory.create(activityContextProvider, DaggerAppComponent.this.preferencesProvider));
-      this.provideFragmentManagerProvider = DoubleCheck.provider(BaseActivityModule_ProvideFragmentManagerFactory.create(activityContextProvider));
-    }
-
-    @Override
-    public void inject(RegionActivity arg0) {
-      injectRegionActivity(arg0);
-    }
-
-    private RegionActivity injectRegionActivity(RegionActivity instance) {
-      DaggerAppCompatActivity_MembersInjector.injectAndroidInjector(instance, DaggerAppComponent.this.dispatchingAndroidInjectorOfObject());
-      BaseActivity_MembersInjector.injectViewModel(instance, regionViewModelProvider.get());
-      BaseActivity_MembersInjector.injectEventBus(instance, DaggerAppComponent.this.provideEventbusProvider.get());
-      BaseActivity_MembersInjector.injectDrawerProvider(instance, provideDrawerProvider.get());
-      BaseActivity_MembersInjector.injectPreferences(instance, DaggerAppComponent.this.preferencesProvider.get());
-      BaseActivity_MembersInjector.injectRequirementsChecker(instance, provideRequirementsCheckerProvider.get());
-      BaseActivity_MembersInjector.injectNavigator(instance, provideNavigatorProvider.get());
-      BaseActivity_MembersInjector.injectFragmentManager(instance, provideFragmentManagerProvider.get());
-      return instance;
     }
   }
 

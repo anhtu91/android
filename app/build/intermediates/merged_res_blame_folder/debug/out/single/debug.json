@@ -92,10 +92,6 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/anim/push_up_in.xml"
     },
     {
-        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_regions.xml.flat",
-        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_regions.xml"
-    },
-    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/drawable_ic_baseline_my_location_24.xml.flat",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/drawable/ic_baseline_my_location_24.xml"
     },
@@ -208,10 +204,6 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/drawable/ic_arrow.xml"
     },
     {
-        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_region.xml.flat",
-        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_region.xml"
-    },
-    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_row_last_qr_codes.xml.flat",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_row_last_qr_codes.xml"
     },
@@ -284,6 +276,10 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_available_parking_spot.xml"
     },
     {
+        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/drawable_ic_baseline_manage_accounts_24.xml.flat",
+        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/drawable/ic_baseline_manage_accounts_24.xml"
+    },
+    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/xml_preferences_notification.xml.flat",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/xml/preferences_notification.xml"
     },
@@ -330,6 +326,10 @@
     {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_row_region.xml.flat",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_row_region.xml"
+    },
+    {
+        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_management_account.xml.flat",
+        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_management_account.xml"
     },
     {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",

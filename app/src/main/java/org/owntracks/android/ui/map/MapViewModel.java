@@ -37,7 +37,6 @@ import timber.log.Timber;
 public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm.ViewModel<MapMvvm.View>, LocationSource, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener{
     private final ContactsRepo contactsRepo;
     private final LocationProcessor locationProcessor;
-    //private FusedContact activeContact;
     private LocationSource.OnLocationChangedListener onLocationChangedListener;
     private MessageProcessor messageProcessor;
     private Location location;
@@ -181,15 +180,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(Events.FusedContactAdded e) {
         onEvent(e.getContact());
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(Events.FusedContactRemoved c) {
-        /*if (c.getContact() == activeContact) {
-            clearActiveContact();
-            setViewModeFree();
-        }*/
-        //getView().removeMarker(c.getContact());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

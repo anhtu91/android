@@ -77,6 +77,7 @@
     <string name="title_activity_contacts">Friends</string>
     <string name="title_activity_parkplatz">Import QR Code</string>
     <string name="title_activity_lastqrcodes">History</string>
+    <string name="title_management_acc">Management Account</string>
     <string name="title_activity_invite">Invite</string>
     <string name="title_activity_connection_login">Login &amp; Connection</string>
     <string name="title_activity_register">Register new account</string>

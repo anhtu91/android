@@ -11,7 +11,6 @@ import org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurity
 public interface ConnectionMvvm {
 
     interface View extends MvvmView {
-        //void showRegisterDialog();
         void showHostDialog();
         void showIdentificationDialog();
         void showSecurityDialog();
@@ -21,7 +20,6 @@ public interface ConnectionMvvm {
         }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
-        //void onRegisterClick();
         void onHostClick();
         void onIdentificationClick();
         void onSecurityClick();
@@ -31,8 +29,6 @@ public interface ConnectionMvvm {
         void setModeId(int newModeId);
 
         ConnectionHostMqttDialogViewModel getHostDialogViewModelMqtt();
-        //ConnectionHostHttpDialogViewModel getHostDialogViewModelHttp();
-        //ConnectionModeDialogViewModel getModeDialogViewModel();
         ConnectionIdentificationViewModel getIdentificationDialogViewModel();
         ConnectionSecurityViewModel getConnectionSecurityViewModel();
         ConnectionParametersViewModel getConnectionParametersViewModel();

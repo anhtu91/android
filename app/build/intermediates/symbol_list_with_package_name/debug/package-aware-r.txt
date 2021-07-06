@@ -2228,6 +2228,7 @@ drawable ic_baseline_invite_24
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_layers_24
 drawable ic_baseline_login_24
+drawable ic_baseline_manage_accounts_24
 drawable ic_baseline_more_horiz_24
 drawable ic_baseline_my_location_24
 drawable ic_baseline_pause_36
@@ -2437,7 +2438,6 @@ id decor_content_parent
 id default_activity_button
 id deltaRelative
 id dependency_ordering
-id description
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -2551,7 +2551,6 @@ id keyIDSelectedEntranceLabel
 id labeled
 id largeLabel
 id lastQRCodeRow
-id latitude
 id layout
 id left
 id light
@@ -2564,7 +2563,6 @@ id location
 id locationDate
 id log_date
 id log_msg
-id longitude
 id mapView
 id masked
 id master_switch_container
@@ -2687,7 +2685,6 @@ id pathRelative
 id peekHeight
 id percent
 id pin
-id placeholder
 id port
 id position
 id postLayout
@@ -2698,11 +2695,9 @@ id progress_circular
 id progress_horizontal
 id qrCodeImageView
 id radio
-id radius
 id ratio
 id recover
 id rectangles
-id recyclerView
 id recycler_view
 id registerCertificatePasswordText
 id registerEmailText
@@ -3053,6 +3048,7 @@ layout ui_contacts
 layout ui_imported_qr_code_pop_up
 layout ui_invite
 layout ui_last_qr_codes
+layout ui_management_account
 layout ui_map
 layout ui_parkplatz
 layout ui_preferences
@@ -3066,8 +3062,6 @@ layout ui_preferences_editor_dialog
 layout ui_preferences_load
 layout ui_preferences_logs
 layout ui_qr_code_pop_up
-layout ui_region
-layout ui_regions
 layout ui_register
 layout ui_row_contact
 layout ui_row_last_qr_codes
@@ -3526,6 +3520,7 @@ string title_activity_regions
 string title_activity_register
 string title_activity_status
 string title_exit
+string title_management_acc
 string tls
 string transitionEntering
 string transitionLeaving

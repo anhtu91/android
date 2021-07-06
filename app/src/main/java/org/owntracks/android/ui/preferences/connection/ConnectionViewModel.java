@@ -60,11 +60,6 @@ public class ConnectionViewModel extends BaseViewModel<ConnectionMvvm.View> impl
         notifyChange();
     }
 
-    /*@Override
-    public void onRegisterClick() {
-        getView().showRegisterDialog();
-    }*/
-
     @Override
     public void onHostClick() {
         getView().showHostDialog();
@@ -85,20 +80,10 @@ public class ConnectionViewModel extends BaseViewModel<ConnectionMvvm.View> impl
         getView().showParametersDialog();
     }
 
-    /*@Override
-    public ConnectionModeDialogViewModel getModeDialogViewModel() {
-        return new ConnectionModeDialogViewModel(preferences);
-    }*/
-
     @Override
     public ConnectionHostMqttDialogViewModel getHostDialogViewModelMqtt() {
         return new ConnectionHostMqttDialogViewModel(preferences);
     }
-
-    /*@Override
-    public ConnectionHostHttpDialogViewModel getHostDialogViewModelHttp() {
-        return new ConnectionHostHttpDialogViewModel(preferences);
-    }*/
 
     @Override
     public ConnectionIdentificationViewModel getIdentificationDialogViewModel() {

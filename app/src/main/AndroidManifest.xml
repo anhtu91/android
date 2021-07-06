@@ -64,18 +64,6 @@
             android:value="true" />
 
         <activity
-            android:name=".ui.regions.RegionsActivity"
-            android:label="@string/title_activity_regions"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".ui.region.RegionActivity"
-            android:label="@string/title_activity_region"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.regions.RegionsActivity" />
-        </activity>
-        <activity
             android:name=".ui.preferences.PreferencesActivity"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_preferences"
@@ -213,6 +201,10 @@
         <activity android:name=".ui.lastqrcodes.LastQRCodesActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_lastqrcodes"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.managementaccount.ManagementAccountActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/title_management_acc"
             android:launchMode="singleTask"/>
         <activity
             android:name=".ui.map.MapActivity"

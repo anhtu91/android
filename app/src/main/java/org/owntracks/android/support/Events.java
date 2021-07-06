@@ -4,6 +4,7 @@ import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.InviteModel;
 import org.owntracks.android.model.LastQRCodesModel;
+import org.owntracks.android.model.ManagementAccountModel;
 import org.owntracks.android.model.ParkplatzModel;
 import org.owntracks.android.model.RegisterModel;
 
@@ -149,6 +150,18 @@ public class Events {
 
         public RegisterModel getRegisterModel() {
             return registerModel;
+        }
+    }
+
+    public static class ManagementAccount extends E {
+        private final ManagementAccountModel managementAccountModel;
+
+        public ManagementAccount(ManagementAccountModel managementAccountModel) {
+            this.managementAccountModel = managementAccountModel;
+        }
+
+        public ManagementAccountModel getManagementAccountModel() {
+            return managementAccountModel;
         }
     }
 

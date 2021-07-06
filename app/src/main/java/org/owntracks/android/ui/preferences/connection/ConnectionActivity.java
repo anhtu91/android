@@ -50,48 +50,18 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
         setHasEventBus(true);
     }
 
-    /*@Override
-    public void showRegisterDialog() {
-        /*UiPreferencesConnectionModeBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_mode, null, false);
-
-        dialogBinding.setVm(viewModel.getModeDialogViewModel());
+    @Override
+    public void showHostDialog() {
+        UiPreferencesConnectionHostMqttBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_host_mqtt, null, false);
+        dialogBinding.setVm(viewModel.getHostDialogViewModelMqtt());
         activeDialogViewModel = dialogBinding.getVm();
 
         new AlertDialog.Builder(this)
                 .setView(dialogBinding.getRoot())
-                .setTitle(R.string.mode_heading)
+                .setTitle(R.string.preferencesHost)
                 .setPositiveButton(R.string.accept, dialogBinding.getVm())
                 .setNegativeButton(R.string.cancel, dialogBinding.getVm())
                 .show();
-
-    }*/
-
-    @Override
-    public void showHostDialog() {
-        /*if (viewModel.getModeId() == MessageProcessorEndpointHttp.MODE_ID) {
-            UiPreferencesConnectionHostHttpBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_host_http, null, false);
-            dialogBinding.setVm(viewModel.getHostDialogViewModelHttp());
-            activeDialogViewModel = dialogBinding.getVm();
-
-            new AlertDialog.Builder(this)
-                    .setView(dialogBinding.getRoot())
-                    .setTitle(R.string.preferencesHost)
-                    .setPositiveButton(R.string.accept, dialogBinding.getVm())
-                    .setNegativeButton(R.string.cancel, dialogBinding.getVm())
-                    .show();
-
-        } else {*/
-            UiPreferencesConnectionHostMqttBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.ui_preferences_connection_host_mqtt, null, false);
-            dialogBinding.setVm(viewModel.getHostDialogViewModelMqtt());
-            activeDialogViewModel = dialogBinding.getVm();
-
-            new AlertDialog.Builder(this)
-                    .setView(dialogBinding.getRoot())
-                    .setTitle(R.string.preferencesHost)
-                    .setPositiveButton(R.string.accept, dialogBinding.getVm())
-                    .setNegativeButton(R.string.cancel, dialogBinding.getVm())
-                    .show();
-        //}
     }
 
     @Override
@@ -179,12 +149,6 @@ public class ConnectionActivity extends BaseActivity<UiPreferencesConnectionBind
         if (menu != null) {
             menu.clear();
         }
-
-        /*if (viewModel.getModeId() == MessageProcessorEndpointHttp.MODE_ID) {
-            getMenuInflater().inflate(R.menu.preferences_connection_http, menu);
-        } else {
-            getMenuInflater().inflate(R.menu.preferences_connection_mqtt, menu);
-        }*/
         getMenuInflater().inflate(R.menu.preferences_connection_mqtt, menu);
         return true;
     }

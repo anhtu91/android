@@ -96,9 +96,11 @@
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="33dp"
+                android:digits="0123456789"
                 android:ems="10"
                 android:hint="@string/preferencesPort"
-                android:inputType="textPersonName"
+                android:inputType="textNoSuggestions|number"
+                android:maxLength="5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerHostText" />
