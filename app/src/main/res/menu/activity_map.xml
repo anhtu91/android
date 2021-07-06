@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_monitoring"
+        android:orderInCategory="1"
+        android:title="@string/monitoring_mode"
+        app:showAsAction="ifRoom" />
+
+    <!--
+    <item
+        android:id="@+id/menu_import_qr_code"
+        android:icon="@drawable/ic_baseline_qr_code_24"
+        android:orderInCategory="1"
+        android:title="@string/menuImportQRCode"
+        app:showAsAction="ifRoom" />
+    -->
+
+    <item
+        android:id="@+id/menu_report"
+        android:icon="@drawable/ic_baseline_publish_24"
+        android:orderInCategory="1"
+        android:title="@string/publish"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_mylocation"
+        android:icon="@drawable/ic_baseline_my_location_24"
+        android:orderInCategory="1"
+        android:title="@string/menuCurrentLoction"
+        app:showAsAction="ifRoom" />
+
+</menu>

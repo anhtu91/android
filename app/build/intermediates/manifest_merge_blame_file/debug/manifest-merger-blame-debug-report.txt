@@ -1,0 +1,712 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.owntracks.android.debug"
+4    android:versionCode="22200"
+5    android:versionName="2.2.2" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml
+10
+11    <uses-feature
+11-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:6:5-8:35
+12        android:glEsVersion="0x00020000"
+12-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:7:9-41
+13        android:required="true" />
+13-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:8:9-32
+14    <uses-feature
+14-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:9:5-12:54
+15        android:name="android.hardware.location.gps"
+15-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:10:9-53
+16        android:required="true" />
+16-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:11:9-32
+17
+18    <uses-permission android:name="android.permission.INTERNET" /> <!-- To access the network -->
+18-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:14:5-67
+18-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:14:22-64
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- To handle connectivity changes and reconnect -->
+19-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:15:5-79
+19-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:15:22-76
+20    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- To prevent the device from sleeping while handling MQTT traffic -->
+20-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:16:5-68
+20-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:16:22-65
+21    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- To autostart the app once the device boots -->
+21-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:17:5-81
+21-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:17:22-78
+22    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Not actively requested. Has to be enabled manually. Access to broker certificates in private storage on older APIs or on devices not providing files through content:// URIs -->
+22-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:18:5-80
+22-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:18:22-77
+23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+23-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:19:5-81
+23-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:19:22-78
+24    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+24-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:20:5-81
+24-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:20:22-78
+25
+26    <!-- To locate the device -->
+27    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+27-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:23:5-79
+27-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:23:22-76
+28    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- To access Google Play Services -->
+28-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:24:5-85
+28-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:24:22-82
+29    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- API v28 requires this for foreground services -->
+29-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:25:5-98
+29-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:25:22-95
+30    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+30-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:26:5-77
+30-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:26:22-74
+31
+32    <application
+32-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:28:5-255:19
+33        android:name="org.owntracks.android.App"
+33-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:29:9-28
+34        android:allowBackup="true"
+34-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:30:9-35
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.3.2] /home/atn/.gradle/caches/transforms-2/files-2.1/09abf4d4b373e916f1dd440a18df5d73/core-1.3.2/AndroidManifest.xml:24:18-86
+36        android:debuggable="true"
+37        android:extractNativeLibs="false"
+37-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:31:9-42
+38        android:fullBackupContent="@xml/backup_descriptor"
+38-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:32:9-59
+39        android:hardwareAccelerated="true"
+39-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:33:9-43
+40        android:icon="@mipmap/ic_launcher"
+40-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:34:9-43
+41        android:label="@string/app_name"
+41-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:35:9-41
+42        android:networkSecurityConfig="@xml/network_security_config"
+42-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:36:9-69
+43        android:roundIcon="@mipmap/ic_launcher"
+43-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:37:9-48
+44        android:supportsRtl="true"
+44-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:38:9-35
+45        android:testOnly="true"
+46        android:theme="@style/Theme.Owntracks" >
+46-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:39:9-47
+47        <activity android:name="org.owntracks.android.ui.qrcode.QrCodePopUp" />
+47-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:42:9-68
+47-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:42:19-56
+48        <activity android:name="org.owntracks.android.ui.qrcode.ImportQrCodePopUp" />
+48-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:43:9-74
+48-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:43:19-62
+49        <activity android:name="org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp" />
+49-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:44:9-96
+49-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:44:19-84
+50        <!-- Disables default initialization of WorkManager because custom initializer is used in App.onCreate() -->
+51        <provider
+52            android:name="androidx.work.impl.WorkManagerInitializer"
+52-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:47:13-69
+53            android:authorities="org.owntracks.android.debug.workmanager-init"
+53-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:48:13-68
+54            android:directBootAware="false"
+54-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:34:13-44
+55            android:enabled="false"
+55-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:49:13-36
+56            android:exported="false"
+56-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:50:13-37
+57            android:multiprocess="true" /> <!-- Maps SDK requires this as of API v28 -->
+57-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:36:13-40
+58        <uses-library
+58-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:52:9-54:40
+59            android:name="org.apache.http.legacy"
+59-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:53:13-50
+60            android:required="false" />
+60-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:54:13-37
+61
+62        <meta-data
+62-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:56:9-58:59
+63            android:name="com.google.android.geo.API_KEY"
+63-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:57:13-58
+64            android:value="@string/GOOGLE_MAPS_API_KEY" />
+64-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:58:13-56
+65        <meta-data
+65-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:59:9-61:51
+66            android:name="android.support.PARENT_ACTIVITY"
+66-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:60:13-59
+67            android:value=".ui.map.MapActivity" />
+67-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:61:13-48
+68        <meta-data
+68-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:62:9-64:36
+69            android:name="firebase_analytics_collection_deactivated"
+69-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:63:13-69
+70            android:value="true" />
+70-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:64:13-33
+71
+72        <activity
+72-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:66:9-69:46
+73            android:name="org.owntracks.android.ui.regions.RegionsActivity"
+73-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:67:13-55
+74            android:label="@string/title_activity_regions"
+74-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:68:13-59
+75            android:launchMode="singleTop" />
+75-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:69:13-43
+76        <activity
+76-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:70:9-77:20
+77            android:name="org.owntracks.android.ui.region.RegionActivity"
+77-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:71:13-53
+78            android:label="@string/title_activity_region"
+78-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:72:13-58
+79            android:launchMode="singleTop" >
+79-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:73:13-43
+80            <meta-data
+80-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:59:9-61:51
+81                android:name="android.support.PARENT_ACTIVITY"
+81-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:60:13-59
+82                android:value=".ui.regions.RegionsActivity" />
+82-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:61:13-48
+83        </activity>
+84        <activity
+84-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:78:9-82:64
+85            android:name="org.owntracks.android.ui.preferences.PreferencesActivity"
+85-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:79:13-63
+86            android:hardwareAccelerated="true"
+86-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:80:13-47
+87            android:label="@string/title_activity_preferences"
+87-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:81:13-63
+88            android:parentActivityName="org.owntracks.android.ui.map.MapActivity" />
+88-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:82:13-61
+89        <activity
+89-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:83:9-91:20
+90            android:name="org.owntracks.android.ui.preferences.editor.EditorActivity"
+90-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:84:13-65
+91            android:configChanges="orientation"
+91-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:85:13-48
+92            android:label="@string/configurationManagement"
+92-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:86:13-60
+93            android:parentActivityName="org.owntracks.android.ui.preferences.PreferencesActivity" >
+93-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:87:13-77
+94            <meta-data
+94-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:59:9-61:51
+95                android:name="android.support.PARENT_ACTIVITY"
+95-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:60:13-59
+96                android:value=".ui.preferences.PreferencesActivity" />
+96-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:61:13-48
+97        </activity>
+98        <activity
+98-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:92:9-151:20
+99            android:name="org.owntracks.android.ui.preferences.load.LoadActivity"
+99-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:93:13-61
+100            android:configChanges="orientation"
+100-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:94:13-48
+101            android:label="@string/app_name"
+101-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:95:13-45
+102            android:launchMode="singleTask" >
+102-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:96:13-44
+103
+104            <!-- Support two dots in file name: -->
+105            <intent-filter>
+105-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:99:13-109:29
+106                <action android:name="android.intent.action.VIEW" />
+106-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:17-69
+106-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:25-66
+107
+108                <category android:name="android.intent.category.DEFAULT" />
+108-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:17-76
+108-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:27-73
+109
+110                <data
+110-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:104:17-108:48
+111                    android:host="*"
+111-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:105:21-37
+112                    android:mimeType="*/*"
+112-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:106:21-43
+113                    android:pathPattern=".*\\..*\\.otrc"
+113-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:107:21-57
+114                    android:scheme="content" />
+114-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:108:21-45
+115            </intent-filter>
+116
+117            <!-- Support three dots in file name: -->
+118            <intent-filter>
+118-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:112:13-122:29
+119                <action android:name="android.intent.action.VIEW" />
+119-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:17-69
+119-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:25-66
+120
+121                <category android:name="android.intent.category.DEFAULT" />
+121-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:17-76
+121-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:27-73
+122
+123                <data
+123-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:104:17-108:48
+124                    android:host="*"
+124-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:105:21-37
+125                    android:mimeType="*/*"
+125-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:106:21-43
+126                    android:pathPattern=".*\\..*\\..*\\.otrc"
+126-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:107:21-57
+127                    android:scheme="content" />
+127-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:108:21-45
+128            </intent-filter>
+129            <intent-filter>
+129-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:123:13-129:29
+130                <action android:name="android.intent.action.VIEW" />
+130-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:17-69
+130-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:25-66
+131
+132                <category android:name="android.intent.category.DEFAULT" />
+132-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:17-76
+132-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:27-73
+133
+134                <data android:mimeType="text/plain" />
+134-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:104:17-108:48
+134-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:106:21-43
+135            </intent-filter>
+136            <intent-filter>
+136-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:130:13-136:29
+137                <action android:name="android.intent.action.VIEW" />
+137-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:17-69
+137-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:25-66
+138
+139                <category android:name="android.intent.category.DEFAULT" />
+139-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:17-76
+139-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:27-73
+140
+141                <data android:mimeType="application/json" />
+141-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:104:17-108:48
+141-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:106:21-43
+142            </intent-filter>
+143            <intent-filter>
+143-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:137:13-143:29
+144                <action android:name="android.intent.action.VIEW" />
+144-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:17-69
+144-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:25-66
+145
+146                <category android:name="android.intent.category.DEFAULT" />
+146-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:17-76
+146-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:27-73
+147
+148                <data android:mimeType="application/otrc" />
+148-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:104:17-108:48
+148-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:106:21-43
+149            </intent-filter>
+150            <intent-filter>
+150-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:144:13-150:29
+151                <action android:name="android.intent.action.VIEW" />
+151-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:17-69
+151-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:100:25-66
+152
+153                <category android:name="android.intent.category.DEFAULT" />
+153-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:17-76
+153-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:102:27-73
+154
+155                <data android:mimeType="application/octet-stream" />
+155-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:104:17-108:48
+155-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:106:21-43
+156            </intent-filter>
+157        </activity>
+158
+159        <provider
+159-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:153:9-161:20
+160            android:name="androidx.core.content.FileProvider"
+160-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:154:13-62
+161            android:authorities="org.owntracks.android.fileprovider"
+161-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:155:13-69
+162            android:exported="false"
+162-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:156:13-37
+163            android:grantUriPermissions="true" >
+163-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:157:13-47
+164            <meta-data
+164-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:158:13-160:53
+165                android:name="android.support.FILE_PROVIDER_PATHS"
+165-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:159:17-67
+166                android:resource="@xml/filepaths" />
+166-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:160:17-50
+167        </provider>
+168
+169        <service
+169-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:163:9-176:19
+170            android:name="org.owntracks.android.services.BackgroundService"
+170-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:164:13-55
+171            android:enabled="true"
+171-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:165:13-35
+172            android:exported="true"
+172-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:166:13-36
+173            android:foregroundServiceType="location" >
+173-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:167:13-53
+174            <intent-filter>
+174-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:169:13-175:29
+175                <action android:name="org.owntracks.android.CLEAR_NOTIFICATIONS" /> <!-- INTENT_ACTION_CLEAR_NOTIFICATIONS -->
+175-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:170:17-84
+175-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:170:25-81
+176                <action android:name="org.owntracks.android.SEND_LOCATION_USER" /> <!-- INTENT_ACTION_SEND_LOCATION_PING -->
+176-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:171:17-83
+176-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:171:25-80
+177                <action android:name="org.owntracks.android.SEND_EVENT_CIRCULAR" /> <!-- INTENT_ACTION_SEND_WAYPOINTS -->
+177-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:172:17-84
+177-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:172:25-81
+178                <action android:name="org.owntracks.android.REREQUEST_LOCATION_UPDATES" /> <!-- REREQUEST_LOCATION_UPDATES -->
+178-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:173:17-91
+178-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:173:25-88
+179                <action android:name="org.owntracks.android.CHANGE_MONITORING" /> <!-- INTENT_ACTION_CHANGE_MONITORING -->
+179-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:174:17-82
+179-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:174:25-79
+180            </intent-filter>
+181        </service>
+182
+183        <receiver
+183-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:178:9-188:20
+184            android:name="org.owntracks.android.support.receiver.StartBackgroundServiceReceiver"
+184-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:179:13-76
+185            android:enabled="true"
+185-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:180:13-35
+186            android:exported="true" >
+186-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:181:13-36
+187            <intent-filter>
+187-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:182:13-184:29
+188                <action android:name="android.intent.action.BOOT_COMPLETED" />
+188-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:183:17-79
+188-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:183:25-76
+189            </intent-filter>
+190            <intent-filter>
+190-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:185:13-187:29
+191                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+191-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:186:17-84
+191-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:186:25-81
+192            </intent-filter>
+193        </receiver>
+194
+195        <activity
+195-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:190:9-199:20
+196            android:name="org.owntracks.android.ui.status.StatusActivity"
+196-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:191:13-53
+197            android:exported="true"
+197-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:192:13-36
+198            android:label="@string/title_activity_status"
+198-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:193:13-58
+199            android:launchMode="singleTop"
+199-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:194:13-43
+200            android:parentActivityName="org.owntracks.android.ui.map.MapActivity" >
+200-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:195:13-61
+201            <meta-data
+201-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:59:9-61:51
+202                android:name="android.support.PARENT_ACTIVITY"
+202-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:60:13-59
+203                android:value=".ui.map.MapActivity" />
+203-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:61:13-48
+204        </activity>
+205        <activity
+205-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:200:9-204:47
+206            android:name="org.owntracks.android.ui.contacts.ContactsActivity"
+206-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:201:13-57
+207            android:clearTaskOnLaunch="true"
+207-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:202:13-45
+208            android:label="@string/title_activity_contacts"
+208-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:203:13-60
+209            android:launchMode="singleTask" />
+209-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:204:13-44
+210        <activity
+210-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:205:9-208:46
+211            android:name="org.owntracks.android.ui.invite.InviteActivity"
+211-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:205:19-59
+212            android:clearTaskOnLaunch="true"
+212-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:206:13-45
+213            android:label="@string/title_activity_invite"
+213-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:207:13-58
+214            android:launchMode="singleTask" />
+214-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:208:13-44
+215        <activity
+215-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:209:9-212:46
+216            android:name="org.owntracks.android.ui.parkplatz.ParkplatzActivity"
+216-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:209:19-65
+217            android:clearTaskOnLaunch="true"
+217-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:210:13-45
+218            android:label="@string/title_activity_parkplatz"
+218-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:211:13-61
+219            android:launchMode="singleTask" />
+219-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:212:13-44
+220        <activity
+220-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:213:9-216:46
+221            android:name="org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity"
+221-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:213:19-69
+222            android:clearTaskOnLaunch="true"
+222-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:214:13-45
+223            android:label="@string/title_activity_lastqrcodes"
+223-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:215:13-63
+224            android:launchMode="singleTask" />
+224-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:216:13-44
+225        <activity
+225-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:217:9-227:20
+226            android:name="org.owntracks.android.ui.map.MapActivity"
+226-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:218:13-47
+227            android:clearTaskOnLaunch="true"
+227-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:219:13-45
+228            android:label="@string/app_name"
+228-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:220:13-45
+229            android:launchMode="singleTask" >
+229-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:221:13-44
+230            <intent-filter>
+230-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:222:13-226:29
+231                <action android:name="android.intent.action.MAIN" />
+231-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:223:17-69
+231-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:223:25-66
+232
+233                <category android:name="android.intent.category.LAUNCHER" />
+233-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:225:17-77
+233-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:225:27-74
+234            </intent-filter>
+235        </activity>
+236        <activity
+236-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:228:9-232:47
+237            android:name="org.owntracks.android.ui.preferences.connection.ConnectionActivity"
+237-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:229:13-73
+238            android:clearTaskOnLaunch="true"
+238-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:230:13-45
+239            android:label="@string/title_activity_connection_login"
+239-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:231:13-68
+240            android:launchMode="singleTask" />
+240-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:232:13-44
+241        <activity
+241-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:233:9-237:47
+242            android:name="org.owntracks.android.ui.register.RegisterActivity"
+242-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:234:13-57
+243            android:clearTaskOnLaunch="true"
+243-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:235:13-45
+244            android:label="@string/title_activity_register"
+244-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:236:13-60
+245            android:launchMode="singleTask" />
+245-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:237:13-44
+246        <activity
+246-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:238:9-242:47
+247            android:name="org.owntracks.android.ui.preferences.LogViewerActivity"
+247-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:239:13-61
+248            android:clearTaskOnLaunch="true"
+248-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:240:13-45
+249            android:label="@string/logViewerActivityTitle"
+249-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:241:13-59
+250            android:launchMode="singleTask" />
+250-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:242:13-44
+251        <activity
+251-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:243:9-248:55
+252            android:name="org.owntracks.android.ui.welcome.WelcomeActivity"
+252-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:244:13-55
+253            android:configChanges="orientation|keyboardHidden"
+253-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:245:13-63
+254            android:label="@string/app_name"
+254-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:246:13-45
+255            android:launchMode="singleTask"
+255-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:247:13-44
+256            android:screenOrientation="unspecified" />
+256-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:248:13-52
+257
+258        <provider
+259            android:name="org.owntracks.android.ui.preferences.LogViewerActivity$ExportedLogContentProvider"
+259-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:251:13-88
+260            android:authorities="org.owntracks.android.debug.log"
+260-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:252:13-55
+261            android:exported="false"
+261-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:253:13-37
+262            android:grantUriPermissions="true" />
+262-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:254:13-47
+263
+264        <service
+264-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:39:9-44:35
+265            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+265-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:40:13-88
+266            android:directBootAware="false"
+266-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:41:13-44
+267            android:enabled="@bool/enable_system_alarm_service_default"
+267-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:42:13-72
+268            android:exported="false" />
+268-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:43:13-37
+269        <service
+269-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:45:9-51:35
+270            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+270-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:46:13-84
+271            android:directBootAware="false"
+271-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:47:13-44
+272            android:enabled="@bool/enable_system_job_service_default"
+272-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:48:13-70
+273            android:exported="true"
+273-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:49:13-36
+274            android:permission="android.permission.BIND_JOB_SERVICE" />
+274-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:50:13-69
+275        <service
+275-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:52:9-57:35
+276            android:name="androidx.work.impl.foreground.SystemForegroundService"
+276-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:53:13-81
+277            android:directBootAware="false"
+277-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:54:13-44
+278            android:enabled="@bool/enable_system_foreground_service_default"
+278-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:55:13-77
+279            android:exported="false" />
+279-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:56:13-37
+280
+281        <receiver
+281-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:59:9-64:35
+282            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+282-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:60:13-88
+283            android:directBootAware="false"
+283-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:61:13-44
+284            android:enabled="true"
+284-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:62:13-35
+285            android:exported="false" />
+285-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:63:13-37
+286        <receiver
+286-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:65:9-75:20
+287            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+287-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:66:13-106
+288            android:directBootAware="false"
+288-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:67:13-44
+289            android:enabled="false"
+289-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:68:13-36
+290            android:exported="false" >
+290-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:69:13-37
+291            <intent-filter>
+291-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:71:13-74:29
+292                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+292-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:72:17-87
+292-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:72:25-84
+293                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+293-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:73:17-90
+293-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:73:25-87
+294            </intent-filter>
+295        </receiver>
+296        <receiver
+296-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:76:9-86:20
+297            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+297-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:77:13-104
+298            android:directBootAware="false"
+298-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:78:13-44
+299            android:enabled="false"
+299-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:79:13-36
+300            android:exported="false" >
+300-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:80:13-37
+301            <intent-filter>
+301-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:82:13-85:29
+302                <action android:name="android.intent.action.BATTERY_OKAY" />
+302-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:83:17-77
+302-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:83:25-74
+303                <action android:name="android.intent.action.BATTERY_LOW" />
+303-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:84:17-76
+303-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:84:25-73
+304            </intent-filter>
+305        </receiver>
+306        <receiver
+306-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:87:9-97:20
+307            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+307-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:88:13-104
+308            android:directBootAware="false"
+308-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:89:13-44
+309            android:enabled="false"
+309-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:90:13-36
+310            android:exported="false" >
+310-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:91:13-37
+311            <intent-filter>
+311-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:93:13-96:29
+312                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+312-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:94:17-83
+312-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:94:25-80
+313                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+313-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:95:17-82
+313-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:95:25-79
+314            </intent-filter>
+315        </receiver>
+316        <receiver
+316-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:98:9-107:20
+317            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+317-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:99:13-103
+318            android:directBootAware="false"
+318-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:100:13-44
+319            android:enabled="false"
+319-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:101:13-36
+320            android:exported="false" >
+320-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:102:13-37
+321            <intent-filter>
+321-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:104:13-106:29
+322                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+322-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:105:17-79
+322-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:105:25-76
+323            </intent-filter>
+324        </receiver>
+325        <receiver
+325-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:108:9-119:20
+326            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+326-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:109:13-88
+327            android:directBootAware="false"
+327-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:110:13-44
+328            android:enabled="false"
+328-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:111:13-36
+329            android:exported="false" >
+329-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:112:13-37
+330            <intent-filter>
+330-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:114:13-118:29
+331                <action android:name="android.intent.action.BOOT_COMPLETED" />
+331-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:183:17-79
+331-->/home/atn/AndroidStudioProjects/Test3 with android 2.2.2/android_1/android/project/app/src/main/AndroidManifest.xml:183:25-76
+332                <action android:name="android.intent.action.TIME_SET" />
+332-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:116:17-73
+332-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:116:25-70
+333                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+333-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:117:17-81
+333-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:117:25-78
+334            </intent-filter>
+335        </receiver>
+336        <receiver
+336-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:120:9-129:20
+337            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+337-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:121:13-99
+338            android:directBootAware="false"
+338-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:122:13-44
+339            android:enabled="@bool/enable_system_alarm_service_default"
+339-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:123:13-72
+340            android:exported="false" >
+340-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:124:13-37
+341            <intent-filter>
+341-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:126:13-128:29
+342                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+342-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:127:17-98
+342-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:127:25-95
+343            </intent-filter>
+344        </receiver>
+345        <receiver
+345-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:130:9-140:20
+346            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+346-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:131:13-78
+347            android:directBootAware="false"
+347-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:132:13-44
+348            android:enabled="true"
+348-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:133:13-35
+349            android:exported="true"
+349-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:134:13-36
+350            android:permission="android.permission.DUMP" >
+350-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:135:13-57
+351            <intent-filter>
+351-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:137:13-139:29
+352                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+352-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:138:17-88
+352-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:138:25-85
+353            </intent-filter>
+354        </receiver>
+355
+356        <activity
+356-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:23:9-26:75
+357            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+357-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:24:13-79
+358            android:exported="false"
+358-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:25:13-37
+359            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+359-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:26:13-72
+360
+361        <meta-data
+361-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:23:9-25:69
+362            android:name="com.google.android.gms.version"
+362-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:24:13-58
+363            android:value="@integer/google_play_services_version" />
+363-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:25:13-66
+364
+365        <service
+365-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+366            android:name="androidx.room.MultiInstanceInvalidationService"
+366-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+367            android:directBootAware="true"
+367-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+368            android:exported="false" />
+368-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+369    </application>
+370
+371</manifest>

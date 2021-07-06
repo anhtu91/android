@@ -1,0 +1,74 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5611131670299576452",
+      "lastPropertyId": "8:8349998032420640968",
+      "name": "WaypointModel",
+      "properties": [
+        {
+          "id": "1:8295097820484868611",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4016284772762101580",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "3:2366276777637801197",
+          "name": "geofenceLatitude",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "4:1619679786569943855",
+          "name": "geofenceLongitude",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "5:300930156681134272",
+          "name": "geofenceRadius",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "6:4123829237583556251",
+          "name": "lastTriggered",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "7:4395735052886930752",
+          "name": "lastTransition",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "8:8349998032420640968",
+          "name": "tst",
+          "indexId": "1:1422236730988148334",
+          "type": 6,
+          "flags": 44
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:5611131670299576452",
+  "lastIndexId": "1:1422236730988148334",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
