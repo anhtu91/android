@@ -73,6 +73,7 @@
     <string name="title_activity_contacts">Amigos</string>
     <string name="title_activity_parkplatz">Importar código QR</string>
     <string name="title_activity_lastqrcodes">Historia</string>
+    <string name="title_management_acc">Cuenta de administración</string>
     <string name="title_activity_invite">Invitación</string>
     <string name="title_activity_status">Estado</string>
     <string name="title_activity_connection_login">Conexión &amp; Iniciar sesión</string>
@@ -208,6 +209,11 @@
     <string name = "wait">Espere</string>
     <string name = "errorWhileConnectingServer">Error al conectarse al servidor</string>
 
-    <string name = "emptyInput">Ingrese la información de entrada</string>
+    <string name = "emptyEmail">El correo electrónico está vacío</string>
     <string name = "timeoutConnection">Conexión de tiempo de espera</string>
+
+    <string name = "usernameContain">El nombre de usuario debe contener al menos 5 caracteres</string>
+    <string name = "passwordContain">La contraseña debe contener al menos 5 caracteres</string>
+    <string name = "repasswordContain">Confirmar contraseña debe contener al menos 5 caracteres</string>
+    <string name = "certPasswordContain">La contraseña del certificado debe contener al menos 5 caracteres</string>
 </resources>

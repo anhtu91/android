@@ -26,5 +26,10 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

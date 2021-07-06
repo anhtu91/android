@@ -77,6 +77,7 @@
     <string name="title_activity_contacts">Друзья</string>
     <string name="title_activity_parkplatz">Импортировать QR-код</string>
     <string name="title_activity_lastqrcodes">История</string>
+    <string name="title_management_acc">Управляющий аккаунт</string>
     <string name="title_activity_invite">Приглашать</string>
     <string name="title_activity_status">Статус</string>
     <string name="title_activity_connection_login">Подключение &amp; Войти</string>
@@ -223,6 +224,11 @@
     <string name = "wait">Подождите</string>
     <string name = "errorWhileConnectingServer">Ошибка при подключении к серверу</string>
 
-    <string name = "emptyInput">Введите информацию для ввода</string>
+    <string name = "emptyEmail">Электронная почта пуста</string>
     <string name = "timeoutConnection">Тайм-аут соединения</string>
+
+    <string name = "usernameContain">Имя пользователя должно содержать не менее 5 символов</string>
+    <string name = "passwordContain">Пароль должен содержать не менее 5 символов</string>
+    <string name = "repasswordContain">Подтвержденный пароль должен содержать не менее 5 символов</string>
+    <string name = "certPasswordContain">Пароль сертификата должен содержать не менее 5 символов</string>
 </resources>

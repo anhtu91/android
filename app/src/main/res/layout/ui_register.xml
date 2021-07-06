@@ -35,11 +35,11 @@
 
             <EditText
                 android:id="@+id/registerRePasswordText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:ems="10"
                 android:hint="@string/preferencesRepeatPassword"
                 android:inputType="textPassword"
@@ -49,11 +49,11 @@
 
             <EditText
                 android:id="@+id/registerCertificatePasswordText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:ems="10"
                 android:hint="@string/preferencesCertificatePassword"
                 android:inputType="textPassword"
@@ -63,11 +63,11 @@
 
             <EditText
                 android:id="@+id/registerEmailText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:ems="10"
                 android:hint="@string/preferencesEmail"
                 android:inputType="textPersonName"
@@ -77,11 +77,11 @@
 
             <EditText
                 android:id="@+id/registerUsernameText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:ems="10"
                 android:hint="@string/preferencesUsername"
                 android:inputType="textPersonName"
@@ -91,14 +91,14 @@
 
             <EditText
                 android:id="@+id/registerPortText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:digits="0123456789"
                 android:ems="10"
-                android:hint="@string/preferencesPort"
+                android:hint="@string/preferencesRegisterPort"
                 android:inputType="textNoSuggestions|number"
                 android:maxLength="5"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,9 +109,9 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="157dp"
                 android:layout_height="62dp"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="540dp"
-                android:layout_marginEnd="140dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="530dp"
+                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="104dp"
                 android:text="@string/register"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -122,11 +122,11 @@
 
             <EditText
                 android:id="@+id/registerHostText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="100dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:ems="10"
                 android:hint="@string/preferencesRegisterHost"
                 android:inputType="textPersonName"
@@ -136,17 +136,31 @@
 
             <EditText
                 android:id="@+id/registerPasswordText"
-                android:layout_width="335dp"
+                android:layout_width="400dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="33dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="5dp"
                 android:ems="10"
                 android:hint="@string/preferencesPassword"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerUsernameText" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="157dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="530dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="104dp"
+                android:text="@string/cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnRegister"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

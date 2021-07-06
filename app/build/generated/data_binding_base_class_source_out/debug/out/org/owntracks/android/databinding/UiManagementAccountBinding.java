@@ -4,6 +4,7 @@ package org.owntracks.android.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableRow;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -21,15 +22,19 @@ public abstract class UiManagementAccountBinding extends ViewDataBinding {
   public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
+  public final TableRow selectedParkingSpot;
+
+  @NonNull
   public final Toolbar toolbar;
 
   @Bindable
   protected ManagementAccountViewModel mVm;
 
   protected UiManagementAccountBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CoordinatorLayout coordinatorLayout, Toolbar toolbar) {
+      CoordinatorLayout coordinatorLayout, TableRow selectedParkingSpot, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.coordinatorLayout = coordinatorLayout;
+    this.selectedParkingSpot = selectedParkingSpot;
     this.toolbar = toolbar;
   }
 

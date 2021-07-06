@@ -1,6 +1,8 @@
 package org.owntracks.android.ui.managementaccount;
 
 import android.os.Bundle;
+import android.widget.TableRow;
+
 import androidx.annotation.Nullable;
 
 import org.greenrobot.eventbus.EventBus;
@@ -18,12 +20,17 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     @Inject
     MessageProcessor messageProcessor;
 
+    private TableRow tableRow;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindAndAttachContentView(R.layout.ui_management_account, savedInstanceState);
         setSupportToolbar(binding.toolbar);
         setDrawer(binding.toolbar);
+        tableRow = findViewById(R.id.selectedParkingSpot);
+
+        //tableRow.addView
     }
 
     @Override

@@ -36,15 +36,11 @@
                 android:id="@+id/btnSendInvite"
                 android:layout_width="157dp"
                 android:layout_height="62dp"
-                android:layout_marginStart="160dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="40dp"
                 android:text="@string/btn_invite"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                app:layout_constraintVertical_bias="0.106" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
             <EditText
                 android:id="@+id/editTextDate"
@@ -83,7 +79,7 @@
                 android:layout_width="335dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="33dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="33dp"
                 android:ems="10"
                 android:hint="@string/inputInviteEmail"
@@ -91,7 +87,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnRefresh" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerFieldName" />
 
             <TextView
                 android:id="@+id/keyIDInviteText"
@@ -143,13 +139,11 @@
                 android:id="@+id/btnRefresh"
                 android:layout_width="157dp"
                 android:layout_height="62dp"
-                android:layout_marginStart="160dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="25dp"
                 android:text="@string/btn_refresh"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerFieldName" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

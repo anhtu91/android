@@ -33,10 +33,12 @@ public class RegisterActivity extends BaseActivity<UiRegisterBinding, RegisterMv
     private EditText email;
     private EditText certificatePassword;
     private Button btnRegister;
+    private Button btnCancel;
     private final String SIGNUP = "/signup";
     private final String HTTP = "http://";
     private final String HTTPS = "https://";
     private final String COLON = ":";
+    private final int NUMBER_CHARACTER_USERNAME_PASSWORD = 6;
     private CallRegisterAPI callRegisterAPI = null;
 
     @Override
@@ -54,6 +56,7 @@ public class RegisterActivity extends BaseActivity<UiRegisterBinding, RegisterMv
         email = (EditText) findViewById(R.id.registerEmailText);
         certificatePassword = (EditText) findViewById(R.id.registerCertificatePasswordText);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
 
         host.setText(viewModel.getHost());
         port.setText(viewModel.getPort());
@@ -62,26 +65,40 @@ public class RegisterActivity extends BaseActivity<UiRegisterBinding, RegisterMv
             @Override
             public void onClick(View v) {
                 sendHTTPRequest();
+                //Save to preference
                 viewModel.setHost(host.getText().toString());
                 viewModel.setPort(port.getText().toString());
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
 
     private void sendHTTPRequest(){
-        String strHost = host.getText().toString();
-        String strPort = port.getText().toString();
-        String strUsername = username.getText().toString();
-        String strPassword = password.getText().toString();
-        String strRePassword = rePassword.getText().toString();
-        String strEmail = email.getText().toString();
-        String strCertPassword = certificatePassword.getText().toString();
+        String strHost = host.getText().toString().trim();
+        String strPort = port.getText().toString().trim();
+        String strUsername = username.getText().toString().trim();
+        String strPassword = password.getText().toString().trim();
+        String strRePassword = rePassword.getText().toString().trim();
+        String strEmail = email.getText().toString().trim();
+        String strCertPassword = certificatePassword.getText().toString().trim();
 
         callRegisterAPI = new CallRegisterAPI();
 
-        if(strHost.isEmpty() || strPort.isEmpty() || strUsername.isEmpty() || strPassword.isEmpty() || strRePassword.isEmpty() || strEmail.isEmpty() || strCertPassword.isEmpty()){
-            Toast.makeText(getApplicationContext(), getText(R.string.emptyInput), Toast.LENGTH_SHORT).show();
-        }else{
+        if(strUsername.length() < NUMBER_CHARACTER_USERNAME_PASSWORD){
+            Toast.makeText(getApplicationContext(), getText(R.string.usernameContain), Toast.LENGTH_SHORT).show();
+        }else if(strPassword.length() < NUMBER_CHARACTER_USERNAME_PASSWORD){
+            Toast.makeText(getApplicationContext(), getText(R.string.passwordContain), Toast.LENGTH_SHORT).show();
+        }else if(strEmail.isEmpty()){
+            Toast.makeText(getApplicationContext(), getText(R.string.emptyEmail), Toast.LENGTH_SHORT).show();
+        } else if(strCertPassword.length() < NUMBER_CHARACTER_USERNAME_PASSWORD){
+            Toast.makeText(getApplicationContext(), getText(R.string.certPasswordContain), Toast.LENGTH_SHORT).show();
+        } else {
             if(!isValidEmail(strEmail)) {
                 Toast.makeText(getApplicationContext(), getText(R.string.incorrectEmail), Toast.LENGTH_SHORT).show();
             }else{

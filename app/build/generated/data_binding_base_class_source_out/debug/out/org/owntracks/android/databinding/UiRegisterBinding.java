@@ -20,6 +20,9 @@ import org.owntracks.android.ui.register.RegisterViewModel;
 
 public abstract class UiRegisterBinding extends ViewDataBinding {
   @NonNull
+  public final Button btnCancel;
+
+  @NonNull
   public final Button btnRegister;
 
   @NonNull
@@ -53,11 +56,12 @@ public abstract class UiRegisterBinding extends ViewDataBinding {
   protected RegisterViewModel mVm;
 
   protected UiRegisterBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button btnRegister, CoordinatorLayout coordinatorLayout,
+      Button btnCancel, Button btnRegister, CoordinatorLayout coordinatorLayout,
       EditText registerCertificatePasswordText, EditText registerEmailText,
       EditText registerHostText, EditText registerPasswordText, EditText registerPortText,
       EditText registerRePasswordText, EditText registerUsernameText, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.btnCancel = btnCancel;
     this.btnRegister = btnRegister;
     this.coordinatorLayout = coordinatorLayout;
     this.registerCertificatePasswordText = registerCertificatePasswordText;

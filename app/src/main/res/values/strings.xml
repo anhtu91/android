@@ -4,7 +4,8 @@
     <string name="preferencesServer">Connection</string>
     <string name="register">Register</string>
     <string name="hostMQTT">MQTT Host</string>
-    <string name="preferencesRegisterHost">HTTP Host</string>
+    <string name="preferencesRegisterHost">HTTP Host (e.g. 192.168.1.2)</string>
+    <string name="preferencesRegisterPort">Port (e.g. 1880)</string>
     <string name="preferencesHost">Host</string>
     <string name="preferencesPort">Port</string>
     <string name="preferencesWebsocket">Use WebSockets</string>
@@ -177,11 +178,11 @@
     <string name="monitoring_mode">Monitoring</string>
     <string name="distance_label">Distance (meter)</string>
     <string name="preferencesClientId">Client ID</string>
-    <string name="preferencesUsername">Username</string>
-    <string name="preferencesPassword">Password</string>
-    <string name="preferencesRepeatPassword">Confirm Password</string>
-    <string name="preferencesEmail">Email</string>
-    <string name="preferencesCertificatePassword">Certificate Password</string>
+    <string name="preferencesUsername">Username (Minimum 5 characters)</string>
+    <string name="preferencesPassword">Password (Minimum 5 characters)</string>
+    <string name="preferencesRepeatPassword">Confirm Password (Same as password above)</string>
+    <string name="preferencesEmail">Email (sample@email.com)</string>
+    <string name="preferencesCertificatePassword">Certificate Password (Minimum 5 characters)</string>
     <string name="status_endpoint_state_hint">Endpoint state</string>
     <string name="status_endpoint_state_message_hint">Endpoint state message</string>
     <string name="status_endpoint_queue_hint">Endpoint queue</string>
@@ -236,6 +237,10 @@
     <string name="passwordRegisterError">Password and confirm password are not same</string>
     <string name="wait">Please Wait</string>
     <string name="errorWhileConnectingServer">Error while connecting to server</string>
-    <string name="emptyInput">Please enter input information</string>
+    <string name="emptyEmail">Email is empty</string>
     <string name="timeoutConnection">Timeout Connection</string>
+    <string name="usernameContain">Username must contain at least 5 characters</string>
+    <string name="passwordContain">Password must contain at least 5 characters</string>
+    <string name="repasswordContain">Confirm Password must contain at least 5 characters</string>
+    <string name="certPasswordContain">Certificate Password must contain at least 5 characters</string>
 </resources>

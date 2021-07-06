@@ -23,6 +23,7 @@ public class UiRegisterBindingImpl extends UiRegisterBinding  {
         sViewsWithIds.put(R.id.btnRegister, 7);
         sViewsWithIds.put(R.id.registerHostText, 8);
         sViewsWithIds.put(R.id.registerPasswordText, 9);
+        sViewsWithIds.put(R.id.btnCancel, 10);
     }
     // views
     // variables
@@ -31,10 +32,11 @@ public class UiRegisterBindingImpl extends UiRegisterBinding  {
     // Inverse Binding Event Handlers
 
     public UiRegisterBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
     }
     private UiRegisterBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
+            , (android.widget.Button) bindings[10]
             , (android.widget.Button) bindings[7]
             , (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0]
             , (android.widget.EditText) bindings[3]

@@ -2384,6 +2384,7 @@ id blocking
 id bottom
 id bottomSheetLayout
 id bounce
+id btnCancel
 id btnRefresh
 id btnRegister
 id btnSendInvite
@@ -2743,6 +2744,7 @@ id seekbar_value
 id select
 id select_dialog_listview
 id selected
+id selectedParkingSpot
 id share_fab
 id shortcut
 id showCustom
@@ -3137,6 +3139,7 @@ string btn_get_keyID_fieldName
 string btn_invite
 string btn_refresh
 string cancel
+string certPasswordContain
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -3177,7 +3180,7 @@ string divider
 string documentationUrl
 string documentationUrlAndroid
 string done_heading
-string emptyInput
+string emptyEmail
 string enjoy_description
 string errorPreferencesImportFailed
 string errorPreferencesImportFailedMemory
@@ -3324,6 +3327,7 @@ string notificationChangeMonitoring
 string notificationChannelEventsDescription
 string notificationChannelOngoing
 string notificationChannelOngoingDescription
+string passwordContain
 string passwordRegisterError
 string password_toggle_content_description
 string path_password_eye
@@ -3456,6 +3460,7 @@ string preferencesProfileId
 string preferencesPubExtendedData
 string preferencesPubExtendedDataSummary
 string preferencesRegisterHost
+string preferencesRegisterPort
 string preferencesRemoteCommand
 string preferencesRemoteCommandSummary
 string preferencesRemoteConfiguration
@@ -3481,6 +3486,7 @@ string region_inside
 string region_outside
 string region_unknown
 string register
+string repasswordContain
 string repoUrl
 string restart
 string save
@@ -3529,6 +3535,7 @@ string ui_fragment_welcome_version_description
 string ui_fragment_welcome_version_learn_more
 string ui_fragment_welcome_version_title
 string unableToCopyCertificate
+string usernameContain
 string v7_preference_off
 string v7_preference_on
 string valEmpty
