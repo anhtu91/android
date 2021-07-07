@@ -5,6 +5,7 @@
     <string name="register">S\inscrire</string>
     <string name="hostMQTT">Host MQTT</string>
     <string name="preferencesRegisterHost">Host HTTP</string>
+    <string name="preferencesRegisterPort">Port (par exemple 1880)</string>
     <string name="preferencesHost">Host</string>
     <string name="preferencesPort">Port</string>
     <string name="preferencesWebsocket">Utiliser WebSockets</string>

@@ -20,10 +20,10 @@ import org.owntracks.android.ui.parkplatz.ParkplatzViewModel;
 
 public abstract class UiParkplatzBinding extends ViewDataBinding {
   @NonNull
-  public final CoordinatorLayout coordinatorLayout;
+  public final FloatingActionButton btnAddQRCode;
 
   @NonNull
-  public final FloatingActionButton floatingActionButton;
+  public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
   public final RecyclerView recyclerView;
@@ -35,11 +35,11 @@ public abstract class UiParkplatzBinding extends ViewDataBinding {
   protected ParkplatzViewModel mVm;
 
   protected UiParkplatzBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton,
+      FloatingActionButton btnAddQRCode, CoordinatorLayout coordinatorLayout,
       RecyclerView recyclerView, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.btnAddQRCode = btnAddQRCode;
     this.coordinatorLayout = coordinatorLayout;
-    this.floatingActionButton = floatingActionButton;
     this.recyclerView = recyclerView;
     this.toolbar = toolbar;
   }

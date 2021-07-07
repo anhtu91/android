@@ -68,7 +68,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
         checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, READ_PERMISSION_CODE);
         checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
 
-        FloatingActionButton addParkingAccessCode = findViewById(R.id.floating_action_button);
+        FloatingActionButton addParkingAccessCode = findViewById(R.id.btnAddQRCode);
         addParkingAccessCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

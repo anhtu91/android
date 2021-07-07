@@ -4,7 +4,6 @@ package org.owntracks.android.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +11,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.Deprecated;
 import java.lang.Object;
 import org.owntracks.android.R;
@@ -19,10 +20,13 @@ import org.owntracks.android.ui.managementaccount.ManagementAccountViewModel;
 
 public abstract class UiManagementAccountBinding extends ViewDataBinding {
   @NonNull
+  public final FloatingActionButton btnAddParking;
+
+  @NonNull
   public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
-  public final TableRow selectedParkingSpot;
+  public final RecyclerView recyclerView;
 
   @NonNull
   public final Toolbar toolbar;
@@ -31,10 +35,12 @@ public abstract class UiManagementAccountBinding extends ViewDataBinding {
   protected ManagementAccountViewModel mVm;
 
   protected UiManagementAccountBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CoordinatorLayout coordinatorLayout, TableRow selectedParkingSpot, Toolbar toolbar) {
+      FloatingActionButton btnAddParking, CoordinatorLayout coordinatorLayout,
+      RecyclerView recyclerView, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.btnAddParking = btnAddParking;
     this.coordinatorLayout = coordinatorLayout;
-    this.selectedParkingSpot = selectedParkingSpot;
+    this.recyclerView = recyclerView;
     this.toolbar = toolbar;
   }
 

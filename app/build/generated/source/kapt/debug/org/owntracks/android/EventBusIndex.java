@@ -17,42 +17,25 @@ public class EventBusIndex implements SubscriberInfoIndex {
     static {
         SUBSCRIBER_INDEX = new HashMap<Class<?>, SubscriberInfo>();
 
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.preferences.connection.ConnectionViewModel.class,
-                true, new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ModeChanged.class),
-        }));
-
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.contacts.ContactsViewModel.class, true,
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.status.StatusViewModel.class, true,
                 new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.FusedContactAdded.class,
-                    ThreadMode.MAIN),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.FusedContactRemoved.class,
-                    ThreadMode.MAIN),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.FusedContact.class, ThreadMode.MAIN),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.services.MessageProcessor.EndpointState.class,
+                    ThreadMode.POSTING, 0, true),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ServiceStarted.class,
+                    ThreadMode.POSTING, 0, true),
+            new SubscriberMethodInfo("onEvent", android.location.Location.class, ThreadMode.POSTING, 0, true),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.QueueChanged.class,
+                    ThreadMode.POSTING, 0, true),
         }));
 
-        putIndex(new SimpleSubscriberInfo(App.class, true, new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.RestartApp.class),
-        }));
-
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.invite.InviteViewModel.class, true,
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.invite.InviteActivity.class, true,
                 new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.InviteAdded.class,
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.messages.MessageReceiveKeyID.class,
                     ThreadMode.MAIN),
-        }));
-
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.managementaccount.ManagementAccountViewModel.class,
-                true, new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ManagementAccount.class,
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.messages.MessageReceiveFieldName.class,
                     ThreadMode.MAIN),
-        }));
-
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.data.repos.MemoryContactsRepo.class, true,
-                new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEventMainThread", org.owntracks.android.support.Events.ModeChanged.class,
-                    ThreadMode.BACKGROUND),
-            new SubscriberMethodInfo("onEventMainThread", org.owntracks.android.support.Events.EndpointChanged.class,
-                    ThreadMode.BACKGROUND),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.messages.MessageInviteSuccess.class,
+                    ThreadMode.MAIN),
         }));
 
         putIndex(new SimpleSubscriberInfo(org.owntracks.android.services.BackgroundService.class, true,
@@ -83,6 +66,38 @@ public class EventBusIndex implements SubscriberInfoIndex {
                     ThreadMode.POSTING, 0, true),
         }));
 
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.invite.InviteViewModel.class, true,
+                new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.InviteAdded.class,
+                    ThreadMode.MAIN),
+        }));
+
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel.class, true,
+                new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.LastQRCodesAdded.class,
+                    ThreadMode.MAIN),
+        }));
+
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.services.MessageProcessor.class, true,
+                new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ModeChanged.class,
+                    ThreadMode.ASYNC, 10, false),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.EndpointChanged.class,
+                    ThreadMode.ASYNC, 10, false),
+        }));
+
+        putIndex(new SimpleSubscriberInfo(App.class, true, new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.RestartApp.class),
+        }));
+
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.data.repos.MemoryContactsRepo.class, true,
+                new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEventMainThread", org.owntracks.android.support.Events.ModeChanged.class,
+                    ThreadMode.BACKGROUND),
+            new SubscriberMethodInfo("onEventMainThread", org.owntracks.android.support.Events.EndpointChanged.class,
+                    ThreadMode.BACKGROUND),
+        }));
+
         putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.map.MapViewModel.class, true,
                 new SubscriberMethodInfo[] {
             new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.FusedContactAdded.class,
@@ -98,21 +113,13 @@ public class EventBusIndex implements SubscriberInfoIndex {
                     ThreadMode.MAIN),
         }));
 
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel.class, true,
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.contacts.ContactsViewModel.class, true,
                 new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.LastQRCodesAdded.class,
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.FusedContactAdded.class,
                     ThreadMode.MAIN),
-        }));
-
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.status.StatusViewModel.class, true,
-                new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.services.MessageProcessor.EndpointState.class,
-                    ThreadMode.POSTING, 0, true),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ServiceStarted.class,
-                    ThreadMode.POSTING, 0, true),
-            new SubscriberMethodInfo("onEvent", android.location.Location.class, ThreadMode.POSTING, 0, true),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.QueueChanged.class,
-                    ThreadMode.POSTING, 0, true),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.FusedContactRemoved.class,
+                    ThreadMode.MAIN),
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.FusedContact.class, ThreadMode.MAIN),
         }));
 
         putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.parkplatz.ParkplatzViewModel.class, true,
@@ -121,27 +128,20 @@ public class EventBusIndex implements SubscriberInfoIndex {
                     ThreadMode.MAIN),
         }));
 
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.invite.InviteActivity.class, true,
-                new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.messages.MessageReceiveKeyID.class,
-                    ThreadMode.MAIN),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.messages.MessageReceiveFieldName.class,
-                    ThreadMode.MAIN),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.model.messages.MessageInviteSuccess.class,
-                    ThreadMode.MAIN),
-        }));
-
-        putIndex(new SimpleSubscriberInfo(org.owntracks.android.services.MessageProcessor.class, true,
-                new SubscriberMethodInfo[] {
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ModeChanged.class,
-                    ThreadMode.ASYNC, 10, false),
-            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.EndpointChanged.class,
-                    ThreadMode.ASYNC, 10, false),
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.preferences.connection.ConnectionViewModel.class,
+                true, new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ModeChanged.class),
         }));
 
         putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.register.RegisterViewModel.class, true,
                 new SubscriberMethodInfo[] {
             new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.RegisterAdded.class,
+                    ThreadMode.MAIN),
+        }));
+
+        putIndex(new SimpleSubscriberInfo(org.owntracks.android.ui.managementaccount.ManagementAccountViewModel.class,
+                true, new SubscriberMethodInfo[] {
+            new SubscriberMethodInfo("onEvent", org.owntracks.android.support.Events.ManagementAccount.class,
                     ThreadMode.MAIN),
         }));
 

@@ -5,6 +5,7 @@
     <string name="register">Зарегистрироваться</string>
     <string name="hostMQTT">Хост MQTT</string>
     <string name="preferencesRegisterHost">HTTP-хост</string>
+    <string name="preferencesRegisterPort">Порт (например, 1880 г.)</string>
     <string name="preferencesHost">Адрес</string>
     <string name="preferencesPort">Порт</string>
     <string name="preferencesWebsocket">Использовать WebSockets</string>

@@ -15,7 +15,8 @@ public class UiManagementAccountBindingImpl extends UiManagementAccountBinding  
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 1);
-        sViewsWithIds.put(R.id.selectedParkingSpot, 2);
+        sViewsWithIds.put(R.id.recycler_view, 2);
+        sViewsWithIds.put(R.id.btnAddParking, 3);
     }
     // views
     // variables
@@ -24,12 +25,13 @@ public class UiManagementAccountBindingImpl extends UiManagementAccountBinding  
     // Inverse Binding Event Handlers
 
     public UiManagementAccountBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 3, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
     }
     private UiManagementAccountBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[3]
             , (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0]
-            , (android.widget.TableRow) bindings[2]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[2]
             , (androidx.appcompat.widget.Toolbar) bindings[1]
             );
         this.coordinatorLayout.setTag(null);

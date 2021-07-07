@@ -2384,6 +2384,8 @@ id blocking
 id bottom
 id bottomSheetLayout
 id bounce
+id btnAddParking
+id btnAddQRCode
 id btnCancel
 id btnRefresh
 id btnRegister
@@ -2497,7 +2499,6 @@ id fix_permissions_button
 id fixed
 id flip
 id floating
-id floating_action_button
 id forever
 id fragment_container_view_tag
 id frame
@@ -2744,7 +2745,6 @@ id seekbar_value
 id select
 id select_dialog_listview
 id selected
-id selectedParkingSpot
 id share_fab
 id shortcut
 id showCustom

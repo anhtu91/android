@@ -16,7 +16,7 @@ public class UiParkplatzBindingImpl extends UiParkplatzBinding  {
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 1);
         sViewsWithIds.put(R.id.recycler_view, 2);
-        sViewsWithIds.put(R.id.floating_action_button, 3);
+        sViewsWithIds.put(R.id.btnAddQRCode, 3);
     }
     // views
     // variables
@@ -29,8 +29,8 @@ public class UiParkplatzBindingImpl extends UiParkplatzBinding  {
     }
     private UiParkplatzBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
-            , (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0]
             , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[3]
+            , (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0]
             , (androidx.recyclerview.widget.RecyclerView) bindings[2]
             , (androidx.appcompat.widget.Toolbar) bindings[1]
             );
