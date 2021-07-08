@@ -26,7 +26,7 @@ public abstract class UiManagementAccountBinding extends ViewDataBinding {
   public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
-  public final RecyclerView recyclerView;
+  public final RecyclerView recyclerViewManagementAcc;
 
   @NonNull
   public final Toolbar toolbar;
@@ -36,11 +36,11 @@ public abstract class UiManagementAccountBinding extends ViewDataBinding {
 
   protected UiManagementAccountBinding(Object _bindingComponent, View _root, int _localFieldCount,
       FloatingActionButton btnAddParking, CoordinatorLayout coordinatorLayout,
-      RecyclerView recyclerView, Toolbar toolbar) {
+      RecyclerView recyclerViewManagementAcc, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnAddParking = btnAddParking;
     this.coordinatorLayout = coordinatorLayout;
-    this.recyclerView = recyclerView;
+    this.recyclerViewManagementAcc = recyclerViewManagementAcc;
     this.toolbar = toolbar;
   }
 

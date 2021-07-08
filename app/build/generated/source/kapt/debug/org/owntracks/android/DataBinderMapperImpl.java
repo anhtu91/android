@@ -366,10 +366,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put(14, "geofenceLongitude");
       sKeys.put(15, "geofenceLongitudeAsStr");
       sKeys.put(16, "id");
-      sKeys.put(17, "imageAccProvider");
-      sKeys.put(18, "imageProvider");
-      sKeys.put(19, "lastQRCodes");
-      sKeys.put(20, "locationUpdated");
+      sKeys.put(17, "imageProvider");
+      sKeys.put(18, "lastQRCodes");
+      sKeys.put(19, "locationUpdated");
+      sKeys.put(20, "managementAccount");
       sKeys.put(21, "message");
       sKeys.put(22, "messageCard");
       sKeys.put(23, "messageLocation");

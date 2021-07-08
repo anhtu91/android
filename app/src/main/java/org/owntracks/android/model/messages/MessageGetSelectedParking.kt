@@ -14,9 +14,9 @@ class MessageGetSelectedParking (private val dep: MessageWithCreatedAt = Message
     var requestSelectedParking: String? = null
 
     override fun addMqttPreferences(preferences: Preferences) {
-        topic = preferences.pubTopicInviteSend
-        qos = preferences.pubQoSInviteSend
-        retained = preferences.pubRetainInviteSend
+        topic = preferences.pubTopicParkingSelectedSend
+        qos = preferences.pubQoSParkingSelectedSend
+        retained = preferences.pubRetainParkingSelectedSend
     }
 
     companion object {

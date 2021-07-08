@@ -35,13 +35,13 @@ public class BR {
 
   public static final int id = 16;
 
-  public static final int imageAccProvider = 17;
+  public static final int imageProvider = 17;
 
-  public static final int imageProvider = 18;
+  public static final int lastQRCodes = 18;
 
-  public static final int lastQRCodes = 19;
+  public static final int locationUpdated = 19;
 
-  public static final int locationUpdated = 20;
+  public static final int managementAccount = 20;
 
   public static final int message = 21;
 

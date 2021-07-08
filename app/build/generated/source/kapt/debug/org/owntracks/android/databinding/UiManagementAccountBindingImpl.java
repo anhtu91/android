@@ -15,7 +15,7 @@ public class UiManagementAccountBindingImpl extends UiManagementAccountBinding  
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 1);
-        sViewsWithIds.put(R.id.recycler_view, 2);
+        sViewsWithIds.put(R.id.recyclerViewManagementAcc, 2);
         sViewsWithIds.put(R.id.btnAddParking, 3);
     }
     // views

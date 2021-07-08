@@ -2531,7 +2531,6 @@ id ignore
 id ignoreRequest
 id image
 id imageContact
-id imageManageAccount
 id img
 id importConfigurationFile
 id importConfigurationSingleValue
@@ -2706,6 +2705,9 @@ id radio
 id ratio
 id recover
 id rectangles
+id recyclerViewImportQRCode
+id recyclerViewLastQRCode
+id recyclerViewManagementAcc
 id recycler_view
 id registerCertificatePasswordText
 id registerEmailText

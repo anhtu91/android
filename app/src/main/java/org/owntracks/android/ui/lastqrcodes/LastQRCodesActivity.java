@@ -38,8 +38,8 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
         setSupportToolbar(binding.toolbar);
         setDrawer(binding.toolbar);
 
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.recyclerView.setAdapter(new LastQRCodesAdapter(lastQRCodesList, this));
+        binding.recyclerViewLastQRCode.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerViewLastQRCode.setAdapter(new LastQRCodesAdapter(lastQRCodesList, this));
 
         //Swipe left or right to remove last JWT
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -61,7 +61,7 @@ public class LastQRCodesActivity extends BaseActivity<UiLastQrCodesBinding, Last
             }
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        RecyclerView recyclerViewQRCode = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView recyclerViewQRCode = (RecyclerView) findViewById(R.id.recyclerViewLastQRCode);
         itemTouchHelper.attachToRecyclerView(recyclerViewQRCode);
     }
 

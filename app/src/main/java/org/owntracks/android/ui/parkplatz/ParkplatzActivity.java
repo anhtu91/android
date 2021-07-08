@@ -55,6 +55,10 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
     private static final int QRCODE_REQUEST = 111;
     private static final int READ_PERMISSION_CODE = 101;
     private static final int STORAGE_PERMISSION_CODE = 102;
+    private FloatingActionButton addParkingAccessCode;
+    private ItemTouchHelper.SimpleCallback simpleCallback;
+    private RecyclerView recyclerViewQRCode;
+    private ItemTouchHelper itemTouchHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,7 +72,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
         checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, READ_PERMISSION_CODE);
         checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
 
-        FloatingActionButton addParkingAccessCode = findViewById(R.id.btnAddQRCode);
+        addParkingAccessCode = findViewById(R.id.btnAddQRCode);
         addParkingAccessCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,11 +81,11 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
             }
         });
 
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.recyclerView.setAdapter(new ParkplatzAdapter(qrList, this));
+        binding.recyclerViewImportQRCode.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerViewImportQRCode.setAdapter(new ParkplatzAdapter(qrList, this));
 
         //Swipe left or right to remove last JWT
-        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder, @NonNull @NotNull RecyclerView.ViewHolder target) {
                 return false;
@@ -99,8 +103,8 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 }
             }
         };
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        RecyclerView recyclerViewQRCode = (RecyclerView) findViewById(R.id.recycler_view);
+        itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        recyclerViewQRCode = (RecyclerView) findViewById(R.id.recyclerViewImportQRCode);
         itemTouchHelper.attachToRecyclerView(recyclerViewQRCode);
     }
 

@@ -15,7 +15,7 @@ public class UiLastQrCodesBindingImpl extends UiLastQrCodesBinding  {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 1);
-        sViewsWithIds.put(R.id.recycler_view, 2);
+        sViewsWithIds.put(R.id.recyclerViewLastQRCode, 2);
     }
     // views
     // variables

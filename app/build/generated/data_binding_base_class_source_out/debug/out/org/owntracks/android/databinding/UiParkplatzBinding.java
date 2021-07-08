@@ -26,7 +26,7 @@ public abstract class UiParkplatzBinding extends ViewDataBinding {
   public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
-  public final RecyclerView recyclerView;
+  public final RecyclerView recyclerViewImportQRCode;
 
   @NonNull
   public final Toolbar toolbar;
@@ -36,11 +36,11 @@ public abstract class UiParkplatzBinding extends ViewDataBinding {
 
   protected UiParkplatzBinding(Object _bindingComponent, View _root, int _localFieldCount,
       FloatingActionButton btnAddQRCode, CoordinatorLayout coordinatorLayout,
-      RecyclerView recyclerView, Toolbar toolbar) {
+      RecyclerView recyclerViewImportQRCode, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnAddQRCode = btnAddQRCode;
     this.coordinatorLayout = coordinatorLayout;
-    this.recyclerView = recyclerView;
+    this.recyclerViewImportQRCode = recyclerViewImportQRCode;
     this.toolbar = toolbar;
   }
 

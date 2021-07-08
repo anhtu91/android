@@ -4,7 +4,6 @@ package org.owntracks.android.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,9 +21,6 @@ public abstract class UiRowManagementAccBinding extends ViewDataBinding {
   public final TextView fieldNameManageAccount;
 
   @NonNull
-  public final ImageView imageManageAccount;
-
-  @NonNull
   public final TextView keyIDManageAccount;
 
   @NonNull
@@ -34,11 +30,10 @@ public abstract class UiRowManagementAccBinding extends ViewDataBinding {
   protected ManagementAccountModel mManagementAccount;
 
   protected UiRowManagementAccBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      TextView fieldNameManageAccount, ImageView imageManageAccount, TextView keyIDManageAccount,
+      TextView fieldNameManageAccount, TextView keyIDManageAccount,
       ConstraintLayout managementParkingSpot) {
     super(_bindingComponent, _root, _localFieldCount);
     this.fieldNameManageAccount = fieldNameManageAccount;
-    this.imageManageAccount = imageManageAccount;
     this.keyIDManageAccount = keyIDManageAccount;
     this.managementParkingSpot = managementParkingSpot;
   }

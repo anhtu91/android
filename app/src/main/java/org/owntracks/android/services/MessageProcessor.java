@@ -17,11 +17,13 @@ import org.owntracks.android.model.messages.MessageCard;
 import org.owntracks.android.model.messages.MessageClear;
 import org.owntracks.android.model.messages.MessageCmd;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
+import org.owntracks.android.model.messages.MessageGetSelectedParking;
 import org.owntracks.android.model.messages.MessageInviteSuccess;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageReceiveFieldName;
 import org.owntracks.android.model.messages.MessageReceiveKeyID;
+import org.owntracks.android.model.messages.MessageReceiveSelectedParking;
 import org.owntracks.android.model.messages.MessageTransition;
 import org.owntracks.android.model.messages.MessageUnknown;
 import org.owntracks.android.model.messages.MessageWaypointToEntrance;
@@ -323,12 +325,19 @@ public class MessageProcessor {
         } else if(message instanceof MessageReceiveKeyID){
             processIncomingMessage((MessageReceiveKeyID) message); //For invite feature
         } else if(message instanceof MessageReceiveFieldName){
-            processIncomingMessage((MessageReceiveFieldName) message);
+            processIncomingMessage((MessageReceiveFieldName) message); //For invite feature
         } else if(message instanceof MessageInviteSuccess){
-            processIncomingMessage((MessageInviteSuccess) message);
+            processIncomingMessage((MessageInviteSuccess) message); //For invite feature
+        } else if(message instanceof MessageReceiveSelectedParking){
+            processIncomingMessage((MessageReceiveSelectedParking) message); //For management account feature
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageReceiveSelectedParking message){
+        eventBus.post(message);
+        Timber.i("Selected parking response: "+message.getListSelectedParking());
     }
 
     private void processIncomingMessage(MessageInviteSuccess message){

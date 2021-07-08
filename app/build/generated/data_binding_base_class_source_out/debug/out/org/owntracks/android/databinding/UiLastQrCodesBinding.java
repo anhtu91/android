@@ -22,7 +22,7 @@ public abstract class UiLastQrCodesBinding extends ViewDataBinding {
   public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
-  public final RecyclerView recyclerView;
+  public final RecyclerView recyclerViewLastQRCode;
 
   @NonNull
   public final Toolbar toolbar;
@@ -31,10 +31,10 @@ public abstract class UiLastQrCodesBinding extends ViewDataBinding {
   protected LastQRCodesViewModel mVm;
 
   protected UiLastQrCodesBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CoordinatorLayout coordinatorLayout, RecyclerView recyclerView, Toolbar toolbar) {
+      CoordinatorLayout coordinatorLayout, RecyclerView recyclerViewLastQRCode, Toolbar toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.coordinatorLayout = coordinatorLayout;
-    this.recyclerView = recyclerView;
+    this.recyclerViewLastQRCode = recyclerViewLastQRCode;
     this.toolbar = toolbar;
   }
 
