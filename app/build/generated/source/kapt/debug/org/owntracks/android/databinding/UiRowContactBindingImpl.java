@@ -26,17 +26,17 @@ public class UiRowContactBindingImpl extends UiRowContactBinding  {
     }
     private UiRowContactBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
-            , (android.widget.ImageView) bindings[1]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
+            , (android.widget.ImageView) bindings[1]
             , (android.widget.TextView) bindings[4]
             , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[2]
             );
-        this.image.setTag(null);
-        this.importQRCodeRow.setTag(null);
+        this.addContact.setTag(null);
+        this.imageContact.setTag(null);
         this.location.setTag(null);
         this.locationDate.setTag(null);
-        this.name.setTag(null);
+        this.nameContact.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();
@@ -185,7 +185,7 @@ public class UiRowContactBindingImpl extends UiRowContactBinding  {
         if ((dirtyFlags & 0x26L) != 0) {
             // api target 1
 
-            org.owntracks.android.support.ContactImageProvider.displayFaceInViewAsync(this.image, contactImageProvider, contact);
+            org.owntracks.android.support.ContactImageProvider.displayFaceInViewAsync(this.imageContact, contactImageProvider, contact);
         }
         if ((dirtyFlags & 0x23L) != 0) {
             // api target 1
@@ -200,7 +200,7 @@ public class UiRowContactBindingImpl extends UiRowContactBinding  {
         if ((dirtyFlags & 0x2aL) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.name, org.owntracks.android.support.widgets.BindingConversions.convertToString(contactFusedName));
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.nameContact, org.owntracks.android.support.widgets.BindingConversions.convertToString(contactFusedName));
         }
     }
     // Listener Stub Implementations

@@ -35,35 +35,37 @@ public class BR {
 
   public static final int id = 16;
 
-  public static final int imageProvider = 17;
+  public static final int imageAccProvider = 17;
 
-  public static final int lastQRCodes = 18;
+  public static final int imageProvider = 18;
 
-  public static final int locationUpdated = 19;
+  public static final int lastQRCodes = 19;
 
-  public static final int message = 20;
+  public static final int locationUpdated = 20;
 
-  public static final int messageCard = 21;
+  public static final int message = 21;
 
-  public static final int messageLocation = 22;
+  public static final int messageCard = 22;
 
-  public static final int modeId = 23;
+  public static final int messageLocation = 23;
 
-  public static final int name = 24;
+  public static final int modeId = 24;
 
-  public static final int nextEnabled = 25;
+  public static final int name = 25;
 
-  public static final int parkplatz = 26;
+  public static final int nextEnabled = 26;
 
-  public static final int permissionGranted = 27;
+  public static final int parkplatz = 27;
 
-  public static final int serviceStarted = 28;
+  public static final int permissionGranted = 28;
 
-  public static final int trackerId = 29;
+  public static final int serviceStarted = 29;
 
-  public static final int tst = 30;
+  public static final int trackerId = 30;
 
-  public static final int vm = 31;
+  public static final int tst = 31;
 
-  public static final int waypoint = 32;
+  public static final int vm = 32;
+
+  public static final int waypoint = 33;
 }

@@ -71,7 +71,6 @@
     <string name="title_activity_regions">Regiones</string>
     <string name="title_activity_region">Región</string>
     <string name="title_activity_map">Mapa</string>
-    <string name="title_activity_contacts">Amigos</string>
     <string name="title_activity_parkplatz">Importar código QR</string>
     <string name="title_activity_lastqrcodes">Historia</string>
     <string name="title_management_acc">Cuenta de administración</string>

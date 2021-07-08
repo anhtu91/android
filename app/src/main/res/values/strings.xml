@@ -75,7 +75,6 @@
     <string name="title_activity_regions">Regions</string>
     <string name="title_activity_region">Region</string>
     <string name="title_activity_map">Map</string>
-    <string name="title_activity_contacts">Friends</string>
     <string name="title_activity_parkplatz">Import QR Code</string>
     <string name="title_activity_lastqrcodes">History</string>
     <string name="title_management_acc">Management Account</string>
@@ -199,6 +198,7 @@
     <string name="reconnect">Reconnect</string>
     <string name="select">Select</string>
     <string name="contact_image">Contact Image</string>
+    <string name="manage_account_image">Manage Account</string>
     <string name="preferencesRemoteConfiguration">Remote configuration</string>
     <string name="preferencesRemoteConfigurationSummary">Enable configuration to be updated remotely (requires remote commands)</string>
     <string name="title_activity_q_r_code_pop_up">QRCodePopUp</string>

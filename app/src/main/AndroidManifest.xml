@@ -185,11 +185,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.map.MapActivity" />
         </activity>
-        <activity
-            android:name=".ui.contacts.ContactsActivity"
-            android:clearTaskOnLaunch="true"
-            android:label="@string/title_activity_contacts"
-            android:launchMode="singleTask" />
         <activity android:name=".ui.invite.InviteActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_invite"

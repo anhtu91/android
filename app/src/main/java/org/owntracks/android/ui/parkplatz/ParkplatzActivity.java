@@ -77,8 +77,6 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
             }
         });
 
-        Timber.i("Enter Parkplatz activity");
-
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(new ParkplatzAdapter(qrList, this));
 

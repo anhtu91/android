@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
-        android:id="@+id/importQRCodeRow"
+        android:id="@+id/addContact"
         android:minHeight="72dp">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imageContact"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
@@ -29,7 +29,7 @@
             android:contentDescription="@string/contact_image" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/nameContact"
             style="@style/ListItemPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/nameContact"
             app:messageLocation="@{contact.messageLocation}" />
 
 

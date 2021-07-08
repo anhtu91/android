@@ -19,10 +19,10 @@ import org.owntracks.android.model.FusedContact;
 
 public abstract class UiRowContactBinding extends ViewDataBinding {
   @NonNull
-  public final ImageView image;
+  public final ConstraintLayout addContact;
 
   @NonNull
-  public final ConstraintLayout importQRCodeRow;
+  public final ImageView imageContact;
 
   @NonNull
   public final TextView location;
@@ -31,20 +31,20 @@ public abstract class UiRowContactBinding extends ViewDataBinding {
   public final TextView locationDate;
 
   @NonNull
-  public final TextView name;
+  public final TextView nameContact;
 
   @Bindable
   protected FusedContact mContact;
 
   protected UiRowContactBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageView image, ConstraintLayout importQRCodeRow, TextView location, TextView locationDate,
-      TextView name) {
+      ConstraintLayout addContact, ImageView imageContact, TextView location, TextView locationDate,
+      TextView nameContact) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.image = image;
-    this.importQRCodeRow = importQRCodeRow;
+    this.addContact = addContact;
+    this.imageContact = imageContact;
     this.location = location;
     this.locationDate = locationDate;
-    this.name = name;
+    this.nameContact = nameContact;
   }
 
   public abstract void setContact(@Nullable FusedContact contact);

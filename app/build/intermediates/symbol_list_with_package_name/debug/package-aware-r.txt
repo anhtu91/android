@@ -2361,6 +2361,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addContact
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2487,6 +2488,7 @@ id fastadapter_item
 id fastadapter_item_adapter
 id fieldNameInviteText
 id fieldNameLastQRCode
+id fieldNameManageAccount
 id fieldNameParkplatz
 id fieldNameSelectedEntrance
 id fieldNameSelectedEntranceLabel
@@ -2528,6 +2530,8 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageContact
+id imageManageAccount
 id img
 id importConfigurationFile
 id importConfigurationSingleValue
@@ -2547,6 +2551,7 @@ id jumpToStart
 id keepalive
 id keyIDInviteText
 id keyIDLastQRCode
+id keyIDManageAccount
 id keyIDParkplatz
 id keyIDSelectedEntrance
 id keyIDSelectedEntranceLabel
@@ -2565,6 +2570,7 @@ id location
 id locationDate
 id log_date
 id log_msg
+id managementParkingSpot
 id mapView
 id masked
 id master_switch_container
@@ -2656,7 +2662,7 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
-id name
+id nameContact
 id nav_controller_view_tag
 id nav_graph
 id nav_host_fragment_container
@@ -3046,7 +3052,6 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 layout ui_available_parking_spot
-layout ui_contacts
 layout ui_imported_qr_code_pop_up
 layout ui_invite
 layout ui_last_qr_codes
@@ -3067,6 +3072,7 @@ layout ui_qr_code_pop_up
 layout ui_register
 layout ui_row_contact
 layout ui_row_last_qr_codes
+layout ui_row_management_acc
 layout ui_row_parkplatz
 layout ui_row_region
 layout ui_status
@@ -3263,6 +3269,7 @@ string library_materialize_repositoryLink
 string library_materialize_year
 string logViewerActivityTitle
 string longitude
+string manage_account_image
 string markerParkingEntrance
 string material_drawer_close
 string material_drawer_open
@@ -3513,7 +3520,6 @@ string status_last_background_update_hint
 string summary_collapsed_preference_list
 string timeoutConnection
 string title_activity_connection_login
-string title_activity_contacts
 string title_activity_invite
 string title_activity_lastqrcodes
 string title_activity_load

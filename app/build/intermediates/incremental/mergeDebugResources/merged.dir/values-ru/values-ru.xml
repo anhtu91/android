@@ -251,7 +251,6 @@
     <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns2:g id="CURRENT_ITEMS">%1$s</ns2:g>, <ns2:g id="ADDED_ITEMS">%2$s</ns2:g>"</string>
     <string name="timeoutConnection">Тайм-аут соединения</string>
     <string name="title_activity_connection_login">Подключение &amp; Войти</string>
-    <string name="title_activity_contacts">Друзья</string>
     <string name="title_activity_invite">Приглашать</string>
     <string name="title_activity_lastqrcodes">История</string>
     <string name="title_activity_load">Испорт</string>

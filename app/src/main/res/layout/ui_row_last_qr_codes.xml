@@ -21,9 +21,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@{lastQRCodes.getKeyID}"
+            app:layout_constraintEnd_toStartOf="@+id/dateTimeLastQRCode"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

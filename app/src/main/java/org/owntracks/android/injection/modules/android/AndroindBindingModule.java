@@ -1,7 +1,6 @@
 package org.owntracks.android.injection.modules.android;
 
 import org.owntracks.android.injection.modules.android.ActivityModules.ConnectionActivityModule;
-import org.owntracks.android.injection.modules.android.ActivityModules.ContactsActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.EditorActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.InviteActivityModule;
 import org.owntracks.android.injection.modules.android.ActivityModules.LastQRCodesActivityModule;
@@ -45,10 +44,6 @@ public abstract class AndroindBindingModule {
     @PerActivity
     @ContributesAndroidInjector(modules = {LastQRCodesActivityModule.class})
     abstract org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity bindLastQRCodesActivity();
-
-    @PerActivity
-    @ContributesAndroidInjector(modules = {ContactsActivityModule.class})
-    abstract org.owntracks.android.ui.contacts.ContactsActivity bindContactsActivity();
 
     @PerActivity
     @ContributesAndroidInjector(modules = {MapActivityModule.class})

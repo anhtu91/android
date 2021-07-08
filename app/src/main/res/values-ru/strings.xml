@@ -75,7 +75,6 @@
     <string name="title_activity_regions">Места</string>
     <string name="title_activity_region">Место</string>
     <string name="title_activity_map">Карта</string>
-    <string name="title_activity_contacts">Друзья</string>
     <string name="title_activity_parkplatz">Импортировать QR-код</string>
     <string name="title_activity_lastqrcodes">История</string>
     <string name="title_management_acc">Управляющий аккаунт</string>
