@@ -356,7 +356,6 @@ public class MessageProcessor {
     }
 
     private void processIncomingMessage(MessageWaypointToEntrance message){
-        //EventBus.getDefault()
         eventBus.post(message); //Post to MAIN thread. Methode onEvent(MessageWaypointToEntrance messageWaypointToEntrance) in MapActivity
         Timber.d("WaypointToEntrance processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("WaypointToEntrance message received: %s", message.getCoordinatesArray());
@@ -368,8 +367,6 @@ public class MessageProcessor {
         eventBus.post(message);
         Timber.d("EmpfehlungParkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("EmpfehlungParkplatz message received: %s", message.getEntrancePosition());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getKeyIDEntrance());
-        Timber.i("EmpfehlungParkplatz message received around free parking spots: %s", message.getEntrancePosition().get(0).getFieldNameEntranceAndCoordinate());
     }
 
     private void processIncomingMessage(MessageParkplatz message){

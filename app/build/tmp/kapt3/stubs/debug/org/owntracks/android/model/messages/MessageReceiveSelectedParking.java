@@ -5,26 +5,27 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.owntracks.android.model.ManagementAccountModel;
+import org.owntracks.android.model.SelectedParkingSpot;
 
-@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0007\u0018\u0000 \u000b2\u00020\u0001:\u0001\u000bB\u0005\u00a2\u0006\u0002\u0010\u0002R2\u0010\u0003\u001a\u0016\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004j\n\u0012\u0004\u0012\u00020\u0005\u0018\u0001`\u00068\u0006@\u0006X\u0087\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n\u00a8\u0006\f"}, d2 = {"Lorg/owntracks/android/model/messages/MessageReceiveSelectedParking;", "Lorg/owntracks/android/model/messages/MessageBase;", "()V", "listSelectedParking", "Ljava/util/ArrayList;", "Lorg/owntracks/android/model/ManagementAccountModel;", "Lkotlin/collections/ArrayList;", "getListSelectedParking", "()Ljava/util/ArrayList;", "setListSelectedParking", "(Ljava/util/ArrayList;)V", "Companion", "app_debug"})
+@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0007\u0018\u0000 \u000b2\u00020\u0001:\u0001\u000bB\u0005\u00a2\u0006\u0002\u0010\u0002R2\u0010\u0003\u001a\u0016\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004j\n\u0012\u0004\u0012\u00020\u0005\u0018\u0001`\u00068\u0006@\u0006X\u0087\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n\u00a8\u0006\f"}, d2 = {"Lorg/owntracks/android/model/messages/MessageReceiveSelectedParking;", "Lorg/owntracks/android/model/messages/MessageBase;", "()V", "listSelectedParking", "Ljava/util/ArrayList;", "Lorg/owntracks/android/model/SelectedParkingSpot;", "Lkotlin/collections/ArrayList;", "getListSelectedParking", "()Ljava/util/ArrayList;", "setListSelectedParking", "(Ljava/util/ArrayList;)V", "Companion", "app_debug"})
 @com.fasterxml.jackson.annotation.JsonInclude(value = com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "_type")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public final class MessageReceiveSelectedParking extends org.owntracks.android.model.messages.MessageBase {
     @org.jetbrains.annotations.Nullable()
     @com.fasterxml.jackson.annotation.JsonProperty(value = "listSelectedParking")
-    private java.util.ArrayList<org.owntracks.android.model.ManagementAccountModel> listSelectedParking;
+    private java.util.ArrayList<org.owntracks.android.model.SelectedParkingSpot> listSelectedParking;
     @org.jetbrains.annotations.NotNull()
     public static final java.lang.String TYPE = "ReceiveSelectedParking";
     public static final org.owntracks.android.model.messages.MessageReceiveSelectedParking.Companion Companion = null;
     
     @org.jetbrains.annotations.Nullable()
-    public final java.util.ArrayList<org.owntracks.android.model.ManagementAccountModel> getListSelectedParking() {
+    public final java.util.ArrayList<org.owntracks.android.model.SelectedParkingSpot> getListSelectedParking() {
         return null;
     }
     
     public final void setListSelectedParking(@org.jetbrains.annotations.Nullable()
-    java.util.ArrayList<org.owntracks.android.model.ManagementAccountModel> p0) {
+    java.util.ArrayList<org.owntracks.android.model.SelectedParkingSpot> p0) {
     }
     
     public MessageReceiveSelectedParking() {

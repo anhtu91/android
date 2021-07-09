@@ -103,6 +103,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 }
             }
         };
+
         itemTouchHelper = new ItemTouchHelper(simpleCallback);
         recyclerViewQRCode = (RecyclerView) findViewById(R.id.recyclerViewImportQRCode);
         itemTouchHelper.attachToRecyclerView(recyclerViewQRCode);

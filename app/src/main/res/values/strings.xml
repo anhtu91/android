@@ -177,11 +177,11 @@
     <string name="monitoring_mode">Monitoring</string>
     <string name="distance_label">Distance (meter)</string>
     <string name="preferencesClientId">Client ID</string>
-    <string name="preferencesUsername">Username (Minimum 5 characters)</string>
-    <string name="preferencesPassword">Password (Minimum 5 characters)</string>
-    <string name="preferencesRepeatPassword">Confirm Password (Same as password above)</string>
+    <string name="preferencesUsername">Username (Min. 5 characters)</string>
+    <string name="preferencesPassword">Password (Min. 5 characters)</string>
+    <string name="preferencesRepeatPassword">Confirm Password</string>
     <string name="preferencesEmail">Email (e.g. sample@email.com)</string>
-    <string name="preferencesCertificatePassword">Certificate Password (Minimum 5 characters)</string>
+    <string name="preferencesCertificatePassword">Certificate Password (Min. 5 characters)</string>
     <string name="status_endpoint_state_hint">Endpoint state</string>
     <string name="status_endpoint_state_message_hint">Endpoint state message</string>
     <string name="status_endpoint_queue_hint">Endpoint queue</string>
