@@ -64,7 +64,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         addNewParkingSpot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Click add ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Click add", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -135,8 +135,16 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(MessageReceiveSelectedParking message) {
         ArrayList<ManagementAccountModel> updateList = new ArrayList<ManagementAccountModel>();
-        for(SelectedParkingSpot parkingSpot: message.getListSelectedParking()){
-            updateList.add(new ManagementAccountModel(parkingSpot.getKeyID(), parkingSpot.getFieldName()));
+        for(SelectedParkingSpot updateParkingSpot: message.getListSelectedParking()){
+            boolean foundParkingSpotInCurrentList = false;
+            for(ManagementAccountModel currentParkingSpotInLocal: accountList){
+                if(updateParkingSpot.getKeyID().equals(currentParkingSpotInLocal.getKeyID()) && updateParkingSpot.getFieldName().equals(currentParkingSpotInLocal.getFieldName())){
+                    foundParkingSpotInCurrentList = true;
+                }
+            }
+            if(!foundParkingSpotInCurrentList){
+                updateList.add(new ManagementAccountModel(updateParkingSpot.getKeyID(), updateParkingSpot.getFieldName()));
+            }
         }
         accountList.addAll(updateList);
         if(clickRefresh){
@@ -163,10 +171,5 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     public void onClick(@NonNull @NotNull ManagementAccountModel object, @NonNull @NotNull View view, boolean longClick) {
         viewModel.onManagementAccountShortClick(object);
         //Click parking spot. Still not use for anything
-    }
-
-    @Override
-    public void updateParkingSpot(ManagementAccountModel p) {
-
     }
 }

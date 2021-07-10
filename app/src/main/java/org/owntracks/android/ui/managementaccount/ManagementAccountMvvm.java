@@ -6,7 +6,7 @@ import org.owntracks.android.ui.base.viewmodel.MvvmViewModel;
 
 public interface ManagementAccountMvvm {
     interface View extends MvvmView {
-        void updateParkingSpot(ManagementAccountModel p);
+        //void updateParkingSpot(ManagementAccountModel p);
     }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
