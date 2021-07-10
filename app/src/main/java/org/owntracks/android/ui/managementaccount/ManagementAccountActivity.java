@@ -25,6 +25,7 @@ import org.owntracks.android.model.ManagementAccountModel;
 import org.owntracks.android.model.SelectedParkingSpot;
 import org.owntracks.android.model.messages.MessageDeleteParking;
 import org.owntracks.android.model.messages.MessageGetSelectedParking;
+import org.owntracks.android.model.messages.MessageStatusDeleteParkingSpot;
 import org.owntracks.android.model.messages.MessageReceiveSelectedParking;
 import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.ui.base.BaseActivity;
@@ -32,8 +33,6 @@ import org.owntracks.android.ui.base.BaseActivity;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
-
-import timber.log.Timber;
 
 public class ManagementAccountActivity extends BaseActivity<UiManagementAccountBinding, ManagementAccountMvvm.ViewModel> implements ManagementAccountMvvm.View, ManagementAccountAdapter.ClickListener{
 
@@ -95,8 +94,10 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
             @Override
             public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition(); //Get swipe position
+                String keyIDDelete = accountList.get(position).getKeyID();
+                String fieldNameDelete = accountList.get(position).getFieldName();
+                sendRequestToDeleteSelectedParkingSpot(keyIDDelete, fieldNameDelete);
                 accountList.remove(position);
-                sendRequestToDeleteSelectedParkingSpot(accountList.get(position).getKeyID(), accountList.get(position).getFieldName());
             }
         };
 
@@ -144,6 +145,15 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageStatusDeleteParkingSpot message){
+        if(message.getResult()){
+            Toast.makeText(getApplicationContext(), getText(R.string.resultDeleteParkingSpotSuccessful), Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(), getText(R.string.resultDeleteParkingSpotUnsuccessful), Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -152,6 +162,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     @Override
     public void onClick(@NonNull @NotNull ManagementAccountModel object, @NonNull @NotNull View view, boolean longClick) {
         viewModel.onManagementAccountShortClick(object);
+        //Click parking spot. Still not use for anything
     }
 
     @Override

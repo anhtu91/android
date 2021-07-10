@@ -12,7 +12,7 @@ public class ManagementAccountModel extends BaseObservable implements Comparable
     }
 
     public String getKeyID() {
-        return "KeyID: "+ keyID;
+        return keyID;
     }
 
     public void setKeyID(String keyID) {
@@ -20,7 +20,7 @@ public class ManagementAccountModel extends BaseObservable implements Comparable
     }
 
     public String getFieldName() {
-        return "FieldName: "+ fieldName;
+        return fieldName;
     }
 
     public void setFieldName(String fieldName) {

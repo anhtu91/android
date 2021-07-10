@@ -2,7 +2,6 @@ package org.owntracks.android.services;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.util.EventLog;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.greenrobot.eventbus.EventBus;
@@ -17,10 +16,10 @@ import org.owntracks.android.model.messages.MessageCard;
 import org.owntracks.android.model.messages.MessageClear;
 import org.owntracks.android.model.messages.MessageCmd;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
-import org.owntracks.android.model.messages.MessageGetSelectedParking;
 import org.owntracks.android.model.messages.MessageInviteSuccess;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
+import org.owntracks.android.model.messages.MessageStatusDeleteParkingSpot;
 import org.owntracks.android.model.messages.MessageReceiveFieldName;
 import org.owntracks.android.model.messages.MessageReceiveKeyID;
 import org.owntracks.android.model.messages.MessageReceiveSelectedParking;
@@ -330,9 +329,16 @@ public class MessageProcessor {
             processIncomingMessage((MessageInviteSuccess) message); //For invite feature
         } else if(message instanceof MessageReceiveSelectedParking){
             processIncomingMessage((MessageReceiveSelectedParking) message); //For management account feature
+        } else if(message instanceof MessageStatusDeleteParkingSpot){
+            processIncomingMessage((MessageStatusDeleteParkingSpot) message);
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageStatusDeleteParkingSpot message){
+        eventBus.post(message);
+        Timber.i("Delete parking spot response "+message.toString());
     }
 
     private void processIncomingMessage(MessageReceiveSelectedParking message){

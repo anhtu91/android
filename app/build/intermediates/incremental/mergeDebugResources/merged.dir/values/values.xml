@@ -1567,6 +1567,7 @@
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="fastadapter_lib_version" translatable="false">3.3.0</string>
+    <string name="fieldName">FieldName:</string>
     <string name="fieldNameInvite">FieldName of parking spot:</string>
     <string name="fieldNameSelectedEntrance">FieldName of entrance</string>
     <string name="first_fragment_label">First Fragment</string>
@@ -1585,6 +1586,7 @@
     <string name="insertQRCode">Insert QRCode not successful</string>
     <string name="installFileManager">Please install a File Manager</string>
     <string name="item_view_role_description">Tab</string>
+    <string name="keyID">KeyID:</string>
     <string name="keyIDInvite">KeyID of parking spots:</string>
     <string name="keyIDSelectedEntrance" translatable="false">KeyID of entrance</string>
     <string name="latitude">Latitude</string>
@@ -1879,6 +1881,8 @@
     <string name="repasswordContain">Confirm Password must contain at least 5 characters</string>
     <string name="repoUrl" translatable="false">https://github.com/owntracks/android</string>
     <string name="restart">Restart</string>
+    <string name="resultDeleteParkingSpotSuccessful">Delete parking spot successful</string>
+    <string name="resultDeleteParkingSpotUnsuccessful">Delete parking spot UNSUCCESSFUL</string>
     <string name="save">Save</string>
     <string name="saveQRCodeSuccessful">Saved QRCode successful</string>
     <string name="search_menu_title">Search</string>

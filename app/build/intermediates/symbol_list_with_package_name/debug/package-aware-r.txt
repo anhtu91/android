@@ -2813,6 +2813,8 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textViewFieldName
+id textViewKeyID
 id textWatcher
 id text_input_end_icon
 id text_input_start_icon
@@ -3204,6 +3206,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string fastadapter_lib_version
+string fieldName
 string fieldNameInvite
 string fieldNameSelectedEntrance
 string first_fragment_label
@@ -3222,6 +3225,7 @@ string inputInviteEmail
 string insertQRCode
 string installFileManager
 string item_view_role_description
+string keyID
 string keyIDInvite
 string keyIDSelectedEntrance
 string latitude
@@ -3498,6 +3502,8 @@ string register
 string repasswordContain
 string repoUrl
 string restart
+string resultDeleteParkingSpotSuccessful
+string resultDeleteParkingSpotUnsuccessful
 string save
 string saveQRCodeSuccessful
 string search_menu_title

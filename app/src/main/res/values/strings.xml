@@ -243,4 +243,9 @@
     <string name="passwordContain">Password must contain at least 5 characters</string>
     <string name="repasswordContain">Confirm Password must contain at least 5 characters</string>
     <string name="certPasswordContain">Certificate Password must contain at least 5 characters</string>
+
+    <string name="keyID">KeyID:</string>
+    <string name="fieldName">FieldName:</string>
+    <string name="resultDeleteParkingSpotSuccessful">Delete parking spot successful</string>
+    <string name="resultDeleteParkingSpotUnsuccessful">Delete parking spot UNSUCCESSFUL</string>
 </resources>

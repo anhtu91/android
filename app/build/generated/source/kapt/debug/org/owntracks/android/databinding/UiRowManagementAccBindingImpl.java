@@ -13,7 +13,9 @@ public class UiRowManagementAccBindingImpl extends UiRowManagementAccBinding  {
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
         sIncludes = null;
-        sViewsWithIds = null;
+        sViewsWithIds = new android.util.SparseIntArray();
+        sViewsWithIds.put(R.id.textViewKeyID, 3);
+        sViewsWithIds.put(R.id.textViewFieldName, 4);
     }
     // views
     // variables
@@ -22,13 +24,15 @@ public class UiRowManagementAccBindingImpl extends UiRowManagementAccBinding  {
     // Inverse Binding Event Handlers
 
     public UiRowManagementAccBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 3, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private UiRowManagementAccBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
             , (android.widget.TextView) bindings[2]
             , (android.widget.TextView) bindings[1]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
+            , (android.widget.TextView) bindings[4]
+            , (android.widget.TextView) bindings[3]
             );
         this.fieldNameManageAccount.setTag(null);
         this.keyIDManageAccount.setTag(null);
