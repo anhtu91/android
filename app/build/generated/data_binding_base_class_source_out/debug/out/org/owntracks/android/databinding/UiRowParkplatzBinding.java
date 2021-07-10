@@ -29,17 +29,26 @@ public abstract class UiRowParkplatzBinding extends ViewDataBinding {
   @NonNull
   public final TextView keyIDParkplatz;
 
+  @NonNull
+  public final TextView textViewFieldNameParkplatz;
+
+  @NonNull
+  public final TextView textViewKeyIDParkplatz;
+
   @Bindable
   protected ParkplatzModel mParkplatz;
 
   protected UiRowParkplatzBinding(Object _bindingComponent, View _root, int _localFieldCount,
       TextView dateTimeParkplatz, TextView fieldNameParkplatz, ConstraintLayout importQRCodeRow,
-      TextView keyIDParkplatz) {
+      TextView keyIDParkplatz, TextView textViewFieldNameParkplatz,
+      TextView textViewKeyIDParkplatz) {
     super(_bindingComponent, _root, _localFieldCount);
     this.dateTimeParkplatz = dateTimeParkplatz;
     this.fieldNameParkplatz = fieldNameParkplatz;
     this.importQRCodeRow = importQRCodeRow;
     this.keyIDParkplatz = keyIDParkplatz;
+    this.textViewFieldNameParkplatz = textViewFieldNameParkplatz;
+    this.textViewKeyIDParkplatz = textViewKeyIDParkplatz;
   }
 
   public abstract void setParkplatz(@Nullable ParkplatzModel parkplatz);

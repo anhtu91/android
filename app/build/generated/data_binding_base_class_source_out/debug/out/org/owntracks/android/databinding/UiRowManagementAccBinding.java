@@ -27,23 +27,24 @@ public abstract class UiRowManagementAccBinding extends ViewDataBinding {
   public final ConstraintLayout managementParkingSpot;
 
   @NonNull
-  public final TextView textViewFieldName;
+  public final TextView textViewFieldNameManagementAcc;
 
   @NonNull
-  public final TextView textViewKeyID;
+  public final TextView textViewKeyIDManagementAcc;
 
   @Bindable
   protected ManagementAccountModel mManagementAccount;
 
   protected UiRowManagementAccBinding(Object _bindingComponent, View _root, int _localFieldCount,
       TextView fieldNameManageAccount, TextView keyIDManageAccount,
-      ConstraintLayout managementParkingSpot, TextView textViewFieldName, TextView textViewKeyID) {
+      ConstraintLayout managementParkingSpot, TextView textViewFieldNameManagementAcc,
+      TextView textViewKeyIDManagementAcc) {
     super(_bindingComponent, _root, _localFieldCount);
     this.fieldNameManageAccount = fieldNameManageAccount;
     this.keyIDManageAccount = keyIDManageAccount;
     this.managementParkingSpot = managementParkingSpot;
-    this.textViewFieldName = textViewFieldName;
-    this.textViewKeyID = textViewKeyID;
+    this.textViewFieldNameManagementAcc = textViewFieldNameManagementAcc;
+    this.textViewKeyIDManagementAcc = textViewKeyIDManagementAcc;
   }
 
   public abstract void setManagementAccount(@Nullable ManagementAccountModel managementAccount);

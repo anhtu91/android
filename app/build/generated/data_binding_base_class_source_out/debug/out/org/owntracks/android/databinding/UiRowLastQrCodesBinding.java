@@ -29,17 +29,26 @@ public abstract class UiRowLastQrCodesBinding extends ViewDataBinding {
   @NonNull
   public final ConstraintLayout lastQRCodeRow;
 
+  @NonNull
+  public final TextView textViewFieldNameLastQRCode;
+
+  @NonNull
+  public final TextView textViewKeyIDLastQRCode;
+
   @Bindable
   protected LastQRCodesModel mLastQRCodes;
 
   protected UiRowLastQrCodesBinding(Object _bindingComponent, View _root, int _localFieldCount,
       TextView dateTimeLastQRCode, TextView fieldNameLastQRCode, TextView keyIDLastQRCode,
-      ConstraintLayout lastQRCodeRow) {
+      ConstraintLayout lastQRCodeRow, TextView textViewFieldNameLastQRCode,
+      TextView textViewKeyIDLastQRCode) {
     super(_bindingComponent, _root, _localFieldCount);
     this.dateTimeLastQRCode = dateTimeLastQRCode;
     this.fieldNameLastQRCode = fieldNameLastQRCode;
     this.keyIDLastQRCode = keyIDLastQRCode;
     this.lastQRCodeRow = lastQRCodeRow;
+    this.textViewFieldNameLastQRCode = textViewFieldNameLastQRCode;
+    this.textViewKeyIDLastQRCode = textViewKeyIDLastQRCode;
   }
 
   public abstract void setLastQRCodes(@Nullable LastQRCodesModel lastQRCodes);

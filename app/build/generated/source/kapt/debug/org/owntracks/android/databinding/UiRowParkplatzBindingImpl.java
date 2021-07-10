@@ -13,7 +13,9 @@ public class UiRowParkplatzBindingImpl extends UiRowParkplatzBinding  {
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
         sIncludes = null;
-        sViewsWithIds = null;
+        sViewsWithIds = new android.util.SparseIntArray();
+        sViewsWithIds.put(R.id.textViewKeyIDParkplatz, 4);
+        sViewsWithIds.put(R.id.textViewFieldNameParkplatz, 5);
     }
     // views
     // variables
@@ -22,7 +24,7 @@ public class UiRowParkplatzBindingImpl extends UiRowParkplatzBinding  {
     // Inverse Binding Event Handlers
 
     public UiRowParkplatzBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
     }
     private UiRowParkplatzBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
@@ -30,6 +32,8 @@ public class UiRowParkplatzBindingImpl extends UiRowParkplatzBinding  {
             , (android.widget.TextView) bindings[3]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
             , (android.widget.TextView) bindings[1]
+            , (android.widget.TextView) bindings[5]
+            , (android.widget.TextView) bindings[4]
             );
         this.dateTimeParkplatz.setTag(null);
         this.fieldNameParkplatz.setTag(null);

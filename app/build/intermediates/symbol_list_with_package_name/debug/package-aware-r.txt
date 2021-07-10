@@ -2813,8 +2813,12 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textViewFieldName
-id textViewKeyID
+id textViewFieldNameLastQRCode
+id textViewFieldNameManagementAcc
+id textViewFieldNameParkplatz
+id textViewKeyIDLastQRCode
+id textViewKeyIDManagementAcc
+id textViewKeyIDParkplatz
 id textWatcher
 id text_input_end_icon
 id text_input_start_icon

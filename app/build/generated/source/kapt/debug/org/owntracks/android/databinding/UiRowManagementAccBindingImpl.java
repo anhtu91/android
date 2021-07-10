@@ -14,8 +14,8 @@ public class UiRowManagementAccBindingImpl extends UiRowManagementAccBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.textViewKeyID, 3);
-        sViewsWithIds.put(R.id.textViewFieldName, 4);
+        sViewsWithIds.put(R.id.textViewKeyIDManagementAcc, 3);
+        sViewsWithIds.put(R.id.textViewFieldNameManagementAcc, 4);
     }
     // views
     // variables

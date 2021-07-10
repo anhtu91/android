@@ -22,10 +22,12 @@
             android:layout_height="20dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@{managementAccount.getKeyID}"
-            app:layout_constraintStart_toEndOf="@+id/textViewKeyID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewKeyIDManagementAcc"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -35,14 +37,16 @@
             android:layout_height="20dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:singleLine="true"
-            app:layout_constraintStart_toEndOf="@+id/textViewFieldName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewFieldNameManagementAcc"
             app:layout_constraintTop_toBottomOf="@+id/keyIDManageAccount"
             app:text="@{managementAccount.getFieldName}" />
 
         <TextView
-            android:id="@+id/textViewKeyID"
+            android:id="@+id/textViewKeyIDManagementAcc"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
@@ -56,15 +60,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewFieldName"
+            android:id="@+id/textViewFieldNameManagementAcc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="@string/fieldName"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewKeyID" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewKeyIDManagementAcc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

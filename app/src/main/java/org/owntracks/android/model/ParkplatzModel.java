@@ -41,7 +41,7 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
     }
 
     public String getKeyID() {
-        return "KeyID: "+ keyID;
+        return keyID;
     }
 
     public void setKeyID(String keyID) {
@@ -49,7 +49,7 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
     }
 
     public String getFieldName() {
-        return "FieldName: "+fieldName;
+        return fieldName;
     }
 
     public void setFieldName(String fieldName) {

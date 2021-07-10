@@ -10,7 +10,6 @@ public interface ManagementAccountMvvm {
     }
 
     interface ViewModel<V extends MvvmView> extends MvvmViewModel<V> {
-
         void onManagementAccountShortClick(ManagementAccountModel object);
     }
 }
