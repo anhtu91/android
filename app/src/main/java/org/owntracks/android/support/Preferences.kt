@@ -693,6 +693,9 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
     val pubTopicDeleteParking: String
         get() = pubTopicBase
 
+    val pubTopicAddNewParking: String
+        get() = pubTopicBase
+
     val pubTopicInviteSend: String
         get() = pubTopicBase
 
@@ -743,6 +746,9 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
     val pubQoSDeleteParking: Int
         get() = pubQos
 
+    val pubQoSAddNewParking: Int
+        get() = pubQos
+
     val pubQoSInviteSend: Int
         get() = pubQos
 
@@ -753,6 +759,9 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
         get() = pubRetain
 
     val pubRetainDeleteParking: Boolean
+        get() = pubRetain
+
+    val pubRetainAddNewParking: Boolean
         get() = pubRetain
 
     val pubRetainInviteSend: Boolean

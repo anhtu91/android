@@ -1,8 +1,13 @@
 package org.owntracks.android.ui.managementaccount;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +29,11 @@ import org.owntracks.android.databinding.UiManagementAccountBinding;
 import org.owntracks.android.model.ManagementAccountModel;
 import org.owntracks.android.model.SelectedParkingSpot;
 import org.owntracks.android.model.messages.MessageDeleteParking;
+import org.owntracks.android.model.messages.MessageGetFieldNameAddNewParking;
+import org.owntracks.android.model.messages.MessageGetKeyIDAddNewParking;
 import org.owntracks.android.model.messages.MessageGetSelectedParking;
+import org.owntracks.android.model.messages.MessageReceiveFieldNameAddNewParking;
+import org.owntracks.android.model.messages.MessageReceiveKeyIDAddNewParking;
 import org.owntracks.android.model.messages.MessageStatusDeleteParkingSpot;
 import org.owntracks.android.model.messages.MessageReceiveSelectedParking;
 import org.owntracks.android.services.MessageProcessor;
@@ -43,11 +52,15 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     MessageProcessor messageProcessor;
 
     private ObservableList<ManagementAccountModel> accountList;
+    private ArrayList<String> keyIDList;
+    private String correspondingFieldName;
     private FloatingActionButton addNewParkingSpot;
     private ProgressDialog progressDialog;
     private ItemTouchHelper.SimpleCallback simpleCallback;
     private ItemTouchHelper itemTouchHelper;
     private RecyclerView recyclerViewManagementAcc;
+    private Spinner spinnerKeyID;
+    private Spinner spinnerFieldName;
     private boolean clickRefresh = false;
 
     @Override
@@ -64,7 +77,56 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         addNewParkingSpot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Click add", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(ManagementAccountActivity.this);
+                View mView = getLayoutInflater().inflate(R.layout.dialog_add_new_parking_spot, null);
+                mBuilder.setTitle(getText(R.string.selectParkingSpot));
+
+                spinnerKeyID = (Spinner) mView.findViewById(R.id.spinnerKeyIDAddParking);
+                spinnerFieldName = (Spinner) mView.findViewById(R.id.spinnerFieldNameAddParking);
+
+                ArrayAdapter<String> adapterKeyID = new ArrayAdapter<String>(ManagementAccountActivity.this, android.R.layout.simple_spinner_item, keyIDList);
+                adapterKeyID.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerKeyID.setAdapter(adapterKeyID);
+
+                spinnerKeyID.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedKeyID = parent.getItemAtPosition(position).toString();
+                        if(!selectedKeyID.equals(getText(R.string.chooseKeyID).toString())){
+                            sendRequestToGetAllFieldName(selectedKeyID);
+                        }else{
+                            //Clear spinnerFieldName
+                            spinnerFieldName.setAdapter(null);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        //PASS
+                    }
+                });
+
+                mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Get selected keyID and fieldname
+                        String selectedKeyID = spinnerKeyID.getSelectedItem().toString();
+                        String selectedFieldName = spinnerFieldName.getSelectedItem().toString();
+                        //Send to server
+                        sendRequestToAddNewParking(selectedKeyID, selectedFieldName);
+                    }
+                });
+
+                mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                mBuilder.setView(mView);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
             }
         });
 
@@ -80,6 +142,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
                     //Refresh
                     clickRefresh = true;
                     sendRequestToGetSelectedParkingSpot();
+                    sendRequestToGetAllKeyIDList();
                     activeProgressDialog();
                 }
             }
@@ -107,7 +170,8 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
 
         //Send request to server
         sendRequestToGetSelectedParkingSpot();
-
+        //Send request KeyID list
+        sendRequestToGetAllKeyIDList();
         eventBus.register(this);
     }
 
@@ -117,6 +181,22 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(true);
         progressDialog.show();
+    }
+
+    private void sendRequestToAddNewParking(String keyID, String fieldName){
+
+    }
+
+    private void sendRequestToGetAllKeyIDList(){
+        MessageGetKeyIDAddNewParking messageGetKeyIDAddNewParking = new MessageGetKeyIDAddNewParking();
+        messageGetKeyIDAddNewParking.setGetKeyIDList("getKeyIDList");
+        messageProcessor.queueMessageForSending(messageGetKeyIDAddNewParking);
+    }
+
+    private void sendRequestToGetAllFieldName(String selectedKeyID){
+        MessageGetFieldNameAddNewParking messageGetFieldNameAddNewParking = new MessageGetFieldNameAddNewParking();
+        messageGetFieldNameAddNewParking.setSelectedKeyID(selectedKeyID);
+        messageProcessor.queueMessageForSending(messageGetFieldNameAddNewParking);
     }
 
     private void sendRequestToGetSelectedParkingSpot(){
@@ -162,6 +242,22 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageReceiveKeyIDAddNewParking message){
+        keyIDList = message.getListKeyID();
+        keyIDList.add(0, getText(R.string.chooseKeyID).toString());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageReceiveFieldNameAddNewParking message){
+        correspondingFieldName = message.getCorrespondingFieldName();
+        ArrayList<String> fieldNameList = new ArrayList<>();
+        fieldNameList.add(correspondingFieldName);
+        ArrayAdapter<String> adapterFieldName = new ArrayAdapter<String>(ManagementAccountActivity.this, android.R.layout.simple_spinner_item, fieldNameList);
+        adapterFieldName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerFieldName.setAdapter(adapterFieldName);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -169,7 +265,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
 
     @Override
     public void onClick(@NonNull @NotNull ManagementAccountModel object, @NonNull @NotNull View view, boolean longClick) {
-        viewModel.onManagementAccountShortClick(object);
         //Click parking spot. Still not use for anything
+        viewModel.onManagementAccountShortClick(object);
     }
 }

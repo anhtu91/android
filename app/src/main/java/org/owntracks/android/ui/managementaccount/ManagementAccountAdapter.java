@@ -11,6 +11,8 @@ import org.owntracks.android.model.ManagementAccountModel;
 import org.owntracks.android.ui.base.BaseAdapter;
 import org.owntracks.android.ui.base.BaseAdapterItemView;
 
+import java.util.ArrayList;
+
 class ManagementAccountAdapter extends BaseAdapter<ManagementAccountModel> {
     ManagementAccountAdapter(ObservableList item, ClickListener clickListener) {
         super(BaseAdapterItemView.of(BR.managementAccount , R.layout.ui_row_management_acc));

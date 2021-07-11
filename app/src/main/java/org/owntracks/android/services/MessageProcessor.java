@@ -19,9 +19,11 @@ import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.model.messages.MessageInviteSuccess;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
+import org.owntracks.android.model.messages.MessageReceiveFieldNameAddNewParking;
+import org.owntracks.android.model.messages.MessageReceiveKeyIDAddNewParking;
 import org.owntracks.android.model.messages.MessageStatusDeleteParkingSpot;
-import org.owntracks.android.model.messages.MessageReceiveFieldName;
-import org.owntracks.android.model.messages.MessageReceiveKeyID;
+import org.owntracks.android.model.messages.MessageReceiveFieldNameInvite;
+import org.owntracks.android.model.messages.MessageReceiveKeyIDInvite;
 import org.owntracks.android.model.messages.MessageReceiveSelectedParking;
 import org.owntracks.android.model.messages.MessageTransition;
 import org.owntracks.android.model.messages.MessageUnknown;
@@ -321,19 +323,33 @@ public class MessageProcessor {
             processIncomingMessage((MessageEmpfehlungParkplatz) message);
         } else if (message instanceof MessageWaypointToEntrance){ //When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
             processIncomingMessage((MessageWaypointToEntrance) message);
-        } else if(message instanceof MessageReceiveKeyID){
-            processIncomingMessage((MessageReceiveKeyID) message); //For invite feature
-        } else if(message instanceof MessageReceiveFieldName){
-            processIncomingMessage((MessageReceiveFieldName) message); //For invite feature
+        } else if(message instanceof MessageReceiveKeyIDInvite){
+            processIncomingMessage((MessageReceiveKeyIDInvite) message); //For invite feature
+        } else if(message instanceof MessageReceiveFieldNameInvite){
+            processIncomingMessage((MessageReceiveFieldNameInvite) message); //For invite feature
         } else if(message instanceof MessageInviteSuccess){
             processIncomingMessage((MessageInviteSuccess) message); //For invite feature
         } else if(message instanceof MessageReceiveSelectedParking){
             processIncomingMessage((MessageReceiveSelectedParking) message); //For management account feature
         } else if(message instanceof MessageStatusDeleteParkingSpot){
             processIncomingMessage((MessageStatusDeleteParkingSpot) message);
-        } else if (message instanceof MessageUnknown) {
+        } else if(message instanceof MessageReceiveKeyIDAddNewParking){
+            processIncomingMessage((MessageReceiveKeyIDAddNewParking) message);
+        } else if(message instanceof MessageReceiveFieldNameAddNewParking){
+            processIncomingMessage((MessageReceiveFieldNameAddNewParking) message);
+        }else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageReceiveFieldNameAddNewParking message){
+        eventBus.post(message);
+        Timber.i("Corresponding fieldName "+message.getCorrespondingFieldName());
+    }
+
+    private void processIncomingMessage(MessageReceiveKeyIDAddNewParking message){
+        eventBus.post(message);
+        Timber.i("List all keyID "+message.getListKeyID());
     }
 
     private void processIncomingMessage(MessageStatusDeleteParkingSpot message){
@@ -351,12 +367,12 @@ public class MessageProcessor {
         Timber.i("Invite response: "+message.getResponse());
     }
 
-    private void processIncomingMessage(MessageReceiveFieldName message){
+    private void processIncomingMessage(MessageReceiveFieldNameInvite message){
         eventBus.post(message);
         Timber.i("List fieldName: "+message.getListFieldName());
     }
 
-    private void processIncomingMessage(MessageReceiveKeyID message){
+    private void processIncomingMessage(MessageReceiveKeyIDInvite message){
         eventBus.post(message);
         Timber.i("List keyID: "+message.getListKeyID());
     }

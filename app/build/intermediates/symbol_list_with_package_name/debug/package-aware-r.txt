@@ -2209,6 +2209,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable divider
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow
@@ -2770,7 +2771,9 @@ id snapMargins
 id spacer
 id spinner
 id spinnerFieldName
+id spinnerFieldNameAddParking
 id spinnerKeyID
+id spinnerKeyIDAddParking
 id spinnerSelectEntrance
 id spinnerSelectParking
 id spline
@@ -2963,6 +2966,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_add_new_parking_spot
 layout expand_button
 layout image_frame
 layout log_viewer_entry
@@ -3158,6 +3162,7 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string chooseKeyID
 string clear_log
 string clear_text_end_icon_content_description
 string common_google_play_services_enable_button
@@ -3517,6 +3522,7 @@ string select
 string selectDateInvite
 string selectInvitedDate
 string selectInvitedTime
+string selectParkingSpot
 string selectQRCode
 string selectTimeInvite
 string sendInvitationNotSuccessful

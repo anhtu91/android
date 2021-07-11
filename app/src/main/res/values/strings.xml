@@ -248,4 +248,7 @@
     <string name="fieldName">FieldName:</string>
     <string name="resultDeleteParkingSpotSuccessful">Delete parking spot successful</string>
     <string name="resultDeleteParkingSpotUnsuccessful">Delete parking spot UNSUCCESSFUL</string>
+
+    <string name="chooseKeyID">Choose KeyID of parking spot...</string>
+    <string name="selectParkingSpot">Select parking spot</string>
 </resources>

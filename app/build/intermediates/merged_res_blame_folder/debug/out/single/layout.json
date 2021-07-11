@@ -32,6 +32,10 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_row_region.xml"
     },
     {
+        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/dialog_add_new_parking_spot.xml",
+        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/dialog_add_new_parking_spot.xml"
+    },
+    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_preferences_connection.xml",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_preferences_connection.xml"
     },

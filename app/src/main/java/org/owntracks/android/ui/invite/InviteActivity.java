@@ -28,15 +28,14 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiInviteBinding;
-import org.owntracks.android.model.messages.MessageGetFieldName;
-import org.owntracks.android.model.messages.MessageGetKeyID;
+import org.owntracks.android.model.messages.MessageGetFieldNameInvite;
+import org.owntracks.android.model.messages.MessageGetKeyIDInvite;
 import org.owntracks.android.model.messages.MessageInvite;
 import org.owntracks.android.model.messages.MessageInviteSuccess;
-import org.owntracks.android.model.messages.MessageReceiveFieldName;
-import org.owntracks.android.model.messages.MessageReceiveKeyID;
+import org.owntracks.android.model.messages.MessageReceiveFieldNameInvite;
+import org.owntracks.android.model.messages.MessageReceiveKeyIDInvite;
 import org.owntracks.android.services.MessageProcessor;
 import org.owntracks.android.ui.base.BaseActivity;
-import org.owntracks.android.ui.register.RegisterActivity;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -246,15 +245,15 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     }
 
     private void sendRequestToGetKeyID(){
-        MessageGetKeyID messageGetKeyID = new MessageGetKeyID();
-        messageGetKeyID.setInviteType("getKeyID");
-        messageProcessor.queueMessageForSending(messageGetKeyID);
+        MessageGetKeyIDInvite messageGetKeyIDInvite = new MessageGetKeyIDInvite();
+        messageGetKeyIDInvite.setInviteType("getKeyID");
+        messageProcessor.queueMessageForSending(messageGetKeyIDInvite);
     }
 
     private void sendRequestToGetFieldName(String keyID){
-        MessageGetFieldName messageGetFieldName = new MessageGetFieldName();
-        messageGetFieldName.setKeyIDInvite(keyID);
-        messageProcessor.queueMessageForSending(messageGetFieldName);
+        MessageGetFieldNameInvite messageGetFieldNameInvite = new MessageGetFieldNameInvite();
+        messageGetFieldNameInvite.setKeyIDInvite(keyID);
+        messageProcessor.queueMessageForSending(messageGetFieldNameInvite);
     }
 
     private void EnableDisableEditText(boolean isEnabled, EditText editText) {
@@ -266,7 +265,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(MessageReceiveKeyID message) {
+    public void onEvent(MessageReceiveKeyIDInvite message) {
         listKeyID = message.getListKeyID();
         ArrayAdapter<String> adapterKeyID = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listKeyID);
         adapterKeyID.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -274,7 +273,7 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(MessageReceiveFieldName message) {
+    public void onEvent(MessageReceiveFieldNameInvite message) {
         listFieldName = message.getListFieldName();
         ArrayAdapter<String> adapterFieldName = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listFieldName);
         adapterFieldName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
