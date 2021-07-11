@@ -28,6 +28,7 @@ import org.owntracks.android.R;
 import org.owntracks.android.databinding.UiManagementAccountBinding;
 import org.owntracks.android.model.ManagementAccountModel;
 import org.owntracks.android.model.SelectedParkingSpot;
+import org.owntracks.android.model.messages.MessageAddingNewParking;
 import org.owntracks.android.model.messages.MessageDeleteParking;
 import org.owntracks.android.model.messages.MessageGetFieldNameAddNewParking;
 import org.owntracks.android.model.messages.MessageGetKeyIDAddNewParking;
@@ -68,6 +69,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         super.onCreate(savedInstanceState);
 
         accountList = new ObservableArrayList<>();
+        keyIDList = new ArrayList<>();
         bindAndAttachContentView(R.layout.ui_management_account, savedInstanceState);
         setSupportToolbar(binding.toolbar);
         setDrawer(binding.toolbar);
@@ -111,9 +113,13 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
                     public void onClick(DialogInterface dialog, int which) {
                         //Get selected keyID and fieldname
                         String selectedKeyID = spinnerKeyID.getSelectedItem().toString();
-                        String selectedFieldName = spinnerFieldName.getSelectedItem().toString();
-                        //Send to server
-                        sendRequestToAddNewParking(selectedKeyID, selectedFieldName);
+                        if(spinnerFieldName.getSelectedItem() != null){
+                            String selectedFieldName = spinnerFieldName.getSelectedItem().toString();
+                            if(!selectedKeyID.equals(getText(R.string.chooseKeyID).toString()) && !selectedFieldName.isEmpty()){
+                                //Send to server
+                                sendRequestToAddNewParking(selectedKeyID, selectedFieldName);
+                            }
+                        }
                     }
                 });
 
@@ -184,7 +190,10 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     }
 
     private void sendRequestToAddNewParking(String keyID, String fieldName){
-
+        MessageAddingNewParking messageAddingNewParking = new MessageAddingNewParking();
+        messageAddingNewParking.setSelectedKeyID(keyID);
+        messageAddingNewParking.setSelectedFieldName(fieldName);
+        messageProcessor.queueMessageForSending(messageAddingNewParking);
     }
 
     private void sendRequestToGetAllKeyIDList(){
@@ -244,6 +253,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(MessageReceiveKeyIDAddNewParking message){
+        keyIDList.clear();
         keyIDList = message.getListKeyID();
         keyIDList.add(0, getText(R.string.chooseKeyID).toString());
     }
