@@ -251,4 +251,7 @@
 
     <string name="chooseKeyID">Choose parking spot...</string>
     <string name="selectParkingSpot">Select parking spot</string>
+    <string name="resultAddingParkingSpotSuccessful">Adding parking spot successful</string>
+    <string name="resultAddingParkingSpotUnsuccessful">Adding parking spot UNSUCCESSFUL</string>
+
 </resources>

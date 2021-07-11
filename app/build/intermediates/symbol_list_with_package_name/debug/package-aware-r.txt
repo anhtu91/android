@@ -3511,6 +3511,8 @@ string register
 string repasswordContain
 string repoUrl
 string restart
+string resultAddingParkingSpotSuccessful
+string resultAddingParkingSpotUnsuccessful
 string resultDeleteParkingSpotSuccessful
 string resultDeleteParkingSpotUnsuccessful
 string save

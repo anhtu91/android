@@ -21,6 +21,7 @@ import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageReceiveFieldNameAddNewParking;
 import org.owntracks.android.model.messages.MessageReceiveKeyIDAddNewParking;
+import org.owntracks.android.model.messages.MessageStatusAddingNewParking;
 import org.owntracks.android.model.messages.MessageStatusDeleteParkingSpot;
 import org.owntracks.android.model.messages.MessageReceiveFieldNameInvite;
 import org.owntracks.android.model.messages.MessageReceiveKeyIDInvite;
@@ -337,9 +338,16 @@ public class MessageProcessor {
             processIncomingMessage((MessageReceiveKeyIDAddNewParking) message);
         } else if(message instanceof MessageReceiveFieldNameAddNewParking){
             processIncomingMessage((MessageReceiveFieldNameAddNewParking) message);
-        }else if (message instanceof MessageUnknown) {
+        } else if(message instanceof MessageStatusAddingNewParking){
+            processIncomingMessage((MessageStatusAddingNewParking) message);
+        } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
+    }
+
+    private void processIncomingMessage(MessageStatusAddingNewParking message){
+        eventBus.post(message);
+        Timber.i("Adding parking spot response "+message.getResult());
     }
 
     private void processIncomingMessage(MessageReceiveFieldNameAddNewParking message){
@@ -354,7 +362,7 @@ public class MessageProcessor {
 
     private void processIncomingMessage(MessageStatusDeleteParkingSpot message){
         eventBus.post(message);
-        Timber.i("Delete parking spot response "+message.toString());
+        Timber.i("Delete parking spot response "+message.getResult());
     }
 
     private void processIncomingMessage(MessageReceiveSelectedParking message){

@@ -21,10 +21,8 @@ org/owntracks/android/services/MessageProcessor.java
  org.owntracks.android.services.MessageProcessor
  org.owntracks.android.services.MessageProcessor$1
  org.owntracks.android.services.MessageProcessor$EndpointState
-org/owntracks/android/ui/welcome/permission/PermissionFragmentMvvm.java
- org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm
- org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$View
- org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$ViewModel
+org/owntracks/android/injection/modules/AppModule.java
+ org.owntracks.android.injection.modules.AppModule
 org/owntracks/android/support/ContactsComparator.java
  org.owntracks.android.support.ContactsComparator
 org/owntracks/android/databinding/UiWelcomeIntroBindingImpl.java
@@ -82,10 +80,8 @@ org/owntracks/android/services/worker/MQTTReconnectWorker_MembersInjector.java
  org.owntracks.android.services.worker.MQTTReconnectWorker_MembersInjector
 org/owntracks/android/databinding/UiWelcomeIntroBinding.java
  org.owntracks.android.databinding.UiWelcomeIntroBinding
-org/owntracks/android/ui/managementaccount/ManagementAccountMvvm.java
- org.owntracks.android.ui.managementaccount.ManagementAccountMvvm
- org.owntracks.android.ui.managementaccount.ManagementAccountMvvm$View
- org.owntracks.android.ui.managementaccount.ManagementAccountMvvm$ViewModel
+org/owntracks/android/support/DrawerProvider.java
+ org.owntracks.android.support.DrawerProvider
 org/owntracks/android/services/BackgroundService.java
  org.owntracks.android.services.BackgroundService
  org.owntracks.android.services.BackgroundService$1
@@ -163,8 +159,10 @@ org/owntracks/android/ui/welcome/play/PlayFragment.java
  org.owntracks.android.ui.welcome.play.PlayFragment
 org/owntracks/android/databinding/DialogAddNewParkingSpotBinding.java
  org.owntracks.android.databinding.DialogAddNewParkingSpotBinding
-org/owntracks/android/ui/welcome/play/PlayFragmentViewModel.java
- org.owntracks.android.ui.welcome.play.PlayFragmentViewModel
+org/owntracks/android/injection/modules/android/AndroindBindingModule_BindManagementAcouuntActivity.java
+ org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity
+ org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity$ManagementAccountActivitySubcomponent
+ org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity$ManagementAccountActivitySubcomponent$Factory
 org/owntracks/android/ui/base/view/MvvmView.java
  org.owntracks.android.ui.base.view.MvvmView
 org/owntracks/android/support/GeocoderGoogle.java
@@ -275,8 +273,8 @@ org/owntracks/android/databinding/UiQrCodePopUpBinding.java
  org.owntracks.android.databinding.UiQrCodePopUpBinding
 org/owntracks/android/ui/welcome/WelcomeAdapter_Factory.java
  org.owntracks.android.ui.welcome.WelcomeAdapter_Factory
-org/owntracks/android/data/repos/MemoryContactsRepo_Factory.java
- org.owntracks.android.data.repos.MemoryContactsRepo_Factory
+org/owntracks/android/injection/components/AppComponentProvider.java
+ org.owntracks.android.injection.components.AppComponentProvider
 org/owntracks/android/databinding/UiInviteBinding.java
  org.owntracks.android.databinding.UiInviteBinding
 org/owntracks/android/ui/register/RegisterViewModel.java
@@ -359,8 +357,81 @@ org/owntracks/android/injection/modules/android/ActivityModules/BaseActivityModu
  org.owntracks.android.injection.modules.android.ActivityModules.BaseActivityModule_ProvideFragmentManagerFactory
 org/owntracks/android/injection/qualifier/ChildFragmentManager.java
  org.owntracks.android.injection.qualifier.ChildFragmentManager
-org/owntracks/android/support/TimberDebugLogTree.java
- org.owntracks.android.support.TimberDebugLogTree
+org/owntracks/android/injection/components/DaggerAppComponent.java
+ org.owntracks.android.injection.components.DaggerAppComponent
+ org.owntracks.android.injection.components.DaggerAppComponent$1
+ org.owntracks.android.injection.components.DaggerAppComponent$10
+ org.owntracks.android.injection.components.DaggerAppComponent$11
+ org.owntracks.android.injection.components.DaggerAppComponent$12
+ org.owntracks.android.injection.components.DaggerAppComponent$13
+ org.owntracks.android.injection.components.DaggerAppComponent$14
+ org.owntracks.android.injection.components.DaggerAppComponent$15
+ org.owntracks.android.injection.components.DaggerAppComponent$2
+ org.owntracks.android.injection.components.DaggerAppComponent$3
+ org.owntracks.android.injection.components.DaggerAppComponent$4
+ org.owntracks.android.injection.components.DaggerAppComponent$5
+ org.owntracks.android.injection.components.DaggerAppComponent$6
+ org.owntracks.android.injection.components.DaggerAppComponent$7
+ org.owntracks.android.injection.components.DaggerAppComponent$8
+ org.owntracks.android.injection.components.DaggerAppComponent$9
+ org.owntracks.android.injection.components.DaggerAppComponent$BackgroundServiceSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$BackgroundServiceSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$Builder
+ org.owntracks.android.injection.components.DaggerAppComponent$ConnectionActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$ConnectionActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$EditorActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$EditorActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$InviteActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$InviteActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$LastQRCodesActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$LastQRCodesActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$LoadActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$LoadActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$LogViewerActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$LogViewerActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$ManagementAccountActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$ManagementAccountActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$MapActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$MapActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$ParkplatzActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$ParkplatzActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$1
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$2
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$3
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$4
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$AdvancedFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$AdvancedFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$NotificationFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$NotificationFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$PreferencesFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$PreferencesFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$ReportingFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$ReportingFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$RegisterActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$RegisterActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$StartBackgroundServiceReceiverSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$StartBackgroundServiceReceiverSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$StatusActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$StatusActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$1
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$2
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$3
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$4
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$5
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$FinishFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$FinishFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$IntroFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$IntroFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PermissionFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PermissionFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PlayFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PlayFragmentSubcomponentImpl
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$VersionFragmentSubcomponentFactory
+ org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$VersionFragmentSubcomponentImpl
 org/owntracks/android/ui/register/RegisterViewModel_Factory.java
  org.owntracks.android.ui.register.RegisterViewModel_Factory
 org/owntracks/android/injection/modules/android/FragmentModules/VersionFragmentModule.java
@@ -383,9 +454,14 @@ org/owntracks/android/injection/modules/android/ActivityModules/EditorActivityMo
  org.owntracks.android.injection.modules.android.ActivityModules.EditorActivityModule
 org/owntracks/android/ui/preferences/load/LoadViewModel_MembersInjector.java
  org.owntracks.android.ui.preferences.load.LoadViewModel_MembersInjector
-org/owntracks/android/ui/lastqrcodes/LastQRCodesAdapter.java
- org.owntracks.android.ui.lastqrcodes.LastQRCodesAdapter
- org.owntracks.android.ui.lastqrcodes.LastQRCodesAdapter$ClickListener
+org/owntracks/android/ui/managementaccount/ManagementAccountActivity.java
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1$1
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1$2
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1$3
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity$2
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity$3
 org/owntracks/android/support/GeocoderNone.java
  org.owntracks.android.support.GeocoderNone
 org/owntracks/android/ui/preferences/editor/EditorViewModel_Factory.java
@@ -409,10 +485,8 @@ org/owntracks/android/ui/status/StatusMvvm.java
  org.owntracks.android.ui.status.StatusMvvm
  org.owntracks.android.ui.status.StatusMvvm$View
  org.owntracks.android.ui.status.StatusMvvm$ViewModel
-org/owntracks/android/injection/modules/android/ActivityModules/WelcomeActivityModule_BindPermissionFragment.java
- org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment
- org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent
- org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent$Factory
+org/owntracks/android/EventBusIndex.java
+ org.owntracks.android.EventBusIndex
 org/owntracks/android/injection/modules/android/ActivityModules/BaseActivityModule_ProvideNavigatorFactory.java
  org.owntracks.android.injection.modules.android.ActivityModules.BaseActivityModule_ProvideNavigatorFactory
 org/owntracks/android/injection/modules/android/ActivityModules/PreferencesActivityModule_BindNotificationPreferencesFragment.java
@@ -635,8 +709,8 @@ org/owntracks/android/services/worker/SendLocationPingWorker_MembersInjector.jav
 org/owntracks/android/ui/managementaccount/ManagementAccountAdapter.java
  org.owntracks.android.ui.managementaccount.ManagementAccountAdapter
  org.owntracks.android.ui.managementaccount.ManagementAccountAdapter$ClickListener
-org/owntracks/android/ui/base/BaseActivity_MembersInjector.java
- org.owntracks.android.ui.base.BaseActivity_MembersInjector
+org/owntracks/android/injection/modules/android/AndroindBindingModule.java
+ org.owntracks.android.injection.modules.android.AndroindBindingModule
 org/owntracks/android/ui/welcome/WelcomeViewModel_MembersInjector.java
  org.owntracks.android.ui.welcome.WelcomeViewModel_MembersInjector
 org/owntracks/android/ui/parkplatz/ParkplatzViewModel.java
@@ -682,10 +756,8 @@ org/owntracks/android/databinding/UiParkplatzBindingImpl.java
  org.owntracks.android.databinding.UiParkplatzBindingImpl
 org/owntracks/android/ui/welcome/permission/PermissionFragmentViewModel_Factory.java
  org.owntracks.android.ui.welcome.permission.PermissionFragmentViewModel_Factory
-org/owntracks/android/ui/welcome/WelcomeMvvm.java
- org.owntracks.android.ui.welcome.WelcomeMvvm
- org.owntracks.android.ui.welcome.WelcomeMvvm$View
- org.owntracks.android.ui.welcome.WelcomeMvvm$ViewModel
+org/owntracks/android/ui/managementaccount/ManagementAccountActivity_MembersInjector.java
+ org.owntracks.android.ui.managementaccount.ManagementAccountActivity_MembersInjector
 org/owntracks/android/injection/qualifier/ServiceContext.java
  org.owntracks.android.injection.qualifier.ServiceContext
 org/owntracks/android/support/interfaces/StatefulServiceMessageProcessor.java
@@ -721,8 +793,8 @@ org/owntracks/android/ui/welcome/permission/PermissionFragmentViewModel.java
  org.owntracks.android.ui.welcome.permission.PermissionFragmentViewModel
 org/owntracks/android/ui/status/StatusViewModel.java
  org.owntracks.android.ui.status.StatusViewModel
-org/owntracks/android/services/LocationProcessor_Factory.java
- org.owntracks.android.services.LocationProcessor_Factory
+org/owntracks/android/injection/modules/android/ActivityModules/ManagementAccountActivityModule.java
+ org.owntracks.android.injection.modules.android.ActivityModules.ManagementAccountActivityModule
 org/owntracks/android/databinding/UiWelcomeVersionBindingImpl.java
  org.owntracks.android.databinding.UiWelcomeVersionBindingImpl
 org/owntracks/android/injection/modules/android/AndroindBindingModule_BindPreferencesActivity.java
@@ -826,107 +898,35 @@ org/owntracks/android/databinding/UiLastQrCodesBindingImpl.java
  org.owntracks.android.databinding.UiLastQrCodesBindingImpl
 org/owntracks/android/services/worker/MQTTReconnectWorker.java
  org.owntracks.android.services.worker.MQTTReconnectWorker
-org/owntracks/android/injection/components/AppComponentProvider.java
- org.owntracks.android.injection.components.AppComponentProvider
+org/owntracks/android/support/TimberDebugLogTree.java
+ org.owntracks.android.support.TimberDebugLogTree
+org/owntracks/android/ui/managementaccount/ManagementAccountMvvm.java
+ org.owntracks.android.ui.managementaccount.ManagementAccountMvvm
+ org.owntracks.android.ui.managementaccount.ManagementAccountMvvm$View
+ org.owntracks.android.ui.managementaccount.ManagementAccountMvvm$ViewModel
+org/owntracks/android/ui/welcome/play/PlayFragmentViewModel.java
+ org.owntracks.android.ui.welcome.play.PlayFragmentViewModel
+org/owntracks/android/ui/lastqrcodes/LastQRCodesAdapter.java
+ org.owntracks.android.ui.lastqrcodes.LastQRCodesAdapter
+ org.owntracks.android.ui.lastqrcodes.LastQRCodesAdapter$ClickListener
+org/owntracks/android/ui/welcome/WelcomeMvvm.java
+ org.owntracks.android.ui.welcome.WelcomeMvvm
+ org.owntracks.android.ui.welcome.WelcomeMvvm$View
+ org.owntracks.android.ui.welcome.WelcomeMvvm$ViewModel
 org/owntracks/android/injection/components/AppComponent.java
  org.owntracks.android.injection.components.AppComponent
  org.owntracks.android.injection.components.AppComponent$Builder
-org/owntracks/android/injection/modules/android/AndroindBindingModule.java
- org.owntracks.android.injection.modules.android.AndroindBindingModule
-org/owntracks/android/EventBusIndex.java
- org.owntracks.android.EventBusIndex
-org/owntracks/android/injection/modules/android/ActivityModules/ManagementAccountActivityModule.java
- org.owntracks.android.injection.modules.android.ActivityModules.ManagementAccountActivityModule
-org/owntracks/android/injection/modules/AppModule.java
- org.owntracks.android.injection.modules.AppModule
-org/owntracks/android/ui/managementaccount/ManagementAccountActivity_MembersInjector.java
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity_MembersInjector
-org/owntracks/android/ui/managementaccount/ManagementAccountActivity.java
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1$1
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1$2
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity$1$3
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity$2
- org.owntracks.android.ui.managementaccount.ManagementAccountActivity$3
-org/owntracks/android/injection/modules/android/AndroindBindingModule_BindManagementAcouuntActivity.java
- org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity
- org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity$ManagementAccountActivitySubcomponent
- org.owntracks.android.injection.modules.android.AndroindBindingModule_BindManagementAcouuntActivity$ManagementAccountActivitySubcomponent$Factory
-org/owntracks/android/support/DrawerProvider.java
- org.owntracks.android.support.DrawerProvider
-org/owntracks/android/injection/components/DaggerAppComponent.java
- org.owntracks.android.injection.components.DaggerAppComponent
- org.owntracks.android.injection.components.DaggerAppComponent$1
- org.owntracks.android.injection.components.DaggerAppComponent$10
- org.owntracks.android.injection.components.DaggerAppComponent$11
- org.owntracks.android.injection.components.DaggerAppComponent$12
- org.owntracks.android.injection.components.DaggerAppComponent$13
- org.owntracks.android.injection.components.DaggerAppComponent$14
- org.owntracks.android.injection.components.DaggerAppComponent$15
- org.owntracks.android.injection.components.DaggerAppComponent$2
- org.owntracks.android.injection.components.DaggerAppComponent$3
- org.owntracks.android.injection.components.DaggerAppComponent$4
- org.owntracks.android.injection.components.DaggerAppComponent$5
- org.owntracks.android.injection.components.DaggerAppComponent$6
- org.owntracks.android.injection.components.DaggerAppComponent$7
- org.owntracks.android.injection.components.DaggerAppComponent$8
- org.owntracks.android.injection.components.DaggerAppComponent$9
- org.owntracks.android.injection.components.DaggerAppComponent$BackgroundServiceSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$BackgroundServiceSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$Builder
- org.owntracks.android.injection.components.DaggerAppComponent$ConnectionActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$ConnectionActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$EditorActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$EditorActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$InviteActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$InviteActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$LastQRCodesActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$LastQRCodesActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$LoadActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$LoadActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$LogViewerActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$LogViewerActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$ManagementAccountActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$ManagementAccountActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$MapActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$MapActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$ParkplatzActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$ParkplatzActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$1
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$2
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$3
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$4
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$AdvancedFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$AdvancedFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$NotificationFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$NotificationFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$PreferencesFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$PreferencesFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$ReportingFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$PreferencesActivitySubcomponentImpl$ReportingFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$RegisterActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$RegisterActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$StartBackgroundServiceReceiverSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$StartBackgroundServiceReceiverSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$StatusActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$StatusActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$1
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$2
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$3
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$4
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$5
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$FinishFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$FinishFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$IntroFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$IntroFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PermissionFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PermissionFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PlayFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$PlayFragmentSubcomponentImpl
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$VersionFragmentSubcomponentFactory
- org.owntracks.android.injection.components.DaggerAppComponent$WelcomeActivitySubcomponentImpl$VersionFragmentSubcomponentImpl
+org/owntracks/android/services/LocationProcessor_Factory.java
+ org.owntracks.android.services.LocationProcessor_Factory
+org/owntracks/android/injection/modules/android/ActivityModules/WelcomeActivityModule_BindPermissionFragment.java
+ org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment
+ org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent
+ org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent$Factory
+org/owntracks/android/ui/base/BaseActivity_MembersInjector.java
+ org.owntracks.android.ui.base.BaseActivity_MembersInjector
+org/owntracks/android/ui/welcome/permission/PermissionFragmentMvvm.java
+ org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm
+ org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$View
+ org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$ViewModel
+org/owntracks/android/data/repos/MemoryContactsRepo_Factory.java
+ org.owntracks.android.data.repos.MemoryContactsRepo_Factory

@@ -35,6 +35,7 @@ import org.owntracks.android.model.messages.MessageGetKeyIDAddNewParking;
 import org.owntracks.android.model.messages.MessageGetSelectedParking;
 import org.owntracks.android.model.messages.MessageReceiveFieldNameAddNewParking;
 import org.owntracks.android.model.messages.MessageReceiveKeyIDAddNewParking;
+import org.owntracks.android.model.messages.MessageStatusAddingNewParking;
 import org.owntracks.android.model.messages.MessageStatusDeleteParkingSpot;
 import org.owntracks.android.model.messages.MessageReceiveSelectedParking;
 import org.owntracks.android.services.MessageProcessor;
@@ -246,6 +247,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     public void onEvent(MessageStatusDeleteParkingSpot message){
         if(message.getResult()){
             Toast.makeText(getApplicationContext(), getText(R.string.resultDeleteParkingSpotSuccessful), Toast.LENGTH_SHORT).show();
+            sendRequestToGetAllKeyIDList();
         }else{
             Toast.makeText(getApplicationContext(), getText(R.string.resultDeleteParkingSpotUnsuccessful), Toast.LENGTH_SHORT).show();
         }
@@ -255,7 +257,9 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     public void onEvent(MessageReceiveKeyIDAddNewParking message){
         keyIDList.clear();
         keyIDList = message.getListKeyID();
-        keyIDList.add(0, getText(R.string.chooseKeyID).toString());
+        if(!keyIDList.get(0).equals(getText(R.string.chooseKeyID))){
+            keyIDList.add(0, getText(R.string.chooseKeyID).toString());
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -266,6 +270,16 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         ArrayAdapter<String> adapterFieldName = new ArrayAdapter<String>(ManagementAccountActivity.this, android.R.layout.simple_spinner_item, fieldNameList);
         adapterFieldName.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFieldName.setAdapter(adapterFieldName);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageStatusAddingNewParking message){
+        if(message.getResult()){
+            Toast.makeText(getApplicationContext(), getText(R.string.resultAddingParkingSpotSuccessful), Toast.LENGTH_SHORT).show();
+            sendRequestToGetSelectedParkingSpot();
+        }else{
+            Toast.makeText(getApplicationContext(), getText(R.string.resultAddingParkingSpotUnsuccessful), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
