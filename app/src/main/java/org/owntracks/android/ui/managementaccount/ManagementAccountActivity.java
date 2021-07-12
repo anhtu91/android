@@ -109,7 +109,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
                     }
                 });
 
-                mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() { //Add new parking spot
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Get selected keyID and fieldname
@@ -162,11 +162,11 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
             }
 
             @Override
-            public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) {
+            public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) { //Remove a parking spot
                 int position = viewHolder.getAdapterPosition(); //Get swipe position
                 String keyIDDelete = accountList.get(position).getKeyID();
                 String fieldNameDelete = accountList.get(position).getFieldName();
-                sendRequestToDeleteSelectedParkingSpot(keyIDDelete, fieldNameDelete);
+                sendRequestToDeleteSelectedParkingSpot(keyIDDelete, fieldNameDelete); //Send request to remove parking spot
                 accountList.remove(position);
             }
         };
@@ -244,7 +244,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(MessageStatusDeleteParkingSpot message){
+    public void onEvent(MessageStatusDeleteParkingSpot message){ //Feedback after removing a parking spot
         if(message.getResult()){
             Toast.makeText(getApplicationContext(), getText(R.string.resultDeleteParkingSpotSuccessful), Toast.LENGTH_SHORT).show();
             sendRequestToGetAllKeyIDList();
@@ -277,6 +277,7 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         if(message.getResult()){
             Toast.makeText(getApplicationContext(), getText(R.string.resultAddingParkingSpotSuccessful), Toast.LENGTH_SHORT).show();
             sendRequestToGetSelectedParkingSpot();
+            sendRequestToGetAllKeyIDList();
         }else{
             Toast.makeText(getApplicationContext(), getText(R.string.resultAddingParkingSpotUnsuccessful), Toast.LENGTH_SHORT).show();
         }
