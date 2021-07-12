@@ -202,7 +202,7 @@
     <string name="deleteQRCode">Supprimer le code QR</string>
     <string name="selectQRCode">Sélectionnez QRCode</string>
     <string name="installFileManager">Veuillez installer un gestionnaire de fichiers</string>
-    <string name="insertQRCode">L\insertion du QRCode n\a pas réussi</string>
+    <string name="insertQRCodeNotSuccessful">L\insertion du QRCode n\a pas réussi</string>
     <string name="qrCodeAlreadyExist">Ce QRCode existe déjà</string>
     <string name="saveQRCodeSuccessful">QRCode enregistré avec succès</string>
 

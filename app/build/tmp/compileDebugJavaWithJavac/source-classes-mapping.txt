@@ -32,8 +32,6 @@ org/owntracks/android/support/ServiceBridge_Factory.java
  org.owntracks.android.support.ServiceBridge_Factory$InstanceHolder
 org/owntracks/android/databinding/UiRowParkplatzBindingImpl.java
  org.owntracks.android.databinding.UiRowParkplatzBindingImpl
-org/owntracks/android/databinding/UiRowContactBindingImpl.java
- org.owntracks.android.databinding.UiRowContactBindingImpl
 org/owntracks/android/injection/modules/android/ActivityModules/MapActivityModule.java
  org.owntracks.android.injection.modules.android.ActivityModules.MapActivityModule
 org/owntracks/android/databinding/UiMapBindingImpl.java
@@ -345,8 +343,6 @@ org/owntracks/android/databinding/UiImportedQrCodePopUpBinding.java
  org.owntracks.android.databinding.UiImportedQrCodePopUpBinding
 org/owntracks/android/databinding/UiAvailableParkingSpotBinding.java
  org.owntracks.android.databinding.UiAvailableParkingSpotBinding
-org/owntracks/android/databinding/UiRowContactBinding.java
- org.owntracks.android.databinding.UiRowContactBinding
 org/owntracks/android/ui/welcome/finish/FinishFragment.java
  org.owntracks.android.ui.welcome.finish.FinishFragment
 org/owntracks/android/injection/modules/android/ServiceModules/BackgroundServiceModule_ServiceContextFactory.java

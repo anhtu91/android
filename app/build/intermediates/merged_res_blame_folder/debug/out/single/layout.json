@@ -80,10 +80,6 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_welcome_finish.xml"
     },
     {
-        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ui_row_contact.xml",
-        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_row_contact.xml"
-    },
-    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/log_viewer_entry.xml",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/log_viewer_entry.xml"
     },

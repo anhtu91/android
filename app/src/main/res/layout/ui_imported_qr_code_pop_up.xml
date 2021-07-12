@@ -20,11 +20,11 @@
 
     <TextView
         android:id="@+id/infoInvited"
-        android:layout_width="387dp"
+        android:layout_width="330dp"
         android:layout_height="75dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="88dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="11dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/importQrCodeImageView"

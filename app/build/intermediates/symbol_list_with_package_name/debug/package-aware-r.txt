@@ -2362,7 +2362,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addContact
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2531,7 +2530,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageContact
 id img
 id importConfigurationFile
 id importConfigurationSingleValue
@@ -2566,8 +2564,6 @@ id line3
 id linear
 id listMode
 id list_item
-id location
-id locationDate
 id log_date
 id log_msg
 id managementParkingSpot
@@ -2662,7 +2658,6 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
-id nameContact
 id nav_controller_view_tag
 id nav_graph
 id nav_host_fragment_container
@@ -3082,7 +3077,6 @@ layout ui_preferences_load
 layout ui_preferences_logs
 layout ui_qr_code_pop_up
 layout ui_register
-layout ui_row_contact
 layout ui_row_last_qr_codes
 layout ui_row_management_acc
 layout ui_row_parkplatz
@@ -3153,6 +3147,8 @@ string addWaypoint
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string btnCancel
+string btnOK
 string btn_get_keyID_fieldName
 string btn_invite
 string btn_refresh
@@ -3231,7 +3227,7 @@ string iconics_lib_version
 string importConfig
 string incorrectEmail
 string inputInviteEmail
-string insertQRCode
+string insertQRCodeNotSuccessful
 string installFileManager
 string item_view_role_description
 string keyID
@@ -3343,6 +3339,7 @@ string na
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string next
+string noConnectionMQTT
 string noNavigationApp
 string not_set
 string notificationChangeMonitoring

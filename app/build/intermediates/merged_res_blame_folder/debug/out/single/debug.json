@@ -176,10 +176,6 @@
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/menu/picker.xml"
     },
     {
-        "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_row_contact.xml.flat",
-        "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_row_contact.xml"
-    },
-    {
         "merged": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/res/merged/debug/layout_ui_status.xml.flat",
         "source": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/res/layout/ui_status.xml"
     },

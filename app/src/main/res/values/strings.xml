@@ -177,11 +177,11 @@
     <string name="monitoring_mode">Monitoring</string>
     <string name="distance_label">Distance (meter)</string>
     <string name="preferencesClientId">Client ID</string>
-    <string name="preferencesUsername">Username (Min. 5 characters)</string>
-    <string name="preferencesPassword">Password (Min. 5 characters)</string>
+    <string name="preferencesUsername">Username (min. 5 characters)</string>
+    <string name="preferencesPassword">Password (min. 5 characters)</string>
     <string name="preferencesRepeatPassword">Confirm Password</string>
     <string name="preferencesEmail">Email (e.g. sample@email.com)</string>
-    <string name="preferencesCertificatePassword">Certificate Password (Min. 5 characters)</string>
+    <string name="preferencesCertificatePassword">Certificate Password (min. 5 characters)</string>
     <string name="status_endpoint_state_hint">Endpoint state</string>
     <string name="status_endpoint_state_message_hint">Endpoint state message</string>
     <string name="status_endpoint_queue_hint">Endpoint queue</string>
@@ -230,7 +230,7 @@
     <!-- Strings used for parkplatz activity feature -->
     <string name="selectQRCode">Select QRCode</string>
     <string name="installFileManager">Please install a File Manager</string>
-    <string name="insertQRCode">Insert QRCode not successful</string>
+    <string name="insertQRCodeNotSuccessful">Insert QRCode not successful</string>
     <string name="qrCodeAlreadyExist">This QRCode is already existed</string>
     <string name="saveQRCodeSuccessful">Saved QRCode successful</string>
     <!-- Strings used for register activity feature -->
@@ -253,5 +253,8 @@
     <string name="selectParkingSpot">Select parking spot</string>
     <string name="resultAddingParkingSpotSuccessful">Adding parking spot successful</string>
     <string name="resultAddingParkingSpotUnsuccessful">Adding parking spot UNSUCCESSFUL</string>
+    <string name="btnOK">OK</string>
+    <string name="btnCancel">Cancel</string>
 
+    <string name="noConnectionMQTT">No connection to MQTT Server</string>
 </resources>

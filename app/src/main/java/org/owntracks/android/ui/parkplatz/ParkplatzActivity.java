@@ -136,6 +136,7 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
 
             final Uri uri = data.getData();
             String jwt = null;
+            boolean isJWTCorrectForm = false;
 
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -158,47 +159,48 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 String jwtContent = JWTUtils.decodeJWT(jwt); //Decode JWT
                 JSONObject jwtObject = new JSONObject(jwtContent);
 
-                String keyID = jwtObject.getString("keyID");
-                String fieldName = jwtObject.getString("fieldName");
-                String date = jwtObject.getString("date");
-                String time = jwtObject.getString("time");
-                int tst = jwtObject.getInt("tst");
-                String receiverEmail = jwtObject.getString("receiverEmail");
-                String senderUser = jwtObject.getString("senderUser");
+                if(jwtObject.has("keyID") && jwtObject.has("fieldName") && jwtObject.has("date") && jwtObject.has("time") && jwtObject.has("tst") && jwtObject.has("receiverEmail") && jwtObject.has("senderUser")){
+                    isJWTCorrectForm = true;
+                    Timber.i("QRCode Content. Sender user: "+jwtObject.getString("senderUser")+", receiver email: " +jwtObject.getString("receiverEmail")+", keyID: "+jwtObject.getString("keyID")+", fieldName: "+jwtObject.getString("fieldName")+", tst: "+jwtObject.getInt("tst")+", date: "+jwtObject.getString("date")+", time: "+jwtObject.getString("time"));
+                }
 
-                Timber.i("QRCode Content. Sender user: "+senderUser+", receiver email: " + receiverEmail+", keyID: "+keyID+", fieldName: "+fieldName+", tst: "+tst+", date: "+date+", time: "+time);
                 inputStream.close();
             }catch (NotFoundException e) {
                 Timber.e("Decode exception " + e);
-                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
             } catch (FormatException e) {
                 Timber.e("Decode exception " + e);
-                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
             } catch (ChecksumException e) {
                 Timber.e("Decode exception " + e);
-                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 Timber.e("Error " + e + ". Can not open file" + uri.toString());
-                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 Timber.e("Error parse JSON "+e.toString());
-                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 Timber.e("Error "+e.toString());
-                Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
             } finally {
                 if (jwt != null) {
-                    if(isJwtAlreadyExist(jwt, sqLiteForParkplatz)){
-                        Timber.i("QRCode is already existed in database");
-                        Toast.makeText(this, getText(R.string.qrCodeAlreadyExist), Toast.LENGTH_SHORT).show();
-                    }else{
-                        if (sqLiteForParkplatz.insertJWT(jwt)) {
-                            Timber.i("Insert QRCode successful");
-                            Toast.makeText(this, getText(R.string.saveQRCodeSuccessful), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Timber.i("Insert QRCode not successful");
-                            Toast.makeText(this, getText(R.string.insertQRCode), Toast.LENGTH_SHORT).show();
+                    if(isJWTCorrectForm){
+                        if(isJwtAlreadyExist(jwt, sqLiteForParkplatz)){
+                            Timber.i("QRCode is already existed in database");
+                            Toast.makeText(this, getText(R.string.qrCodeAlreadyExist), Toast.LENGTH_SHORT).show();
+                        }else{
+                            if (sqLiteForParkplatz.insertJWT(jwt)) {
+                                Timber.i("Insert QRCode successful");
+                                Toast.makeText(this, getText(R.string.saveQRCodeSuccessful), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Timber.i("Insert QRCode not successful");
+                                Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
+                            }
                         }
+                    }else{
+                        Timber.i("QRCode is not in correct form");
+                        Toast.makeText(this, getText(R.string.insertQRCodeNotSuccessful), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -65,6 +65,8 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     private Spinner spinnerFieldName;
     private boolean clickRefresh = false;
 
+    private MessageProcessor.EndpointState endpointState;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,22 +111,26 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
                     }
                 });
 
-                mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() { //Add new parking spot
+                mBuilder.setPositiveButton(R.string.btnOK, new DialogInterface.OnClickListener() { //Add new parking spot
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Get selected keyID and fieldname
-                        String selectedKeyID = spinnerKeyID.getSelectedItem().toString();
-                        if(spinnerFieldName.getSelectedItem() != null){
-                            String selectedFieldName = spinnerFieldName.getSelectedItem().toString();
-                            if(!selectedKeyID.equals(getText(R.string.chooseKeyID).toString()) && !selectedFieldName.isEmpty()){
-                                //Send to server
-                                sendRequestToAddNewParking(selectedKeyID, selectedFieldName);
+                        if(endpointState == MessageProcessor.EndpointState.CONNECTED) {
+                            //Get selected keyID and fieldname
+                            String selectedKeyID = spinnerKeyID.getSelectedItem().toString();
+                            if (spinnerFieldName.getSelectedItem() != null) {
+                                String selectedFieldName = spinnerFieldName.getSelectedItem().toString();
+                                if (!selectedKeyID.equals(getText(R.string.chooseKeyID).toString()) && !selectedFieldName.isEmpty()) {
+                                    //Send to server
+                                    sendRequestToAddNewParking(selectedKeyID, selectedFieldName);
+                                }
                             }
+                        }else{
+                            Toast.makeText(getApplicationContext(), getText(R.string.noConnectionMQTT), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
 
-                mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                mBuilder.setNegativeButton(R.string.btnCancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -140,22 +146,26 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         binding.recyclerViewManagementAcc.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerViewManagementAcc.setAdapter(new ManagementAccountAdapter(accountList, this));
 
-        binding.recyclerViewManagementAcc.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.recyclerViewManagementAcc.addOnScrollListener(new RecyclerView.OnScrollListener() { //Scroll down to refresh
             @Override
             public void onScrollStateChanged(@NonNull @NotNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if(!binding.recyclerViewManagementAcc.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE){
-                    //Refresh
-                    clickRefresh = true;
-                    sendRequestToGetSelectedParkingSpot();
-                    sendRequestToGetAllKeyIDList();
-                    activeProgressDialog();
+                    if(endpointState == MessageProcessor.EndpointState.CONNECTED) {
+                        //Refresh
+                        clickRefresh = true;
+                        sendRequestToGetSelectedParkingSpot();
+                        sendRequestToGetAllKeyIDList();
+                        activeProgressDialog();
+                    }else{
+                        Toast.makeText(getApplicationContext(), getText(R.string.noConnectionMQTT), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
 
-        simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) { //Swiper to remove parking spot
             @Override
             public boolean onMove(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder, @NonNull @NotNull RecyclerView.ViewHolder target) {
                 return false;
@@ -163,11 +173,15 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
 
             @Override
             public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) { //Remove a parking spot
-                int position = viewHolder.getAdapterPosition(); //Get swipe position
-                String keyIDDelete = accountList.get(position).getKeyID();
-                String fieldNameDelete = accountList.get(position).getFieldName();
-                sendRequestToDeleteSelectedParkingSpot(keyIDDelete, fieldNameDelete); //Send request to remove parking spot
-                accountList.remove(position);
+                if(endpointState == MessageProcessor.EndpointState.CONNECTED) {
+                    int position = viewHolder.getAdapterPosition(); //Get swipe position
+                    String keyIDDelete = accountList.get(position).getKeyID();
+                    String fieldNameDelete = accountList.get(position).getFieldName();
+                    sendRequestToDeleteSelectedParkingSpot(keyIDDelete, fieldNameDelete); //Send request to remove parking spot
+                    accountList.remove(position);
+                }else{
+                    Toast.makeText(getApplicationContext(), getText(R.string.noConnectionMQTT), Toast.LENGTH_SHORT).show();
+                }
             }
         };
 
@@ -281,6 +295,11 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
         }else{
             Toast.makeText(getApplicationContext(), getText(R.string.resultAddingParkingSpotUnsuccessful), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Subscribe(sticky = true)
+    public void onEvent(MessageProcessor.EndpointState state) {
+        this.endpointState = state;
     }
 
     @Override

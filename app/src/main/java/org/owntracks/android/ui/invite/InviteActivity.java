@@ -69,6 +69,8 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
     private ProgressDialog progressDialog;
     private boolean clickRefresh = false;
 
+    private MessageProcessor.EndpointState endpointState;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,33 +154,38 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         btnSendInvite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = editTextTextEmailAddress.getText().toString();
+                if(endpointState == MessageProcessor.EndpointState.CONNECTED){
+                    Timber.i("Click send invite with connect status "+endpointState);
+                    String email = editTextTextEmailAddress.getText().toString();
 
-                if(!isValidEmail(email)) {
-                    Toast.makeText(getApplicationContext(), getText(R.string.incorrectEmail), Toast.LENGTH_LONG).show();
-                }else {
-                    String strDate = editTextDate.getText().toString();
-                    String strTime = editTextTime.getText().toString();
-                    if(strDate.isEmpty()){
-                        Toast.makeText(getApplicationContext(), getText(R.string.selectInvitedDate), Toast.LENGTH_LONG).show();
-                    }else{
-                        if(strTime.isEmpty()){
-                            Toast.makeText(getApplicationContext(), getText(R.string.selectInvitedTime), Toast.LENGTH_LONG).show();
+                    if(!isValidEmail(email)) {
+                        Toast.makeText(getApplicationContext(), getText(R.string.incorrectEmail), Toast.LENGTH_LONG).show();
+                    }else {
+                        String strDate = editTextDate.getText().toString();
+                        String strTime = editTextTime.getText().toString();
+                        if(strDate.isEmpty()){
+                            Toast.makeText(getApplicationContext(), getText(R.string.selectInvitedDate), Toast.LENGTH_LONG).show();
                         }else{
-                            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-                            Date date = null;
-                            try {
-                                date = (Date) dateFormat.parse(strDate+" "+strTime);
-                            } catch (ParseException e) {
-                                Timber.e("Error while converting datetime "+e.toString());
-                            }
-                            long timeStamp = date.getTime()/1000L;
+                            if(strTime.isEmpty()){
+                                Toast.makeText(getApplicationContext(), getText(R.string.selectInvitedTime), Toast.LENGTH_LONG).show();
+                            }else{
+                                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+                                Date date = null;
+                                try {
+                                    date = (Date) dateFormat.parse(strDate+" "+strTime);
+                                } catch (ParseException e) {
+                                    Timber.e("Error while converting datetime "+e.toString());
+                                }
+                                long timeStamp = date.getTime()/1000L;
 
-                            String keyID = spinnerKeyID.getSelectedItem().toString();
-                            String fieldName = spinnerFieldName.getSelectedItem().toString();
-                            sendInvite(keyID, fieldName, email, strDate, strTime, timeStamp);
+                                String keyID = spinnerKeyID.getSelectedItem().toString();
+                                String fieldName = spinnerFieldName.getSelectedItem().toString();
+                                sendInvite(keyID, fieldName, email, strDate, strTime, timeStamp);
+                            }
                         }
                     }
+                }else{
+                    Toast.makeText(getApplicationContext(), getText(R.string.noConnectionMQTT), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -186,9 +193,13 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickRefresh = true;
-                sendRequestToGetKeyID();
-                activeProgressDialog();
+                if(endpointState == MessageProcessor.EndpointState.CONNECTED) {
+                    clickRefresh = true;
+                    sendRequestToGetKeyID();
+                    activeProgressDialog();
+                }else{
+                    Toast.makeText(getApplicationContext(), getText(R.string.noConnectionMQTT), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -292,6 +303,11 @@ public class InviteActivity extends BaseActivity<UiInviteBinding, InviteMvvm.Vie
         }else{
             Toast.makeText(getApplicationContext(), getText(R.string.sendInvitationNotSuccessful), Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Subscribe(sticky = true)
+    public void onEvent(MessageProcessor.EndpointState state) {
+        this.endpointState = state;
     }
 
     @Override

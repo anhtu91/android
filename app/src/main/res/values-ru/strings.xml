@@ -216,7 +216,7 @@
     <string name = "deleteQRCode">Удалить QR-код</string>
     <string name = "selectQRCode">Выбрать QRCode</string>
     <string name = "installFileManager">Пожалуйста, установите файловый менеджер</string>
-    <string name = "insertQRCode">Не удалось вставить QRCode</string>
+    <string name = "insertQRCodeNotSuccessful">Не удалось вставить QRCode</string>
     <string name = "qrCodeAlreadyExist">Этот QR-код уже существует</string>
     <string name = "saveQRCodeSuccessful">QR-код успешно сохранен</string>
 

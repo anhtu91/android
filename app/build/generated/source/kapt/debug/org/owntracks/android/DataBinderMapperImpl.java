@@ -30,7 +30,6 @@ import org.owntracks.android.databinding.UiPreferencesEditorBindingImpl;
 import org.owntracks.android.databinding.UiPreferencesLoadBindingImpl;
 import org.owntracks.android.databinding.UiPreferencesLogsBindingImpl;
 import org.owntracks.android.databinding.UiRegisterBindingImpl;
-import org.owntracks.android.databinding.UiRowContactBindingImpl;
 import org.owntracks.android.databinding.UiRowLastQrCodesBindingImpl;
 import org.owntracks.android.databinding.UiRowManagementAccBindingImpl;
 import org.owntracks.android.databinding.UiRowParkplatzBindingImpl;
@@ -74,31 +73,29 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_UIREGISTER = 15;
 
-  private static final int LAYOUT_UIROWCONTACT = 16;
+  private static final int LAYOUT_UIROWLASTQRCODES = 16;
 
-  private static final int LAYOUT_UIROWLASTQRCODES = 17;
+  private static final int LAYOUT_UIROWMANAGEMENTACC = 17;
 
-  private static final int LAYOUT_UIROWMANAGEMENTACC = 18;
+  private static final int LAYOUT_UIROWPARKPLATZ = 18;
 
-  private static final int LAYOUT_UIROWPARKPLATZ = 19;
+  private static final int LAYOUT_UIROWREGION = 19;
 
-  private static final int LAYOUT_UIROWREGION = 20;
+  private static final int LAYOUT_UISTATUS = 20;
 
-  private static final int LAYOUT_UISTATUS = 21;
+  private static final int LAYOUT_UIWELCOME = 21;
 
-  private static final int LAYOUT_UIWELCOME = 22;
+  private static final int LAYOUT_UIWELCOMEFINISH = 22;
 
-  private static final int LAYOUT_UIWELCOMEFINISH = 23;
+  private static final int LAYOUT_UIWELCOMEINTRO = 23;
 
-  private static final int LAYOUT_UIWELCOMEINTRO = 24;
+  private static final int LAYOUT_UIWELCOMEPERMISSIONS = 24;
 
-  private static final int LAYOUT_UIWELCOMEPERMISSIONS = 25;
+  private static final int LAYOUT_UIWELCOMEPLAY = 25;
 
-  private static final int LAYOUT_UIWELCOMEPLAY = 26;
+  private static final int LAYOUT_UIWELCOMEVERSION = 26;
 
-  private static final int LAYOUT_UIWELCOMEVERSION = 27;
-
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(27);
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(26);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_invite, LAYOUT_UIINVITE);
@@ -116,7 +113,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_preferences_load, LAYOUT_UIPREFERENCESLOAD);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_preferences_logs, LAYOUT_UIPREFERENCESLOGS);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_register, LAYOUT_UIREGISTER);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_row_contact, LAYOUT_UIROWCONTACT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_row_last_qr_codes, LAYOUT_UIROWLASTQRCODES);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_row_management_acc, LAYOUT_UIROWMANAGEMENTACC);
     INTERNAL_LAYOUT_ID_LOOKUP.put(org.owntracks.android.R.layout.ui_row_parkplatz, LAYOUT_UIROWPARKPLATZ);
@@ -229,12 +225,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
           }
           throw new IllegalArgumentException("The tag for ui_register is invalid. Received: " + tag);
         }
-        case  LAYOUT_UIROWCONTACT: {
-          if ("layout/ui_row_contact_0".equals(tag)) {
-            return new UiRowContactBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for ui_row_contact is invalid. Received: " + tag);
-        }
         case  LAYOUT_UIROWLASTQRCODES: {
           if ("layout/ui_row_last_qr_codes_0".equals(tag)) {
             return new UiRowLastQrCodesBindingImpl(component, view);
@@ -346,48 +336,47 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(34);
+    static final SparseArray<String> sKeys = new SparseArray<String>(33);
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(1, "contact");
-      sKeys.put(2, "contacts");
-      sKeys.put(3, "doneEnabled");
-      sKeys.put(4, "effectiveConfiguration");
-      sKeys.put(5, "endpointMessage");
-      sKeys.put(6, "endpointQueue");
-      sKeys.put(7, "endpointState");
-      sKeys.put(8, "fixAvailable");
-      sKeys.put(9, "fusedLocationAccuracy");
-      sKeys.put(10, "fusedLocationDate");
-      sKeys.put(11, "fusedName");
-      sKeys.put(12, "geofenceLatitude");
-      sKeys.put(13, "geofenceLatitudeAsStr");
-      sKeys.put(14, "geofenceLongitude");
-      sKeys.put(15, "geofenceLongitudeAsStr");
-      sKeys.put(16, "id");
-      sKeys.put(17, "imageProvider");
-      sKeys.put(18, "lastQRCodes");
-      sKeys.put(19, "locationUpdated");
-      sKeys.put(20, "managementAccount");
-      sKeys.put(21, "message");
-      sKeys.put(22, "messageCard");
-      sKeys.put(23, "messageLocation");
-      sKeys.put(24, "modeId");
-      sKeys.put(25, "name");
-      sKeys.put(26, "nextEnabled");
-      sKeys.put(27, "parkplatz");
-      sKeys.put(28, "permissionGranted");
-      sKeys.put(29, "serviceStarted");
-      sKeys.put(30, "trackerId");
-      sKeys.put(31, "tst");
-      sKeys.put(32, "vm");
-      sKeys.put(33, "waypoint");
+      sKeys.put(1, "contacts");
+      sKeys.put(2, "doneEnabled");
+      sKeys.put(3, "effectiveConfiguration");
+      sKeys.put(4, "endpointMessage");
+      sKeys.put(5, "endpointQueue");
+      sKeys.put(6, "endpointState");
+      sKeys.put(7, "fixAvailable");
+      sKeys.put(8, "fusedLocationAccuracy");
+      sKeys.put(9, "fusedLocationDate");
+      sKeys.put(10, "fusedName");
+      sKeys.put(11, "geofenceLatitude");
+      sKeys.put(12, "geofenceLatitudeAsStr");
+      sKeys.put(13, "geofenceLongitude");
+      sKeys.put(14, "geofenceLongitudeAsStr");
+      sKeys.put(15, "id");
+      sKeys.put(16, "imageProvider");
+      sKeys.put(17, "lastQRCodes");
+      sKeys.put(18, "locationUpdated");
+      sKeys.put(19, "managementAccount");
+      sKeys.put(20, "message");
+      sKeys.put(21, "messageCard");
+      sKeys.put(22, "messageLocation");
+      sKeys.put(23, "modeId");
+      sKeys.put(24, "name");
+      sKeys.put(25, "nextEnabled");
+      sKeys.put(26, "parkplatz");
+      sKeys.put(27, "permissionGranted");
+      sKeys.put(28, "serviceStarted");
+      sKeys.put(29, "trackerId");
+      sKeys.put(30, "tst");
+      sKeys.put(31, "vm");
+      sKeys.put(32, "waypoint");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(27);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(26);
 
     static {
       sKeys.put("layout/ui_invite_0", org.owntracks.android.R.layout.ui_invite);
@@ -405,7 +394,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/ui_preferences_load_0", org.owntracks.android.R.layout.ui_preferences_load);
       sKeys.put("layout/ui_preferences_logs_0", org.owntracks.android.R.layout.ui_preferences_logs);
       sKeys.put("layout/ui_register_0", org.owntracks.android.R.layout.ui_register);
-      sKeys.put("layout/ui_row_contact_0", org.owntracks.android.R.layout.ui_row_contact);
       sKeys.put("layout/ui_row_last_qr_codes_0", org.owntracks.android.R.layout.ui_row_last_qr_codes);
       sKeys.put("layout/ui_row_management_acc_0", org.owntracks.android.R.layout.ui_row_management_acc);
       sKeys.put("layout/ui_row_parkplatz_0", org.owntracks.android.R.layout.ui_row_parkplatz);
