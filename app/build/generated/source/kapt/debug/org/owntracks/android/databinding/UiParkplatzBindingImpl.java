@@ -62,7 +62,7 @@ public class UiParkplatzBindingImpl extends UiParkplatzBinding  {
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.vm == variableId) {
-            setVm((org.owntracks.android.ui.parkplatz.ParkplatzViewModel) variable);
+            setVm((org.owntracks.android.ui.importqrcode.ParkplatzViewModel) variable);
         }
         else {
             variableSet = false;
@@ -70,7 +70,7 @@ public class UiParkplatzBindingImpl extends UiParkplatzBinding  {
             return variableSet;
     }
 
-    public void setVm(@Nullable org.owntracks.android.ui.parkplatz.ParkplatzViewModel Vm) {
+    public void setVm(@Nullable org.owntracks.android.ui.importqrcode.ParkplatzViewModel Vm) {
         this.mVm = Vm;
     }
 
@@ -78,11 +78,11 @@ public class UiParkplatzBindingImpl extends UiParkplatzBinding  {
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
             case 0 :
-                return onChangeVm((org.owntracks.android.ui.parkplatz.ParkplatzViewModel) object, fieldId);
+                return onChangeVm((org.owntracks.android.ui.importqrcode.ParkplatzViewModel) object, fieldId);
         }
         return false;
     }
-    private boolean onChangeVm(org.owntracks.android.ui.parkplatz.ParkplatzViewModel Vm, int fieldId) {
+    private boolean onChangeVm(org.owntracks.android.ui.importqrcode.ParkplatzViewModel Vm, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x1L;

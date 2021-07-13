@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.lang.Deprecated;
 import java.lang.Object;
 import org.owntracks.android.R;
-import org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel;
+import org.owntracks.android.ui.history.LastQRCodesViewModel;
 
 public abstract class UiLastQrCodesBinding extends ViewDataBinding {
   @NonNull

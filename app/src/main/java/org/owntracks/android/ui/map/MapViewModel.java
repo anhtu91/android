@@ -20,6 +20,7 @@ import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
+import org.owntracks.android.model.messages.MessageCancelRequestWaypointToSelectedEntrance;
 import org.owntracks.android.model.messages.MessageLocation;
 import org.owntracks.android.model.messages.MessageWaypointToEntrance;
 import org.owntracks.android.services.LocationProcessor;
@@ -174,7 +175,14 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         getView().cancelThreadSendWaypointToEntrance();
         getView().removeMarker();
         getView().removePolyline();
+        sendCancelWaypointsToEntrance();
         setViewModeDevice();
+    }
+
+    private void sendCancelWaypointsToEntrance(){ //When user clicked cancel or when user is right in the selected entrance => Send message to update status sendWaypoints of user in database server
+        MessageCancelRequestWaypointToSelectedEntrance message = new MessageCancelRequestWaypointToSelectedEntrance();
+        message.setCancelWaypointToEntrance(true);
+        messageProcessor.queueMessageForSending(message);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -220,10 +228,10 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(MessageWaypointToEntrance messageWaypointToEntrance) { //Receive waypoint from NodeRED
         Timber.i("Message To Entrance "+messageWaypointToEntrance.getDuration());
-        if(messageWaypointToEntrance.getDistance() != 0){
+        if(messageWaypointToEntrance.getDistance() != 0){ //If distance != 0 => keep sending waypoints request to server
             getView().updateWaypointToEntrance(messageWaypointToEntrance);
             liveTestData.postValue(messageWaypointToEntrance);
-        }else{
+        }else{ //If distance = 0 => user is right in selected entrance => remove waypoint, marker and stop sending waypoints request to server
             onClearWaypointEntranceClicked();
         }
     }

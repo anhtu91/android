@@ -45,7 +45,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp;
-import org.owntracks.android.ui.qrcode.QrCodePopUp;
+import org.owntracks.android.ui.qrcodepopup.QrCodePopUp;
 import org.owntracks.android.R;
 import org.owntracks.android.data.WaypointModel;
 import org.owntracks.android.data.repos.ContactsRepo;

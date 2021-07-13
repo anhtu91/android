@@ -53,7 +53,7 @@
     <string name="addWaypoint">Добавить место</string>
     <string name="exportConfiguration">Экспорт</string>
     <string name="contactLocationUnknown">Местоположение недоступно</string>
-    <string name="menuContactNavigate">Перейти</string>
+    <string name="menuNavigate">Перейти</string>
     <string name="menuCurrentLoction">Текущее местоположение</string>
     <string name="menuImportQRCode">Импортировать QR-код</string>
     <string name="contactDetailsDuration">Продолжительность (минут)</string>

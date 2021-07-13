@@ -52,7 +52,7 @@
     <string name="addWaypoint">Añadir waypoint</string>
     <string name="exportConfiguration">Exportar</string>
     <string name="contactLocationUnknown">Ubicación no disponible</string>
-    <string name="menuContactNavigate">Navegar</string>
+    <string name="menuNavigate">Navegar</string>
     <string name="menuCurrentLoction">Ubicación actual</string>
     <string name="menuImportQRCode">Importar código QR</string>
     <string name="contactDetailsDuration">Duración (minutos)</string>

@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.Deprecated;
 import java.lang.Object;
 import org.owntracks.android.R;
-import org.owntracks.android.ui.parkplatz.ParkplatzViewModel;
+import org.owntracks.android.ui.importqrcode.ParkplatzViewModel;
 
 public abstract class UiParkplatzBinding extends ViewDataBinding {
   @NonNull

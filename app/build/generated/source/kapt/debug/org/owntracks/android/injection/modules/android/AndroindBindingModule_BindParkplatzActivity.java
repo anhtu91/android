@@ -8,7 +8,7 @@ import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 import org.owntracks.android.injection.modules.android.ActivityModules.ParkplatzActivityModule;
 import org.owntracks.android.injection.scopes.PerActivity;
-import org.owntracks.android.ui.parkplatz.ParkplatzActivity;
+import org.owntracks.android.ui.importqrcode.ParkplatzActivity;
 
 @Module(
   subcomponents = AndroindBindingModule_BindParkplatzActivity.ParkplatzActivitySubcomponent.class

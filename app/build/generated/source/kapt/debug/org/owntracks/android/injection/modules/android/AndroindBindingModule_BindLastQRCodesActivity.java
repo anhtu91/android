@@ -8,7 +8,7 @@ import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 import org.owntracks.android.injection.modules.android.ActivityModules.LastQRCodesActivityModule;
 import org.owntracks.android.injection.scopes.PerActivity;
-import org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity;
+import org.owntracks.android.ui.history.LastQRCodesActivity;
 
 @Module(
   subcomponents =

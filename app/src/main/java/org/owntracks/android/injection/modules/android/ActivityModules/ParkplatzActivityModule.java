@@ -3,9 +3,9 @@ package org.owntracks.android.injection.modules.android.ActivityModules;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.owntracks.android.injection.scopes.PerActivity;
-import org.owntracks.android.ui.parkplatz.ParkplatzActivity;
-import org.owntracks.android.ui.parkplatz.ParkplatzMvvm;
-import org.owntracks.android.ui.parkplatz.ParkplatzViewModel;
+import org.owntracks.android.ui.importqrcode.ParkplatzActivity;
+import org.owntracks.android.ui.importqrcode.ParkplatzMvvm;
+import org.owntracks.android.ui.importqrcode.ParkplatzViewModel;
 
 import dagger.Binds;
 import dagger.Module;

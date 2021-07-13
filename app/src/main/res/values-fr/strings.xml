@@ -53,7 +53,7 @@
     <string name="addWaypoint">Ajouter un POI</string>
     <string name="exportConfiguration">Exporter</string>
     <string name="contactLocationUnknown">Aucun emplacement n\'est disponible</string>
-    <string name="menuContactNavigate">Naviguer</string>
+    <string name="menuNavigate">Naviguer</string>
     <string name="menuCurrentLoction">Localisation actuelle</string>
     <string name="menuImportQRCode">Importer le code QR</string>
     <string name="contactDetailsDuration">Durée (minutes)</string>

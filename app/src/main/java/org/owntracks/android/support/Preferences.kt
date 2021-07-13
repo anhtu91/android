@@ -687,6 +687,9 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
     val pubTopicLocations: String
         get() = pubTopicBase
 
+    val pubTopicCancelRequestWaypointToSelectedEntrance: String
+        get() = pubTopicBase
+
     val pubTopicTransmittSelectedEntrance: String
         get() = pubTopicBase
 
@@ -737,6 +740,9 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
     val pubRetainWaypoints: Boolean
         get() = false
 
+    val pubQoSCancelRequestWaypointToSelectedEntrance: Int
+        get() = pubQos
+
     val pubQoSTransmittSelectedEntrance: Int
         get() = pubQos
 
@@ -765,6 +771,9 @@ class Preferences @Inject constructor(@AppContext c: Context, private val eventB
         get() = pubRetain
 
     val pubRetainInviteSend: Boolean
+        get() = pubRetain
+
+    val pubRetainCancelRequestWaypointToSelectedEntrance: Boolean
         get() = pubRetain
 
     val pubRetainTransmittSelectedEntrance: Boolean

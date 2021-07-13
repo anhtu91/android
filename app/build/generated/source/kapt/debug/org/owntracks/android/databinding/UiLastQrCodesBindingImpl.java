@@ -60,7 +60,7 @@ public class UiLastQrCodesBindingImpl extends UiLastQrCodesBinding  {
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.vm == variableId) {
-            setVm((org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel) variable);
+            setVm((org.owntracks.android.ui.history.LastQRCodesViewModel) variable);
         }
         else {
             variableSet = false;
@@ -68,7 +68,7 @@ public class UiLastQrCodesBindingImpl extends UiLastQrCodesBinding  {
             return variableSet;
     }
 
-    public void setVm(@Nullable org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel Vm) {
+    public void setVm(@Nullable org.owntracks.android.ui.history.LastQRCodesViewModel Vm) {
         this.mVm = Vm;
     }
 
@@ -76,11 +76,11 @@ public class UiLastQrCodesBindingImpl extends UiLastQrCodesBinding  {
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
             case 0 :
-                return onChangeVm((org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel) object, fieldId);
+                return onChangeVm((org.owntracks.android.ui.history.LastQRCodesViewModel) object, fieldId);
         }
         return false;
     }
-    private boolean onChangeVm(org.owntracks.android.ui.lastqrcodes.LastQRCodesViewModel Vm, int fieldId) {
+    private boolean onChangeVm(org.owntracks.android.ui.history.LastQRCodesViewModel Vm, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x1L;

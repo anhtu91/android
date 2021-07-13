@@ -599,6 +599,9 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_select_new_parking:
+                viewModel.onClearWaypointEntranceClicked();
+                return true;
             case R.id.menu_navigate:
                 if(latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
                     try {

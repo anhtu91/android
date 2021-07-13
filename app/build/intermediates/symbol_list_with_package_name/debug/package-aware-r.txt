@@ -2624,6 +2624,7 @@ id menu_monitoring
 id menu_mylocation
 id menu_navigate
 id menu_report
+id menu_select_new_parking
 id message
 id meta
 id middle
@@ -3289,9 +3290,10 @@ string material_slider_range_start
 string materialdrawer_lib_version
 string materialize_lib_version
 string menuClear
-string menuContactNavigate
 string menuCurrentLoction
 string menuImportQRCode
+string menuNavigate
+string menuSelectNewParking
 string mode_heading
 string mode_http_private_label
 string mode_mqtt_private_label

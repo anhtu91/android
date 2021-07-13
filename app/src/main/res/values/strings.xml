@@ -53,7 +53,8 @@
     <string name="addWaypoint">Add waypoint</string>
     <string name="exportConfiguration">Export</string>
     <string name="contactLocationUnknown">No location is available</string>
-    <string name="menuContactNavigate">Navigate</string>
+    <string name="menuNavigate">Navigate</string>
+    <string name="menuSelectNewParking">Select new parking spot</string>
     <string name="menuCurrentLoction">Current location</string>
     <string name="menuImportQRCode">Import QR Code</string>
     <string name="contactDetailsDuration">Duration (minutes)</string>

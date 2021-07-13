@@ -48,7 +48,7 @@
     <string name="addWaypoint">Ort hinzufügen</string>
     <string name="exportConfiguration">Exportieren</string>
     <string name="contactLocationUnknown">Kein Standort verfügbar</string>
-    <string name="menuContactNavigate">Navigieren</string>
+    <string name="menuNavigate">Navigieren</string>
     <string name="contactDetailsDuration">Dauer (Minuten)</string>
     <string name="fieldNameSelectedEntrance">FeldName des Eingangs</string>
     <string name="waypointListPlaceholder">Keine Orte angelegt</string>

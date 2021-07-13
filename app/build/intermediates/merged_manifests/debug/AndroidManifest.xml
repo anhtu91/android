@@ -44,8 +44,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Owntracks" >
-        <activity android:name="org.owntracks.android.ui.qrcode.QrCodePopUp" />
-        <activity android:name="org.owntracks.android.ui.qrcode.ImportQrCodePopUp" />
+        <activity android:name="org.owntracks.android.ui.qrcodepopup.QrCodePopUp" />
+        <activity android:name="org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp" />
         <activity android:name="org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp" />
         <!-- Disables default initialization of WorkManager because custom initializer is used in App.onCreate() -->
         <provider
@@ -196,12 +196,12 @@
             android:label="@string/title_activity_invite"
             android:launchMode="singleTask" />
         <activity
-            android:name="org.owntracks.android.ui.parkplatz.ParkplatzActivity"
+            android:name="org.owntracks.android.ui.importqrcode.ParkplatzActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_parkplatz"
             android:launchMode="singleTask" />
         <activity
-            android:name="org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity"
+            android:name="org.owntracks.android.ui.history.LastQRCodesActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_lastqrcodes"
             android:launchMode="singleTask" />

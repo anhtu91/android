@@ -1664,9 +1664,10 @@
     <string name="materialdrawer_lib_version" translatable="false">6.1.2</string>
     <string name="materialize_lib_version" translatable="false">1.2.1</string>
     <string name="menuClear">Clear</string>
-    <string name="menuContactNavigate">Navigate</string>
     <string name="menuCurrentLoction">Current location</string>
     <string name="menuImportQRCode">Import QR Code</string>
+    <string name="menuNavigate">Navigate</string>
+    <string name="menuSelectNewParking">Select new parking spot</string>
     <string name="mode_heading">Mode</string>
     <string name="mode_http_private_label">HTTP</string>
     <string name="mode_mqtt_private_label">MQTT</string>

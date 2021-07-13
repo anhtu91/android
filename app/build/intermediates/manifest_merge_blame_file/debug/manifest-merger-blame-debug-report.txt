@@ -87,12 +87,12 @@
 45        android:testOnly="true"
 46        android:theme="@style/Theme.Owntracks" >
 46-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:39:9-47
-47        <activity android:name="org.owntracks.android.ui.qrcode.QrCodePopUp" />
-47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:9-68
-47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:19-56
-48        <activity android:name="org.owntracks.android.ui.qrcode.ImportQrCodePopUp" />
-48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:9-74
-48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:19-62
+47        <activity android:name="org.owntracks.android.ui.qrcodepopup.QrCodePopUp" />
+47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:9-73
+47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:19-61
+48        <activity android:name="org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp" />
+48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:9-79
+48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:19-67
 49        <activity android:name="org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp" />
 49-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:9-96
 49-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:19-84
@@ -378,8 +378,8 @@
 197-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:191:13-44
 198        <activity
 198-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:9-195:46
-199            android:name="org.owntracks.android.ui.parkplatz.ParkplatzActivity"
-199-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:19-65
+199            android:name="org.owntracks.android.ui.importqrcode.ParkplatzActivity"
+199-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:19-68
 200            android:clearTaskOnLaunch="true"
 200-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:193:13-45
 201            android:label="@string/title_activity_parkplatz"
@@ -388,8 +388,8 @@
 202-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:195:13-44
 203        <activity
 203-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:9-199:46
-204            android:name="org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity"
-204-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:19-69
+204            android:name="org.owntracks.android.ui.history.LastQRCodesActivity"
+204-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:19-65
 205            android:clearTaskOnLaunch="true"
 205-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:197:13-45
 206            android:label="@string/title_activity_lastqrcodes"

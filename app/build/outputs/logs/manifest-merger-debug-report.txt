@@ -262,14 +262,14 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/atn/.
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:41:9-44
 	android:name
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:29:9-28
-activity#org.owntracks.android.ui.qrcode.QrCodePopUp
-ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:9-68
+activity#org.owntracks.android.ui.qrcodepopup.QrCodePopUp
+ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:9-73
 	android:name
-		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:19-56
-activity#org.owntracks.android.ui.qrcode.ImportQrCodePopUp
-ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:9-74
+		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:19-61
+activity#org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp
+ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:9-79
 	android:name
-		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:19-62
+		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:19-67
 activity#org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp
 ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:9-96
 	android:name
@@ -460,7 +460,7 @@ ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:191:13-44
 	android:name
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:188:19-59
-activity#org.owntracks.android.ui.parkplatz.ParkplatzActivity
+activity#org.owntracks.android.ui.importqrcode.ParkplatzActivity
 ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:9-195:46
 	android:clearTaskOnLaunch
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:193:13-45
@@ -469,8 +469,8 @@ ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot
 	android:launchMode
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:195:13-44
 	android:name
-		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:19-65
-activity#org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity
+		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:19-68
+activity#org.owntracks.android.ui.history.LastQRCodesActivity
 ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:9-199:46
 	android:clearTaskOnLaunch
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:197:13-45
@@ -479,7 +479,7 @@ ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot
 	android:launchMode
 		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:199:13-44
 	android:name
-		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:19-69
+		ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:19-65
 activity#org.owntracks.android.ui.managementaccount.ManagementAccountActivity
 ADDED from /home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:200:9-203:46
 	android:clearTaskOnLaunch

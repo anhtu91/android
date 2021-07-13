@@ -39,11 +39,11 @@ public abstract class AndroindBindingModule {
 
     @PerActivity
     @ContributesAndroidInjector(modules = {ParkplatzActivityModule.class})
-    abstract org.owntracks.android.ui.parkplatz.ParkplatzActivity bindParkplatzActivity();
+    abstract org.owntracks.android.ui.importqrcode.ParkplatzActivity bindParkplatzActivity();
 
     @PerActivity
     @ContributesAndroidInjector(modules = {LastQRCodesActivityModule.class})
-    abstract org.owntracks.android.ui.lastqrcodes.LastQRCodesActivity bindLastQRCodesActivity();
+    abstract org.owntracks.android.ui.history.LastQRCodesActivity bindLastQRCodesActivity();
 
     @PerActivity
     @ContributesAndroidInjector(modules = {MapActivityModule.class})
