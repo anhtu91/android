@@ -489,9 +489,11 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
 
     @Override
     public void removeMarker() {
-        Marker m = markers.get(getString(R.string.markerParkingEntrance));
-        if (m != null)
-            m.remove();
+        if(markers.containsKey(getString(R.string.markerParkingEntrance))) {
+            Marker m = markers.get(getString(R.string.markerParkingEntrance));
+            if (m != null)
+                m.remove();
+        }
     }
 
     @Override
@@ -525,9 +527,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
         recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
         recommendParkingSpot.setTag(getString(R.string.markerParkingEntrance));
 
-        if(markers.containsKey(getString(R.string.markerParkingEntrance))){
-            markers.remove(getString(R.string.markerParkingEntrance));
-        }
+        removeMarker();
 
         markers.put(getString(R.string.markerParkingEntrance), recommendParkingSpot);
 
