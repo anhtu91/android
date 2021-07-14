@@ -37,7 +37,8 @@ interface MapMvvm {
         fun onBottomSheetLongClick()
         fun onBottomSheetClick()
         fun onMenuCenterDeviceClicked()
-        fun onClearWaypointEntranceClicked()
+        //fun onClearWaypointEntranceClicked()
+        fun stopRequestWaypointThread()
         fun hasLocation(): Boolean
         fun onMapReady()
         val mapLocationSource: LocationSource?

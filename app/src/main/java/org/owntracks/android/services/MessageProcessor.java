@@ -318,9 +318,9 @@ public class MessageProcessor {
             processIncomingMessage((MessageCmd) message);
         } else if (message instanceof MessageTransition) {
             processIncomingMessage((MessageTransition) message);
-        } else if (message instanceof MessageParkplatz){ //Add new for Parkplatz case
+        } else if (message instanceof MessageParkplatz){ //For Parkplatz case. User ist in selected parking spot
             processIncomingMessage((MessageParkplatz) message);
-        } else if (message instanceof MessageEmpfehlungParkplatz){ //Add new for EmpfelungParkplatz case
+        } else if (message instanceof MessageEmpfehlungParkplatz){ //For EmpfelungParkplatz case. User ist in selected parking spot but it is full
             processIncomingMessage((MessageEmpfehlungParkplatz) message);
         } else if (message instanceof MessageWaypointToEntrance){ //When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
             processIncomingMessage((MessageWaypointToEntrance) message);

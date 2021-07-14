@@ -660,6 +660,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     //Add new for Parkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(MessageParkplatz message) {
+        eventBus.post(new Events.UserInParkingSpot(true));
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
 
         if(QrCodePopUp.instance != null){

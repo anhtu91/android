@@ -600,7 +600,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_select_new_parking:
-                viewModel.onClearWaypointEntranceClicked();
+                viewModel.stopRequestWaypointThread();
                 return true;
             case R.id.menu_navigate:
                 if(latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
@@ -612,12 +612,12 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
                         Toast.makeText(this, getString(R.string.noNavigationApp), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, getString(R.string.contactLocationUnknown), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.locationUnknown), Toast.LENGTH_SHORT).show();
                 }
 
                 return true;
             case R.id.menu_clear:
-                viewModel.onClearWaypointEntranceClicked();
+                viewModel.stopRequestWaypointThread();
             default:
                 return false;
         }

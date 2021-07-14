@@ -1540,7 +1540,6 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="configurationManagement">Configuration management</string>
     <string name="contactDetailsDuration">Duration (minutes)</string>
-    <string name="contactLocationUnknown">No location is available</string>
     <string name="contact_image">Contact Image</string>
     <string name="copy">Copy</string>
     <string name="define_AndroidIconics">year;owner</string>
@@ -1653,6 +1652,7 @@
     <string name="library_materialize_owner">Mike Penz</string>
     <string name="library_materialize_repositoryLink">https://github.com/mikepenz/Materialize</string>
     <string name="library_materialize_year">2016</string>
+    <string name="locationUnknown">No location is available</string>
     <string name="logViewerActivityTitle">Logs</string>
     <string name="longitude">Longitude</string>
     <string name="manage_account_image">Manage Account</string>

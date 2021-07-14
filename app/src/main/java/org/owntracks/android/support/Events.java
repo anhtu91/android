@@ -177,6 +177,18 @@ public class Events {
         }
     }
 
+    public static class UserInParkingSpot extends E {
+        private boolean userInParkingSpot;
+
+        public UserInParkingSpot(boolean userInParkingSpot) {
+            this.userInParkingSpot = userInParkingSpot;
+        }
+
+        public boolean isUserInParkingSpot() {
+            return userInParkingSpot;
+        }
+    }
+
     public static class ParkplatzAdded extends E {
         private final ParkplatzModel parkplatzModel;
 

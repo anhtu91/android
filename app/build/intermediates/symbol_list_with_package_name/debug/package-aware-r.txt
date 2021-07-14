@@ -3182,7 +3182,6 @@ string common_signin_button_text
 string common_signin_button_text_long
 string configurationManagement
 string contactDetailsDuration
-string contactLocationUnknown
 string contact_image
 string copy
 string define_AndroidIconics
@@ -3279,6 +3278,7 @@ string library_materialize_licenseId
 string library_materialize_owner
 string library_materialize_repositoryLink
 string library_materialize_year
+string locationUnknown
 string logViewerActivityTitle
 string longitude
 string manage_account_image
