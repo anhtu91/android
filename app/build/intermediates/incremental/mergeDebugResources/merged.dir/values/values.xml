@@ -1900,7 +1900,7 @@
     <string name="region_inside">Currently inside</string>
     <string name="region_outside">Currently outside</string>
     <string name="region_unknown">Status unknown</string>
-    <string name="register">Register</string>
+    <string name="register">Sign Up</string>
     <string name="repasswordContain">Confirm Password must contain at least 5 characters</string>
     <string name="repoUrl" translatable="false">https://github.com/owntracks/android</string>
     <string name="restart">Restart</string>

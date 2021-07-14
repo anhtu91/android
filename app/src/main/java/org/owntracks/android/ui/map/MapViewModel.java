@@ -234,7 +234,7 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         if(messageWaypointToEntrance.getDistance() != 0){ //If distance != 0 => keep sending waypoints request to server
             getView().updateWaypointToEntrance(messageWaypointToEntrance);
             liveTestData.postValue(messageWaypointToEntrance);
-        }else{ //If distance = 0 => user is right in selected entrance => remove waypoint, marker and stop sending waypoints request to server
+        }else{ //If distance = 0 => user is right in selected entrance => remove waypoint, marker and stop sending waypoints request to server.
             onClearWaypointEntranceClicked();
         }
     }
