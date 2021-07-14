@@ -42,7 +42,7 @@ import com.google.android.gms.tasks.Task;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
+import org.owntracks.android.model.messages.MessageRecommendParkingSpot;
 import org.owntracks.android.support.sqlite.SQLiteForLastJWTs;
 import org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp;
 import org.owntracks.android.ui.qrcodepopup.QrCodePopUp;
@@ -52,7 +52,7 @@ import org.owntracks.android.data.repos.ContactsRepo;
 import org.owntracks.android.data.repos.LocationRepo;
 import org.owntracks.android.data.repos.WaypointsRepo;
 import org.owntracks.android.model.messages.MessageLocation;
-import org.owntracks.android.model.messages.MessageParkplatz;
+import org.owntracks.android.model.messages.MessageUserInParkingSpot;
 import org.owntracks.android.model.messages.MessageTransition;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.services.worker.Scheduler;
@@ -659,8 +659,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
     //Add new for Parkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(MessageParkplatz message) {
-        eventBus.post(new Events.UserInParkingSpot(true));
+    public void onEvent(MessageUserInParkingSpot message) {
         Timber.d("MessageParkplatz in BackgroundService received %s", message);
 
         if(QrCodePopUp.instance != null){
@@ -686,7 +685,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
     //Add new for EmpfehlungParkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(MessageEmpfehlungParkplatz message) {
+    public void onEvent(MessageRecommendParkingSpot message) {
         Timber.d("MessageEmpfehlungParkplatz in BackgroundService received %s", message);
 
         if(QrCodePopUp.instance != null){

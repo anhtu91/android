@@ -15,10 +15,10 @@ import org.owntracks.android.model.messages.MessageBase;
 import org.owntracks.android.model.messages.MessageCard;
 import org.owntracks.android.model.messages.MessageClear;
 import org.owntracks.android.model.messages.MessageCmd;
-import org.owntracks.android.model.messages.MessageEmpfehlungParkplatz;
+import org.owntracks.android.model.messages.MessageRecommendParkingSpot;
 import org.owntracks.android.model.messages.MessageInviteSuccess;
 import org.owntracks.android.model.messages.MessageLocation;
-import org.owntracks.android.model.messages.MessageParkplatz;
+import org.owntracks.android.model.messages.MessageUserInParkingSpot;
 import org.owntracks.android.model.messages.MessageReceiveFieldNameAddNewParking;
 import org.owntracks.android.model.messages.MessageReceiveKeyIDAddNewParking;
 import org.owntracks.android.model.messages.MessageStatusAddingNewParking;
@@ -318,10 +318,10 @@ public class MessageProcessor {
             processIncomingMessage((MessageCmd) message);
         } else if (message instanceof MessageTransition) {
             processIncomingMessage((MessageTransition) message);
-        } else if (message instanceof MessageParkplatz){ //For Parkplatz case. User ist in selected parking spot
-            processIncomingMessage((MessageParkplatz) message);
-        } else if (message instanceof MessageEmpfehlungParkplatz){ //For EmpfelungParkplatz case. User ist in selected parking spot but it is full
-            processIncomingMessage((MessageEmpfehlungParkplatz) message);
+        } else if (message instanceof MessageUserInParkingSpot){ //For Parkplatz case. User ist in selected parking spot
+            processIncomingMessage((MessageUserInParkingSpot) message);
+        } else if (message instanceof MessageRecommendParkingSpot){ //For EmpfelungParkplatz case. User ist in selected parking spot but it is full
+            processIncomingMessage((MessageRecommendParkingSpot) message);
         } else if (message instanceof MessageWaypointToEntrance){ //When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
             processIncomingMessage((MessageWaypointToEntrance) message);
         } else if(message instanceof MessageReceiveKeyIDInvite){
@@ -393,13 +393,13 @@ public class MessageProcessor {
         Timber.i("WaypointToEntrance message received around free parking spots: %s", message.getDuration());
     }
 
-    private void processIncomingMessage(MessageEmpfehlungParkplatz message){
+    private void processIncomingMessage(MessageRecommendParkingSpot message){
         eventBus.post(message);
         Timber.d("EmpfehlungParkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("EmpfehlungParkplatz message received: %s", message.getEntrancePosition());
     }
 
-    private void processIncomingMessage(MessageParkplatz message){
+    private void processIncomingMessage(MessageUserInParkingSpot message){
         eventBus.post(message);
 
         Timber.d("Parkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());

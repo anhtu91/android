@@ -11,9 +11,9 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
     private String fieldName;
     private String date;
     private String time;
-    private int tst;
+    private long tst;
 
-    public ParkplatzModel(String JWT, String keyID, String fieldName, String date, String time, int tst, String receiverEmail, String senderUser) {
+    public ParkplatzModel(String JWT, String keyID, String fieldName, String date, String time, long tst, String receiverEmail, String senderUser) {
         this.JWT = JWT;
         this.senderUser = senderUser;
         this.receiverEmail = receiverEmail;
@@ -56,7 +56,7 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
         this.fieldName = fieldName;
     }
 
-    public int getTst() {
+    public long getTst() {
         return tst;
     }
 

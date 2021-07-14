@@ -9,9 +9,9 @@ public class LastQRCodesModel extends BaseObservable implements Comparable<LastQ
     private String fieldName;
     private String time;
     private String date;
-    private int tst;
+    private long tst;
 
-    public LastQRCodesModel(String lastJWT, String username, String keyID, String fieldName, String time, String date, int tst) {
+    public LastQRCodesModel(String lastJWT, String username, String keyID, String fieldName, String time, String date, long tst) {
         this.lastJWT = lastJWT;
         this.username = username;
         this.keyID = keyID;
@@ -21,7 +21,7 @@ public class LastQRCodesModel extends BaseObservable implements Comparable<LastQ
         this.tst = tst; //Actually NodeRED should only send timestamp tst, then covert to date time in Owntracks
     }
 
-    public int getTst() {
+    public long getTst() {
         return tst;
     }
 

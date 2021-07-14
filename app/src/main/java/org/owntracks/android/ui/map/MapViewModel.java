@@ -22,7 +22,6 @@ import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.FusedContact;
 import org.owntracks.android.model.messages.MessageCancelRequestWaypointToSelectedEntrance;
 import org.owntracks.android.model.messages.MessageLocation;
-import org.owntracks.android.model.messages.MessageParkplatz;
 import org.owntracks.android.model.messages.MessageWaypointToEntrance;
 import org.owntracks.android.services.LocationProcessor;
 import org.owntracks.android.services.MessageProcessor;
@@ -220,11 +219,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         if (onLocationChangedListener != null) {
             this.onLocationChangedListener.onLocationChanged(this.location);
         }
-    }
-
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(Events.UserInParkingSpot e) {
-        stopRequestWaypointThread();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

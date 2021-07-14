@@ -532,7 +532,6 @@ org/owntracks/android/support/Events.java
  org.owntracks.android.support.Events$RegisterAdded
  org.owntracks.android.support.Events$RestartApp
  org.owntracks.android.support.Events$ServiceStarted
- org.owntracks.android.support.Events$UserInParkingSpot
  org.owntracks.android.support.Events$WaypointAdded
  org.owntracks.android.support.Events$WaypointEvent
  org.owntracks.android.support.Events$WaypointRemoved
