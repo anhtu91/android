@@ -34,15 +34,15 @@ public class QrCodePopUp extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            String strJWT = extras.getString("JWT");
+            String strJWT = extras.getString(getResources().getString(R.string.jwt));
 
             try {
                 String jwt = JWTUtils.decodeJWT(strJWT);
                 JSONObject jwtObject = new JSONObject(jwt);
-                String keyID = jwtObject.getString("keyID");
-                String fieldName = jwtObject.getString("fieldName");
-                String time = jwtObject.getString("time");
-                String date = jwtObject.getString("date");
+                String keyID = jwtObject.getString(getResources().getString(R.string.keyid));
+                String fieldName = jwtObject.getString(getResources().getString(R.string.fieldname));
+                String time = jwtObject.getString(getResources().getString(R.string.time));
+                String date = jwtObject.getString(getResources().getString(R.string.date));
 
                 showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
                 showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName+"\n at "+time+" on "+date);

@@ -2624,7 +2624,6 @@ id menu_monitoring
 id menu_mylocation
 id menu_navigate
 id menu_report
-id menu_select_new_parking
 id message
 id meta
 id middle
@@ -3147,6 +3146,10 @@ string accept
 string addWaypoint
 string app_name
 string appbar_scrolling_view_behavior
+string availableParkingDate
+string availableParkingFieldName
+string availableParkingKeyID
+string availableParkingTime
 string bottom_sheet_behavior
 string btnCancel
 string btnOK
@@ -3184,6 +3187,7 @@ string configurationManagement
 string contactDetailsDuration
 string contact_image
 string copy
+string date
 string define_AndroidIconics
 string define_fastadapter
 string define_materialdrawer
@@ -3197,6 +3201,7 @@ string documentationUrlAndroid
 string done_heading
 string emptyEmail
 string enjoy_description
+string entrancePosition
 string errorPreferencesImportFailed
 string errorPreferencesImportFailedMemory
 string errorPreferencesImportFailedParseException
@@ -3214,6 +3219,7 @@ string fastadapter_lib_version
 string fieldName
 string fieldNameInvite
 string fieldNameSelectedEntrance
+string fieldname
 string first_fragment_label
 string hello_first_fragment
 string hello_second_fragment
@@ -3230,9 +3236,11 @@ string inputInviteEmail
 string insertQRCodeNotSuccessful
 string installFileManager
 string item_view_role_description
+string jwt
 string keyID
 string keyIDInvite
 string keyIDSelectedEntrance
+string keyid
 string latitude
 string library_AndroidIconics_author
 string library_AndroidIconics_authorWebsite
@@ -3293,7 +3301,6 @@ string menuClear
 string menuCurrentLoction
 string menuImportQRCode
 string menuNavigate
-string menuSelectNewParking
 string mode_heading
 string mode_http_private_label
 string mode_mqtt_private_label
@@ -3348,6 +3355,7 @@ string notificationChangeMonitoring
 string notificationChannelEventsDescription
 string notificationChannelOngoing
 string notificationChannelOngoingDescription
+string numberEntranceAvailableParking
 string passwordContain
 string passwordRegisterError
 string password_toggle_content_description
@@ -3537,6 +3545,7 @@ string status_endpoint_state_hint
 string status_endpoint_state_message_hint
 string status_last_background_update_hint
 string summary_collapsed_preference_list
+string time
 string timeoutConnection
 string title_activity_connection_login
 string title_activity_invite

@@ -5,8 +5,5 @@
     <item
         android:id="@+id/menu_navigate"
         android:title="@string/menuNavigate"/>
-    <item
-        android:id="@+id/menu_select_new_parking"
-        android:title="@string/menuSelectNewParking"/>
 
 </menu>

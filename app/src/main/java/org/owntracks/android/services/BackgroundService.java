@@ -657,10 +657,9 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         }
     }
 
-    //Add new for Parkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(MessageUserInParkingSpot message) {
-        Timber.d("MessageParkplatz in BackgroundService received %s", message);
+        Timber.d("MessageUserInParkingSpot in BackgroundService received %s", message);
 
         if(QrCodePopUp.instance != null){
             QrCodePopUp.instance.finish();
@@ -676,17 +675,16 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
         Intent intent = new Intent(getApplicationContext(), QrCodePopUp.class);
 
-        intent.putExtra("JWT", message.getJwt()); //Put JWT to intent
+        intent.putExtra(getResources().getString(R.string.jwt), message.getJwt()); //Put JWT to intent
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
     }
 
-    //Add new for EmpfehlungParkplatz case
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(MessageRecommendParkingSpot message) {
-        Timber.d("MessageEmpfehlungParkplatz in BackgroundService received %s", message);
+        Timber.d("MessageRecommendParkingSpot in BackgroundService received %s", message);
 
         if(QrCodePopUp.instance != null){
             QrCodePopUp.instance.finish();
@@ -699,13 +697,13 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         //Display message
         Intent intent = new Intent(getApplicationContext(), AvailableParkingSpotPopUp.class);
 
-        intent.putExtra("AvailableParkingKeyID", message.getKeyID());
-        intent.putExtra("AvailableParkingFieldName", message.getFieldName());
-        intent.putExtra("AvailableParkingTime", message.getTime());
-        intent.putExtra("AvailableParkingDate", message.getDate());
-        intent.putExtra("NumberEntranceAvailableParking", message.getEntrancePosition().size());
+        intent.putExtra(getResources().getString(R.string.availableParkingKeyID), message.getKeyID());
+        intent.putExtra(getResources().getString(R.string.availableParkingFieldName), message.getFieldName());
+        intent.putExtra(getResources().getString(R.string.availableParkingTime), message.getTime());
+        intent.putExtra(getResources().getString(R.string.availableParkingDate), message.getDate());
+        intent.putExtra(getResources().getString(R.string.numberEntranceAvailableParking), message.getEntrancePosition().size());
 
-        intent.putExtra("EntrancePosition", message.getEntrancePosition());
+        intent.putExtra(getResources().getString(R.string.entrancePosition), message.getEntrancePosition());
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

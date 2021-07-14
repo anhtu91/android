@@ -39,12 +39,12 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            String keyID = extras.getString("AvailableParkingKeyID");
-            String fieldName = extras.getString("AvailableParkingFieldName");
-            String time = extras.getString("AvailableParkingTime");
-            String date = extras.getString("AvailableParkingDate");
-            int numberEntranceAvailableParkingSpot = extras.getInt("NumberEntranceAvailableParking");
-            ArrayList<EntrancePosition> entrancePositions = (ArrayList<EntrancePosition>) getIntent().getSerializableExtra("EntrancePosition"); //Get entrance position
+            String keyID = extras.getString(getResources().getString(R.string.availableParkingKeyID));
+            String fieldName = extras.getString(getResources().getString(R.string.availableParkingFieldName));
+            String time = extras.getString(getResources().getString(R.string.availableParkingTime));
+            String date = extras.getString(getResources().getString(R.string.availableParkingDate));
+            int numberEntranceAvailableParkingSpot = extras.getInt(getResources().getString(R.string.numberEntranceAvailableParking));
+            ArrayList<EntrancePosition> entrancePositions = (ArrayList<EntrancePosition>) getIntent().getSerializableExtra(getResources().getString(R.string.entrancePosition)); //Get entrance position
 
             setUpKeyIDSpinner(entrancePositions);
 

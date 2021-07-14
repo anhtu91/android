@@ -318,11 +318,11 @@ public class MessageProcessor {
             processIncomingMessage((MessageCmd) message);
         } else if (message instanceof MessageTransition) {
             processIncomingMessage((MessageTransition) message);
-        } else if (message instanceof MessageUserInParkingSpot){ //For Parkplatz case. User ist in selected parking spot
+        } else if (message instanceof MessageUserInParkingSpot){ //For case: User ist in selected parking spot
             processIncomingMessage((MessageUserInParkingSpot) message);
-        } else if (message instanceof MessageRecommendParkingSpot){ //For EmpfelungParkplatz case. User ist in selected parking spot but it is full
+        } else if (message instanceof MessageRecommendParkingSpot){ //For case: User ist in selected parking spot but it is full
             processIncomingMessage((MessageRecommendParkingSpot) message);
-        } else if (message instanceof MessageWaypointToEntrance){ //When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
+        } else if (message instanceof MessageWaypointToEntrance){ //For case: When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
             processIncomingMessage((MessageWaypointToEntrance) message);
         } else if(message instanceof MessageReceiveKeyIDInvite){
             processIncomingMessage((MessageReceiveKeyIDInvite) message); //For invite feature
@@ -333,13 +333,13 @@ public class MessageProcessor {
         } else if(message instanceof MessageReceiveSelectedParking){
             processIncomingMessage((MessageReceiveSelectedParking) message); //For management account feature
         } else if(message instanceof MessageStatusDeleteParkingSpot){
-            processIncomingMessage((MessageStatusDeleteParkingSpot) message);
+            processIncomingMessage((MessageStatusDeleteParkingSpot) message); //For management account feature
         } else if(message instanceof MessageReceiveKeyIDAddNewParking){
-            processIncomingMessage((MessageReceiveKeyIDAddNewParking) message);
+            processIncomingMessage((MessageReceiveKeyIDAddNewParking) message); //For management account feature
         } else if(message instanceof MessageReceiveFieldNameAddNewParking){
-            processIncomingMessage((MessageReceiveFieldNameAddNewParking) message);
+            processIncomingMessage((MessageReceiveFieldNameAddNewParking) message); //For management account feature
         } else if(message instanceof MessageStatusAddingNewParking){
-            processIncomingMessage((MessageStatusAddingNewParking) message);
+            processIncomingMessage((MessageStatusAddingNewParking) message); //For management account feature
         } else if (message instanceof MessageUnknown) {
             processIncomingMessage((MessageUnknown) message);
         }
@@ -401,7 +401,6 @@ public class MessageProcessor {
 
     private void processIncomingMessage(MessageUserInParkingSpot message){
         eventBus.post(message);
-
         Timber.d("Parkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
         Timber.i("Parkplatz message received JWT: %s", message.getJwt());
     }

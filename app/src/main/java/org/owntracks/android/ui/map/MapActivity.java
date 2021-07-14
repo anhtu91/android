@@ -522,9 +522,7 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     }
 
     public void addMarkerEntranceToMap(CoordinateEntrance messageSelectedEntrance){
-        Marker recommendParkingSpot;
-
-        recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
+        Marker recommendParkingSpot = googleMap.addMarker(new MarkerOptions().position(new LatLng(messageSelectedEntrance.getLangtitude(), messageSelectedEntrance.getLongitude())));
         recommendParkingSpot.setTag(getString(R.string.markerParkingEntrance));
 
         removeMarker();
@@ -599,9 +597,6 @@ public class MapActivity extends BaseActivity<UiMapBinding, MapMvvm.ViewModel> i
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_select_new_parking:
-                viewModel.stopRequestWaypointThread();
-                return true;
             case R.id.menu_navigate:
                 if(latitudeSelectedEntrance != 0 && longitudeSelectedEntrance != 0){
                     try {

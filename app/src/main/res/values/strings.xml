@@ -54,7 +54,6 @@
     <string name="exportConfiguration">Export</string>
     <string name="locationUnknown">No location is available</string>
     <string name="menuNavigate">Navigate</string>
-    <string name="menuSelectNewParking">Select new parking spot</string>
     <string name="menuCurrentLoction">Current location</string>
     <string name="menuImportQRCode">Import QR Code</string>
     <string name="contactDetailsDuration">Duration (minutes)</string>
@@ -258,4 +257,17 @@
     <string name="btnCancel">Cancel</string>
 
     <string name="noConnectionMQTT">No connection to MQTT Server</string>
+
+    <!-- This following is using for Intent -->
+    <string name="availableParkingKeyID">AvailableParkingKeyID</string>
+    <string name="availableParkingFieldName">AvailableParkingFieldName</string>
+    <string name="availableParkingTime">AvailableParkingTime</string>
+    <string name="availableParkingDate">AvailableParkingDate</string>
+    <string name="numberEntranceAvailableParking">NumberEntranceAvailableParking</string>
+    <string name="entrancePosition">EntrancePosition</string>
+    <string name="jwt">JWT</string>
+    <string name="keyid">keyID</string>
+    <string name="fieldname">fieldName</string>
+    <string name="time">time</string>
+    <string name="date">date</string>
 </resources>

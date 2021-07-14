@@ -42,7 +42,6 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.Owntracks" >
         <activity android:name="org.owntracks.android.ui.qrcodepopup.QrCodePopUp" />
         <activity android:name="org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp" />
