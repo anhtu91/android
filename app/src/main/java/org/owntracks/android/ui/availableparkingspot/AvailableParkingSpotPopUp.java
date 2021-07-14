@@ -74,9 +74,9 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
             });
 
             if(numberEntranceAvailableParkingSpot > 0){
-                showInfoAvailableParkingSpot.setText("You are in parking spot "+keyID+ " - "+fieldName+"\nat "+time+" on "+date+".\nBut this parking spot is full.\nWe recommend "+entrancePositions.size()+" parking spots in one kilometer around here.\n Select entrance to these parking spot:\n");
+                showInfoAvailableParkingSpot.setText(getString(R.string.recommendAvailableParkingOne)+keyID+ " - "+fieldName+getString(R.string.recommendAvailableParkingTwo)+time+getString(R.string.recommendAvailableParkingThree)+date+getString(R.string.recommendAvailableParkingFour)+entrancePositions.size()+getString(R.string.recommendAvailableParkingFive));
             }else{
-                showInfoAvailableParkingSpot.setText("You are in parking spot "+keyID+ " - "+fieldName+"\nat "+time+" on "+date+".\nBut this parking spot is full.\nThere is no available parking spot\nin one kilometer around here.\nTouch to close this window.");
+                showInfoAvailableParkingSpot.setText(getString(R.string.recommendAvailableParkingOne)+keyID+ " - "+fieldName+getString(R.string.recommendAvailableParkingTwo)+time+getString(R.string.recommendAvailableParkingThree)+date+getString(R.string.recommendAvailableParkingSix));
             }
         }
         instance = this;

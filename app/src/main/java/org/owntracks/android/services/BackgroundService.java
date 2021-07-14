@@ -661,13 +661,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     public void onEvent(MessageUserInParkingSpot message) {
         Timber.d("MessageUserInParkingSpot in BackgroundService received %s", message);
 
-        if(QrCodePopUp.instance != null){
-            QrCodePopUp.instance.finish();
-        }
-
-        if(AvailableParkingSpotPopUp.instance != null){
-            AvailableParkingSpotPopUp.instance.finish();
-        }
+        cancelPopUp();
 
         //Add JWT to sqlite
         SQLiteForLastJWTs sqLiteForLastJWTs = new SQLiteForLastJWTs(getApplicationContext());
@@ -686,13 +680,7 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
     public void onEvent(MessageRecommendParkingSpot message) {
         Timber.d("MessageRecommendParkingSpot in BackgroundService received %s", message);
 
-        if(QrCodePopUp.instance != null){
-            QrCodePopUp.instance.finish();
-        }
-
-        if(AvailableParkingSpotPopUp.instance != null){
-            AvailableParkingSpotPopUp.instance.finish();
-        }
+        cancelPopUp();
 
         //Display message
         Intent intent = new Intent(getApplicationContext(), AvailableParkingSpotPopUp.class);
@@ -708,6 +696,16 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
+    }
+
+    private void cancelPopUp(){
+        if(QrCodePopUp.instance != null){
+            QrCodePopUp.instance.finish();
+        }
+
+        if(AvailableParkingSpotPopUp.instance != null){
+            AvailableParkingSpotPopUp.instance.finish();
+        }
     }
 
     public void onGeocodingProviderResult(MessageLocation m) {

@@ -318,12 +318,12 @@ public class MessageProcessor {
             processIncomingMessage((MessageCmd) message);
         } else if (message instanceof MessageTransition) {
             processIncomingMessage((MessageTransition) message);
-        } else if (message instanceof MessageUserInParkingSpot){ //For case: User ist in selected parking spot
-            processIncomingMessage((MessageUserInParkingSpot) message);
-        } else if (message instanceof MessageRecommendParkingSpot){ //For case: User ist in selected parking spot but it is full
-            processIncomingMessage((MessageRecommendParkingSpot) message);
-        } else if (message instanceof MessageWaypointToEntrance){ //For case: When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
-            processIncomingMessage((MessageWaypointToEntrance) message);
+        } else if (message instanceof MessageUserInParkingSpot){
+            processIncomingMessage((MessageUserInParkingSpot) message); //For case: User ist in selected parking spot
+        } else if (message instanceof MessageRecommendParkingSpot){
+            processIncomingMessage((MessageRecommendParkingSpot) message); //For case: User ist in selected parking spot but it is full
+        } else if (message instanceof MessageWaypointToEntrance){
+            processIncomingMessage((MessageWaypointToEntrance) message); //For case: When current parking spot is full and user sends request waypoint to another parking spot => Receive waypoint to selected entrance from Backend
         } else if(message instanceof MessageReceiveKeyIDInvite){
             processIncomingMessage((MessageReceiveKeyIDInvite) message); //For invite feature
         } else if(message instanceof MessageReceiveFieldNameInvite){
@@ -395,14 +395,14 @@ public class MessageProcessor {
 
     private void processIncomingMessage(MessageRecommendParkingSpot message){
         eventBus.post(message);
-        Timber.d("EmpfehlungParkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
-        Timber.i("EmpfehlungParkplatz message received: %s", message.getEntrancePosition());
+        Timber.d("MessageRecommendParkingSpot processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        Timber.i("MessageRecommendParkingSpot message received: %s", message.getEntrancePosition());
     }
 
     private void processIncomingMessage(MessageUserInParkingSpot message){
         eventBus.post(message);
-        Timber.d("Parkplatz processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
-        Timber.i("Parkplatz message received JWT: %s", message.getJwt());
+        Timber.d("MessageUserInParkingSpot processing message %s. ThreadID: %s", message.getContactKey(), Thread.currentThread());
+        Timber.i("MessageUserInParkingSpot message received JWT: %s", message.getJwt());
     }
 
     private void processIncomingMessage(MessageUnknown message) {

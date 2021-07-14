@@ -239,7 +239,6 @@ public class MapViewModel extends BaseViewModel<MapMvvm.View> implements MapMvvm
         }
     }
 
-
     // Map Callback
     @Override
     public void activate(OnLocationChangedListener onLocationChangedListener) {

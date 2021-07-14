@@ -84,605 +84,606 @@
 43-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:37:9-48
 44        android:supportsRtl="true"
 44-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:38:9-35
-45        android:theme="@style/Theme.Owntracks" >
-45-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:39:9-47
-46        <activity android:name="org.owntracks.android.ui.qrcodepopup.QrCodePopUp" />
-46-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:9-73
-46-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:19-61
-47        <activity android:name="org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp" />
-47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:9-79
-47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:19-67
-48        <activity android:name="org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp" />
-48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:9-96
-48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:19-84
-49        <!-- Disables default initialization of WorkManager because custom initializer is used in App.onCreate() -->
-50        <provider
-51            android:name="androidx.work.impl.WorkManagerInitializer"
-51-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:47:13-69
-52            android:authorities="org.owntracks.android.debug.workmanager-init"
-52-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:48:13-68
-53            android:directBootAware="false"
-53-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:34:13-44
-54            android:enabled="false"
-54-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:49:13-36
-55            android:exported="false"
-55-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:50:13-37
-56            android:multiprocess="true" /> <!-- Maps SDK requires this as of API v28 -->
-56-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:36:13-40
-57        <uses-library
-57-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:52:9-54:40
-58            android:name="org.apache.http.legacy"
-58-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:53:13-50
-59            android:required="false" />
-59-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:54:13-37
-60
-61        <meta-data
-61-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:56:9-58:59
-62            android:name="com.google.android.geo.API_KEY"
-62-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:57:13-58
-63            android:value="@string/GOOGLE_MAPS_API_KEY" />
-63-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:58:13-56
-64        <meta-data
-64-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:59:9-61:51
-65            android:name="android.support.PARENT_ACTIVITY"
-65-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:60:13-59
-66            android:value=".ui.map.MapActivity" />
-66-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:61:13-48
-67        <meta-data
-67-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:62:9-64:36
-68            android:name="firebase_analytics_collection_deactivated"
-68-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:63:13-69
-69            android:value="true" />
-69-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:64:13-33
-70
-71        <activity
-71-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:66:9-70:64
-72            android:name="org.owntracks.android.ui.preferences.PreferencesActivity"
-72-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:67:13-63
-73            android:hardwareAccelerated="true"
-73-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:68:13-47
-74            android:label="@string/title_activity_preferences"
-74-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:69:13-63
-75            android:parentActivityName="org.owntracks.android.ui.map.MapActivity" />
-75-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:70:13-61
-76        <activity
-76-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:71:9-79:20
-77            android:name="org.owntracks.android.ui.preferences.editor.EditorActivity"
-77-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:72:13-65
-78            android:configChanges="orientation"
-78-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:73:13-48
-79            android:label="@string/configurationManagement"
-79-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:74:13-60
-80            android:parentActivityName="org.owntracks.android.ui.preferences.PreferencesActivity" >
-80-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:75:13-77
-81            <meta-data
-81-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:59:9-61:51
-82                android:name="android.support.PARENT_ACTIVITY"
-82-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:60:13-59
-83                android:value=".ui.preferences.PreferencesActivity" />
-83-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:61:13-48
-84        </activity>
-85        <activity
-85-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:80:9-139:20
-86            android:name="org.owntracks.android.ui.preferences.load.LoadActivity"
-86-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:81:13-61
-87            android:configChanges="orientation"
-87-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:82:13-48
-88            android:label="@string/app_name"
-88-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:83:13-45
-89            android:launchMode="singleTask" >
-89-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:84:13-44
-90
-91            <!-- Support two dots in file name: -->
-92            <intent-filter>
-92-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:87:13-97:29
-93                <action android:name="android.intent.action.VIEW" />
-93-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
-93-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
-94
-95                <category android:name="android.intent.category.DEFAULT" />
-95-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
-95-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
-96
-97                <data
-97-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
-98                    android:host="*"
-98-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:93:21-37
-99                    android:mimeType="*/*"
-99-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
-100                    android:pathPattern=".*\\..*\\.otrc"
-100-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:95:21-57
-101                    android:scheme="content" />
-101-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:96:21-45
-102            </intent-filter>
-103
-104            <!-- Support three dots in file name: -->
-105            <intent-filter>
-105-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:100:13-110:29
-106                <action android:name="android.intent.action.VIEW" />
-106-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
-106-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
-107
-108                <category android:name="android.intent.category.DEFAULT" />
-108-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
-108-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
-109
-110                <data
-110-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
-111                    android:host="*"
-111-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:93:21-37
-112                    android:mimeType="*/*"
-112-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
-113                    android:pathPattern=".*\\..*\\..*\\.otrc"
-113-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:95:21-57
-114                    android:scheme="content" />
-114-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:96:21-45
-115            </intent-filter>
-116            <intent-filter>
-116-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:111:13-117:29
-117                <action android:name="android.intent.action.VIEW" />
-117-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
-117-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
-118
-119                <category android:name="android.intent.category.DEFAULT" />
-119-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
-119-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
-120
-121                <data android:mimeType="text/plain" />
-121-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
-121-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
-122            </intent-filter>
-123            <intent-filter>
-123-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:118:13-124:29
-124                <action android:name="android.intent.action.VIEW" />
-124-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
-124-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
-125
-126                <category android:name="android.intent.category.DEFAULT" />
-126-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
-126-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
-127
-128                <data android:mimeType="application/json" />
-128-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
-128-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
-129            </intent-filter>
-130            <intent-filter>
-130-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:125:13-131:29
-131                <action android:name="android.intent.action.VIEW" />
-131-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
-131-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
-132
-133                <category android:name="android.intent.category.DEFAULT" />
-133-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
-133-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
-134
-135                <data android:mimeType="application/otrc" />
-135-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
-135-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
-136            </intent-filter>
-137            <intent-filter>
-137-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:132:13-138:29
-138                <action android:name="android.intent.action.VIEW" />
-138-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
-138-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
-139
-140                <category android:name="android.intent.category.DEFAULT" />
-140-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
-140-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
-141
-142                <data android:mimeType="application/octet-stream" />
-142-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
-142-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
-143            </intent-filter>
-144        </activity>
-145
-146        <provider
-146-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:141:9-149:20
-147            android:name="androidx.core.content.FileProvider"
-147-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:142:13-62
-148            android:authorities="org.owntracks.android.fileprovider"
-148-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:143:13-69
-149            android:exported="false"
-149-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:144:13-37
-150            android:grantUriPermissions="true" >
-150-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:145:13-47
-151            <meta-data
-151-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:146:13-148:53
-152                android:name="android.support.FILE_PROVIDER_PATHS"
-152-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:147:17-67
-153                android:resource="@xml/filepaths" />
-153-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:148:17-50
-154        </provider>
-155
-156        <service
-156-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:151:9-164:19
-157            android:name="org.owntracks.android.services.BackgroundService"
-157-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:152:13-55
-158            android:enabled="true"
-158-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:153:13-35
-159            android:exported="true"
-159-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:154:13-36
-160            android:foregroundServiceType="location" >
-160-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:155:13-53
-161            <intent-filter>
-161-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:157:13-163:29
-162                <action android:name="org.owntracks.android.CLEAR_NOTIFICATIONS" /> <!-- INTENT_ACTION_CLEAR_NOTIFICATIONS -->
-162-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:158:17-84
-162-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:158:25-81
-163                <action android:name="org.owntracks.android.SEND_LOCATION_USER" /> <!-- INTENT_ACTION_SEND_LOCATION_PING -->
-163-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:159:17-83
-163-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:159:25-80
-164                <action android:name="org.owntracks.android.SEND_EVENT_CIRCULAR" /> <!-- INTENT_ACTION_SEND_WAYPOINTS -->
-164-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:160:17-84
-164-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:160:25-81
-165                <action android:name="org.owntracks.android.REREQUEST_LOCATION_UPDATES" /> <!-- REREQUEST_LOCATION_UPDATES -->
-165-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:161:17-91
-165-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:161:25-88
-166                <action android:name="org.owntracks.android.CHANGE_MONITORING" /> <!-- INTENT_ACTION_CHANGE_MONITORING -->
-166-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:162:17-82
-166-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:162:25-79
-167            </intent-filter>
-168        </service>
-169
-170        <receiver
-170-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:166:9-176:20
-171            android:name="org.owntracks.android.support.receiver.StartBackgroundServiceReceiver"
-171-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:167:13-76
-172            android:enabled="true"
-172-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:168:13-35
-173            android:exported="true" >
-173-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:169:13-36
-174            <intent-filter>
-174-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:170:13-172:29
-175                <action android:name="android.intent.action.BOOT_COMPLETED" />
-175-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:17-79
-175-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:25-76
-176            </intent-filter>
-177            <intent-filter>
-177-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:173:13-175:29
-178                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-178-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:174:17-84
-178-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:174:25-81
-179            </intent-filter>
-180        </receiver>
-181
-182        <activity
-182-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:178:9-187:20
-183            android:name="org.owntracks.android.ui.status.StatusActivity"
-183-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:179:13-53
-184            android:exported="true"
-184-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:180:13-36
-185            android:label="@string/title_activity_status"
-185-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:181:13-58
-186            android:launchMode="singleTop"
-186-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:182:13-43
-187            android:parentActivityName="org.owntracks.android.ui.map.MapActivity" >
-187-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:183:13-61
-188            <meta-data
-188-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:59:9-61:51
-189                android:name="android.support.PARENT_ACTIVITY"
-189-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:60:13-59
-190                android:value=".ui.map.MapActivity" />
-190-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:61:13-48
-191        </activity>
-192        <activity
-192-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:188:9-191:46
-193            android:name="org.owntracks.android.ui.invite.InviteActivity"
-193-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:188:19-59
-194            android:clearTaskOnLaunch="true"
-194-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:189:13-45
-195            android:label="@string/title_activity_invite"
-195-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:190:13-58
-196            android:launchMode="singleTask" />
-196-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:191:13-44
-197        <activity
-197-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:9-195:46
-198            android:name="org.owntracks.android.ui.importqrcode.ParkplatzActivity"
-198-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:19-68
-199            android:clearTaskOnLaunch="true"
-199-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:193:13-45
-200            android:label="@string/title_activity_parkplatz"
-200-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:194:13-61
-201            android:launchMode="singleTask" />
-201-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:195:13-44
-202        <activity
-202-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:9-199:46
-203            android:name="org.owntracks.android.ui.history.LastQRCodesActivity"
-203-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:19-65
-204            android:clearTaskOnLaunch="true"
-204-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:197:13-45
-205            android:label="@string/title_activity_lastqrcodes"
-205-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:198:13-63
-206            android:launchMode="singleTask" />
-206-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:199:13-44
-207        <activity
-207-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:200:9-203:46
-208            android:name="org.owntracks.android.ui.managementaccount.ManagementAccountActivity"
-208-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:200:19-81
-209            android:clearTaskOnLaunch="true"
-209-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:201:13-45
-210            android:label="@string/title_management_acc"
-210-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:202:13-57
-211            android:launchMode="singleTask" />
-211-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:203:13-44
-212        <activity
-212-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:204:9-214:20
-213            android:name="org.owntracks.android.ui.map.MapActivity"
-213-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:205:13-47
-214            android:clearTaskOnLaunch="true"
-214-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:206:13-45
-215            android:label="@string/app_name"
-215-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:207:13-45
-216            android:launchMode="singleTask" >
-216-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:208:13-44
-217            <intent-filter>
-217-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:209:13-213:29
-218                <action android:name="android.intent.action.MAIN" />
-218-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:210:17-69
-218-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:210:25-66
-219
-220                <category android:name="android.intent.category.LAUNCHER" />
-220-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:212:17-77
-220-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:212:27-74
-221            </intent-filter>
-222        </activity>
-223        <activity
-223-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:215:9-219:47
-224            android:name="org.owntracks.android.ui.preferences.connection.ConnectionActivity"
-224-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:216:13-73
-225            android:clearTaskOnLaunch="true"
-225-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:217:13-45
-226            android:label="@string/title_activity_connection_login"
-226-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:218:13-68
-227            android:launchMode="singleTask" />
-227-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:219:13-44
-228        <activity
-228-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:220:9-224:47
-229            android:name="org.owntracks.android.ui.register.RegisterActivity"
-229-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:221:13-57
-230            android:clearTaskOnLaunch="true"
-230-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:222:13-45
-231            android:label="@string/title_activity_register"
-231-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:223:13-60
-232            android:launchMode="singleTask" />
-232-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:224:13-44
-233        <activity
-233-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:225:9-229:47
-234            android:name="org.owntracks.android.ui.preferences.LogViewerActivity"
-234-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:226:13-61
-235            android:clearTaskOnLaunch="true"
-235-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:227:13-45
-236            android:label="@string/logViewerActivityTitle"
-236-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:228:13-59
-237            android:launchMode="singleTask" />
-237-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:229:13-44
-238        <activity
-238-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:230:9-235:55
-239            android:name="org.owntracks.android.ui.welcome.WelcomeActivity"
-239-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:231:13-55
-240            android:configChanges="orientation|keyboardHidden"
-240-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:232:13-63
-241            android:label="@string/app_name"
-241-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:233:13-45
-242            android:launchMode="singleTask"
-242-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:234:13-44
-243            android:screenOrientation="unspecified" />
-243-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:235:13-52
-244
-245        <provider
-246            android:name="org.owntracks.android.ui.preferences.LogViewerActivity$ExportedLogContentProvider"
-246-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:238:13-88
-247            android:authorities="org.owntracks.android.debug.log"
-247-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:239:13-55
-248            android:exported="false"
-248-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:240:13-37
-249            android:grantUriPermissions="true" />
-249-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:241:13-47
-250
-251        <service
-251-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:39:9-44:35
-252            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
-252-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:40:13-88
-253            android:directBootAware="false"
-253-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:41:13-44
-254            android:enabled="@bool/enable_system_alarm_service_default"
-254-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:42:13-72
-255            android:exported="false" />
-255-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:43:13-37
-256        <service
-256-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:45:9-51:35
-257            android:name="androidx.work.impl.background.systemjob.SystemJobService"
-257-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:46:13-84
-258            android:directBootAware="false"
-258-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:47:13-44
-259            android:enabled="@bool/enable_system_job_service_default"
-259-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:48:13-70
-260            android:exported="true"
-260-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:49:13-36
-261            android:permission="android.permission.BIND_JOB_SERVICE" />
-261-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:50:13-69
-262        <service
-262-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:52:9-57:35
-263            android:name="androidx.work.impl.foreground.SystemForegroundService"
-263-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:53:13-81
-264            android:directBootAware="false"
-264-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:54:13-44
-265            android:enabled="@bool/enable_system_foreground_service_default"
-265-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:55:13-77
-266            android:exported="false" />
-266-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:56:13-37
-267
-268        <receiver
-268-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:59:9-64:35
-269            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
-269-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:60:13-88
-270            android:directBootAware="false"
-270-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:61:13-44
-271            android:enabled="true"
-271-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:62:13-35
-272            android:exported="false" />
-272-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:63:13-37
-273        <receiver
-273-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:65:9-75:20
-274            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
-274-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:66:13-106
-275            android:directBootAware="false"
-275-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:67:13-44
-276            android:enabled="false"
-276-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:68:13-36
-277            android:exported="false" >
-277-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:69:13-37
-278            <intent-filter>
-278-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:71:13-74:29
-279                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-279-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:72:17-87
-279-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:72:25-84
-280                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-280-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:73:17-90
-280-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:73:25-87
-281            </intent-filter>
-282        </receiver>
-283        <receiver
-283-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:76:9-86:20
-284            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
-284-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:77:13-104
-285            android:directBootAware="false"
-285-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:78:13-44
-286            android:enabled="false"
-286-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:79:13-36
-287            android:exported="false" >
-287-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:80:13-37
-288            <intent-filter>
-288-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:82:13-85:29
-289                <action android:name="android.intent.action.BATTERY_OKAY" />
-289-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:83:17-77
-289-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:83:25-74
-290                <action android:name="android.intent.action.BATTERY_LOW" />
-290-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:84:17-76
-290-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:84:25-73
-291            </intent-filter>
-292        </receiver>
-293        <receiver
-293-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:87:9-97:20
-294            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
-294-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:88:13-104
-295            android:directBootAware="false"
-295-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:89:13-44
-296            android:enabled="false"
-296-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:90:13-36
-297            android:exported="false" >
-297-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:91:13-37
-298            <intent-filter>
-298-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:93:13-96:29
-299                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-299-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:94:17-83
-299-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:94:25-80
-300                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-300-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:95:17-82
-300-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:95:25-79
-301            </intent-filter>
-302        </receiver>
-303        <receiver
-303-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:98:9-107:20
-304            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
-304-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:99:13-103
-305            android:directBootAware="false"
-305-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:100:13-44
-306            android:enabled="false"
-306-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:101:13-36
-307            android:exported="false" >
-307-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:102:13-37
-308            <intent-filter>
-308-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:104:13-106:29
-309                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-309-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:105:17-79
-309-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:105:25-76
-310            </intent-filter>
-311        </receiver>
-312        <receiver
-312-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:108:9-119:20
-313            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
-313-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:109:13-88
-314            android:directBootAware="false"
-314-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:110:13-44
-315            android:enabled="false"
-315-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:111:13-36
-316            android:exported="false" >
-316-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:112:13-37
-317            <intent-filter>
-317-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:114:13-118:29
-318                <action android:name="android.intent.action.BOOT_COMPLETED" />
-318-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:17-79
-318-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:25-76
-319                <action android:name="android.intent.action.TIME_SET" />
-319-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:116:17-73
-319-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:116:25-70
-320                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-320-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:117:17-81
-320-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:117:25-78
-321            </intent-filter>
-322        </receiver>
-323        <receiver
-323-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:120:9-129:20
-324            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
-324-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:121:13-99
-325            android:directBootAware="false"
-325-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:122:13-44
-326            android:enabled="@bool/enable_system_alarm_service_default"
-326-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:123:13-72
-327            android:exported="false" >
-327-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:124:13-37
-328            <intent-filter>
-328-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:126:13-128:29
-329                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
-329-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:127:17-98
-329-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:127:25-95
-330            </intent-filter>
-331        </receiver>
-332        <receiver
-332-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:130:9-140:20
-333            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
-333-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:131:13-78
-334            android:directBootAware="false"
-334-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:132:13-44
-335            android:enabled="true"
-335-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:133:13-35
-336            android:exported="true"
-336-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:134:13-36
-337            android:permission="android.permission.DUMP" >
-337-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:135:13-57
-338            <intent-filter>
-338-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:137:13-139:29
-339                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
-339-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:138:17-88
-339-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:138:25-85
-340            </intent-filter>
-341        </receiver>
-342
-343        <activity
-343-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:23:9-26:75
-344            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-344-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:24:13-79
-345            android:exported="false"
-345-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:25:13-37
-346            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-346-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:26:13-72
-347
-348        <meta-data
-348-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:23:9-25:69
-349            android:name="com.google.android.gms.version"
-349-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:24:13-58
-350            android:value="@integer/google_play_services_version" />
-350-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:25:13-66
-351
-352        <service
-352-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
-353            android:name="androidx.room.MultiInstanceInvalidationService"
-353-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
-354            android:directBootAware="true"
-354-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
-355            android:exported="false" />
-355-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
-356    </application>
-357
-358</manifest>
+45        android:testOnly="true"
+46        android:theme="@style/Theme.Owntracks" >
+46-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:39:9-47
+47        <activity android:name="org.owntracks.android.ui.qrcodepopup.QrCodePopUp" />
+47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:9-73
+47-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:42:19-61
+48        <activity android:name="org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp" />
+48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:9-79
+48-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:43:19-67
+49        <activity android:name="org.owntracks.android.ui.availableparkingspot.AvailableParkingSpotPopUp" />
+49-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:9-96
+49-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:44:19-84
+50        <!-- Disables default initialization of WorkManager because custom initializer is used in App.onCreate() -->
+51        <provider
+52            android:name="androidx.work.impl.WorkManagerInitializer"
+52-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:47:13-69
+53            android:authorities="org.owntracks.android.debug.workmanager-init"
+53-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:48:13-68
+54            android:directBootAware="false"
+54-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:34:13-44
+55            android:enabled="false"
+55-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:49:13-36
+56            android:exported="false"
+56-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:50:13-37
+57            android:multiprocess="true" /> <!-- Maps SDK requires this as of API v28 -->
+57-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:36:13-40
+58        <uses-library
+58-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:52:9-54:40
+59            android:name="org.apache.http.legacy"
+59-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:53:13-50
+60            android:required="false" />
+60-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:54:13-37
+61
+62        <meta-data
+62-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:56:9-58:59
+63            android:name="com.google.android.geo.API_KEY"
+63-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:57:13-58
+64            android:value="@string/GOOGLE_MAPS_API_KEY" />
+64-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:58:13-56
+65        <meta-data
+65-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:59:9-61:51
+66            android:name="android.support.PARENT_ACTIVITY"
+66-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:60:13-59
+67            android:value=".ui.map.MapActivity" />
+67-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:61:13-48
+68        <meta-data
+68-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:62:9-64:36
+69            android:name="firebase_analytics_collection_deactivated"
+69-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:63:13-69
+70            android:value="true" />
+70-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:64:13-33
+71
+72        <activity
+72-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:66:9-70:64
+73            android:name="org.owntracks.android.ui.preferences.PreferencesActivity"
+73-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:67:13-63
+74            android:hardwareAccelerated="true"
+74-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:68:13-47
+75            android:label="@string/title_activity_preferences"
+75-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:69:13-63
+76            android:parentActivityName="org.owntracks.android.ui.map.MapActivity" />
+76-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:70:13-61
+77        <activity
+77-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:71:9-79:20
+78            android:name="org.owntracks.android.ui.preferences.editor.EditorActivity"
+78-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:72:13-65
+79            android:configChanges="orientation"
+79-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:73:13-48
+80            android:label="@string/configurationManagement"
+80-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:74:13-60
+81            android:parentActivityName="org.owntracks.android.ui.preferences.PreferencesActivity" >
+81-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:75:13-77
+82            <meta-data
+82-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:59:9-61:51
+83                android:name="android.support.PARENT_ACTIVITY"
+83-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:60:13-59
+84                android:value=".ui.preferences.PreferencesActivity" />
+84-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:61:13-48
+85        </activity>
+86        <activity
+86-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:80:9-139:20
+87            android:name="org.owntracks.android.ui.preferences.load.LoadActivity"
+87-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:81:13-61
+88            android:configChanges="orientation"
+88-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:82:13-48
+89            android:label="@string/app_name"
+89-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:83:13-45
+90            android:launchMode="singleTask" >
+90-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:84:13-44
+91
+92            <!-- Support two dots in file name: -->
+93            <intent-filter>
+93-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:87:13-97:29
+94                <action android:name="android.intent.action.VIEW" />
+94-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
+94-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
+95
+96                <category android:name="android.intent.category.DEFAULT" />
+96-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
+96-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
+97
+98                <data
+98-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
+99                    android:host="*"
+99-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:93:21-37
+100                    android:mimeType="*/*"
+100-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
+101                    android:pathPattern=".*\\..*\\.otrc"
+101-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:95:21-57
+102                    android:scheme="content" />
+102-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:96:21-45
+103            </intent-filter>
+104
+105            <!-- Support three dots in file name: -->
+106            <intent-filter>
+106-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:100:13-110:29
+107                <action android:name="android.intent.action.VIEW" />
+107-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
+107-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
+108
+109                <category android:name="android.intent.category.DEFAULT" />
+109-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
+109-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
+110
+111                <data
+111-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
+112                    android:host="*"
+112-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:93:21-37
+113                    android:mimeType="*/*"
+113-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
+114                    android:pathPattern=".*\\..*\\..*\\.otrc"
+114-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:95:21-57
+115                    android:scheme="content" />
+115-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:96:21-45
+116            </intent-filter>
+117            <intent-filter>
+117-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:111:13-117:29
+118                <action android:name="android.intent.action.VIEW" />
+118-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
+118-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
+119
+120                <category android:name="android.intent.category.DEFAULT" />
+120-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
+120-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
+121
+122                <data android:mimeType="text/plain" />
+122-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
+122-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
+123            </intent-filter>
+124            <intent-filter>
+124-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:118:13-124:29
+125                <action android:name="android.intent.action.VIEW" />
+125-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
+125-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
+126
+127                <category android:name="android.intent.category.DEFAULT" />
+127-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
+127-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
+128
+129                <data android:mimeType="application/json" />
+129-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
+129-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
+130            </intent-filter>
+131            <intent-filter>
+131-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:125:13-131:29
+132                <action android:name="android.intent.action.VIEW" />
+132-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
+132-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
+133
+134                <category android:name="android.intent.category.DEFAULT" />
+134-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
+134-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
+135
+136                <data android:mimeType="application/otrc" />
+136-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
+136-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
+137            </intent-filter>
+138            <intent-filter>
+138-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:132:13-138:29
+139                <action android:name="android.intent.action.VIEW" />
+139-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:17-69
+139-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:88:25-66
+140
+141                <category android:name="android.intent.category.DEFAULT" />
+141-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:17-76
+141-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:90:27-73
+142
+143                <data android:mimeType="application/octet-stream" />
+143-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:92:17-96:48
+143-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:94:21-43
+144            </intent-filter>
+145        </activity>
+146
+147        <provider
+147-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:141:9-149:20
+148            android:name="androidx.core.content.FileProvider"
+148-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:142:13-62
+149            android:authorities="org.owntracks.android.fileprovider"
+149-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:143:13-69
+150            android:exported="false"
+150-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:144:13-37
+151            android:grantUriPermissions="true" >
+151-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:145:13-47
+152            <meta-data
+152-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:146:13-148:53
+153                android:name="android.support.FILE_PROVIDER_PATHS"
+153-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:147:17-67
+154                android:resource="@xml/filepaths" />
+154-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:148:17-50
+155        </provider>
+156
+157        <service
+157-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:151:9-164:19
+158            android:name="org.owntracks.android.services.BackgroundService"
+158-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:152:13-55
+159            android:enabled="true"
+159-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:153:13-35
+160            android:exported="true"
+160-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:154:13-36
+161            android:foregroundServiceType="location" >
+161-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:155:13-53
+162            <intent-filter>
+162-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:157:13-163:29
+163                <action android:name="org.owntracks.android.CLEAR_NOTIFICATIONS" /> <!-- INTENT_ACTION_CLEAR_NOTIFICATIONS -->
+163-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:158:17-84
+163-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:158:25-81
+164                <action android:name="org.owntracks.android.SEND_LOCATION_USER" /> <!-- INTENT_ACTION_SEND_LOCATION_PING -->
+164-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:159:17-83
+164-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:159:25-80
+165                <action android:name="org.owntracks.android.SEND_EVENT_CIRCULAR" /> <!-- INTENT_ACTION_SEND_WAYPOINTS -->
+165-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:160:17-84
+165-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:160:25-81
+166                <action android:name="org.owntracks.android.REREQUEST_LOCATION_UPDATES" /> <!-- REREQUEST_LOCATION_UPDATES -->
+166-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:161:17-91
+166-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:161:25-88
+167                <action android:name="org.owntracks.android.CHANGE_MONITORING" /> <!-- INTENT_ACTION_CHANGE_MONITORING -->
+167-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:162:17-82
+167-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:162:25-79
+168            </intent-filter>
+169        </service>
+170
+171        <receiver
+171-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:166:9-176:20
+172            android:name="org.owntracks.android.support.receiver.StartBackgroundServiceReceiver"
+172-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:167:13-76
+173            android:enabled="true"
+173-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:168:13-35
+174            android:exported="true" >
+174-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:169:13-36
+175            <intent-filter>
+175-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:170:13-172:29
+176                <action android:name="android.intent.action.BOOT_COMPLETED" />
+176-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:17-79
+176-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:25-76
+177            </intent-filter>
+178            <intent-filter>
+178-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:173:13-175:29
+179                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+179-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:174:17-84
+179-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:174:25-81
+180            </intent-filter>
+181        </receiver>
+182
+183        <activity
+183-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:178:9-187:20
+184            android:name="org.owntracks.android.ui.status.StatusActivity"
+184-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:179:13-53
+185            android:exported="true"
+185-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:180:13-36
+186            android:label="@string/title_activity_status"
+186-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:181:13-58
+187            android:launchMode="singleTop"
+187-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:182:13-43
+188            android:parentActivityName="org.owntracks.android.ui.map.MapActivity" >
+188-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:183:13-61
+189            <meta-data
+189-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:59:9-61:51
+190                android:name="android.support.PARENT_ACTIVITY"
+190-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:60:13-59
+191                android:value=".ui.map.MapActivity" />
+191-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:61:13-48
+192        </activity>
+193        <activity
+193-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:188:9-191:46
+194            android:name="org.owntracks.android.ui.invite.InviteActivity"
+194-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:188:19-59
+195            android:clearTaskOnLaunch="true"
+195-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:189:13-45
+196            android:label="@string/title_activity_invite"
+196-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:190:13-58
+197            android:launchMode="singleTask" />
+197-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:191:13-44
+198        <activity
+198-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:9-195:46
+199            android:name="org.owntracks.android.ui.importqrcode.ParkplatzActivity"
+199-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:192:19-68
+200            android:clearTaskOnLaunch="true"
+200-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:193:13-45
+201            android:label="@string/title_activity_parkplatz"
+201-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:194:13-61
+202            android:launchMode="singleTask" />
+202-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:195:13-44
+203        <activity
+203-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:9-199:46
+204            android:name="org.owntracks.android.ui.history.LastQRCodesActivity"
+204-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:196:19-65
+205            android:clearTaskOnLaunch="true"
+205-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:197:13-45
+206            android:label="@string/title_activity_lastqrcodes"
+206-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:198:13-63
+207            android:launchMode="singleTask" />
+207-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:199:13-44
+208        <activity
+208-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:200:9-203:46
+209            android:name="org.owntracks.android.ui.managementaccount.ManagementAccountActivity"
+209-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:200:19-81
+210            android:clearTaskOnLaunch="true"
+210-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:201:13-45
+211            android:label="@string/title_management_acc"
+211-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:202:13-57
+212            android:launchMode="singleTask" />
+212-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:203:13-44
+213        <activity
+213-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:204:9-214:20
+214            android:name="org.owntracks.android.ui.map.MapActivity"
+214-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:205:13-47
+215            android:clearTaskOnLaunch="true"
+215-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:206:13-45
+216            android:label="@string/app_name"
+216-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:207:13-45
+217            android:launchMode="singleTask" >
+217-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:208:13-44
+218            <intent-filter>
+218-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:209:13-213:29
+219                <action android:name="android.intent.action.MAIN" />
+219-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:210:17-69
+219-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:210:25-66
+220
+221                <category android:name="android.intent.category.LAUNCHER" />
+221-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:212:17-77
+221-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:212:27-74
+222            </intent-filter>
+223        </activity>
+224        <activity
+224-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:215:9-219:47
+225            android:name="org.owntracks.android.ui.preferences.connection.ConnectionActivity"
+225-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:216:13-73
+226            android:clearTaskOnLaunch="true"
+226-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:217:13-45
+227            android:label="@string/title_activity_connection_login"
+227-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:218:13-68
+228            android:launchMode="singleTask" />
+228-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:219:13-44
+229        <activity
+229-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:220:9-224:47
+230            android:name="org.owntracks.android.ui.register.RegisterActivity"
+230-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:221:13-57
+231            android:clearTaskOnLaunch="true"
+231-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:222:13-45
+232            android:label="@string/title_activity_register"
+232-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:223:13-60
+233            android:launchMode="singleTask" />
+233-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:224:13-44
+234        <activity
+234-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:225:9-229:47
+235            android:name="org.owntracks.android.ui.preferences.LogViewerActivity"
+235-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:226:13-61
+236            android:clearTaskOnLaunch="true"
+236-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:227:13-45
+237            android:label="@string/logViewerActivityTitle"
+237-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:228:13-59
+238            android:launchMode="singleTask" />
+238-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:229:13-44
+239        <activity
+239-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:230:9-235:55
+240            android:name="org.owntracks.android.ui.welcome.WelcomeActivity"
+240-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:231:13-55
+241            android:configChanges="orientation|keyboardHidden"
+241-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:232:13-63
+242            android:label="@string/app_name"
+242-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:233:13-45
+243            android:launchMode="singleTask"
+243-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:234:13-44
+244            android:screenOrientation="unspecified" />
+244-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:235:13-52
+245
+246        <provider
+247            android:name="org.owntracks.android.ui.preferences.LogViewerActivity$ExportedLogContentProvider"
+247-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:238:13-88
+248            android:authorities="org.owntracks.android.debug.log"
+248-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:239:13-55
+249            android:exported="false"
+249-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:240:13-37
+250            android:grantUriPermissions="true" />
+250-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:241:13-47
+251
+252        <service
+252-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:39:9-44:35
+253            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+253-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:40:13-88
+254            android:directBootAware="false"
+254-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:41:13-44
+255            android:enabled="@bool/enable_system_alarm_service_default"
+255-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:42:13-72
+256            android:exported="false" />
+256-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:43:13-37
+257        <service
+257-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:45:9-51:35
+258            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+258-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:46:13-84
+259            android:directBootAware="false"
+259-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:47:13-44
+260            android:enabled="@bool/enable_system_job_service_default"
+260-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:48:13-70
+261            android:exported="true"
+261-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:49:13-36
+262            android:permission="android.permission.BIND_JOB_SERVICE" />
+262-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:50:13-69
+263        <service
+263-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:52:9-57:35
+264            android:name="androidx.work.impl.foreground.SystemForegroundService"
+264-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:53:13-81
+265            android:directBootAware="false"
+265-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:54:13-44
+266            android:enabled="@bool/enable_system_foreground_service_default"
+266-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:55:13-77
+267            android:exported="false" />
+267-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:56:13-37
+268
+269        <receiver
+269-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:59:9-64:35
+270            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+270-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:60:13-88
+271            android:directBootAware="false"
+271-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:61:13-44
+272            android:enabled="true"
+272-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:62:13-35
+273            android:exported="false" />
+273-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:63:13-37
+274        <receiver
+274-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:65:9-75:20
+275            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+275-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:66:13-106
+276            android:directBootAware="false"
+276-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:67:13-44
+277            android:enabled="false"
+277-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:68:13-36
+278            android:exported="false" >
+278-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:69:13-37
+279            <intent-filter>
+279-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:71:13-74:29
+280                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+280-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:72:17-87
+280-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:72:25-84
+281                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+281-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:73:17-90
+281-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:73:25-87
+282            </intent-filter>
+283        </receiver>
+284        <receiver
+284-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:76:9-86:20
+285            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+285-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:77:13-104
+286            android:directBootAware="false"
+286-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:78:13-44
+287            android:enabled="false"
+287-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:79:13-36
+288            android:exported="false" >
+288-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:80:13-37
+289            <intent-filter>
+289-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:82:13-85:29
+290                <action android:name="android.intent.action.BATTERY_OKAY" />
+290-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:83:17-77
+290-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:83:25-74
+291                <action android:name="android.intent.action.BATTERY_LOW" />
+291-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:84:17-76
+291-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:84:25-73
+292            </intent-filter>
+293        </receiver>
+294        <receiver
+294-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:87:9-97:20
+295            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+295-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:88:13-104
+296            android:directBootAware="false"
+296-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:89:13-44
+297            android:enabled="false"
+297-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:90:13-36
+298            android:exported="false" >
+298-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:91:13-37
+299            <intent-filter>
+299-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:93:13-96:29
+300                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+300-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:94:17-83
+300-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:94:25-80
+301                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+301-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:95:17-82
+301-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:95:25-79
+302            </intent-filter>
+303        </receiver>
+304        <receiver
+304-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:98:9-107:20
+305            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+305-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:99:13-103
+306            android:directBootAware="false"
+306-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:100:13-44
+307            android:enabled="false"
+307-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:101:13-36
+308            android:exported="false" >
+308-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:102:13-37
+309            <intent-filter>
+309-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:104:13-106:29
+310                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+310-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:105:17-79
+310-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:105:25-76
+311            </intent-filter>
+312        </receiver>
+313        <receiver
+313-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:108:9-119:20
+314            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+314-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:109:13-88
+315            android:directBootAware="false"
+315-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:110:13-44
+316            android:enabled="false"
+316-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:111:13-36
+317            android:exported="false" >
+317-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:112:13-37
+318            <intent-filter>
+318-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:114:13-118:29
+319                <action android:name="android.intent.action.BOOT_COMPLETED" />
+319-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:17-79
+319-->/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/src/main/AndroidManifest.xml:171:25-76
+320                <action android:name="android.intent.action.TIME_SET" />
+320-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:116:17-73
+320-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:116:25-70
+321                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+321-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:117:17-81
+321-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:117:25-78
+322            </intent-filter>
+323        </receiver>
+324        <receiver
+324-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:120:9-129:20
+325            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+325-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:121:13-99
+326            android:directBootAware="false"
+326-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:122:13-44
+327            android:enabled="@bool/enable_system_alarm_service_default"
+327-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:123:13-72
+328            android:exported="false" >
+328-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:124:13-37
+329            <intent-filter>
+329-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:126:13-128:29
+330                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+330-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:127:17-98
+330-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:127:25-95
+331            </intent-filter>
+332        </receiver>
+333        <receiver
+333-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:130:9-140:20
+334            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+334-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:131:13-78
+335            android:directBootAware="false"
+335-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:132:13-44
+336            android:enabled="true"
+336-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:133:13-35
+337            android:exported="true"
+337-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:134:13-36
+338            android:permission="android.permission.DUMP" >
+338-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:135:13-57
+339            <intent-filter>
+339-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:137:13-139:29
+340                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+340-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:138:17-88
+340-->[androidx.work:work-runtime:2.4.0] /home/atn/.gradle/caches/transforms-2/files-2.1/a56b44d295e73dc954d05842d6afa5b7/work-runtime-2.4.0/AndroidManifest.xml:138:25-85
+341            </intent-filter>
+342        </receiver>
+343
+344        <activity
+344-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:23:9-26:75
+345            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+345-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:24:13-79
+346            android:exported="false"
+346-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:25:13-37
+347            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+347-->[com.google.android.gms:play-services-base:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/AndroidManifest.xml:26:13-72
+348
+349        <meta-data
+349-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:23:9-25:69
+350            android:name="com.google.android.gms.version"
+350-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:24:13-58
+351            android:value="@integer/google_play_services_version" />
+351-->[com.google.android.gms:play-services-basement:17.3.0] /home/atn/.gradle/caches/transforms-2/files-2.1/6470e5b8b7414e0d355826aa847ef5cb/jetified-play-services-basement-17.3.0/AndroidManifest.xml:25:13-66
+352
+353        <service
+353-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+354            android:name="androidx.room.MultiInstanceInvalidationService"
+354-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+355            android:directBootAware="true"
+355-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+356            android:exported="false" />
+356-->[androidx.room:room-runtime:2.2.5] /home/atn/.gradle/caches/transforms-2/files-2.1/978c956b65fc61fd2ec475046089f5e0/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+357    </application>
+358
+359</manifest>

@@ -45,7 +45,7 @@ public class QrCodePopUp extends AppCompatActivity {
                 String date = jwtObject.getString(getResources().getString(R.string.date));
 
                 showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
-                showInfoParkingLocation.setText("You are in parking location "+keyID+ " - "+fieldName+"\n at "+time+" on "+date);
+                showInfoParkingLocation.setText(getString(R.string.qrCodePopUpOne)+keyID+" - "+fieldName+getString(R.string.qrCodePopUpTwo)+time+getString(R.string.qrCodePopUpThree)+date);
 
                 qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
                 qrgEncoder = new QRGEncoder(strJWT, null, QRGContents.Type.TEXT, 1000);

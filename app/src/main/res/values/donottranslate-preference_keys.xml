@@ -54,4 +54,17 @@
     <string name="preferenceKeyUsername">username</string>
     <string name="preferenceKeyVersion">_build</string>
     <string name="preferenceKeyWS">ws</string>
+
+    <!-- This following is using for Intent -->
+    <string name="availableParkingKeyID">AvailableParkingKeyID</string>
+    <string name="availableParkingFieldName">AvailableParkingFieldName</string>
+    <string name="availableParkingTime">AvailableParkingTime</string>
+    <string name="availableParkingDate">AvailableParkingDate</string>
+    <string name="numberEntranceAvailableParking">NumberEntranceAvailableParking</string>
+    <string name="entrancePosition">EntrancePosition</string>
+    <string name="jwt">JWT</string>
+    <string name="keyid">keyID</string>
+    <string name="fieldname">fieldName</string>
+    <string name="time">time</string>
+    <string name="date">date</string>
 </resources>

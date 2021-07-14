@@ -3509,7 +3509,16 @@ string preferencesWebsocket
 string previous
 string publish
 string qrCodeAlreadyExist
+string qrCodePopUpOne
+string qrCodePopUpThree
+string qrCodePopUpTwo
 string radius
+string recommendAvailableParkingFive
+string recommendAvailableParkingFour
+string recommendAvailableParkingOne
+string recommendAvailableParkingSix
+string recommendAvailableParkingThree
+string recommendAvailableParkingTwo
 string reconnect
 string region_inside
 string region_outside
