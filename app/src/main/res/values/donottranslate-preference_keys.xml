@@ -67,4 +67,10 @@
     <string name="fieldname">fieldName</string>
     <string name="time">time</string>
     <string name="date">date</string>
+
+    <!-- Strings used for marker in map-->
+    <string name="markerParkingEntrance">Selected entrance</string>
+
+    <string name="keyID">KeyID:</string>
+    <string name="fieldName">FieldName:</string>
 </resources>

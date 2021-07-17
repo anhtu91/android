@@ -47,7 +47,7 @@
     <string name="radius">Radius</string>
     <string name="addWaypoint">Ort hinzufügen</string>
     <string name="exportConfiguration">Exportieren</string>
-    <string name="contactLocationUnknown">Kein Standort verfügbar</string>
+    <string name="locationUnknown">Kein Standort verfügbar</string>
     <string name="menuNavigate">Navigieren</string>
     <string name="contactDetailsDuration">Dauer (Minuten)</string>
     <string name="fieldNameSelectedEntrance">FeldName des Eingangs</string>
@@ -185,7 +185,8 @@
     <string name="clear_log">Löschen</string>
     <string name="viewLogs">Logs ansehen</string>
     <string name="logViewerActivityTitle">Logs</string>
-    <string name="btn_invite">Sende Einladung</string>
+    <string name="btnInvite">Einladung senden</string>
+    <string name="btnRefresh">Aktualisieren</string>
     <string name="btn_get_keyID_fieldName">Parkinformationen abrufen</string>
     <string name="keyIDInvite">KeyID der Parkplätze:</string>
     <string name="fieldNameInvite">FeldName des Parkplatzes:</string>
@@ -216,4 +217,27 @@
     <string name="passwordContain">Passwort muss mindestens 5 Zeichen enthalten</string>
     <string name="repasswordContain">Passwort bestätigen muss mindestens 5 Zeichen enthalten</string>
     <string name="certPasswordContain">Zertifikatspasswort muss mindestens 5 Zeichen enthalten</string>
+
+    <string name="resultDeleteParkingSpotSuccessful">Parkplatz erfolgreich löschen</string>
+    <string name="resultDeleteParkingSpotUnsuccessful">Parkplatz löschen UNERFOLGREICH</string>
+
+    <string name="chooseKeyID">Parkplatz wählen...</string>
+    <string name="selectParkingSpot">Parkplatz auswählen</string>
+    <string name="resultAddingParkingSpotSuccessful">Parkplatz erfolgreich hinzugefügt</string>
+    <string name="resultAddingParkingSpotUnsuccessful">Hinzufügen eines Parkplatzes NICHT ERFOLGREICH</string>
+    <string name="btnOK">OK</string>
+    <string name="btnCancel">Abbrechen</string>
+
+    <string name="noConnectionMQTT">Keine Verbindung zum MQTT-Server</string>
+
+    <string name="recommendAvailableParkingOne">Sie befinden sich auf dem Parkplatz\t</string>
+    <string name="recommendAvailableParkingTwo">\num\t</string>
+    <string name="recommendAvailableParkingThree">\tan\t</string>
+    <string name="recommendAvailableParkingFour">.\nAber dieser Parkplatz ist voll.\nWir empfehlen\t</string>
+    <string name="recommendAvailableParkingFive">\tParkplätze im Kreis\n1 Kilometer hier.\nWählen Sie die Einfahrt zu diesem Parkplatz:\n</string>
+    <string name="recommendAvailableParkingSix">.\nAber dieser Parkplatz ist voll.\nEs gibt keinen freien Parkplatz\nim Umkreis von einem Kilometer.</string>
+
+    <string name="qrCodePopUpOne">Sie befinden sich am Parkplatz\n</string>
+    <string name="qrCodePopUpTwo">\num\t</string>
+    <string name="qrCodePopUpThree">\tan\t</string>
 </resources>

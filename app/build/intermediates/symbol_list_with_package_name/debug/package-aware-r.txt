@@ -3152,10 +3152,10 @@ string availableParkingKeyID
 string availableParkingTime
 string bottom_sheet_behavior
 string btnCancel
+string btnInvite
 string btnOK
+string btnRefresh
 string btn_get_keyID_fieldName
-string btn_invite
-string btn_refresh
 string cancel
 string certPasswordContain
 string character_counter_content_description

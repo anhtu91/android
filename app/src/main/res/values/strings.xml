@@ -209,11 +209,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- Strings used for marker in map DO NOT TRANSLATE-->
-    <string name="markerParkingEntrance">Selected entrance</string>
     <!-- Strings used for invite feature -->
-    <string name="btn_invite">Send invite</string>
-    <string name="btn_refresh">Refresh</string>
+    <string name="btnInvite">Send invite</string>
+    <string name="btnRefresh">Refresh</string>
     <string name="btn_get_keyID_fieldName">Get Parking Info</string>
     <string name="keyIDInvite">KeyID of parking spots:</string>
     <string name="fieldNameInvite">FieldName of parking spot:</string>
@@ -244,8 +242,6 @@
     <string name="repasswordContain">Confirm Password must contain at least 5 characters</string>
     <string name="certPasswordContain">Certificate Password must contain at least 5 characters</string>
 
-    <string name="keyID">KeyID:</string>
-    <string name="fieldName">FieldName:</string>
     <string name="resultDeleteParkingSpotSuccessful">Delete parking spot successful</string>
     <string name="resultDeleteParkingSpotUnsuccessful">Delete parking spot UNSUCCESSFUL</string>
 
@@ -262,7 +258,7 @@
     <string name="recommendAvailableParkingTwo">\nat\t</string>
     <string name="recommendAvailableParkingThree">\ton\t</string>
     <string name="recommendAvailableParkingFour">.\nBut this parking spot is full.\nWe recommend\t</string>
-    <string name="recommendAvailableParkingFive">\tparking spots in 1 kilometer around here.\nSelect entrance to these parking spot:\n</string>
+    <string name="recommendAvailableParkingFive">\tparking spots in circle\n1 kilometer around here.\nSelect entrance to these parking spot:\n</string>
     <string name="recommendAvailableParkingSix">.\nBut this parking spot is full.\nThere is no available parking spot\nin one kilometer around here.</string>
 
     <string name="qrCodePopUpOne">You are in parking location\n</string>

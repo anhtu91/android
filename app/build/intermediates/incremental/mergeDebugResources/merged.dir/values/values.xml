@@ -1511,10 +1511,10 @@
     <string name="availableParkingTime">AvailableParkingTime</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string name="btnCancel">Cancel</string>
+    <string name="btnInvite">Send invite</string>
     <string name="btnOK">OK</string>
+    <string name="btnRefresh">Refresh</string>
     <string name="btn_get_keyID_fieldName">Get Parking Info</string>
-    <string name="btn_invite">Send invite</string>
-    <string name="btn_refresh">Refresh</string>
     <string name="cancel">Cancel</string>
     <string name="certPasswordContain">Certificate Password must contain at least 5 characters</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
@@ -1890,7 +1890,7 @@
     <string name="qrCodePopUpThree">\ton\t</string>
     <string name="qrCodePopUpTwo">\nat\t</string>
     <string name="radius">Radius</string>
-    <string name="recommendAvailableParkingFive">\tparking spots in 1 kilometer around here.\nSelect entrance to these parking spot:\n</string>
+    <string name="recommendAvailableParkingFive">\tparking spots in circle\n1 kilometer around here.\nSelect entrance to these parking spot:\n</string>
     <string name="recommendAvailableParkingFour">.\nBut this parking spot is full.\nWe recommend\t</string>
     <string name="recommendAvailableParkingOne">You are in parking spot\t</string>
     <string name="recommendAvailableParkingSix">.\nBut this parking spot is full.\nThere is no available parking spot\nin one kilometer around here.</string>

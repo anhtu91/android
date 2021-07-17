@@ -52,7 +52,7 @@
     <string name="radius">Радиус</string>
     <string name="addWaypoint">Добавить место</string>
     <string name="exportConfiguration">Экспорт</string>
-    <string name="contactLocationUnknown">Местоположение недоступно</string>
+    <string name="locationUnknown">Местоположение недоступно</string>
     <string name="menuNavigate">Перейти</string>
     <string name="menuCurrentLoction">Текущее местоположение</string>
     <string name="menuImportQRCode">Импортировать QR-код</string>
@@ -199,8 +199,9 @@
     <string name="reconnect">Переподключение</string>
     <string name="select">Выбрать</string>
     <string name="contact_image">Изображение контакта</string>
-    <string name="btn_invite">Отправить приглашение</string>
-    <string name="btn_get_keyID_fieldName">Получить информацию о парковке</string>
+    <string name = "btnInvite">Отправить приглашение</string>
+    <string name = "btnRefresh">Обновить</string>
+    <string name = "btn_get_keyID_fieldName">Получить информацию о парковке</string>
 
     <string name = "keyIDInvite"> KeyID парковочных мест:</string>
     <string name = "fieldNameInvite">FieldName парковочного места:</string>
@@ -231,4 +232,28 @@
     <string name = "passwordContain">Пароль должен содержать не менее 5 символов</string>
     <string name = "repasswordContain">Подтвержденный пароль должен содержать не менее 5 символов</string>
     <string name = "certPasswordContain">Пароль сертификата должен содержать не менее 5 символов</string>
+
+    <string name = "resultDeleteParkingSpotSuccessful">Удаление парковочного места выполнено</string>
+    <string name = "resultDeleteParkingSpotUnsuccessful">Удалить НЕУДАЧНУЮ парковку</string>
+
+    <string name = "chooseKeyID">Выбрать место для парковки ...</string>
+    <string name = "selectParkingSpot">Выбрать место для парковки</string>
+    <string name = "resultAddingParkingSpotSuccessful">Добавление места для парковки выполнено успешно</string>
+    <string name = "resultAddingParkingSpotUnsuccessful">Неудачное добавление места для парковки</string>
+    <string name = "btnOK">ОК</string>
+    <string name = "btnCancel">Отменить</string>
+
+    <string name = "noConnectionMQTT">Нет подключения к серверу MQTT</string>
+
+    <string name = "recommendAvailableParkingOne">Вы находитесь на парковке\t</string>
+    <string name = "recommendAvailableParkingTwo">\nв\t</string>
+    <string name = "recommendAvailableParkingThree">\tна\t</string>
+    <string name = "recommendAvailableParkingFour">.\nНо это место для парковки заполнено.\nМы рекомендуем\t</string>
+    <string name = "recommendAvailableParkingFive">\tпарковочные места в круге\nв 1 км вокруг.\nВыберите въезд на эти парковочные места:\n</string>
+    <string name = "recommendAvailableParkingSix">.\nНо это место для парковки заполнено.\nНет свободного места для парковки\nв радиусе одного километра вокруг.</string>
+
+    <string name = "qrCodePopUpOne">Вы находитесь на парковке\n</string>
+    <string name = "qrCodePopUpTwo">\nв\t</string>
+    <string name = "qrCodePopUpThree">\tна\t</string>
+
 </resources>

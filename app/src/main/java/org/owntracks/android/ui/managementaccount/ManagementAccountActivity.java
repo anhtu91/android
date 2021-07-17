@@ -271,7 +271,11 @@ public class ManagementAccountActivity extends BaseActivity<UiManagementAccountB
     public void onEvent(MessageReceiveKeyIDAddNewParking message){
         keyIDList.clear();
         keyIDList = message.getListKeyID();
-        if(!keyIDList.get(0).equals(getText(R.string.chooseKeyID))){
+        if(keyIDList.size() != 0){
+            if(!keyIDList.get(0).equals(getText(R.string.chooseKeyID))){
+                keyIDList.add(0, getText(R.string.chooseKeyID).toString());
+            }
+        }else{
             keyIDList.add(0, getText(R.string.chooseKeyID).toString());
         }
     }

@@ -51,7 +51,7 @@
     <string name="radius">Radio</string>
     <string name="addWaypoint">Añadir waypoint</string>
     <string name="exportConfiguration">Exportar</string>
-    <string name="contactLocationUnknown">Ubicación no disponible</string>
+    <string name="locationUnknown">Ubicación no disponible</string>
     <string name="menuNavigate">Navegar</string>
     <string name="menuCurrentLoction">Ubicación actual</string>
     <string name="menuImportQRCode">Importar código QR</string>
@@ -185,7 +185,8 @@
     <string name="clear_log">Limpiar</string>
     <string name="viewLogs">Ver registros</string>
     <string name="logViewerActivityTitle">Registros</string>
-    <string name="btn_invite">Enviar invitación</string>
+    <string name = "btnInvite"> Enviar invitación </string>
+    <string name = "btnRefresh"> Actualizar </string>
     <string name="btn_get_keyID_fieldName">Obtener información de estacionamiento</string>
     <string name="keyIDInvite">KeyID de las plazas de aparcamiento:</string>
     <string name="fieldNameInvite">Campo Nombre del lugar de estacionamiento:</string>
@@ -216,4 +217,28 @@
     <string name = "passwordContain">La contraseña debe contener al menos 5 caracteres</string>
     <string name = "repasswordContain">Confirmar contraseña debe contener al menos 5 caracteres</string>
     <string name = "certPasswordContain">La contraseña del certificado debe contener al menos 5 caracteres</string>
+
+    <string name = "resultDeleteParkingSpotSuccessful"> Eliminar el lugar de estacionamiento con éxito </string>
+    <string name = "resultDeleteParkingSpotUnsuccessful"> Eliminar lugar de estacionamiento UNSUCCESSFUL </string>
+
+    <string name = "chooseKeyID"> Elija lugar de estacionamiento ... </string>
+    <string name = "selectParkingSpot"> Seleccionar lugar de estacionamiento </string>
+    <string name = "resultAddingParkingSpotSuccessful"> Añadiendo un lugar de estacionamiento exitoso </string>
+    <string name = "resultAddingParkingSpotUnsuccessful"> Añadiendo un lugar de estacionamiento UNSUCCESSFUL </string>
+    <string name = "btnOK"> OK </string>
+    <string name = "btnCancel"> Cancelar </string>
+
+    <string name = "noConnectionMQTT"> Sin conexión al servidor MQTT </string>
+
+    <string name = "recommendAvailableParkingOne">Estás en el lugar de estacionamiento\t</string>
+    <string name = "recommendAvailableParkingTwo">\na\t</string>
+    <string name = "recommendAvailableParkingThree">\ten\t</string>
+    <string name = "recommendAvailableParkingFour">.\nPero este lugar de estacionamiento está lleno.\nRecomendamos\t</string>
+    <string name = "recommendAvailableParkingFive">\tpuestos de estacionamiento en un círculo\na 1 kilómetro por aquí.\nSeleccione la entrada a estos lugares de estacionamiento:\n</string>
+    <string name = "recommendAvailableParkingSix">.\nPero este lugar de estacionamiento está lleno.\nNo hay lugar de estacionamiento disponible\nen un kilómetro por aquí.</string>
+
+    <string name = "qrCodePopUpOne">Estás en la ubicación del estacionamiento\n</string>
+    <string name = "qrCodePopUpTwo">\na\t</string>
+    <string name = "qrCodePopUpThree">\ten\t</string>
+
 </resources>
