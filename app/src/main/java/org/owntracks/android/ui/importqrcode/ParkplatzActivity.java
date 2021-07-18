@@ -159,9 +159,9 @@ public class ParkplatzActivity extends BaseActivity<UiParkplatzBinding, Parkplat
                 String jwtContent = JWTUtils.decodeJWT(jwt); //Decode JWT
                 JSONObject jwtObject = new JSONObject(jwtContent);
 
-                if(jwtObject.has("keyID") && jwtObject.has("fieldName") && jwtObject.has("date") && jwtObject.has("time") && jwtObject.has("tst") && jwtObject.has("receiverEmail") && jwtObject.has("senderUser")){
+                if(jwtObject.has("keyID") && jwtObject.has("fieldName") && jwtObject.has("tst") && jwtObject.has("receiverEmail") && jwtObject.has("senderUser")){
                     isJWTCorrectForm = true;
-                    Timber.i("QRCode Content. Sender user: "+jwtObject.getString("senderUser")+", receiver email: " +jwtObject.getString("receiverEmail")+", keyID: "+jwtObject.getString("keyID")+", fieldName: "+jwtObject.getString("fieldName")+", tst: "+jwtObject.getInt("tst")+", date: "+jwtObject.getString("date")+", time: "+jwtObject.getString("time"));
+                    Timber.i("QRCode Content. Sender user: "+jwtObject.getString("senderUser")+", receiver email: " +jwtObject.getString("receiverEmail")+", keyID: "+jwtObject.getString("keyID")+", fieldName: "+jwtObject.getString("fieldName")+", tst: "+jwtObject.getInt("tst"));
                 }
 
                 inputStream.close();

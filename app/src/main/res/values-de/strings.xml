@@ -240,4 +240,9 @@
     <string name="qrCodePopUpOne">Sie befinden sich am Parkplatz\n</string>
     <string name="qrCodePopUpTwo">\num\t</string>
     <string name="qrCodePopUpThree">\tan\t</string>
+
+    <string name="importQRCodePopUpOne">Sie sind zum Parkplatz eingeladen\t</string>
+    <string name="importQRCodePopUpTwo">\num\t</string>
+    <string name="importQRCodePopUpThree">\tvon Benutzer \t</string>
+    <string name="importQRCodePopUpFour">am\t</string>
 </resources>

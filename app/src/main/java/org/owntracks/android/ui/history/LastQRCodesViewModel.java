@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
+import org.owntracks.android.R;
 import org.owntracks.android.injection.qualifier.AppContext;
 import org.owntracks.android.model.LastQRCodesModel;
 import org.owntracks.android.support.Events;
@@ -57,14 +58,11 @@ public class LastQRCodesViewModel extends BaseViewModel<LastQRCodesMvvm.View> im
                 String jwtContent = JWTUtils.decodeJWT(jwt); //Decode JWT
                 JSONObject jwtObject = new JSONObject(jwtContent);
 
-                String username = jwtObject.getString("username");
-                String keyID = jwtObject.getString("keyID");
-                String fieldName = jwtObject.getString("fieldName");
-                String time = jwtObject.getString("time");
-                String date = jwtObject.getString("date");
-                int tst = jwtObject.getInt("tst");
+                String keyID = jwtObject.getString(currentContext.getResources().getString(R.string.keyid));
+                String fieldName = jwtObject.getString(currentContext.getResources().getString(R.string.fieldname));
+                long tst = jwtObject.getLong(currentContext.getResources().getString(R.string.tst));
 
-                LastQRCodesModel lastQRCodesModel1 = new LastQRCodesModel(jwt, username, keyID, fieldName, time, date, tst);
+                LastQRCodesModel lastQRCodesModel1 = new LastQRCodesModel(jwt, keyID, fieldName, tst);
                 lastQRCodes.add(lastQRCodesModel1);
             }
         }catch (Exception e){

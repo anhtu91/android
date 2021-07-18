@@ -13,6 +13,10 @@ import org.json.JSONObject;
 import org.owntracks.android.R;
 import org.owntracks.android.support.JWTUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import timber.log.Timber;
@@ -20,7 +24,8 @@ import timber.log.Timber;
 public class ImportQrCodePopUp extends AppCompatActivity {
     private ImageView qrCodeIV;
     private TextView showInfoInvite;
-
+    private final String formatHour = "HH:mm:ss '";
+    private final String formatDate = "' dd-MM-yyyy";
     public static ImportQrCodePopUp instance = null;
 
     Bitmap bitmap;
@@ -33,25 +38,24 @@ public class ImportQrCodePopUp extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            String strJWT = extras.getString("JWT");
+            String strJWT = extras.getString(getResources().getString(R.string.jwt));
 
             try {
                 String jwt = JWTUtils.decodeJWT(strJWT);
                 JSONObject jwtObject = new JSONObject(jwt);
-                String keyID = jwtObject.getString("keyID");
-                String fieldName = jwtObject.getString("fieldName");
-                String date = jwtObject.getString("date");
-                String time = jwtObject.getString("time");
-                String senderUser = jwtObject.getString("senderUser");
+                String keyID = jwtObject.getString(getResources().getString(R.string.keyid));
+                String fieldName = jwtObject.getString(getResources().getString(R.string.fieldname));
+                String senderUser = jwtObject.getString(getResources().getString(R.string.senderUser));
+                long tst = jwtObject.getLong(getResources().getString(R.string.tst));
+                SimpleDateFormat formatter = new SimpleDateFormat(formatHour+getString(R.string.importQRCodePopUpFour)+formatDate);
+                formatter.setTimeZone(TimeZone.getDefault()); //formatter.setTimeZone(TimeZone.getTimeZone(getResources().getString(R.string.GMT)));
+                String strDateTime = formatter.format(new Date(tst*1000));
 
                 showInfoInvite = (TextView) findViewById(R.id.infoInvited);
-                showInfoInvite.setText("You are invited to parking spot "+keyID+ " - "+fieldName+"\n at "+time+" on "+date+" by user "+senderUser);
+                showInfoInvite.setText(getResources().getString(R.string.importQRCodePopUpOne)+"\n"+keyID+ " - "+fieldName+getResources().getString(R.string.importQRCodePopUpTwo)+strDateTime+getResources().getString(R.string.importQRCodePopUpThree)+senderUser);
 
                 qrCodeIV = (ImageView) findViewById(R.id.importQrCodeImageView);
                 qrgEncoder = new QRGEncoder(strJWT, null, QRGContents.Type.TEXT, 1000);
-
-                Timber.i("KeyID is "+keyID);
-                Timber.i("FieldName is "+fieldName);
 
                 // Getting QR-Code as Bitmap
                 // getting our qrcode in the form of bitmap.

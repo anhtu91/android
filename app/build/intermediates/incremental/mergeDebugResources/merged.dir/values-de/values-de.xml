@@ -96,6 +96,10 @@
     <string name="icon_description_owntracks">OwnTracks</string>
     <string name="icon_description_warning">Warnung</string>
     <string name="importConfig">Import</string>
+    <string name="importQRCodePopUpFour">am\t</string>
+    <string name="importQRCodePopUpOne">Sie sind zum Parkplatz eingeladen\t</string>
+    <string name="importQRCodePopUpThree">\tvon Benutzer \t</string>
+    <string name="importQRCodePopUpTwo">\num\t</string>
     <string name="incorrectEmail">Falsche Email</string>
     <string name="inputInviteEmail">Eingeladene E-Mail:</string>
     <string name="insertQRCodeNotSuccessful">QRCode einfügen nicht erfolgreich</string>

@@ -1,8 +1,11 @@
 package org.owntracks.android.ui.qrcodepopup;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
+import android.icu.util.Calendar;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,6 +16,12 @@ import org.json.JSONObject;
 import org.owntracks.android.R;
 import org.owntracks.android.support.JWTUtils;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import timber.log.Timber;
@@ -21,7 +30,8 @@ public class QrCodePopUp extends AppCompatActivity {
 
     private ImageView qrCodeIV;
     private TextView showInfoParkingLocation;
-
+    private final String formatHour = "HH:mm:ss'";
+    private final String formatDate = "'dd-MM-yyyy";
     public static QrCodePopUp instance = null;
 
     Bitmap bitmap;
@@ -41,17 +51,16 @@ public class QrCodePopUp extends AppCompatActivity {
                 JSONObject jwtObject = new JSONObject(jwt);
                 String keyID = jwtObject.getString(getResources().getString(R.string.keyid));
                 String fieldName = jwtObject.getString(getResources().getString(R.string.fieldname));
-                String time = jwtObject.getString(getResources().getString(R.string.time));
-                String date = jwtObject.getString(getResources().getString(R.string.date));
+                long tst = jwtObject.getLong(getResources().getString(R.string.tst));
+                SimpleDateFormat formatter = new SimpleDateFormat(formatHour+getString(R.string.qrCodePopUpThree)+formatDate);
+                formatter.setTimeZone(TimeZone.getTimeZone(getResources().getString(R.string.GMT)));
+                String strDateTime = formatter.format(new Date(tst*1000));
 
                 showInfoParkingLocation = (TextView) findViewById(R.id.infoParkingLocation);
-                showInfoParkingLocation.setText(getString(R.string.qrCodePopUpOne)+keyID+" - "+fieldName+getString(R.string.qrCodePopUpTwo)+time+getString(R.string.qrCodePopUpThree)+date);
+                showInfoParkingLocation.setText(getString(R.string.qrCodePopUpOne)+keyID+" - "+fieldName+getString(R.string.qrCodePopUpTwo)+strDateTime);
 
                 qrCodeIV = (ImageView) findViewById(R.id.qrCodeImageView);
                 qrgEncoder = new QRGEncoder(strJWT, null, QRGContents.Type.TEXT, 1000);
-
-                Timber.i("KeyID is "+keyID);
-                Timber.i("FieldName is "+fieldName);
 
                 // Getting QR-Code as Bitmap
                 // getting our qrcode in the form of bitmap.

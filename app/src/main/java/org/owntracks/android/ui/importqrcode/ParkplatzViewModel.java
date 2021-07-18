@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
+import org.owntracks.android.R;
 import org.owntracks.android.injection.qualifier.AppContext;
 import org.owntracks.android.injection.scopes.PerActivity;
 import org.owntracks.android.model.ParkplatzModel;
@@ -58,15 +59,13 @@ public class ParkplatzViewModel extends BaseViewModel<ParkplatzMvvm.View> implem
                 String jwtContent = JWTUtils.decodeJWT(jwt); //Decode JWT
                 JSONObject jwtObject = new JSONObject(jwtContent);
 
-                String keyID = jwtObject.getString("keyID");
-                String fieldName = jwtObject.getString("fieldName");
-                String date = jwtObject.getString("date");
-                String time = jwtObject.getString("time");
-                int tst = jwtObject.getInt("tst");
-                String receiverEmail = jwtObject.getString("receiverEmail");
-                String senderUser = jwtObject.getString("senderUser");
+                String keyID = jwtObject.getString(currentContext.getResources().getString(R.string.keyid));
+                String fieldName = jwtObject.getString(currentContext.getResources().getString(R.string.fieldname));
+                long tst = jwtObject.getLong(currentContext.getResources().getString(R.string.tst));
+                String receiverEmail = jwtObject.getString(currentContext.getResources().getString(R.string.receiverEmail));
+                String senderUser = jwtObject.getString(currentContext.getResources().getString(R.string.senderUser));
 
-                ParkplatzModel importedQRCode = new ParkplatzModel(jwt, keyID, fieldName, date, time, tst, receiverEmail, senderUser);
+                ParkplatzModel importedQRCode = new ParkplatzModel(jwt, keyID, fieldName, tst, receiverEmail, senderUser);
                 importedQRCodes.add(importedQRCode);
             }
         }catch (Exception e){

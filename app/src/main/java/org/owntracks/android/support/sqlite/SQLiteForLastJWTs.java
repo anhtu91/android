@@ -7,9 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
-
-import org.owntracks.android.model.LastQRCodesModel;
-
 import java.util.ArrayList;
 
 public class SQLiteForLastJWTs extends SQLiteOpenHelper {

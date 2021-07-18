@@ -101,6 +101,10 @@
     <string name="icon_description_owntracks">Owntracks</string>
     <string name="icon_description_warning">Предупреждение</string>
     <string name="importConfig">Импорт</string>
+    <string name="importQRCodePopUpFour">на\t</string>
+    <string name="importQRCodePopUpOne">Вас приглашают на парковку\t</string>
+    <string name="importQRCodePopUpThree">\tпользователем \t</string>
+    <string name="importQRCodePopUpTwo">\nв\t</string>
     <string name="incorrectEmail">Неверный адрес электронной почты</string>
     <string name="inputInviteEmail">Электронное письмо с приглашением</string>
     <string name="insertQRCodeNotSuccessful">Не удалось вставить QRCode</string>

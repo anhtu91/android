@@ -2,23 +2,21 @@ package org.owntracks.android.model;
 
 import androidx.databinding.BaseObservable;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class LastQRCodesModel extends BaseObservable implements Comparable<LastQRCodesModel> {
-    private String lastJWT; //QRCode or JWT
-    private String username;
+    private String lastJWT;
     private String keyID;
     private String fieldName;
-    private String time;
-    private String date;
     private long tst;
 
-    public LastQRCodesModel(String lastJWT, String username, String keyID, String fieldName, String time, String date, long tst) {
+    public LastQRCodesModel(String lastJWT, String keyID, String fieldName, long tst) {
         this.lastJWT = lastJWT;
-        this.username = username;
         this.keyID = keyID;
         this.fieldName = fieldName;
-        this.time = time;
-        this.date = date;
-        this.tst = tst; //Actually NodeRED should only send timestamp tst, then covert to date time in Owntracks
+        this.tst = tst;
     }
 
     public long getTst() {
@@ -29,20 +27,15 @@ public class LastQRCodesModel extends BaseObservable implements Comparable<LastQ
         this.tst = tst;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getLastJWT() {
         return lastJWT;
     }
 
     public String getDateTime(){
-        return this.time +" "+ this.date;
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String strDateTime = formatter.format(new Date(tst*1000));
+        return strDateTime;
     }
 
     public String getKeyID() {

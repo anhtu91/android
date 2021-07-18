@@ -2,25 +2,25 @@ package org.owntracks.android.model;
 
 import androidx.databinding.BaseObservable;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 
 public class ParkplatzModel extends BaseObservable implements Comparable<ParkplatzModel> {
-    private String JWT; //QRCode or JWT
+    private String JWT;
     private String receiverEmail;
     private String senderUser;
     private String keyID;
     private String fieldName;
-    private String date;
-    private String time;
     private long tst;
 
-    public ParkplatzModel(String JWT, String keyID, String fieldName, String date, String time, long tst, String receiverEmail, String senderUser) {
+    public ParkplatzModel(String JWT, String keyID, String fieldName, long tst, String receiverEmail, String senderUser) {
         this.JWT = JWT;
         this.senderUser = senderUser;
         this.receiverEmail = receiverEmail;
         this.keyID = keyID;
         this.fieldName = fieldName;
-        this.date = date;
-        this.time = time;
         this.tst = tst;
     }
 
@@ -72,24 +72,11 @@ public class ParkplatzModel extends BaseObservable implements Comparable<Parkpla
         this.senderUser = senderUser;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public String getDateTime(){
-        return this.time +" "+this.date;
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+        formatter.setTimeZone(TimeZone.getDefault()); //formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String strDateTime = formatter.format(new Date(tst*1000));
+        return strDateTime;
     }
 
     @Override

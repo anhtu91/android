@@ -256,4 +256,8 @@
     <string name = "qrCodePopUpTwo">\nв\t</string>
     <string name = "qrCodePopUpThree">\tна\t</string>
 
+    <string name = "importQRCodePopUpOne">Вас приглашают на парковку\t</string>
+    <string name = "importQRCodePopUpTwo">\nв\t</string>
+    <string name = "importQRCodePopUpThree">\tпользователем \t</string>
+    <string name = "importQRCodePopUpFour">на\t</string>
 </resources>

@@ -3111,6 +3111,7 @@ string DISCONNECTING
 string ERROR
 string ERROR_CONFIGURATION
 string ERROR_DATADISABLED
+string GMT
 string GOOGLE_MAPS_API_KEY
 string IDLE
 string INITIAL
@@ -3146,10 +3147,9 @@ string accept
 string addWaypoint
 string app_name
 string appbar_scrolling_view_behavior
-string availableParkingDate
 string availableParkingFieldName
 string availableParkingKeyID
-string availableParkingTime
+string availableParkingTimestamp
 string bottom_sheet_behavior
 string btnCancel
 string btnInvite
@@ -3231,6 +3231,10 @@ string icon_description_owntracks
 string icon_description_warning
 string iconics_lib_version
 string importConfig
+string importQRCodePopUpFour
+string importQRCodePopUpOne
+string importQRCodePopUpThree
+string importQRCodePopUpTwo
 string incorrectEmail
 string inputInviteEmail
 string insertQRCodeNotSuccessful
@@ -3513,6 +3517,7 @@ string qrCodePopUpOne
 string qrCodePopUpThree
 string qrCodePopUpTwo
 string radius
+string receiverEmail
 string recommendAvailableParkingFive
 string recommendAvailableParkingFour
 string recommendAvailableParkingOne
@@ -3545,6 +3550,7 @@ string selectQRCode
 string selectTimeInvite
 string sendInvitationNotSuccessful
 string sendInvitationSuccessful
+string senderUser
 string show_options
 string status_background_service_started_hint
 string status_bar_notification_info_overflow
@@ -3573,6 +3579,7 @@ string title_management_acc
 string tls
 string transitionEntering
 string transitionLeaving
+string tst
 string twitterUrl
 string ui_fragment_welcome_version_description
 string ui_fragment_welcome_version_learn_more

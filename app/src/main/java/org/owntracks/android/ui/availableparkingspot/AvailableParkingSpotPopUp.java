@@ -17,7 +17,10 @@ import org.owntracks.android.model.CoordinateEntrance;
 import org.owntracks.android.model.EntrancePosition;
 import org.owntracks.android.model.FieldNameEntranceAndCoordinate;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 
 
 public class AvailableParkingSpotPopUp extends AppCompatActivity {
@@ -26,7 +29,8 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
     private Spinner spinnerSelectAvailableEntrance;
     private Button btnSubmitSelectedEntrance;
     public static AvailableParkingSpotPopUp instance = null;
-
+    private final String formatHour = "HH:mm:ss'";
+    private final String formatDate = "'dd-MM-yyyy";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,8 +45,10 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
         if(extras != null){
             String keyID = extras.getString(getResources().getString(R.string.availableParkingKeyID));
             String fieldName = extras.getString(getResources().getString(R.string.availableParkingFieldName));
-            String time = extras.getString(getResources().getString(R.string.availableParkingTime));
-            String date = extras.getString(getResources().getString(R.string.availableParkingDate));
+            long tst = extras.getLong(getResources().getString(R.string.availableParkingTimestamp));
+            SimpleDateFormat formatter = new SimpleDateFormat(formatHour+getString(R.string.recommendAvailableParkingThree)+formatDate);
+            formatter.setTimeZone(TimeZone.getTimeZone(getResources().getString(R.string.GMT)));
+            String strDateTime = formatter.format(new Date(tst*1000));
             int numberEntranceAvailableParkingSpot = extras.getInt(getResources().getString(R.string.numberEntranceAvailableParking));
             ArrayList<EntrancePosition> entrancePositions = (ArrayList<EntrancePosition>) getIntent().getSerializableExtra(getResources().getString(R.string.entrancePosition)); //Get entrance position
 
@@ -74,9 +80,9 @@ public class AvailableParkingSpotPopUp extends AppCompatActivity {
             });
 
             if(numberEntranceAvailableParkingSpot > 0){
-                showInfoAvailableParkingSpot.setText(getString(R.string.recommendAvailableParkingOne)+keyID+ " - "+fieldName+getString(R.string.recommendAvailableParkingTwo)+time+getString(R.string.recommendAvailableParkingThree)+date+getString(R.string.recommendAvailableParkingFour)+entrancePositions.size()+getString(R.string.recommendAvailableParkingFive));
+                showInfoAvailableParkingSpot.setText(getString(R.string.recommendAvailableParkingOne)+"\n"+keyID+ " - "+fieldName+getString(R.string.recommendAvailableParkingTwo)+strDateTime+getString(R.string.recommendAvailableParkingFour)+entrancePositions.size()+getString(R.string.recommendAvailableParkingFive));
             }else{
-                showInfoAvailableParkingSpot.setText(getString(R.string.recommendAvailableParkingOne)+keyID+ " - "+fieldName+getString(R.string.recommendAvailableParkingTwo)+time+getString(R.string.recommendAvailableParkingThree)+date+getString(R.string.recommendAvailableParkingSix));
+                showInfoAvailableParkingSpot.setText(getString(R.string.recommendAvailableParkingOne)+"\n"+keyID+ " - "+fieldName+getString(R.string.recommendAvailableParkingTwo)+strDateTime+getString(R.string.recommendAvailableParkingSix));
             }
         }
         instance = this;

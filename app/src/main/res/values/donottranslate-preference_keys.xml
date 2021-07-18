@@ -58,8 +58,7 @@
     <!-- This following is using for Intent -->
     <string name="availableParkingKeyID">AvailableParkingKeyID</string>
     <string name="availableParkingFieldName">AvailableParkingFieldName</string>
-    <string name="availableParkingTime">AvailableParkingTime</string>
-    <string name="availableParkingDate">AvailableParkingDate</string>
+    <string name="availableParkingTimestamp">AvailableParkingTimestamp</string>
     <string name="numberEntranceAvailableParking">NumberEntranceAvailableParking</string>
     <string name="entrancePosition">EntrancePosition</string>
     <string name="jwt">JWT</string>
@@ -67,6 +66,10 @@
     <string name="fieldname">fieldName</string>
     <string name="time">time</string>
     <string name="date">date</string>
+    <string name="tst">tst</string>
+    <string name="receiverEmail">receiverEmail</string>
+    <string name="senderUser">senderUser</string>
+    <string name="GMT">GMT</string>
 
     <!-- Strings used for marker in map-->
     <string name="markerParkingEntrance">Selected entrance</string>

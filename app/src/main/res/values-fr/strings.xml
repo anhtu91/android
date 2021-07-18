@@ -241,4 +241,9 @@
     <string name="qrCodePopUpOne">Vous êtes sur le parking\n</string>
     <string name="qrCodePopUpTwo">\nà\t</string>
     <string name="qrCodePopUpThree">\tau\t</string>
+
+    <string name="importQRCodePopUpOne">Vous êtes invité au parking\t</string>
+    <string name="importQRCodePopUpTwo">\nat\t</string>
+    <string name="importQRCodePopUpThree">\tpar utilisateur \t</string>
+    <string name="importQRCodePopUpFour">sur\t</string>
 </resources>

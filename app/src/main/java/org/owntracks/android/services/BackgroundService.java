@@ -687,10 +687,8 @@ public class BackgroundService extends DaggerService implements OnCompleteListen
 
         intent.putExtra(getResources().getString(R.string.availableParkingKeyID), message.getKeyID());
         intent.putExtra(getResources().getString(R.string.availableParkingFieldName), message.getFieldName());
-        intent.putExtra(getResources().getString(R.string.availableParkingTime), message.getTime());
-        intent.putExtra(getResources().getString(R.string.availableParkingDate), message.getDate());
+        intent.putExtra(getResources().getString(R.string.availableParkingTimestamp), message.getTst());
         intent.putExtra(getResources().getString(R.string.numberEntranceAvailableParking), message.getEntrancePosition().size());
-
         intent.putExtra(getResources().getString(R.string.entrancePosition), message.getEntrancePosition());
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
