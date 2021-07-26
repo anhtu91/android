@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bs/values-bs.xml",
+            "outputFile": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot/project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bs/values-bs.xml",
             "map": [
                 {
                     "source": "/home/atn/.gradle/caches/transforms-2/files-2.1/61285263388079a961919f29db70341e/jetified-play-services-base-17.3.0/res/values-bs/values.xml",

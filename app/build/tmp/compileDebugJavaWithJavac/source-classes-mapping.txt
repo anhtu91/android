@@ -21,10 +21,8 @@ org/owntracks/android/services/MessageProcessor.java
  org.owntracks.android.services.MessageProcessor
  org.owntracks.android.services.MessageProcessor$1
  org.owntracks.android.services.MessageProcessor$EndpointState
-org/owntracks/android/injection/modules/android/ActivityModules/WelcomeActivityModule_BindPermissionFragment.java
- org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment
- org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent
- org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent$Factory
+org/owntracks/android/injection/modules/AppModule.java
+ org.owntracks.android.injection.modules.AppModule
 org/owntracks/android/support/ContactsComparator.java
  org.owntracks.android.support.ContactsComparator
 org/owntracks/android/databinding/UiWelcomeIntroBindingImpl.java
@@ -284,8 +282,8 @@ org/owntracks/android/injection/components/AppComponentProvider.java
  org.owntracks.android.injection.components.AppComponentProvider
 org/owntracks/android/databinding/UiInviteBinding.java
  org.owntracks.android.databinding.UiInviteBinding
-org/owntracks/android/ui/importqrcode/ParkplatzViewModel_Factory.java
- org.owntracks.android.ui.importqrcode.ParkplatzViewModel_Factory
+org/owntracks/android/ui/importqrcode/ParkplatzViewModel.java
+ org.owntracks.android.ui.importqrcode.ParkplatzViewModel
 org/owntracks/android/ui/register/RegisterViewModel.java
  org.owntracks.android.ui.register.RegisterViewModel
 org/owntracks/android/injection/modules/android/AndroindBindingModule_BindBackgroundService.java
@@ -489,8 +487,8 @@ org/owntracks/android/ui/status/StatusMvvm.java
  org.owntracks.android.ui.status.StatusMvvm
  org.owntracks.android.ui.status.StatusMvvm$View
  org.owntracks.android.ui.status.StatusMvvm$ViewModel
-org/owntracks/android/ui/base/BaseActivity_MembersInjector.java
- org.owntracks.android.ui.base.BaseActivity_MembersInjector
+org/owntracks/android/EventBusIndex.java
+ org.owntracks.android.EventBusIndex
 org/owntracks/android/injection/modules/android/ActivityModules/BaseActivityModule_ProvideNavigatorFactory.java
  org.owntracks.android.injection.modules.android.ActivityModules.BaseActivityModule_ProvideNavigatorFactory
 org/owntracks/android/injection/modules/android/ActivityModules/PreferencesActivityModule_BindNotificationPreferencesFragment.java
@@ -589,8 +587,9 @@ org/owntracks/android/ui/preferences/connection/dialog/ConnectionSecurityViewMod
  org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurityViewModel$CaCrtCopyTask
  org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurityViewModel$ClientCrtCopyTask
  org.owntracks.android.ui.preferences.connection.dialog.ConnectionSecurityViewModel$CopyTask
-org/owntracks/android/data/repos/MemoryContactsRepo_Factory.java
- org.owntracks.android.data.repos.MemoryContactsRepo_Factory
+org/owntracks/android/ui/qrcodepopup/ImportQrCodePopUp.java
+ org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp
+ org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp$1
 org/owntracks/android/services/worker/SendLocationPingWorker.java
  org.owntracks.android.services.worker.SendLocationPingWorker
 org/owntracks/android/databinding/UiPreferencesLoadBindingImpl.java
@@ -833,10 +832,8 @@ org/owntracks/android/injection/modules/android/ActivityModules/PreferencesActiv
  org.owntracks.android.injection.modules.android.ActivityModules.PreferencesActivityModule_BindAdvancedPreferencesFragment
  org.owntracks.android.injection.modules.android.ActivityModules.PreferencesActivityModule_BindAdvancedPreferencesFragment$AdvancedFragmentSubcomponent
  org.owntracks.android.injection.modules.android.ActivityModules.PreferencesActivityModule_BindAdvancedPreferencesFragment$AdvancedFragmentSubcomponent$Factory
-org/owntracks/android/ui/welcome/permission/PermissionFragmentMvvm.java
- org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm
- org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$View
- org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$ViewModel
+org/owntracks/android/ui/history/LastQRCodesViewModel.java
+ org.owntracks.android.ui.history.LastQRCodesViewModel
 org/owntracks/android/support/preferences/SharedPreferencesStore_Factory.java
  org.owntracks.android.support.preferences.SharedPreferencesStore_Factory
 org/owntracks/android/injection/modules/android/ActivityModules/PreferencesActivityModule_BindPreferencesFragment.java
@@ -915,14 +912,17 @@ org/owntracks/android/injection/components/AppComponent.java
  org.owntracks.android.injection.components.AppComponent$Builder
 org/owntracks/android/services/LocationProcessor_Factory.java
  org.owntracks.android.services.LocationProcessor_Factory
-org/owntracks/android/ui/qrcodepopup/ImportQrCodePopUp.java
- org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp
- org.owntracks.android.ui.qrcodepopup.ImportQrCodePopUp$1
-org/owntracks/android/ui/importqrcode/ParkplatzViewModel.java
- org.owntracks.android.ui.importqrcode.ParkplatzViewModel
-org/owntracks/android/ui/history/LastQRCodesViewModel.java
- org.owntracks.android.ui.history.LastQRCodesViewModel
-org/owntracks/android/EventBusIndex.java
- org.owntracks.android.EventBusIndex
-org/owntracks/android/injection/modules/AppModule.java
- org.owntracks.android.injection.modules.AppModule
+org/owntracks/android/injection/modules/android/ActivityModules/WelcomeActivityModule_BindPermissionFragment.java
+ org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment
+ org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent
+ org.owntracks.android.injection.modules.android.ActivityModules.WelcomeActivityModule_BindPermissionFragment$PermissionFragmentSubcomponent$Factory
+org/owntracks/android/ui/base/BaseActivity_MembersInjector.java
+ org.owntracks.android.ui.base.BaseActivity_MembersInjector
+org/owntracks/android/ui/welcome/permission/PermissionFragmentMvvm.java
+ org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm
+ org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$View
+ org.owntracks.android.ui.welcome.permission.PermissionFragmentMvvm$ViewModel
+org/owntracks/android/ui/importqrcode/ParkplatzViewModel_Factory.java
+ org.owntracks.android.ui.importqrcode.ParkplatzViewModel_Factory
+org/owntracks/android/data/repos/MemoryContactsRepo_Factory.java
+ org.owntracks.android.data.repos.MemoryContactsRepo_Factory

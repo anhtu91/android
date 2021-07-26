@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot/project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
                     "source": "/home/atn/.gradle/caches/transforms-2/files-2.1/438aea66df0e31cedd2bf673c3bbaab0/appcompat-1.2.0/res/values-h720dp-v13/values-h720dp-v13.xml",

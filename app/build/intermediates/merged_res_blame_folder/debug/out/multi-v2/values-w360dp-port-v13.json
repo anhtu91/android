@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot-afterKeyID/project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w360dp-port-v13/values-w360dp-port-v13.xml",
+            "outputFile": "/home/atn/Documents/IUK/Abschlussarbeit/Owntracks/android-parkingslot/project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w360dp-port-v13/values-w360dp-port-v13.xml",
             "map": [
                 {
                     "source": "/home/atn/.gradle/caches/transforms-2/files-2.1/e48788a91106ed924dde45f62a62d01f/material-1.2.1/res/values-w360dp-port-v13/values-w360dp-port-v13.xml",

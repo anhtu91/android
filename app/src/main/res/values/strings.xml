@@ -261,7 +261,7 @@
     <string name="recommendAvailableParkingFive">\tparking spots in\ncircle 1 kilometer around here.\nSelect entrance to these parking spot:\n</string>
     <string name="recommendAvailableParkingSix">.\nBut this parking spot is full.\nThere is no available parking spot\nin one kilometer around here.</string>
 
-    <string name="qrCodePopUpOne">You are in parking location\n</string>
+    <string name="qrCodePopUpOne">You are in parking spot\n</string>
     <string name="qrCodePopUpTwo">\nat\t</string>
     <string name="qrCodePopUpThree">\ton\t</string>
 
